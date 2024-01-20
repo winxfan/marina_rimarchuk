@@ -1,0 +1,15 @@
+*, body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+
+  background-color: rgba(11, 5, 38, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+.layout {
+  margin: 0 auto;
+  display: block;
+  max-width: 562px;
+  padding: 10px 12px;
+  min-height: 100vh;
+}
