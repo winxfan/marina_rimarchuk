@@ -1,1 +1,1 @@
-export * from './ErrorCatch'
+export * from './ErrorCatch';

@@ -1,21 +1,21 @@
 export const routes = {
-	index: {
-		path: '/'
-	},
+    index: {
+        path: '/',
+    },
 
-	login: {
-		path: '/login'
-	},
-	courses: {
-		path: '/courses'
-	},
-	main: {
-		path: '/main'
-	},
-	users: {
-		path: '/users'
-	},
-	mail: {
-		path: '/mail'
-	},
-}
+    login: {
+        path: '/login',
+    },
+    courses: {
+        path: '/courses',
+    },
+    main: {
+        path: '/main',
+    },
+    users: {
+        path: '/users',
+    },
+    mail: {
+        path: '/mail',
+    },
+};

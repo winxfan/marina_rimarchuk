@@ -1,8 +1,8 @@
-export const { REACT_APP_SERVER_URL } = process.env
+export const { REACT_APP_SERVER_URL } = process.env;
 
 export enum LoadingStatus {
-  'none',
-  'pending',
-  'rejected',
-  'fulfilled',
+    'none',
+    'pending',
+    'rejected',
+    'fulfilled',
 }
