@@ -1,8 +1,7 @@
 import axios from '../../axios';
-import { HttpResponse, IUser } from '../types';
+import { HttpResponse, User } from '../types';
 
-export type GetUserRequestParams = Pick<IUser, 'id'>;
-export const getUserRequest = async ({ id }: GetUserRequestParams): Promise<HttpResponse<IUser>> => {
-    const response = await axios.get(`api/user/${id}/`);
+export const getAllUsersRequest = async (): Promise<HttpResponse<User>> => {
+    const response = await axios.get(`/api/users/getall`);
     return response.data;
 };

@@ -21,7 +21,6 @@ module.exports = {
     },
     plugins: ['react', 'jsx-a11y', 'react-hooks', 'prettier', '@typescript-eslint'],
     rules: {
-        'no-console': ['error', { allow: ['info', 'groupCollapsed', 'groupEnd', 'error'] }],
         'prettier/prettier': ['error', { endOfLine: 'auto' }],
         'react/react-in-jsx-scope': ['off'],
         'no-use-before-define': ['error', 'nofunc'],

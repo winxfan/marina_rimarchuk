@@ -1,9 +1,5 @@
-import { type FC, type ReactNode, useEffect } from 'react';
-import { shallowEqual } from 'react-redux';
+import { type FC, type ReactNode } from 'react';
 
-import { LoadingStatus } from '../constants';
-import { useDispatch, useSelector } from '../store';
-import { getUser } from '../store/userSlice';
 import css from './AppLayout.module.scss';
 
 export interface AppLayoutProps {
@@ -11,7 +7,7 @@ export interface AppLayoutProps {
 }
 
 export const AppLayout: FC<AppLayoutProps> = ({ children }) => {
-    const dispatch = useDispatch();
+    /*  const dispatch = useDispatch();
     const userStatus = useSelector((store) => store.user.user.status);
     const userData = useSelector((store) => store.user.user.data, shallowEqual);
 
@@ -22,7 +18,7 @@ export const AppLayout: FC<AppLayoutProps> = ({ children }) => {
             // todo create authentification api
             dispatch(getUser({ id: 123 }));
         }
-    }, [dispatch, isAuth]);
+    }, [dispatch, isAuth]);*/
 
     return <div className={css.layout}>{children}</div>;
 };

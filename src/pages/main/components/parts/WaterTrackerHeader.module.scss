@@ -1,0 +1,33 @@
+.waterTrackerHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 34px;
+
+  .trackerTitle {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.442px;
+  }
+
+  .trackerInfo {
+    display: flex;
+    align-items: center;
+
+    .waterIcon {
+      display: flex;
+      align-items: center;
+      margin-right: 8px;
+    }
+
+    .waterVolume {
+      display: flex;
+
+      .volume {
+        color: #6D9DDC;
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: -0.32px;
+      }
+    }
+  }
+}

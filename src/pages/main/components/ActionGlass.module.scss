@@ -1,0 +1,74 @@
+.actionGlass {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .ellipseIcon {
+    display: flex;
+    position: relative;
+  }
+
+  .percent {
+    display: inline-flex;
+    width: 28px;
+    height: 14px;
+    position: absolute;
+    top: 70px;
+    left: 28px;
+    padding: 2.125px 4.25px;
+    align-items: center;
+    border-radius: 106.25px;
+    background: #C2C5F3;
+  }
+
+  .number {
+    display: inline-flex;
+    font-size: 10px;
+    font-weight: 600;
+    align-items: center;
+    background: transparent;
+    color: #0B0526;
+    width: 10px;
+    height: 10px;
+  }
+
+  .addGlass {
+    display: flex;
+    width: 253px;
+    max-width: 253px;
+    height: 72px;
+    max-height: 72px;
+    align-items: center;
+    padding: 24px 35px;
+    border: 2px solid #211A3F;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #160F3516.67%, #1D1C48 100%), #211A41;
+    
+    .link {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+
+      .glassIcon {
+        display: inline-flex;
+        width: 24px;
+        height: 24px;
+        margin-right: 12px;
+      }
+
+      .glassAdd {
+        display: inline-flex;
+        white-space: nowrap;
+        color: #C2C5F3;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+        letter-spacing: -0.32px;
+      }
+    }
+  }
+}

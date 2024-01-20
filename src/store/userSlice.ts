@@ -1,46 +1,40 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { LoadingStatus } from '../constants';
-import { getUserRequest, GetUserRequestParams } from '../utils/api/user';
-import { HttpResponse, IUser, StoreState } from '../utils/types';
+import { getAllUsersRequest } from '../utils/api/user';
+import { AllUsers, User } from '../utils/types';
 
-export interface UserStore {
-    user: StoreState<IUser>;
-}
-
-const initialState: UserStore = {
-    user: {
-        status: LoadingStatus.none,
-        data: {},
-    },
-};
-
-export const getUser = createAsyncThunk<HttpResponse<IUser>, GetUserRequestParams>('user/get', async (params) => {
-    const response = await getUserRequest(params);
+export const getUsersAll = createAsyncThunk('user/getAll', async () => {
+    const response = await getAllUsersRequest();
     return response;
 });
+
+const initialState = {
+    data: [],
+    status: LoadingStatus.none,
+} as AllUsers;
 
 const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers: {},
+    reducers: {
+        getAllUsers(state, action: PayloadAction<User[]>) {
+            return { ...state, data: action.payload };
+        },
+    },
     extraReducers: (builder) => {
-        builder.addCase(getUser.pending, (state) => {
-            state.user.status = LoadingStatus.pending;
+        builder.addCase(getUsersAll.pending, (state) => {
+            state.status = LoadingStatus.pending;
         }),
-            builder.addCase(getUser.rejected, (state) => {
-                state.user.status = LoadingStatus.rejected;
+            builder.addCase(getUsersAll.rejected, (state) => {
+                state.status = LoadingStatus.rejected;
             }),
-            builder.addCase(getUser.fulfilled, (state, action) => {
-                state.user.status = LoadingStatus.fulfilled;
-
-                if (action.payload) {
-                    state.user.data = action.payload.data;
-                }
+            builder.addCase(getUsersAll.fulfilled, (state, action) => {
+                state.status = LoadingStatus.fulfilled;
             });
     },
 });
 
-// export const {} = userSlice.actions;
+export const { getAllUsers } = userSlice.actions;
 
 export default userSlice.reducer;
