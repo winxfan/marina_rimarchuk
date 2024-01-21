@@ -1,0 +1,19 @@
+.videoBlock {
+  margin-top: 30px;
+
+  .cardOneBackground {
+    display: inline-flex;
+    border-radius: 16px;
+    width: 100%;
+    height: 100px;
+    background: url("../../assets/images/videoCard/videoOne.png") center center / cover no-repeat;
+  }
+
+  .cardTwoBackground {
+    display: inline-flex;
+    border-radius: 16px;
+    width: 100%;
+    height: 100px;
+    background: url("../../assets/images/videoCard/videoTwo.png") center center / cover no-repeat;
+  }
+}

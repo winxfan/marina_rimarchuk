@@ -1,7 +1,8 @@
 .welcomeUser {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 32px;
+  margin-bottom: 65px;
+  margin-top: 15px;
 
   .user {
     display: flex;
@@ -13,10 +14,8 @@
       align-items: center;
 
       .userAvatar {
-        width: 32px;
-        height: 32px;
-        display: inline-flex;
-        background: red;
+        display: flex;
+        align-items: center;
         border-radius: 32px;
         margin-right: 10px;
       }

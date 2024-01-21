@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { ReactComponent as ArrowIcon } from '../../../assets/images/arrowIcon/arrow.svg';
+import { ReactComponent as ArrowIcon } from '../../../assets/images/arrowIcon/chevron.svg';
 import css from './CommonHeader.module.scss';
 
 export type CommonHeaderProps = {

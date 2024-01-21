@@ -1,0 +1,30 @@
+.videoCard {
+  display: flex;
+  flex-direction: column;
+  margin-right: 12px;
+  margin-bottom: 100px;
+
+  .cardTitle {
+    color: #C2C5F3;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.154px;
+  }
+
+  .videoPlay {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+
+    .videoIcon {
+      display: flex;
+      margin-right: 6px;
+    }
+
+    .startVideo {
+      color: #4563FF;
+      font-size: 12px;
+    }
+  }
+}

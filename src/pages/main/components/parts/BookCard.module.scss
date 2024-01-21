@@ -1,0 +1,60 @@
+.bookCard {
+  display: flex;
+  width: 100%;
+  min-height: 188px;
+  padding: 16px;
+  border-radius: 20px;
+
+  .bookImage {
+    margin-right: 15px;
+    display: inline-flex;
+    background: url("../../../../assets/images/bookBlock/book.png") left center / cover no-repeat;
+    width: 280px;
+    height: 226px;
+    transform: rotate(5.634deg);
+  }
+
+  .bookInfo {
+    display: flex;
+    flex-direction: column;
+
+    .bookTitle {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.442px;
+      margin-bottom: 10px;
+    }
+
+    .bookDescription {
+      color: #C2C5F3;
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    .linkBook {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: flex-end;
+
+      .bookWrapper {
+        display: flex;
+        width: 120px;
+        max-height: 34px;
+        justify-content: center;
+        padding: 8px 16px;
+        align-items: center;
+        border-radius: 16px;
+        background: #493AC0;
+
+        .bookDetails {
+          color: #FFF;
+          text-align: center;
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: -0.154px;
+        }
+      }
+    }
+  }
+}

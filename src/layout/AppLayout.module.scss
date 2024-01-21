@@ -1,9 +1,13 @@
 *, body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
 }
 
 body {
+  font-family: "Inter";
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
   color: #FFF;
   background-color: rgba(11, 5, 38, 1);
 }
@@ -80,7 +84,8 @@ select {
 
 .layout {
   margin: 0 auto;
-  display: block;
+  display: flex;
+  flex-direction: column;
   max-width: 562px;
   padding: 10px 12px;
   min-height: 100vh;
