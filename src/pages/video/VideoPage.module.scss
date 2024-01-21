@@ -1,0 +1,26 @@
+.podcastPage {
+  display: flex;
+  flex-direction: column;
+
+  .podcastWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    .cardOneBackground {
+      display: inline-flex;
+      border-radius: 16px;
+      width: 100%;
+      height: 100px;
+      background: url("../../assets/images/videoCard/videoOne.png") center center / cover no-repeat;
+    }
+
+    .cardTwoBackground {
+      display: inline-flex;
+      border-radius: 16px;
+      width: 100%;
+      height: 100px;
+      background: url("../../assets/images/videoCard/videoTwo.png") center center / cover no-repeat;
+    }
+  }
+}

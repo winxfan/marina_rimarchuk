@@ -1,6 +1,11 @@
 .videoBlock {
   margin-top: 30px;
 
+  .resetStyle {
+    color: #FFF;
+    text-decoration: none;
+  }
+
   .cardOneBackground {
     display: inline-flex;
     border-radius: 16px;

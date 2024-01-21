@@ -3,17 +3,17 @@ export const routes = {
         path: '/',
     },
 
-    login: {
-        path: '/login',
+    meditation: {
+        path: '/meditation',
     },
-    courses: {
-        path: '/courses',
+    podcasts: {
+        path: '/podcasts',
     },
-    main: {
-        path: '/main',
+    video: {
+        path: '/video',
     },
-    users: {
-        path: '/users',
+    questions: {
+        path: '/questions',
     },
     mail: {
         path: '/mail',

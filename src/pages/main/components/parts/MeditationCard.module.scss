@@ -35,3 +35,23 @@
     font-size: 14px;
   }
 }
+
+@media (max-width: 350px) {
+  .cardTitle {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 365px) {
+  .meditationPageCard {
+    width: 128px;
+    max-width: 128px;
+    height: 162px;
+    max-height: 162px;
+  }
+
+  .playIcon {
+    width: 65px;
+    height: 65px;
+  }
+}

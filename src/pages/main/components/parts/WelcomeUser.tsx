@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { ReactComponent as ArrowIcon } from '../../../../assets/images/arrowIcon/arrow.svg';
 import { ReactComponent as AvatarIcon } from '../../../../assets/images/welcomeUser/avatar.svg';
@@ -34,7 +35,9 @@ export const WelcomeUser = () => {
                 </button>
             </div>
             <button type="button" className={css.questions}>
-                <QuestionsIcon />
+                <Link to="/questions">
+                    <QuestionsIcon />
+                </Link>
             </button>
         </div>
     );

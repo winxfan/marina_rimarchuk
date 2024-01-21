@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 import { VideoCard } from '../../pages/main/components/parts/VideoCard';
 import { CommonHeader } from '../header/components/CommonHeader';
@@ -14,7 +15,9 @@ export const VideoBlock: FC<VideoBlockProps> = (props) => {
 
     return (
         <div className={css.videoBlock}>
-            <CommonHeader title="Видео от Марины Римарчук" />
+            <Link to="/video" className={css.resetStyle}>
+                <CommonHeader title="Видео от Марины Римарчук" />
+            </Link>
             <CardSlider isMobile={isMobile} isShowTwo={true}>
                 <VideoCard className={css.cardOneBackground} title="4 шага к исполнению мечты" />
                 <VideoCard className={css.cardTwoBackground} title="4 шага к исполнению мечты" />

@@ -1,0 +1,31 @@
+.accordion {
+  .accordionItem {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 16px;
+    margin-bottom: 12px;
+    gap: 16px;
+    border-radius: 24px;
+    background: linear-gradient(90deg, #160F35 0%, #1D1C48 100%), #FFF;
+  }
+
+  .accordionHeading {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: -0.442px;
+
+    .accordionButton {
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+  }
+
+  .accordionPanel {
+    color: #C2C5F3;
+    font-size: 17px;
+    letter-spacing: -0.442px;
+  }
+}
+

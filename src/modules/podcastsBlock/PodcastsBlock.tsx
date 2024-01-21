@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 import { PodcastCard } from '../../pages/main/components/parts/PodcastCard';
 import { CommonHeader } from '../header/components/CommonHeader';
@@ -14,7 +15,9 @@ export const PodcastsBlock: FC<PodcastsBlockProps> = (props) => {
 
     return (
         <div className={css.podcastsBlock}>
-            <CommonHeader title="Подкасты" />
+            <Link to="/podcasts" className={css.resetStyle}>
+                <CommonHeader title="Подкасты" />
+            </Link>
             <CardSlider isMobile={isMobile} isShowTwo={true}>
                 <PodcastCard className={css.podcastOneBack} title="Практика намерения, которая перевернет жизнь!" />
                 <PodcastCard className={css.podcastTwoBack} title="Я НЕ Г*ВНО или как ощутить свою ценность" />

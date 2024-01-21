@@ -2,6 +2,11 @@
   display: flex;
   flex-direction: column;
 
+  .resetStyle {
+    color: #FFF;
+    text-decoration: none;
+  }
+
   .cardOneBackground {
     border-radius: 20px;
     margin-right: 12px;

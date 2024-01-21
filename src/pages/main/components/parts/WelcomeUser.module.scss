@@ -1,6 +1,8 @@
 .welcomeUser {
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 99999;
   margin-bottom: 65px;
   margin-top: 15px;
 
