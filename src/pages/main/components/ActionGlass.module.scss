@@ -71,4 +71,45 @@
       }
     }
   }
+
+  @media (max-width: 420px) {
+    .addGlass {
+      width: 203px;
+      max-width: 203px;
+      height: 56px;
+      max-height: 56px;
+
+      .glassAdd {
+        font-size: 14px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .link {
+    justify-content: center;
+  }
+
+  .glassIcon {
+    width: 22px !important;
+    height: 22px !important;
+    margin-right: 8px;
+  }
+
+  .ellipseIcon {
+    width: 70px;
+    height: 70px;
+    align-items: center;
+  }
+
+  .percent {
+    height: 12px !important;
+    top: 57px !important;
+    left: 21px !important;
+  }
+
+  .number {
+    font-size: 9px !important;
+  }
 }

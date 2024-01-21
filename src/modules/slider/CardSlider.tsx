@@ -7,16 +7,18 @@ import 'slick-carousel/slick/slick.css';
 export type CardSliderProps = {
     children: ReactNode;
     isVideoBlock?: boolean;
+    isMobile?: boolean;
+    isShowTwo?: boolean;
 };
 
 const CardSlider: FC<CardSliderProps> = (props) => {
-    const { children, isVideoBlock } = props;
+    const { children, isVideoBlock, isMobile, isShowTwo } = props;
 
     const settings = {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: isVideoBlock ? 1 : 3,
+        slidesToShow: isShowTwo && isMobile ? 2 : isVideoBlock || isMobile ? 1 : 3,
         slidesToScroll: 1,
         arrows: false,
     };

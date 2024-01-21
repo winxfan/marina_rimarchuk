@@ -16,4 +16,14 @@
     line-height: 28px;
     letter-spacing: -0.8px;
   }
+
+  @media (max-width: 420px) {
+    .affirmationTitle {
+      font-size: 14px;
+    }
+
+    .affirmationDescription {
+      font-size: 18px;
+    }
+  }
 }

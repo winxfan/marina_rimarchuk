@@ -2,7 +2,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 158px;
+  min-height: 213px;
   padding: 11px;
-  border-radius: 20px;
+}
+
+@media (max-width: 350px) {
+
 }

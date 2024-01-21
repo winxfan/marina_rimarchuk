@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import { MeditationsBlock } from '../../modules/meditationBlock/MeditationsBlock';
 import { PodcastsBlock } from '../../modules/podcastsBlock/PodcastsBlock';
 import { VideoBlock } from '../../modules/videoBlock/VideoBlock';
@@ -7,14 +9,28 @@ import { BookBlock } from './components/BookBlock';
 import { WaterTracker } from './components/WaterTracker';
 
 export const MainPage = () => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 500);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
         <div className={css.container}>
             <AffirmationDay />
             <WaterTracker />
-            <MeditationsBlock />
+            <MeditationsBlock isMobile={isMobile} />
             <BookBlock />
-            <PodcastsBlock />
-            <VideoBlock />
+            <PodcastsBlock isMobile={isMobile} />
+            <VideoBlock isMobile={isMobile} />
         </div>
     );
 };

@@ -12,7 +12,23 @@
 
   .affirmationRibbon {
     position: absolute;
-    right: 0px;
+    right: 0;
     bottom: -120px;
+  }
+}
+
+@media (max-width: 420px) {
+  .affirmationDay {
+    min-width: 320px;
+  }
+
+  .affirmationRibbon {
+    right: -97px !important;
+  }
+}
+
+@media (max-width: 365px) {
+  .affirmationDay {
+    min-width: 265px;
   }
 }
