@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 
 import { HeaderPage } from '../../modules/header/components/HeaderPage';
-import { MeditationCard } from '../main/components/parts/MeditationCard';
 import { PodcastCard } from '../main/components/parts/PodcastCard';
 import css from './PodcastPage.module.scss';
 

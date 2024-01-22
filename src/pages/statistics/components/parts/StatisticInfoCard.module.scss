@@ -1,0 +1,61 @@
+.statisticInfoCard {
+  display: flex;
+  gap: 16px;
+
+  .infoCardRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+
+    .infoCardColumn {
+      flex: 1 1 50%;
+      display: flex;
+      padding: 12px 16px;
+      border-radius: 24px;
+      background: linear-gradient(90deg, #160F35 0%, #1D1C48 100%), #FFF;
+
+      .infoCardItem {
+        display: flex;
+        flex-direction: column;
+        max-width: 170px;
+
+        .infoCardIcon {
+          display: inline-flex;
+          width: 28px;
+          height: 34px;
+          margin-bottom: 11px;
+          background: url("../../../../assets/images/statistics/water.png") center center / cover no-repeat;
+        }
+
+        .infoCameraIcon {
+          display: inline-flex;
+          width: 35px;
+          height: 34px;
+          margin-bottom: 11px;
+          background: url("../../../../assets/images/statistics/camera.png") center center / cover no-repeat;
+        }
+
+        .infoMicroIcon {
+          display: inline-flex;
+          width: 35px;
+          height: 34px;
+          margin-bottom: 11px;
+          background: url("../../../../assets/images/statistics/micro.png") center center / cover no-repeat;
+        }
+
+        .infoCardTitle {
+          font-size: 22px;
+          font-weight: 600;
+          letter-spacing: -0.8px;
+        }
+
+        .infoCardDescription {
+          color: #C2C5F3;
+          font-size: 14px;
+          letter-spacing: -0.154px;
+        }
+      }
+    }
+  }
+}

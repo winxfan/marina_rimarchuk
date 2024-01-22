@@ -1,0 +1,102 @@
+.statisticLevelWrapper {
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  background: linear-gradient(90deg, #160F35 0%, #1D1C48 100%), #FFF;
+  min-width: 358px;
+  margin-bottom: 24px;
+
+  .levelCard {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 16px 18px 16px;
+
+    .levelCurrent {
+      display: flex;
+      margin-bottom: 23px;
+      align-items: center;
+
+      .currentIcon {
+        display: inline-flex;
+        width: 56px;
+        height: 56px;
+        margin-right: 28px;
+        background: url("../../../../assets/images/statistics/stars.png") center center / cover no-repeat;
+      }
+
+      .currentInfo {
+        display: flex;
+        flex-direction: column;
+
+        .infoTitle {
+          font-size: 22px;
+          font-weight: 600;
+          letter-spacing: -0.8px;
+          margin-bottom: 2px;
+        }
+
+        .infoDescription {
+          color: #C2C5F3;
+          font-size: 14px;
+          letter-spacing: -0.154px;
+        }
+      }
+    }
+
+    .completeLevel {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 29px;
+
+      .completeTitle {
+        color: #C2C5F3;
+        letter-spacing: -0.154px;
+        margin-bottom: 12px;
+      }
+
+      .completePercent {
+        display: inline-flex;
+        min-width: 326px;
+        border-radius: 100px;
+        height: 20px;
+        background: #0B0526;
+        position: relative;
+      }
+
+      .completeNumber {
+        display: flex;
+        width: 30px;
+        height: 18px;
+        position: absolute;
+        top: -2px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        padding: 2.125px 4.25px;
+        justify-content: center;
+
+        .number {
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: -0.154px;
+        }
+      }
+    }
+
+    .watchQuestion {
+      display: flex;
+      justify-content: center;
+      border-radius: 16px;
+      background: #2545ED;
+      min-width: 326px;
+      padding: 17px 16px;
+      align-items: center;
+
+      .watchText {
+        color: #FFF;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: -0.32px;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.myStatistics {
+  display: flex;
+  flex-direction: column;
+
+  .myStatisticsTitle {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.8px;
+    margin-bottom: 11px;
+  }
+}

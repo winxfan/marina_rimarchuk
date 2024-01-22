@@ -15,7 +15,10 @@ export const routes = {
     questions: {
         path: '/questions',
     },
-    mail: {
-        path: '/mail',
+    statistics: {
+        path: '/statistics',
+    },
+    tasks: {
+        path: '/tasks',
     },
 };

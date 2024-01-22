@@ -7,6 +7,8 @@ import { MainPage, NotFoundPage } from '../pages';
 import { MeditationPage } from '../pages/meditation/MeditationPage';
 import { PodcastPage } from '../pages/podcast/PodcastPage';
 import { QuestionPage } from '../pages/questions/QuestionPage';
+import { StatisticsPage } from '../pages/statistics/StatisticsPage';
+import { StatisticTasks } from '../pages/statistics/components/StatisticTasks';
 import { VideoPage } from '../pages/video/VideoPage';
 import { routes } from './routes';
 
@@ -19,6 +21,8 @@ export const AppRoutes = () => {
                 <Route index path={routes.podcasts.path} element={<PodcastPage isPage={true} />} />
                 <Route index path={routes.video.path} element={<VideoPage isPage={true} />} />
                 <Route index path={routes.questions.path} element={<QuestionPage />} />
+                <Route index path={routes.statistics.path} element={<StatisticsPage />} />
+                <Route index path={routes.tasks.path} element={<StatisticTasks />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </QueryParamProvider>
