@@ -20,7 +20,7 @@ export const MeditationCard: FC<MeditationCardProps> = (props) => {
                 <div className={css.cardTitle}>{title}</div>
                 <div className={css.cardTime}>12:56</div>
                 <div className={css.playIcon}>
-                    <PlayIcon />
+                    <PlayIcon className={css.playIconSvg} />
                 </div>
             </div>
         </div>

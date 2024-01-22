@@ -1,11 +1,11 @@
 .card {
   display: flex;
   flex-direction: column;
-  max-width: 150px;
-  width: 150px;
+  //max-width: 150px;
+  //width: 150px;
   height: 158px;
   max-height: 158px;
-  padding: 16px;
+  padding: 16px 16px 8px;
   border-radius: 20px;
 }
 
@@ -28,6 +28,13 @@
 .playIcon {
   display: flex;
   justify-content: flex-end;
+  position: relative;
+  height: 80px;
+}
+
+.playIconSvg {
+  position: absolute;
+  right: -4px;
 }
 
 @media (max-width: 350px) {

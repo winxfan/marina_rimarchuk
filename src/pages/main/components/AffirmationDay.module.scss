@@ -6,9 +6,10 @@
   position: relative;
   background: url("../../../assets/images/affirmationDay/back.jpg") center center / cover no-repeat;
   padding: 10px 16px;
-  border-radius: 32px;
-  min-width: 390px;
-  height: 345px;
+  border-bottom-left-radius: 12.5%;
+  height: 300px;
+  width: calc(100% + 20px);
+  margin-left: -10px;
 
   .affirmationRibbon {
     position: absolute;
@@ -18,17 +19,7 @@
 }
 
 @media (max-width: 420px) {
-  .affirmationDay {
-    min-width: 320px;
-  }
-
   .affirmationRibbon {
     right: -97px !important;
-  }
-}
-
-@media (max-width: 365px) {
-  .affirmationDay {
-    min-width: 265px;
   }
 }
