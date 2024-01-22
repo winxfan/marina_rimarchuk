@@ -3,17 +3,20 @@
   flex-direction: column;
   //max-width: 150px;
   //width: 150px;
-  height: 158px;
+  //height: 158px;
   max-height: 158px;
-  padding: 16px 16px 8px;
+  padding: 16px 8px 8px 16px;
   border-radius: 20px;
+}
+
+.meditationPageCard {
+  max-width: 158px;
 }
 
 .cardTitle {
   color: #C2C5F3;
-  flex: 1 1 auto;
+  display: inline-block;
   font-size: 15px;
-  line-height: 18px;
   letter-spacing: -0.24px;
   margin-bottom: 8px;
 }
@@ -21,7 +24,6 @@
 .cardTime {
   color: rgba(194, 197, 243, 0.40);
   font-size: 11px;
-  line-height: 13px;
   letter-spacing: 0.066px;
 }
 
@@ -30,6 +32,7 @@
   justify-content: flex-end;
   position: relative;
   height: 80px;
+  top: -12px;
 }
 
 .playIconSvg {
@@ -37,7 +40,7 @@
   right: -4px;
 }
 
-@media (max-width: 350px) {
+/*@media (max-width: 350px) {
   .cardTitle {
     font-size: 14px;
   }
@@ -61,4 +64,4 @@
     width: 65px;
     height: 65px;
   }
-}
+}*/

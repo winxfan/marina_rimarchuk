@@ -57,6 +57,15 @@ a:not([class]) {
   text-decoration-skip-ink: auto;
 }
 
+button {
+  background: transparent;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -87,11 +96,7 @@ select {
   display: flex;
   flex-direction: column;
   max-width: 562px;
-  padding: 0 10px 12px;
+  padding: 0 16px 12px;
   min-height: 100vh;
   overflow: hidden;
-}
-
-button {
-  border: 0;
 }

@@ -1,12 +1,35 @@
 .podcastCard {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  min-height: 213px;
-  padding: 11px;
+  max-height: 158px;
+  padding: 16px 8px 8px 16px;
+
+  .cardTitle {
+    color: #C2C5F3;
+    display: inline-block;
+    font-size: 12px;
+    min-height: 60px;
+    letter-spacing: -0.24px;
+    margin-bottom: 8px;
+  }
+
+  .cardTime {
+    color: rgba(194, 197, 243, 0.40);
+    font-size: 11px;
+    letter-spacing: 0.066px;
+  }
+
+  .playIcon {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    height: 80px;
+    top: -24px;
+  }
 
   .podcastTitleCard {
-    font-size: 13px;
+    min-height: 60px;
+    font-size: 12px;
   }
 }
 
@@ -15,9 +38,9 @@
   max-width: 170px;
 }
 
-@media (max-width: 365px) {
+/*@media (max-width: 365px) {
   .podcastPageCard {
     width: 128px;
     max-width: 128px;
   }
-}
+}*/

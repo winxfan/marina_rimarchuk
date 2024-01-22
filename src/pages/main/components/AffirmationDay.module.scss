@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
   position: relative;
   background: url("../../../assets/images/affirmationDay/back.jpg") center center / cover no-repeat;
   padding: 10px 16px;
   border-bottom-left-radius: 12.5%;
   height: 300px;
-  width: calc(100% + 20px);
-  margin-left: -10px;
+  width: calc(100% + 30px);
+  margin-left: -15px;
 
   .affirmationRibbon {
     position: absolute;
@@ -18,8 +18,8 @@
   }
 }
 
-@media (max-width: 420px) {
+/*@media (max-width: 420px) {
   .affirmationRibbon {
     right: -97px !important;
   }
-}
+}*/

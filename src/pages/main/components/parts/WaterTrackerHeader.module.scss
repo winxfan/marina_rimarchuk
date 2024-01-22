@@ -1,7 +1,7 @@
 .waterTrackerHeader {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 34px;
+  margin-bottom: 28px;
 
   .trackerTitle {
     font-family: 'Playfair Display', serif;
@@ -26,16 +26,15 @@
       .volume {
         color: #6D9DDC;
         font-size: 16px;
-        line-height: 22px;
         letter-spacing: -0.32px;
       }
     }
   }
 
-  @media (max-width: 420px) {
+ /* @media (max-width: 420px) {
     .trackerTitle {
       font-size: 18px;
     }
-  }
+  }*/
 }
 

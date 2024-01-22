@@ -9,7 +9,7 @@
   .user {
     display: flex;
     max-width: 130px;
-    gap: 8px;
+    gap: 5px;
 
     .greetings {
       display: flex;
@@ -29,14 +29,12 @@
         .helloUser {
           color: #8A8A8E;
           font-size: 11px;
-          line-height: 13px;
           letter-spacing: 0.066px;
         }
 
         .username {
           font-size: 14px;
           font-weight: 600;
-          line-height: 18px;
           letter-spacing: -0.154px;
         }
       }

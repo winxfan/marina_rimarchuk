@@ -9,31 +9,27 @@
   }
 
   .percent {
-    display: inline-flex;
-    width: 28px;
-    height: 14px;
+    display: flex;
+    width: 32px;
+    height: 17px;
     position: absolute;
-    top: 70px;
-    left: 28px;
+    top: 67px;
+    left: 26px;
     padding: 2.125px 4.25px;
-    align-items: center;
+    justify-content: center;
     border-radius: 106.25px;
     background: #C2C5F3;
   }
 
   .number {
-    display: inline-flex;
     font-size: 10px;
     font-weight: 600;
-    align-items: center;
     background: transparent;
     color: #0B0526;
-    width: 10px;
-    height: 10px;
   }
 
   .addGlass {
-    display: flex;
+    display: inline-block;
     width: 253px;
     max-width: 253px;
     height: 72px;
@@ -41,11 +37,39 @@
     align-items: center;
     padding: 24px 35px;
     border: 2px solid #211A3F;
+    position: relative;
+    overflow: hidden;
     justify-content: center;
     cursor: pointer;
     border-radius: 20px;
-    background: linear-gradient(90deg, #160F3516.67%, #1D1C48 100%), #211A41;
-    
+    background: #160F35;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2.5em;
+      height: 100%;
+      background-color: rgba(#9EC7FF, 0.2);
+      transform: translateX(-4em) skewX(-45deg);
+    }
+
+    &:hover {
+      &:before {
+        animation: move-light 0.5s;
+      }
+    }
+
+    @keyframes move-light {
+      from {
+        transform: translateX(-4em) skewX(-45deg);
+      }
+      to {
+        transform: translateX(17em) skewX(-45deg);
+      }
+    }
+
     .link {
       display: flex;
       align-items: center;
@@ -66,13 +90,13 @@
         color: #C2C5F3;
         font-size: 16px;
         font-weight: 600;
-        line-height: 22px;
         letter-spacing: -0.32px;
       }
     }
   }
 }
 
+/*
 @media (max-width: 420px) {
   .link {
     justify-content: center;
@@ -99,4 +123,4 @@
   .number {
     font-size: 9px !important;
   }
-}
+}*/

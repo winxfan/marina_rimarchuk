@@ -1,5 +1,5 @@
 .bookBlock {
-  margin-top: 30px;
+  margin-top: 28px;
 
   .cardBackground {
     border-radius: 20px;
@@ -8,15 +8,16 @@
   }
 
   .bookPart {
-    color: #6767E9;
+    color: #4563FF;
     font-size: 17px;
     font-weight: 600;
     letter-spacing: -0.442px;
   }
 }
 
+/*
 @media (max-width: 420px) {
   .bookPart {
     font-size: 15px !important;
   }
-}
+}*/

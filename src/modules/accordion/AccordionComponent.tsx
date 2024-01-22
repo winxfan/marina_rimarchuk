@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     Accordion,
     AccordionItem,
-    AccordionItemHeading,
     AccordionItemButton,
+    AccordionItemHeading,
     AccordionItemPanel,
+    AccordionItemState,
 } from 'react-accessible-accordion';
-
-import { log } from 'node:util';
 
 import { ReactComponent as ArrowDown } from '../../assets/images/arrowIcon/chevronDown.svg';
 import { ReactComponent as ArrowUp } from '../../assets/images/arrowIcon/chevronUp.svg';
@@ -16,6 +15,10 @@ import css from './AccordionComponent.module.scss';
 export type AccordionItem = {
     question: string;
     content: string;
+};
+
+type AccordionItemState = {
+    expanded: boolean;
 };
 
 const accordionData: AccordionItem[] = [
@@ -29,29 +32,16 @@ const accordionData: AccordionItem[] = [
 ];
 
 export const AccordionComponent = () => {
-    const [expandedItems, setExpandedItems] = useState<number[]>([]);
-
-    const handleAccordionChange = (itemIndex: number) => {
-        setExpandedItems((prevExpandedItems) => {
-            if (prevExpandedItems.includes(itemIndex)) {
-                return prevExpandedItems.filter((index) => index !== itemIndex);
-            } else {
-                return [...prevExpandedItems, itemIndex];
-            }
-        });
-    };
-
     return (
         <Accordion allowZeroExpanded={true} className={css.accordion}>
             {accordionData.map((item, index) => (
                 <AccordionItem key={index} className={css.accordionItem}>
                     <AccordionItemHeading className={css.accordionHeading}>
-                        <AccordionItemButton
-                            className={css.accordionButton}
-                            onClick={() => handleAccordionChange(index)}
-                        >
+                        <AccordionItemButton className={css.accordionButton}>
                             <div>{item.question}</div>
-                            <div>{expandedItems.includes(index) ? <ArrowUp /> : <ArrowDown />}</div>
+                            <AccordionItemState>
+                                {({ expanded }: AccordionItemState) => (expanded ? <ArrowUp /> : <ArrowDown />)}
+                            </AccordionItemState>{' '}
                         </AccordionItemButton>
                     </AccordionItemHeading>
                     <AccordionItemPanel className={css.accordionPanel}>

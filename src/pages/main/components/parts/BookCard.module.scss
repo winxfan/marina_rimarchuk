@@ -1,6 +1,6 @@
 .bookCard {
   display: flex;
-  width: 100%;
+  //width: 100%;
   min-height: 188px;
   padding: 16px;
   border-radius: 20px;
@@ -22,7 +22,7 @@
       font-size: 17px;
       font-weight: 600;
       letter-spacing: -0.442px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .bookDescription {
@@ -57,7 +57,7 @@
   }
 }
 
-@media (max-width: 420px) {
+/*@media (max-width: 420px) {
   .bookCard {
     flex-direction: column;
     align-items: center;
@@ -71,4 +71,4 @@
     margin-right: 0 !important;
     margin-bottom: 15px;
   }
-}
+}*/
