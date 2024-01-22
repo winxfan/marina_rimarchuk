@@ -1,20 +1,8 @@
-.podcastPage {
-  display: flex;
-  flex-direction: column;
+.podcastPage {}
 
-  .podcastWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-
-    .podcastOneBack {
-      border-radius: 20px;
-      background: url("../../assets/images/podcastsCard/podcastBack.png") center center / cover no-repeat;
-    }
-
-    .podcastTwoBack {
-      border-radius: 20px;
-      background: url("../../assets/images/podcastsCard/podcastTwo.png") center center / cover no-repeat;
-    }
-  }
+.podcastWrapper {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
 }

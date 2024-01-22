@@ -15,12 +15,13 @@ export const PodcastCard: FC<PodcastCardProps> = (props) => {
     const { className, title, image, time, isPage } = props;
 
     return (
-        <div className={className}>
-            <div className={cs(css.podcastCard, isPage ? css.podcastPageCard : '')} style={{ backgroundImage: image }}>
-                <div className={cs(css.cardTitle, isPage ? css.podcastTitleCard : '')}>{title}</div>
-                <div className={css.cardTime}>{time}</div>
-                <PlayIcon className={css.playIcon} />
-            </div>
+        <div
+            className={cs(css.podcastCard, isPage ? css.podcastPageCard : '', className)}
+            style={{ backgroundImage: image }}
+        >
+            <div className={cs(css.cardTitle, isPage ? css.podcastTitleCard : '')}>{title}</div>
+            <div className={css.cardTime}>{time}</div>
+            <PlayIcon className={css.playIcon} />
         </div>
     );
 };
