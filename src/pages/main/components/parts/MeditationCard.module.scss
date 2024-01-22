@@ -1,22 +1,30 @@
 .card {
+  position: relative;
+
   display: flex;
   flex-direction: column;
-  //max-width: 150px;
-  //width: 150px;
-  //height: 158px;
-  max-height: 158px;
-  padding: 16px 8px 8px 16px;
+  //min-width: 150px;
+  min-height: 158px;
+  padding: 16px 16px 80px;
   border-radius: 20px;
-}
 
-.meditationPageCard {
-  max-width: 158px;
+  &[data-index="0"], &[data-index="3"], &[data-index="6"], &[data-index="9"] {
+    background: radial-gradient(circle at top left, rgba(153, 23, 255, 0.45), rgba(153, 23, 255, 0.2) 30%, rgb(33, 26, 65) 65%)
+  }
+
+  &[data-index="1"], &[data-index="4"], &[data-index="7"], &[data-index="10"] {
+    background: radial-gradient(circle at top left, rgba(255, 23, 107, 0.45), rgba(255, 23, 107, 0.2) 30%, rgb(33, 26, 65) 65%)
+  }
+
+  &[data-index="2"], &[data-index="5"], &[data-index="8"], &[data-index="11"]  {
+    background: radial-gradient(circle at top left, rgba(23, 255, 116, 0.45), rgba(23, 255, 116, 0.2) 30%, rgb(33, 26, 65) 65%)
+  }
 }
 
 .cardTitle {
   color: #C2C5F3;
-  display: inline-block;
   font-size: 15px;
+  line-height: 18px;
   letter-spacing: -0.24px;
   margin-bottom: 8px;
 }
@@ -24,44 +32,13 @@
 .cardTime {
   color: rgba(194, 197, 243, 0.40);
   font-size: 11px;
+  line-height: 13px;
   letter-spacing: 0.066px;
 }
 
 .playIcon {
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
-  height: 80px;
-  top: -12px;
-}
-
-.playIconSvg {
   position: absolute;
-  right: -4px;
+  right: 8px;
+  bottom: 8px;
+  height: 80px;
 }
-
-/*@media (max-width: 350px) {
-  .cardTitle {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 350px) {
-  .cardTitle {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 365px) {
-  .meditationPageCard {
-    width: 128px;
-    max-width: 128px;
-    height: 162px;
-    max-height: 162px;
-  }
-
-  .playIcon {
-    width: 65px;
-    height: 65px;
-  }
-}*/

@@ -17,9 +17,9 @@ export const AppRoutes = () => {
         <QueryParamProvider adapter={ReactRouter6Adapter}>
             <Routes>
                 <Route index path={routes.index.path} element={<MainPage />} />
-                <Route index path={routes.meditation.path} element={<MeditationPage isPage={true} />} />
-                <Route index path={routes.podcasts.path} element={<PodcastPage isPage={true} />} />
-                <Route index path={routes.video.path} element={<VideoPage isPage={true} />} />
+                <Route index path={routes.meditation.path} element={<MeditationPage />} />
+                <Route index path={routes.podcasts.path} element={<PodcastPage />} />
+                <Route index path={routes.video.path} element={<VideoPage />} />
                 <Route index path={routes.questions.path} element={<QuestionPage />} />
                 <Route index path={routes.statistics.path} element={<StatisticsPage />} />
                 <Route index path={routes.tasks.path} element={<StatisticTasks />} />

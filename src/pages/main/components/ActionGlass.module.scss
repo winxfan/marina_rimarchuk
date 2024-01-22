@@ -1,7 +1,8 @@
 .actionGlass {
-  display: flex;
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 20px;
   align-items: center;
-  justify-content: space-between;
 
   .ellipseIcon {
     display: flex;

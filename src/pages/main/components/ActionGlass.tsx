@@ -13,16 +13,12 @@ export const ActionGlass = () => {
                     <span className={css.number}>42%</span>
                 </div>
             </div>
-            <button type="button" className={css.addGlass}>
-                <Link to="/" className={css.link}>
-                    <div className={css.glassIcon}>
-                        <GlassIcon />
-                    </div>
-                    <div className={css.glassAdd}>
-                        <span>Добавить стакан +</span>
-                    </div>
-                </Link>
-            </button>
+            <Link to="/" className={css.addGlass}>
+                <div className={css.glassIcon}>
+                    <GlassIcon />
+                </div>
+                <p className={css.glassAdd}>Добавить стакан&nbsp;+</p>
+            </Link>
         </div>
     );
 };

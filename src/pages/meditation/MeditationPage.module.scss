@@ -3,9 +3,9 @@
   flex-direction: column;
 
   .meditationWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
 
     .cardOneBackground {
       border-radius: 20px;

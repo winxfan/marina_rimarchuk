@@ -1,4 +1,5 @@
 .podcastsBlock {
+  position: relative;
   margin-top: 30px;
 
   .resetStyle {
@@ -6,15 +7,7 @@
     text-decoration: none;
   }
 
-  .podcastOneBack {
-    border-radius: 20px;
+  :global(.slick-slide) > div {
     margin-right: 12px;
-    background: url("../../assets/images/podcastsCard/podcastBack.png") center center / cover no-repeat;
-  }
-
-  .podcastTwoBack {
-    border-radius: 20px;
-    margin-right: 12px;
-    background: url("../../assets/images/podcastsCard/podcastTwo.png") center center / cover no-repeat;
   }
 }
