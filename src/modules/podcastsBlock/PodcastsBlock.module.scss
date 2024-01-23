@@ -8,8 +8,8 @@
     color: #FFF;
     text-decoration: none;
   }
+}
 
-  :global(.slick-slide) > div {
-    margin-right: 12px;
-  }
+:global(.slick-slide) > div {
+  margin-right: 12px;
 }

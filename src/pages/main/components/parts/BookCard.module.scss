@@ -6,10 +6,9 @@
 
   .bookImage {
     display: inline-flex;
-    background: url("../../../../assets/images/bookBlock/book.png") left center / cover no-repeat;
-    min-width: 169px;
-    height: 226px;
-    transform: rotate(5.634deg);
+    background: url("../../../../assets/images/bookBlock/book.png") left center / 190px 210px no-repeat;
+    min-width: 131px;
+    min-height: 226px;
   }
 
   .bookInfo {

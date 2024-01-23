@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 
 import { HeaderPage } from '../../modules/header/components/HeaderPage';
 import { data } from '../../modules/videoBlock/VideoBlock';
-import { IVideo } from '../../utils/types/video';
 import { VideoCard } from '../main/components/parts/VideoCard';
 import css from './VideoPage.module.scss';
 
@@ -10,9 +9,7 @@ export type VideoPageProps = {
     isPage?: boolean;
 };
 
-export const VideoPage: FC<VideoPageProps> = (props) => {
-    const { isPage } = props;
-
+export const VideoPage: FC<VideoPageProps> = () => {
     return (
         <div className={css.podcastPage}>
             <HeaderPage title="Видео от Марины Римарчук" isVideoBlock={true} />

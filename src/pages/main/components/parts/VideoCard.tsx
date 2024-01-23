@@ -17,7 +17,7 @@ export const VideoCard: FC<VideoCardProps> = (props) => {
     const { className, title, isPage, index } = props;
 
     return (
-        <div className={className}>
+        <div className={cs(css.videoCardWrapper, className)}>
             <div className={cs(css.videoCard, isPage ? css.videoPageCard : '')} data-index={index}></div>
             <div className={css.cardTitle}>{title}</div>
             <Link to="/" className={css.videoPlay}>

@@ -16,7 +16,7 @@ export const PodcastCard: FC<PodcastCardProps> = (props) => {
     const { className, title, image, time, isPage } = props;
 
     return (
-        <div className={className}>
+        <div className={cs(css.podcastCardWrapper, className)}>
             <div
                 className={cs(css.podcastCard, isPage ? css.podcastPageCard : '')}
                 style={{

@@ -16,7 +16,7 @@ export const MeditationCard: FC<MeditationCardProps> = (props) => {
     const { className, title, isPage, time, index } = props;
 
     return (
-        <div className={className}>
+        <div className={cs(css.meditationCardWrapper, className)}>
             <div className={cs(css.card, isPage ? css.meditationPageCard : '')} data-index={index}>
                 <div className={css.cardTitle}>{title}</div>
                 <div className={css.cardTime}>{time}</div>
