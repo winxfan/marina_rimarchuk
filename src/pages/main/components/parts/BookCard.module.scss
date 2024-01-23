@@ -4,11 +4,18 @@
   padding: 16px;
   border-radius: 20px;
 
+  &[data-index="0"], &[data-index="1"], &[data-index="2"], &[data-index="3"] {
+    background: linear-gradient(65deg, rgb(170, 141, 54), rgb(33, 26, 65) 40%);
+  }
+
   .bookImage {
     display: inline-flex;
-    background: url("../../../../assets/images/bookBlock/book.png") left center / 190px 210px no-repeat;
     min-width: 131px;
     min-height: 226px;
+
+    &[data-index="0"], &[data-index="1"], &[data-index="2"], &[data-index="3"] {
+      background: url("../../../../assets/images/bookBlock/book.png") left center / 190px 210px no-repeat;
+    }
   }
 
   .bookInfo {

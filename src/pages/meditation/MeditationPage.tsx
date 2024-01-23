@@ -27,7 +27,7 @@ const data: IMeditation[] = [
     },
 ];
 
-export const MeditationPage = () => {
+export const MeditationPage: FC<MeditationPageProps> = () => {
     return (
         <div className={css.meditationPage}>
             <HeaderPage title="Медитации" />

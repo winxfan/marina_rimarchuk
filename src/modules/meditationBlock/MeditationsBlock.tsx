@@ -39,7 +39,7 @@ export const MeditationsBlock: FC<MeditationsBlockProps> = (props) => {
             </Link>
             <CardSlider isMobile={isMobile} isShowTwo={true}>
                 {data?.map((item, index) => (
-                    <MeditationCard key={item.id} {...item} index={index} className={css.sliderItem} />
+                    <MeditationCard key={item.id} {...item} index={index} />
                 ))}
             </CardSlider>
         </div>

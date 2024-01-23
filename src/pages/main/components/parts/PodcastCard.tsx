@@ -9,7 +9,6 @@ import css from './PodcastCard.module.scss';
 export type PodcastCardProps = IPodcast & {
     className?: any;
     isPage?: boolean;
-    image: string;
 };
 
 export const PodcastCard: FC<PodcastCardProps> = (props) => {

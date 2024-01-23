@@ -48,7 +48,7 @@ export const PodcastsBlock: FC<PodcastsBlockProps> = (props) => {
             </Link>
             <CardSlider isMobile={isMobile} isShowTwo={true}>
                 {data?.map((item) => (
-                    <PodcastCard key={item.id} {...item} image={item.image} />
+                    <PodcastCard key={item.id} {...item} />
                 ))}
             </CardSlider>
         </div>
