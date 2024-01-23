@@ -2,24 +2,71 @@ import React from 'react';
 
 import { AccordionComponent } from '../../../modules/accordion/AccordionComponent';
 import { HeaderPage } from '../../../modules/header/components/HeaderPage';
+import { IAccordionContent } from '../../../utils/types/statistic';
 import css from './StatisticTasks.module.scss';
+import { StatisticProgressBar } from './parts/StatisticProgressBar';
 
 export const StatisticTasks = () => {
-    const levelData = [
+    const levelData: IAccordionContent[] = [
         {
+            id: '1',
             title: 'Звездочка',
-            contentOne: 'Куплено 1/3 методичек',
-            contentTwo: '3/20 дней подряд заполняется трекер воды',
+            content: [
+                {
+                    title: 'Куплено 1/3 методичек',
+                    progress: {
+                        component: <StatisticProgressBar percent={'1/3'} />,
+                        id: '6',
+                    },
+                },
+                {
+                    title: '3/20 дней подряд заполняется трекер воды',
+                    progress: {
+                        component: <StatisticProgressBar percent={'3/20'} />,
+                        id: '7',
+                    },
+                },
+            ],
         },
         {
+            id: '2',
             title: 'Звезда',
-            contentOne: 'Куплено 1/3 методичек',
-            contentTwo: '3/20 дней подряд заполняется трекер воды',
+            content: [
+                {
+                    title: 'Куплено 1/3 методичек',
+                    progress: {
+                        component: <StatisticProgressBar percent={'1/3'} />,
+                        id: '8',
+                    },
+                },
+                {
+                    title: '3/20 дней подряд заполняется трекер воды',
+                    progress: {
+                        component: <StatisticProgressBar percent={'3/20'} />,
+                        id: '9',
+                    },
+                },
+            ],
         },
         {
+            id: '3',
             title: 'Легенда',
-            contentOne: 'Куплено 1/3 методичек',
-            contentTwo: '3/20 дней подряд заполняется трекер воды',
+            content: [
+                {
+                    title: 'Куплено 1/3 методичек',
+                    progress: {
+                        component: <StatisticProgressBar percent={'1/3'} />,
+                        id: '10',
+                    },
+                },
+                {
+                    title: '3/20 дней подряд заполняется трекер воды',
+                    progress: {
+                        component: <StatisticProgressBar percent={'3/20'} />,
+                        id: '11',
+                    },
+                },
+            ],
         },
     ];
 

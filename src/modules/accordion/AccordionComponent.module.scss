@@ -33,7 +33,18 @@
           display: inline-flex;
           min-width: 28px;
           height: 34px;
-          background: url("../../assets/images/statistics/stars.png") center center / cover no-repeat;
+
+          &[data-index="0"],  {
+            background: url("../../assets/images/tasks/stars.png") center center / cover no-repeat;
+          }
+
+          &[data-index="1"],  {
+            background: url("../../assets/images/tasks/star.png") center center / cover no-repeat;
+          }
+
+          &[data-index="2"],  {
+            background: url("../../assets/images/tasks/crystal.png") center center / cover no-repeat;
+          }
         }
 
         .accordionTasksTitle {
@@ -53,7 +64,15 @@
 
   .accordionPanel {
     color: #C2C5F3;
-    font-size: 17px;
+    font-size: 14px;
     letter-spacing: -0.442px;
+
+    .accordionLevelContent {
+      margin-bottom: 16px;
+
+      .accordionLevelTitle {
+        margin-bottom: 12px;
+      }
+    }
   }
 }

@@ -10,11 +10,12 @@ import {
 
 import { ReactComponent as ArrowDown } from '../../assets/images/arrowIcon/chevronDown.svg';
 import { ReactComponent as ArrowUp } from '../../assets/images/arrowIcon/chevronUp.svg';
+import { IAccordionContent } from '../../utils/types/statistic';
 import css from './AccordionComponent.module.scss';
 import { AccordionItemState as AccordionState } from './types';
 
 export type AccordionComponentProps = {
-    data: any[];
+    data: IAccordionContent[];
     isTasksPage?: boolean;
 };
 
@@ -23,38 +24,42 @@ export const AccordionComponent: FC<AccordionComponentProps> = (props) => {
 
     return (
         <Accordion allowZeroExpanded={true} className={css.accordion}>
-            {data?.map((item, index) => (
-                <AccordionItem key={index} className={css.accordionItem}>
+            {data?.map((entry, index) => (
+                <AccordionItem key={`${entry.id}-accordion-item`} className={css.accordionItem}>
                     <AccordionItemHeading className={css.accordionHeading}>
                         <AccordionItemButton className={css.accordionButton}>
-                            {isTasksPage ? (
+                            {isTasksPage && (
                                 <div className={css.accordionTasksWrapper}>
-                                    <div className={css.accordionTasksIcon}></div>
-                                    <div className={css.accordionTasksTitle}>{item.title}</div>
+                                    <div className={css.accordionTasksIcon} data-index={index}></div>
+                                    <div className={css.accordionTasksTitle}>{entry.title}</div>
                                 </div>
-                            ) : (
-                                <div>{item.title}</div>
                             )}
-                            <AccordionItemState>
-                                {({ expanded }: AccordionState) =>
-                                    expanded ? (
-                                        <div className={css.accordionArrowIcon}>
-                                            <ArrowUp />
-                                        </div>
-                                    ) : (
-                                        <div className={css.accordionArrowIcon}>
-                                            <ArrowDown />
-                                        </div>
-                                    )
-                                }
-                            </AccordionItemState>{' '}
+                            {!isTasksPage && <div>{entry.title}</div>}
+
+                            {!(entry.id === '1' && isTasksPage) && (
+                                <AccordionItemState>
+                                    {({ expanded }: AccordionState) =>
+                                        expanded ? (
+                                            <div className={css.accordionArrowIcon}>
+                                                <ArrowUp />
+                                            </div>
+                                        ) : (
+                                            <div className={css.accordionArrowIcon}>
+                                                <ArrowDown />
+                                            </div>
+                                        )
+                                    }
+                                </AccordionItemState>
+                            )}
                         </AccordionItemButton>
                     </AccordionItemHeading>
                     <AccordionItemPanel className={css.accordionPanel}>
-                        <p>{item.contentOne}</p>
-                    </AccordionItemPanel>
-                    <AccordionItemPanel className={css.accordionPanel}>
-                        <p>{item.contentTwo}</p>
+                        {entry?.content?.map((item) => (
+                            <div className={css.accordionLevelContent} key={`${item.progress?.id}-accordion-level`}>
+                                <div className={css.accordionLevelTitle}>{item.title}</div>
+                                <div>{item.progress?.component}</div>
+                            </div>
+                        ))}
                     </AccordionItemPanel>
                 </AccordionItem>
             ))}

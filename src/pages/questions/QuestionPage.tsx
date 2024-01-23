@@ -1,19 +1,66 @@
 import React from 'react';
 
 import { AccordionComponent } from '../../modules/accordion/AccordionComponent';
-import { AccordionItem } from '../../modules/accordion/types';
 import { HeaderPage } from '../../modules/header/components/HeaderPage';
+import { IAccordionContent } from '../../utils/types/statistic';
 import css from './QuestionPage.module.scss';
 
 export const QuestionPage = () => {
-    const questionData: AccordionItem[] = [
-        { title: 'Текст вопроса 1', contentOne: '4 шага к исполнению мечты текст текст текст текст текст текст текст' },
-        { title: 'Текст вопроса 2', contentOne: '4 шага к исполнению мечты текст текст текст текст текст текст текст' },
-        { title: 'Текст вопроса 3', contentOne: '4 шага к исполнению мечты текст текст текст текст текст текст текст' },
-        { title: 'Текст вопроса 4', contentOne: '4 шага к исполнению мечты текст текст текст текст текст текст текст' },
-        { title: 'Текст вопроса 5', contentOne: '4 шага к исполнению мечты текст текст текст текст текст текст текст' },
-        { title: 'Текст вопроса 6', contentOne: '4 шага к исполнению мечты текст текст текст текст текст текст текст' },
-        { title: 'Текст вопроса 7', contentOne: '4 шага к исполнению мечты текст текст текст текст текст текст текст' },
+    const questionData: IAccordionContent[] = [
+        {
+            id: '1',
+            title: 'Текст вопроса 1',
+            content: [
+                {
+                    title: '4 шага к исполнению мечты текст текст текст текст текст текст текст',
+                },
+            ],
+        },
+        {
+            id: '2',
+            title: 'Текст вопроса 1',
+            content: [
+                {
+                    title: '4 шага к исполнению мечты текст текст текст текст текст текст текст',
+                },
+            ],
+        },
+        {
+            id: '3',
+            title: 'Текст вопроса 1',
+            content: [
+                {
+                    title: '4 шага к исполнению мечты текст текст текст текст текст текст текст',
+                },
+            ],
+        },
+        {
+            id: '4',
+            title: 'Текст вопроса 1',
+            content: [
+                {
+                    title: '4 шага к исполнению мечты текст текст текст текст текст текст текст',
+                },
+            ],
+        },
+        {
+            id: '5',
+            title: 'Текст вопроса 1',
+            content: [
+                {
+                    title: '4 шага к исполнению мечты текст текст текст текст текст текст текст',
+                },
+            ],
+        },
+        {
+            id: '6',
+            title: 'Текст вопроса 1',
+            content: [
+                {
+                    title: '4 шага к исполнению мечты текст текст текст текст текст текст текст',
+                },
+            ],
+        },
     ];
 
     return (
