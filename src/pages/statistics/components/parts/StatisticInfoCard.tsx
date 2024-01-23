@@ -1,50 +1,42 @@
 import React, { FC } from 'react';
 
+import cs from 'classnames';
+
+import { IStatisticInfoCard } from '../../../../utils/types/statistic';
 import css from './StatisticInfoCard.module.scss';
 
 export type StatisticInfoCardProps = {
-    title?: string;
-    description?: string;
     className?: any;
 };
 
+const data: IStatisticInfoCard[] = [
+    { id: '1', icon: '', title: '1000 мл', description: 'за неделю выпито воды' },
+    { id: '2', icon: '', title: '22 000 мл', description: 'за месяц выпито воды' },
+    { id: '3', icon: '', title: '10', description: 'Видео вы уже посмотрели' },
+    { id: '4', icon: '', title: '101', description: 'Подкастов вы уже послушали' },
+];
+
 export const StatisticInfoCard: FC<StatisticInfoCardProps> = (props) => {
-    const { title, description, className } = props;
+    const { className } = props;
 
     return (
-        <div className={css.statisticInfoCard}>
-            <div className={css.infoCardRow}>
-                <div className={css.infoCardColumn}>
-                    <div className={css.infoCardItem}>
-                        <div className={css.infoCardIcon}></div>
-                        <div className={css.infoCardTitle}>1000 мл</div>
-                        <div className={css.infoCardDescription}>за неделю выпито воды</div>
-                    </div>
+        <div className={cs(css.statisticInfoCard, className)}>
+            {data.map((item, index) => (
+                <div key={item.id} className={cs(css.infoCardItem)}>
+                    <div
+                        className={cs(css.infoCardIcon)}
+                        data-index={index}
+                        style={{
+                            backgroundImage: item.icon,
+                            backgroundPosition: 'center center',
+                            backgroundSize: 'cover',
+                            backgroundRepeat: 'no-repeat',
+                        }}
+                    ></div>
+                    <div className={css.infoCardTitle}>{item.title}</div>
+                    <div className={css.infoCardDescription}>{item.description}</div>
                 </div>
-                <div className={css.infoCardColumn}>
-                    <div className={css.infoCardItem}>
-                        <div className={css.infoCameraIcon}></div>
-                        <div className={css.infoCardTitle}>22 000 мл</div>
-                        <div className={css.infoCardDescription}>за месяц выпито воды</div>
-                    </div>
-                </div>
-            </div>
-            <div className={css.infoCardRow}>
-                <div className={css.infoCardColumn}>
-                    <div className={css.infoCardItem}>
-                        <div className={css.infoCardIcon}></div>
-                        <div className={css.infoCardTitle}>10</div>
-                        <div className={css.infoCardDescription}>Видео вы уже посмотрели</div>
-                    </div>
-                </div>
-                <div className={css.infoCardColumn}>
-                    <div className={css.infoCardItem}>
-                        <div className={css.infoMicroIcon}></div>
-                        <div className={css.infoCardTitle}>101</div>
-                        <div className={css.infoCardDescription}>Подкастов вы уже послушали</div>
-                    </div>
-                </div>
-            </div>
+            ))}
         </div>
     );
 };

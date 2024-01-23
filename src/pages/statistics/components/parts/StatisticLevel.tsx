@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { StatisticInfoCard } from './StatisticInfoCard';
 import css from './StatisticLevel.module.scss';
+import { StatisticProgressBar } from './StatisticProgressBar';
 
 export const StatisticLevel = () => {
     return (
@@ -18,11 +19,7 @@ export const StatisticLevel = () => {
                     </div>
                     <div className={css.completeLevel}>
                         <div className={css.completeTitle}>До следующего уровня выполнено:</div>
-                        <div className={css.completePercent}>
-                            <div className={css.completeNumber}>
-                                <span className={css.number}>42%</span>
-                            </div>
-                        </div>
+                        <StatisticProgressBar percent={55} />
                     </div>
                     <button type="button" className={css.watchQuestion}>
                         <Link to="/tasks" className={css.watchLink}>

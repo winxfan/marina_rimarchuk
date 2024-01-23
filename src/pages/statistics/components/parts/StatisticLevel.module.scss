@@ -52,32 +52,6 @@
         letter-spacing: -0.154px;
         margin-bottom: 12px;
       }
-
-      .completePercent {
-        display: inline-flex;
-        border-radius: 100px;
-        height: 20px;
-        background: #0B0526;
-        position: relative;
-      }
-
-      .completeNumber {
-        display: flex;
-        width: 30px;
-        height: 18px;
-        position: absolute;
-        top: -2px;
-        left: 50%;
-        transform: translate(-50%, 0);
-        padding: 2.125px 4.25px;
-        justify-content: center;
-
-        .number {
-          font-size: 14px;
-          font-weight: 600;
-          letter-spacing: -0.154px;
-        }
-      }
     }
 
     .watchQuestion {

@@ -36,7 +36,17 @@ export const AccordionComponent: FC<AccordionComponentProps> = (props) => {
                                 <div>{item.title}</div>
                             )}
                             <AccordionItemState>
-                                {({ expanded }: AccordionState) => (expanded ? <ArrowUp /> : <ArrowDown />)}
+                                {({ expanded }: AccordionState) =>
+                                    expanded ? (
+                                        <div className={css.accordionArrowIcon}>
+                                            <ArrowUp />
+                                        </div>
+                                    ) : (
+                                        <div className={css.accordionArrowIcon}>
+                                            <ArrowDown />
+                                        </div>
+                                    )
+                                }
                             </AccordionItemState>{' '}
                         </AccordionItemButton>
                     </AccordionItemHeading>
