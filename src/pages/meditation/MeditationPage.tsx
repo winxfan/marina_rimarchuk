@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import { HeaderPage } from '../../modules/header/components/HeaderPage';
+import { useBackButton } from '../../utils/hooks/useBackButton';
 import { IMeditation } from '../../utils/types/meditation';
 import { MeditationCard } from '../main/components/parts/MeditationCard';
 import css from './MeditationPage.module.scss';
@@ -28,6 +29,8 @@ const data: IMeditation[] = [
 ];
 
 export const MeditationPage: FC<MeditationPageProps> = () => {
+    useBackButton('/');
+
     return (
         <div className={css.meditationPage}>
             <HeaderPage title="Медитации" />

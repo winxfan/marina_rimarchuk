@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import { ErrorCatchFallback } from './ErrorCatchFallback';

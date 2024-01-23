@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as ArrowIcon } from '../../../../assets/images/arrowIcon/arrow.svg';
 import { ReactComponent as AvatarIcon } from '../../../../assets/images/welcomeUser/avatar.svg';
 import { ReactComponent as QuestionsIcon } from '../../../../assets/images/welcomeUser/questions.svg';
+import { useTelegram } from '../../../../utils/hooks/useTelegram';
 import css from './WelcomeUser.module.scss';
 
 export const WelcomeUser = () => {
@@ -15,6 +16,8 @@ export const WelcomeUser = () => {
 
     /* console.log(users, 'users');*/
 
+    const { initDataUnsafe, WebAppUser } = useTelegram();
+
     return (
         <div className={css.welcomeUser}>
             <Link to="/statistics">
@@ -25,7 +28,7 @@ export const WelcomeUser = () => {
                         </div>
                         <div className={css.userInfo}>
                             <div className={css.helloUser}>Привет</div>
-                            <div className={css.username}>Ангелина</div>
+                            <div className={css.username}>{initDataUnsafe?.user?.first_name ?? 'Аноним'}</div>
                         </div>
                     </div>
                     <button type="button" className={css.arrowIcon}>

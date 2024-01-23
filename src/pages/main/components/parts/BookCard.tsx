@@ -1,6 +1,7 @@
 import { FC, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
+import imageSrc from '../../../../assets/images/bookBlock/book.png';
 import css from './BookCard.module.scss';
 
 export type BookCardProps = {
@@ -16,7 +17,8 @@ export const BookCard: FC<BookCardProps> = (props) => {
     return (
         <div className={className}>
             <div className={css.bookCard} data-index={index}>
-                <div className={css.bookImage} data-index={index}></div>
+                <img src={imageSrc} className={css.bookImage} alt="book" />
+
                 <div className={css.bookInfo}>
                     <div className={css.bookTitle}>{title}</div>
                     <div className={css.bookDescription}>{description}</div>
