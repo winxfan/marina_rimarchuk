@@ -1,8 +1,7 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { HeaderPage } from '../../modules/header/components/HeaderPage';
 import { IPodcast } from '../../utils/types/podcast';
-import { MeditationCard } from '../main/components/parts/MeditationCard';
 import { PodcastCard } from '../main/components/parts/PodcastCard';
 import css from './PodcastPage.module.scss';
 
@@ -38,7 +37,7 @@ export const PodcastPage = () => {
         <div className={css.podcastPage}>
             <HeaderPage title="Подкасты" />
             <div className={css.podcastWrapper}>
-                {data?.map((item, index) => (
+                {data?.map((item) => (
                     <PodcastCard key={item.id} {...item} isPage={true} />
                 ))}
             </div>

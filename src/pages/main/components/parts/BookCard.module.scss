@@ -1,12 +1,10 @@
 .bookCard {
   display: flex;
-  //width: 100%;
   min-height: 188px;
   padding: 16px;
   border-radius: 20px;
 
   .bookImage {
-    margin-right: 15px;
     display: inline-flex;
     background: url("../../../../assets/images/bookBlock/book.png") left center / cover no-repeat;
     min-width: 169px;
@@ -37,7 +35,7 @@
 
       .bookWrapper {
         display: flex;
-        width: 120px;
+        max-width: 120px;
         max-height: 34px;
         justify-content: center;
         padding: 8px 16px;
@@ -56,19 +54,3 @@
     }
   }
 }
-
-/*@media (max-width: 420px) {
-  .bookCard {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .bookTitle {
-    font-size: 15px !important;
-  }
-
-  .bookImage {
-    margin-right: 0 !important;
-    margin-bottom: 15px;
-  }
-}*/

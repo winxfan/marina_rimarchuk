@@ -1,13 +1,14 @@
 .podcastCard {
-  min-height: 158px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 158px;
   border-radius: 20px;
-  padding: 16px;
+  padding: 16px 16px 80px;
   background: url("../../../../assets/images/podcastsCard/podcastBack.png") center center / cover no-repeat;
 
   .cardTitle {
     color: #C2C5F3;
-    display: inline-block;
     font-size: 12px;
     min-height: 60px;
     letter-spacing: -0.24px;

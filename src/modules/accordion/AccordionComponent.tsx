@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import {
     Accordion,
     AccordionItem,
@@ -11,41 +11,40 @@ import {
 import { ReactComponent as ArrowDown } from '../../assets/images/arrowIcon/chevronDown.svg';
 import { ReactComponent as ArrowUp } from '../../assets/images/arrowIcon/chevronUp.svg';
 import css from './AccordionComponent.module.scss';
+import { AccordionItemState as AccordionState } from './types';
 
-export type AccordionItem = {
-    question: string;
-    content: string;
+export type AccordionComponentProps = {
+    data: any[];
+    isTasksPage?: boolean;
 };
 
-type AccordionItemState = {
-    expanded: boolean;
-};
+export const AccordionComponent: FC<AccordionComponentProps> = (props) => {
+    const { data, isTasksPage } = props;
 
-const accordionData: AccordionItem[] = [
-    { question: 'Текст вопроса 1', content: '4 шага к исполнению мечты текст текст текст текст текст текст текст' },
-    { question: 'Текст вопроса 2', content: '4 шага к исполнению мечты текст текст текст текст текст текст текст' },
-    { question: 'Текст вопроса 3', content: '4 шага к исполнению мечты текст текст текст текст текст текст текст' },
-    { question: 'Текст вопроса 4', content: '4 шага к исполнению мечты текст текст текст текст текст текст текст' },
-    { question: 'Текст вопроса 5', content: '4 шага к исполнению мечты текст текст текст текст текст текст текст' },
-    { question: 'Текст вопроса 6', content: '4 шага к исполнению мечты текст текст текст текст текст текст текст' },
-    { question: 'Текст вопроса 7', content: '4 шага к исполнению мечты текст текст текст текст текст текст текст' },
-];
-
-export const AccordionComponent = () => {
     return (
         <Accordion allowZeroExpanded={true} className={css.accordion}>
-            {accordionData.map((item, index) => (
+            {data?.map((item, index) => (
                 <AccordionItem key={index} className={css.accordionItem}>
                     <AccordionItemHeading className={css.accordionHeading}>
                         <AccordionItemButton className={css.accordionButton}>
-                            <div>{item.question}</div>
+                            {isTasksPage ? (
+                                <div className={css.accordionTasksWrapper}>
+                                    <div className={css.accordionTasksIcon}></div>
+                                    <div className={css.accordionTasksTitle}>{item.title}</div>
+                                </div>
+                            ) : (
+                                <div>{item.title}</div>
+                            )}
                             <AccordionItemState>
-                                {({ expanded }: AccordionItemState) => (expanded ? <ArrowUp /> : <ArrowDown />)}
+                                {({ expanded }: AccordionState) => (expanded ? <ArrowUp /> : <ArrowDown />)}
                             </AccordionItemState>{' '}
                         </AccordionItemButton>
                     </AccordionItemHeading>
                     <AccordionItemPanel className={css.accordionPanel}>
-                        <p>{item.content}</p>
+                        <p>{item.contentOne}</p>
+                    </AccordionItemPanel>
+                    <AccordionItemPanel className={css.accordionPanel}>
+                        <p>{item.contentTwo}</p>
                     </AccordionItemPanel>
                 </AccordionItem>
             ))}

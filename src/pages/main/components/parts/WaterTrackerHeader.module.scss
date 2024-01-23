@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 28px;
+  align-items: baseline;
 
   .trackerTitle {
     font-family: 'Playfair Display', serif;
@@ -30,11 +31,4 @@
       }
     }
   }
-
- /* @media (max-width: 420px) {
-    .trackerTitle {
-      font-size: 18px;
-    }
-  }*/
 }
-

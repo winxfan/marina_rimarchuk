@@ -17,7 +17,9 @@ export const ActionGlass = () => {
                 <div className={css.glassIcon}>
                     <GlassIcon />
                 </div>
-                <p className={css.glassAdd}>Добавить стакан&nbsp;+</p>
+                <div className={css.glassAdd}>
+                    <p>Добавить стакан&nbsp;+</p>
+                </div>
             </Link>
         </div>
     );
