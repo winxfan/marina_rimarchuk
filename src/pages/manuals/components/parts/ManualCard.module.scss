@@ -1,0 +1,52 @@
+.manualCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  gap: 16px;
+  position: relative;
+
+  &:after {
+    content: '';
+    background: #302E58;
+    width: 300px;
+    height: 1px;
+    bottom: 0;
+    left: 40px;
+    display: inline-flex;
+    position: absolute;
+  }
+
+  .manualLink {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .iconColumn {
+    display: inline-flex;
+    flex: 0 0 24px;
+    min-width: 24px;
+    min-height: 24px;
+  }
+
+  .textColumn {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
+
+  .title {
+    color: #FFF;
+    font-size: 17px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    letter-spacing: -0.442px;
+  }
+
+  .description {
+    color: #C2C5F3;
+    font-size: 11px;
+    letter-spacing: 0.066px;
+  }
+}

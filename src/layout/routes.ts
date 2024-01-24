@@ -21,4 +21,7 @@ export const routes = {
     tasks: {
         path: '/tasks',
     },
+    manuals: {
+        path: '/manuals',
+    },
 };
