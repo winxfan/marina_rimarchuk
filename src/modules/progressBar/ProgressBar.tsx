@@ -1,13 +1,16 @@
 import React, { FC } from 'react';
 
-import css from './StatisticProgressBar.module.scss';
+import cs from 'classnames';
 
-export type StatisticProgressBarProps = {
+import css from './ProgressBar.module.scss';
+
+export type ProgressBarProps = {
     percent: number | string;
+    isMainPage?: boolean;
 };
 
-export const StatisticProgressBar: FC<StatisticProgressBarProps> = (props) => {
-    const { percent } = props;
+export const ProgressBar: FC<ProgressBarProps> = (props) => {
+    const { percent, isMainPage } = props;
     let formattedPercent: string | number = '0%';
     let fractionValue = 0;
 
@@ -32,7 +35,7 @@ export const StatisticProgressBar: FC<StatisticProgressBarProps> = (props) => {
     return (
         <div className={css.completePercent}>
             <div className={css.completeNumber} style={{ width: `${fractionValue}%` }}>
-                <span className={css.number}>{formattedPercent}</span>
+                <span className={cs(css.number, isMainPage ? css.numberWater : '')}>{formattedPercent}</span>
             </div>
         </div>
     );

@@ -2,9 +2,9 @@ import React from 'react';
 
 import { AccordionComponent } from '../../../modules/accordion/AccordionComponent';
 import { HeaderPage } from '../../../modules/header/components/HeaderPage';
+import { ProgressBar } from '../../../modules/progressBar/ProgressBar';
 import { IAccordionContent } from '../../../utils/types/statistic';
 import css from './StatisticTasks.module.scss';
-import { StatisticProgressBar } from './parts/StatisticProgressBar';
 
 export const StatisticTasks = () => {
     const levelData: IAccordionContent[] = [
@@ -15,14 +15,14 @@ export const StatisticTasks = () => {
                 {
                     title: 'Куплено 1/3 методичек',
                     progress: {
-                        component: <StatisticProgressBar percent={'1/3'} />,
+                        component: <ProgressBar percent={'1/3'} />,
                         id: '6',
                     },
                 },
                 {
                     title: '3/20 дней подряд заполняется трекер воды',
                     progress: {
-                        component: <StatisticProgressBar percent={'3/20'} />,
+                        component: <ProgressBar percent={'3/20'} />,
                         id: '7',
                     },
                 },
@@ -35,14 +35,14 @@ export const StatisticTasks = () => {
                 {
                     title: 'Куплено 1/3 методичек',
                     progress: {
-                        component: <StatisticProgressBar percent={'1/3'} />,
+                        component: <ProgressBar percent={'1/3'} />,
                         id: '8',
                     },
                 },
                 {
                     title: '3/20 дней подряд заполняется трекер воды',
                     progress: {
-                        component: <StatisticProgressBar percent={'3/20'} />,
+                        component: <ProgressBar percent={'3/20'} />,
                         id: '9',
                     },
                 },
@@ -55,14 +55,14 @@ export const StatisticTasks = () => {
                 {
                     title: 'Куплено 1/3 методичек',
                     progress: {
-                        component: <StatisticProgressBar percent={'1/3'} />,
+                        component: <ProgressBar percent={'1/3'} />,
                         id: '10',
                     },
                 },
                 {
                     title: '3/20 дней подряд заполняется трекер воды',
                     progress: {
-                        component: <StatisticProgressBar percent={'3/20'} />,
+                        component: <ProgressBar percent={'3/20'} />,
                         id: '11',
                     },
                 },
