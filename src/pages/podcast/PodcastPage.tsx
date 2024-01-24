@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { HeaderPage } from '../../modules/header/components/HeaderPage';
+import { useBackButton } from '../../utils/hooks/useBackButton';
 import { IPodcast } from '../../utils/types/podcast';
 import { PodcastCard } from '../main/components/parts/PodcastCard';
 import css from './PodcastPage.module.scss';
@@ -33,6 +34,8 @@ const data: IPodcast[] = [
 ];
 
 export const PodcastPage = () => {
+    useBackButton('/');
+
     return (
         <div className={css.podcastPage}>
             <HeaderPage title="Подкасты" />

@@ -1,7 +1,10 @@
 .bookCard {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(100px, 2fr) 4fr;
+  align-items: center;
+  gap: 16px;
   min-height: 188px;
-  padding: 16px;
+  //padding: 16px;
   border-radius: 20px;
 
   &[data-index="0"], &[data-index="1"], &[data-index="2"], &[data-index="3"] {
@@ -9,16 +12,11 @@
   }
 
   .bookImage {
-    display: inline-flex;
-    min-width: 131px;
-    min-height: 226px;
-
-    &[data-index="0"], &[data-index="1"], &[data-index="2"], &[data-index="3"] {
-      background: url("../../../../assets/images/bookBlock/book.png") left top / 190px 210px no-repeat;
-    }
+    object-fit: contain;
   }
 
   .bookInfo {
+    margin: 16px 16px 16px 0;
     display: flex;
     flex-direction: column;
 

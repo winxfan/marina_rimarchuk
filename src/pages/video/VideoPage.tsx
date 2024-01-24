@@ -1,15 +1,12 @@
-import React, { FC } from 'react';
-
 import { HeaderPage } from '../../modules/header/components/HeaderPage';
 import { data } from '../../modules/videoBlock/VideoBlock';
+import { useBackButton } from '../../utils/hooks/useBackButton';
 import { VideoCard } from '../main/components/parts/VideoCard';
 import css from './VideoPage.module.scss';
 
-export type VideoPageProps = {
-    isPage?: boolean;
-};
+export const VideoPage = () => {
+    useBackButton('/');
 
-export const VideoPage: FC<VideoPageProps> = () => {
     return (
         <div className={css.podcastPage}>
             <HeaderPage title="Видео от Марины Римарчук" isVideoBlock={true} />
