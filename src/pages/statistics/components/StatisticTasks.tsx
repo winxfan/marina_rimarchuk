@@ -71,7 +71,7 @@ const levelData: IAccordionContent[] = [
 ];
 
 export const StatisticTasks = () => {
-    useBackButton('/');
+    useBackButton('/statistics');
 
     return (
         <div className={css.statisticTasks}>
