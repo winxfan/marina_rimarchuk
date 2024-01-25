@@ -14,11 +14,11 @@ export type ManualCardProps = IManuals & {
 };
 
 export const ManualCard: FC<ManualCardProps> = (props) => {
-    const { title, description, buy } = props;
+    const { title, description, buy, id } = props;
 
     return (
         <div className={css.manualCard}>
-            <Link to="/" className={css.manualLink}>
+            <Link to={`/manual/${id}`} className={css.manualLink}>
                 <div className={css.iconColumn}>
                     <ManualBook />
                 </div>

@@ -1,0 +1,21 @@
+.bonusInfoBuy {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+
+  .bonusInfoIcon {
+    max-width: 16px;
+    max-height: 16px;
+  }
+
+  .bonusInfoDescription {
+    color: #C2C5F3;
+    font-size: 14px;
+    letter-spacing: -0.154px;
+
+    .bonusInfoText {
+      color: #516DFF;
+      font-weight: 600;
+    }
+  }
+}

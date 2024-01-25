@@ -7,7 +7,7 @@ import { BookCard } from './parts/BookCard';
 
 export const data: IBookBlock[] = [
     {
-        id: 1,
+        id: '1',
         title: (
             <div>
                 Книга <span className={css.bookPart}>«Будь здоровым сейчас» </span>+личная консультация
@@ -37,7 +37,37 @@ export const data: IBookBlock[] = [
         image: '',
     },
     {
-        id: 2,
+        id: '2',
+        title: (
+            <div>
+                Книга <span className={css.bookPart}>«Будь здоровым сейчас» </span>+личная консультация
+            </div>
+        ),
+        contentTitle: 'ЛИЧНАЯ ПРОГРАММА БЕЗ СОПРОВОЖДЕНИЯ ',
+        contentInfo: '(Детская или взрослая)',
+        contentList: [
+            {
+                title: 'разбор/назначение анализов',
+            },
+            {
+                title: 'индивидуальный подбор схемы восстановления здоровья',
+            },
+            {
+                title: 'рекомендации по витаминам и добавкам',
+            },
+            {
+                title: 'рекомендации по питанию',
+            },
+        ],
+        descriptionPrice: 'Стоимость',
+        price: '5 990 ₽',
+        buttonText: 'Стоимость',
+        buttonBuy: 'Купить',
+        description: 'Энергию и ресурс не надо искать - это есть в нашем теле.',
+        image: '',
+    },
+    {
+        id: '3',
         title: (
             <div>
                 Книга <span className={css.bookPart}>«Будь здоровым сейчас» </span>+личная консультация
@@ -67,37 +97,7 @@ export const data: IBookBlock[] = [
         image: '',
     },
     {
-        id: 3,
-        title: (
-            <div>
-                Книга <span className={css.bookPart}>«Будь здоровым сейчас» </span>+личная консультация
-            </div>
-        ),
-        contentTitle: 'Книга «Будь здоровым сейчас» + личная консультация',
-        contentInfo: 'Консультация в подарок:\n' + 'Детская или взрослая (Стоимостью 5000 ₽)',
-        contentList: [
-            {
-                title: 'разбор/назначение анализов',
-            },
-            {
-                title: 'индивидуальный подбор схемы восстановления здоровья',
-            },
-            {
-                title: 'рекомендации по витаминам и добавкам',
-            },
-            {
-                title: 'рекомендации по питанию',
-            },
-        ],
-        descriptionPrice: 'Стоимость печатной книги + консультации',
-        price: '5 990 ₽',
-        buttonText: 'Стоимость печатной книги + консультации',
-        buttonBuy: 'Купить',
-        description: 'Энергию и ресурс не надо искать - это есть в нашем теле.',
-        image: '',
-    },
-    {
-        id: 4,
+        id: '4',
         title: (
             <div>
                 Книга <span className={css.bookPart}>«Будь здоровым сейчас» </span>+личная консультация

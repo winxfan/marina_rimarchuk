@@ -24,7 +24,10 @@ export const routes = {
     manuals: {
         path: '/manuals',
     },
-    infoBuy: {
+    infoBook: {
         path: '/book/:id',
+    },
+    infoManual: {
+        path: '/manual/:id',
     },
 };

@@ -3,9 +3,10 @@ import { Route, Routes } from 'react-router-dom';
 import { QueryParamProvider } from 'use-query-params';
 import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6';
 
-import { InfoBuy } from '../modules/infoBuy/InfoBuy';
 import { MainPage, NotFoundPage, QuestionPage } from '../pages';
+import { BookInfo } from '../pages/main/components/parts/BookInfo';
 import { ManualsPage } from '../pages/manuals/ManualsPage';
+import { ManualInfo } from '../pages/manuals/components/parts/ManualInfo';
 import { MeditationPage } from '../pages/meditation/MeditationPage';
 import { PodcastPage } from '../pages/podcast';
 import { StatisticsPage } from '../pages/statistics/StatisticsPage';
@@ -25,7 +26,8 @@ export const AppRoutes = () => {
                 <Route index path={routes.statistics.path} element={<StatisticsPage />} />
                 <Route index path={routes.tasks.path} element={<StatisticTasks />} />
                 <Route index path={routes.manuals.path} element={<ManualsPage />} />
-                <Route path="/book/:id" element={<InfoBuy isShowBook={true} />} />
+                <Route index path={routes.infoBook.path} element={<BookInfo />} />
+                <Route index path={routes.infoManual.path} element={<ManualInfo />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </QueryParamProvider>

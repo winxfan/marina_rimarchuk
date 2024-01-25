@@ -10,22 +10,31 @@ export type ManualsPageProps = {
     isPage?: boolean;
 };
 
-const data: IManuals[] = [
+export const dataManuals: IManuals[] = [
     {
         id: '1',
         title: 'С чего начать оздоровление тела взрослого и ребенка?',
         description: 'миомы, мастопатии, кисты, сбой гормонов, климакс',
+        price: '990 ₽',
+        buttonText: 'Стоимость методички',
+        buttonBuy: 'Купить методичку',
     },
     {
         id: '2',
         title: 'Лечение при орви взрослых и детей без лекарств «Аптечка без лекарств»',
         description:
             'схемы лечения кашля, насморка, температуры, бронхита, астмы, пневмонии и др проблем по здоровью у детей и взрослых',
+        price: '990 ₽',
+        buttonText: 'Стоимость методички',
+        buttonBuy: 'Купить методичку',
     },
     {
         id: '3',
         title: 'С чего начать оздоровление тела взрослого и ребенка?',
         description: 'миомы, мастопатии, кисты, сбой гормонов, климакс',
+        price: '990 ₽',
+        buttonText: 'Стоимость методички',
+        buttonBuy: 'Купить методичку',
         buy: true,
     },
     {
@@ -34,12 +43,18 @@ const data: IManuals[] = [
         description:
             'схемы лечения кашля, насморка, температуры, бронхита, астмы, пневмонии и др проблем по здоровью у детей и взрослых',
         buy: true,
+        price: '990 ₽',
+        buttonText: 'Стоимость методички',
+        buttonBuy: 'Купить методичку',
     },
     {
         id: '5',
         title: 'С чего начать оздоровление тела взрослого и ребенка?',
         description: 'миомы, мастопатии, кисты, сбой гормонов, климакс',
         buy: true,
+        price: '990 ₽',
+        buttonText: 'Стоимость методички',
+        buttonBuy: 'Купить методичку',
     },
     {
         id: '6',
@@ -47,6 +62,9 @@ const data: IManuals[] = [
         description:
             'схемы лечения кашля, насморка, температуры, бронхита, астмы, пневмонии и др проблем по здоровью у детей и взрослых',
         buy: true,
+        price: '990 ₽',
+        buttonText: 'Стоимость методички',
+        buttonBuy: 'Купить методичку',
     },
     {
         id: '7',
@@ -54,6 +72,9 @@ const data: IManuals[] = [
         description:
             'схемы лечения кашля, насморка, температуры, бронхита, астмы, пневмонии и др проблем по здоровью у детей и взрослых',
         buy: true,
+        price: '990 ₽',
+        buttonText: 'Стоимость методички',
+        buttonBuy: 'Купить методичку',
     },
 ];
 
@@ -64,7 +85,7 @@ export const ManualsPage: FC<ManualsPageProps> = () => {
         <div className={css.manualsPage}>
             <HeaderPage title="Методички" />
             <div className={css.manualsWrapper}>
-                {data?.map((item, index) => (
+                {dataManuals?.map((item, index) => (
                     <ManualCard key={item.id} {...item} index={index} />
                 ))}
             </div>
