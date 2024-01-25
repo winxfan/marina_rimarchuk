@@ -1,18 +1,17 @@
-import { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 import imageSrc from '../../../../assets/images/bookBlock/book.png';
+import { IBookBlock } from '../../../../utils/types/book';
 import css from './BookCard.module.scss';
 
-export type BookCardProps = {
+export type BookCardProps = IBookBlock & {
     className?: any;
-    title?: string | ReactNode;
-    description: string;
     index?: number;
 };
 
 export const BookCard: FC<BookCardProps> = (props) => {
-    const { className, title, description, index } = props;
+    const { className, title, description, index, id, onClick } = props;
 
     return (
         <div className={className}>
@@ -22,7 +21,7 @@ export const BookCard: FC<BookCardProps> = (props) => {
                 <div className={css.bookInfo}>
                     <div className={css.bookTitle}>{title}</div>
                     <div className={css.bookDescription}>{description}</div>
-                    <Link to="/" className={css.linkBook}>
+                    <Link to={`/book/${id}`} className={css.linkBook} onClick={onClick}>
                         <div className={css.bookWrapper}>
                             <span className={css.bookDetails}>Подробнее</span>
                         </div>
