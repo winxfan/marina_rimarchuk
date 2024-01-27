@@ -1,0 +1,82 @@
+.mediaPlayer {
+  margin-top: 30px;
+  position: relative;
+  min-width: 290px;
+  min-height: 350px;
+  background: linear-gradient(90deg, #160F35 16.67%, #1D1C48 100%), #211A41;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .mediaTitle {
+    position: absolute;
+    left: 30px;
+    max-width: 165px;
+    bottom: 26px;
+  }
+}
+
+.title {
+  color: #C2C5F3;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.playButton {
+  border: 0;
+}
+
+.controlsPlay {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+
+  .prevButton {
+    &:before {
+      display: inline-flex;
+      border-radius: 12px;
+      width: 6px;
+      height: 22.923px;
+      background: #C2C5F3;
+      content: '';
+    }
+  }
+
+  .nextButton {
+    &:after {
+      display: inline-flex;
+      border-radius: 12px;
+      width: 6px;
+      height: 22.923px;
+      background: #C2C5F3;
+      content: '';
+    }
+  }
+}
+
+.mediaDuration {
+  display: flex;
+  margin-top: 23px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.time {
+  margin-top: 12px;
+  margin-bottom: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(194, 197, 243, 0.40);
+  font-size: 12px;
+}
+
+.timeline {
+  width: 100%;
+  //border-radius: 100px;
+  //background: #1A1741;
+}

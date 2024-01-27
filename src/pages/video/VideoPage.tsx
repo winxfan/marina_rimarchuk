@@ -9,6 +9,7 @@ export const VideoPage = () => {
 
     return (
         <div className={css.podcastPage}>
+            5
             <HeaderPage title="Видео от Марины Римарчук" isVideoBlock={true} />
             <div className={css.podcastWrapper}>
                 {data?.map((item, index) => (

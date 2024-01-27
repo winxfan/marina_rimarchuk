@@ -30,4 +30,10 @@ export const routes = {
     infoManual: {
         path: '/manual/:id',
     },
+    mediaMeditation: {
+        path: '/mediaMeditation/:id',
+    },
+    mediaPodcast: {
+        path: '/mediaPodcast/:id',
+    },
 };
