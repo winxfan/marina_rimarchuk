@@ -28,7 +28,7 @@ export const data: IDelivery[] = [
 export type DeliveryPageProps = any;
 
 export const DeliveryPage: FC<DeliveryPageProps> = () => {
-    useBackButton('/book/:id');
+    useBackButton('/');
 
     const [formData, setFormData] = useState<IDelivery[]>(data.map((item) => ({ ...item, value: '' })));
 
