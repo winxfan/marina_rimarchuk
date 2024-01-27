@@ -14,6 +14,7 @@ import { PodcastPage } from '../pages/podcast';
 import { StatisticsPage } from '../pages/statistics/StatisticsPage';
 import { StatisticTasks } from '../pages/statistics/components/StatisticTasks';
 import { VideoPage } from '../pages/video/VideoPage';
+import { CoursesPage } from '../pages/сourses/CoursesPage';
 import { routes } from './routes';
 
 export const AppRoutes = () => {
@@ -32,6 +33,7 @@ export const AppRoutes = () => {
                 <Route index path={routes.infoManual.path} element={<ManualInfo />} />
                 <Route index path={routes.mediaMeditation.path} element={<MediaMeditation />} />
                 <Route index path={routes.mediaPodcast.path} element={<MediaPodcast />} />
+                <Route index path={routes.courses.path} element={<CoursesPage />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </QueryParamProvider>

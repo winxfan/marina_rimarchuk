@@ -11,6 +11,6 @@ export interface IManuals {
     contentList?: IBookContentList[];
     buttonText?: string;
     buttonBuy?: string;
-    price: string;
+    price?: string;
     buy?: boolean;
 }

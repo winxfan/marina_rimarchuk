@@ -36,4 +36,7 @@ export const routes = {
     mediaPodcast: {
         path: '/mediaPodcast/:id',
     },
+    courses: {
+        path: '/courses',
+    },
 };
