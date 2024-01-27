@@ -4,6 +4,7 @@ import { QueryParamProvider } from 'use-query-params';
 import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6';
 
 import { MainPage, NotFoundPage, QuestionPage } from '../pages';
+import { DeliveryPage } from '../pages/delivery/DeliveryPage';
 import { BookInfo } from '../pages/main/components/parts/BookInfo';
 import { MediaMeditation } from '../pages/main/components/parts/MediaMeditation';
 import { MediaPodcast } from '../pages/main/components/parts/MediaPodcast';
@@ -34,6 +35,7 @@ export const AppRoutes = () => {
                 <Route index path={routes.mediaMeditation.path} element={<MediaMeditation />} />
                 <Route index path={routes.mediaPodcast.path} element={<MediaPodcast />} />
                 <Route index path={routes.courses.path} element={<CoursesPage />} />
+                <Route index path={routes.delivery.path} element={<DeliveryPage />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </QueryParamProvider>

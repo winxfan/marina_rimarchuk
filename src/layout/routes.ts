@@ -39,4 +39,7 @@ export const routes = {
     courses: {
         path: '/courses',
     },
+    delivery: {
+        path: '/delivery',
+    },
 };

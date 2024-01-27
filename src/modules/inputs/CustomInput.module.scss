@@ -1,0 +1,31 @@
+.inputWrapper {
+  position: relative;
+
+  .inputLabel {
+    color: rgba(235, 235, 245, 0.60);
+    font-size: 12px;
+    position: absolute;
+    top: 19%;
+    transform: translateY(-50%);
+    left: 16px;
+    pointer-events: none;
+    line-height: 16px;
+  }
+
+  .input {
+    border-radius: 10px;
+    width: 100%;
+    min-height: 54px;
+    background: #1D1939;
+    padding: 8px 16px;
+    color: #FFF;
+    border: #1D1939;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.442px;
+  }
+
+  input:focus {
+    outline: none;
+  }
+}

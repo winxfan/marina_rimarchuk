@@ -7,11 +7,11 @@ import css from './HeaderPage.module.scss';
 export type HeaderPageProps = {
     className?: any;
     title?: string;
-    isVideoBlock?: boolean;
+    lessSize?: boolean;
 };
 
 export const HeaderPage: FC<HeaderPageProps> = (props) => {
-    const { title, isVideoBlock } = props;
+    const { title, lessSize, className } = props;
 
-    return <div className={cs(css.headerPage, isVideoBlock ? css.headerVideoTitle : '')}>{title}</div>;
+    return <div className={cs(css.headerPage, className, lessSize ? css.headerVideoTitle : '')}>{title}</div>;
 };

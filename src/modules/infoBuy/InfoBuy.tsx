@@ -39,7 +39,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                     <div className={css.contentCostPrice}>{infoBuy?.price}</div>
                 </div>
             </button>
-            <Link to="/" className={css.contentPriceButton}>
+            <Link to="/delivery" className={css.contentPriceButton}>
                 <div className={css.contentPriceLink}>
                     <div className={css.contentPriceText}>{infoBuy?.buttonBuy}</div>
                 </div>
