@@ -1,64 +1,42 @@
-import React, { BaseSyntheticEvent, FC, useState } from 'react';
-import { Link } from 'react-router-dom';
-
-import { HeaderPage } from '../../modules/header/components/HeaderPage';
 import { CustomInput } from '../../modules/inputs/CustomInput';
 import { useBackButton } from '../../utils/hooks/useBackButton';
-import { IDelivery } from '../../utils/types/delivery';
 import css from './DeliveryPage.module.scss';
+import { IAddress, useDeliveryPage } from './useDeliveryPage';
 
-export const data: IDelivery[] = [
-    {
-        id: 1,
-        label: 'ФИО',
-        value: '',
-    },
-    {
-        id: 2,
-        label: 'Телефон',
-        value: '',
-    },
-    {
-        id: 3,
-        label: 'Адрес доставки',
-        value: '',
-    },
-];
-
-export type DeliveryPageProps = any;
-
-export const DeliveryPage: FC<DeliveryPageProps> = () => {
+export const DeliveryPage = () => {
     useBackButton('/');
 
-    const [formData, setFormData] = useState<IDelivery[]>(data.map((item) => ({ ...item, value: '' })));
+    const {
+        values: {
+            formik: { handleChange, handleSubmit, values, errors },
+        },
+    } = useDeliveryPage();
 
-    const handleInputChange = (id: number) => (e: BaseSyntheticEvent) => {
-        const newValue = e.target.value;
-
-        setFormData((prevFormData) =>
-            prevFormData.map((item) => (item.id === id ? { ...item, value: newValue } : item))
-        );
+    const formFieldTitle: Record<keyof IAddress, string> = {
+        name: 'ФИО',
+        phone: 'Телефон',
+        address: 'Адрес доставки',
     };
 
     return (
         <div className={css.deliveryPage}>
-            <HeaderPage title="Данные для доставки книги" className={css.deliveryHeader} />
-            <div className={css.deliveryForm}>
-                {formData?.map((item) => (
+            <h1 className={css.deliveryHeader}>Данные для доставки книги</h1>
+
+            <form className={css.deliveryForm} onSubmit={handleSubmit}>
+                {Object.keys(formFieldTitle).map((key) => (
                     <CustomInput
-                        key={item.id}
-                        label={item.label}
-                        type="text"
-                        value={item.value}
-                        onChange={handleInputChange(+item.id)}
+                        key={key}
+                        name={key}
+                        value={values[key as keyof IAddress]}
+                        title={formFieldTitle[key as keyof IAddress]}
+                        error={errors[key as keyof IAddress]}
+                        onChange={handleChange}
                     />
                 ))}
-                <Link to="/" className={css.contentPriceButton}>
-                    <div className={css.contentPriceLink}>
-                        <div className={css.contentPriceText}>Перейти к оплате</div>
-                    </div>
-                </Link>
-            </div>
+                <button type="submit" className={css.contentPriceButton}>
+                    Перейти к оплате
+                </button>
+            </form>
         </div>
     );
 };
