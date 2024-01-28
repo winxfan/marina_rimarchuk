@@ -1,16 +1,32 @@
-import React, { FC } from 'react';
+import cs from 'classnames';
 
 import css from './CustomInput.module.scss';
 
-export type CustomInputProps = any;
+export interface CustomInputProps {
+    name: string;
+    value: string;
+    title: string;
+    // todo fix type
+    onChange: (event: any) => void;
+    error?: string;
+}
 
-export const CustomInput: FC<CustomInputProps> = (props) => {
-    const { label, value, onChange } = props;
+export const CustomInput = (props: CustomInputProps) => {
+    const { title, name, value, onChange, error } = props;
 
     return (
-        <div className={css.inputWrapper}>
-            <input {...props} className={css.input} value={value} onChange={onChange} />
-            <label className={css.inputLabel}>{label}</label>
+        <div className={css.CustomInput}>
+            <label htmlFor={name} className={css.label}>
+                <input
+                    name={name}
+                    className={cs(css.field, value.length > 0 && css.fieldFilled)}
+                    value={value}
+                    onChange={onChange}
+                    type={name === 'phone' ? 'tel' : 'text'}
+                />
+                <p className={css.title}>{title}</p>
+            </label>
+            {error && <p className={css.error}>{error}</p>}
         </div>
     );
 };
