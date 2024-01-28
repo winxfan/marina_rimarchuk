@@ -8,7 +8,7 @@ export const ActionGlass = () => {
     return (
         <div className={css.actionGlass}>
             <CircleProgressBar circleWidth={83} percent={42} />
-            <Link to="/" className={css.addGlass}>
+            <Link to="/waterTracker" className={css.addGlass}>
                 <div className={css.glassIcon}>
                     <GlassIcon />
                 </div>

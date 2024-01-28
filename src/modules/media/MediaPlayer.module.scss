@@ -63,6 +63,16 @@
   margin-top: 23px;
   align-items: center;
   flex-direction: column;
+
+  input {
+    -webkit-appearance: none !important;
+    height: 6px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 100px;
+    background: #1A1741 !important;
+  }
 }
 
 .time {
@@ -77,6 +87,4 @@
 
 .timeline {
   width: 100%;
-  //border-radius: 100px;
-  //background: #1A1741;
 }

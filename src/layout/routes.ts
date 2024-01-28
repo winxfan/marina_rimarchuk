@@ -42,4 +42,7 @@ export const routes = {
     delivery: {
         path: '/delivery',
     },
+    waterTracker: {
+        path: '/waterTracker',
+    },
 };
