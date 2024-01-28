@@ -1,13 +1,10 @@
-import React, { FC } from 'react';
 import { useMatch } from 'react-router-dom';
 
 import { MediaPlayer } from '../../../../modules/media/MediaPlayer';
 import { data } from '../../../../modules/podcastsBlock/PodcastsBlock';
 import { useBackButton } from '../../../../utils/hooks/useBackButton';
 
-export type MediaPodcastProps = any;
-
-export const MediaPodcast: FC<MediaPodcastProps> = () => {
+export const MediaPodcast = () => {
     useBackButton('/');
     const matchPodcast = useMatch('/mediaPodcast/:id');
 
