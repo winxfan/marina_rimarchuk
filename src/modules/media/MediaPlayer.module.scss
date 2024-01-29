@@ -26,6 +26,7 @@
 }
 
 .playButton {
+  cursor: pointer;
   border: 0;
 }
 
@@ -36,6 +37,8 @@
   align-items: center;
 
   .prevButton {
+    cursor: pointer;
+
     &:before {
       display: inline-flex;
       border-radius: 12px;
@@ -47,6 +50,8 @@
   }
 
   .nextButton {
+    cursor: pointer;
+
     &:after {
       display: inline-flex;
       border-radius: 12px;
@@ -64,6 +69,16 @@
   align-items: center;
   flex-direction: column;
 
+  input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    background: #C2C5F3;
+    border-radius: 50%;
+    border: 1px solid #C2C5F3;
+    cursor: pointer;
+  }
+
   input {
     -webkit-appearance: none !important;
     height: 6px;
@@ -71,7 +86,7 @@
     outline: none;
     border: none;
     border-radius: 100px;
-    background: #1A1741 !important;
+    background: #1A1741;
   }
 }
 

@@ -1,10 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
-import { IconContext } from 'react-icons';
-import { AiFillPauseCircle, AiFillPlayCircle } from 'react-icons/ai';
 
 import useSound from 'use-sound';
 
 import { ReactComponent as NextIcon } from '../../assets/images/media/next.svg';
+import { ReactComponent as PauseIcon } from '../../assets/images/media/pause.svg';
+import { ReactComponent as PlayIcon } from '../../assets/images/media/play.svg';
 import { ReactComponent as PrevIcon } from '../../assets/images/media/prev.svg';
 import music from '../../assets/media/music.mp3';
 import { IMedia } from '../../utils/types/media';
@@ -105,15 +105,11 @@ export const MediaPlayer: FC<MediaPlayerProps> = (props) => {
                     </button>
                     {!isPlaying ? (
                         <button className={css.playButton} onClick={playingButton}>
-                            <IconContext.Provider value={{ size: '72px', color: '#4839BA' }}>
-                                <AiFillPlayCircle />
-                            </IconContext.Provider>
+                            <PauseIcon />
                         </button>
                     ) : (
                         <button className={css.playButton} onClick={playingButton}>
-                            <IconContext.Provider value={{ size: '72px', color: '#4839BA' }}>
-                                <AiFillPauseCircle />
-                            </IconContext.Provider>
+                            <PlayIcon />
                         </button>
                     )}
                     <button>
