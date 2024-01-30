@@ -7,6 +7,7 @@ export interface ILesson {
     description?: string;
     image?: string;
     id: string | number;
+    open?: boolean;
 }
 
 export interface ICourseCard {

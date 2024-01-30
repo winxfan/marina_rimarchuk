@@ -2,7 +2,6 @@
   .accordionItem {
     display: flex;
     flex-direction: column;
-    padding: 20px 16px;
     margin-bottom: 8px;
     gap: 16px;
     border-radius: 24px;
@@ -21,6 +20,8 @@
     .accordionButton {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      padding: 20px 16px;
       cursor: pointer;
       border: 0;
 
@@ -52,6 +53,7 @@
 
   .accordionPanel {
     color: #C2C5F3;
+    padding: 0 16px 20px 16px;
     font-size: 14px;
     letter-spacing: -0.442px;
 

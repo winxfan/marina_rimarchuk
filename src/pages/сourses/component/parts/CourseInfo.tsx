@@ -1,7 +1,10 @@
 import React, { FC, ReactNode } from 'react';
 import { Link, useMatch } from 'react-router-dom';
 
+import cs from 'classnames';
+
 import imageSrc from '../../../../assets/images/course/avatar.png';
+import { ReactComponent as LockIcon } from '../../../../assets/images/course/lock.svg';
 import { ReactComponent as PlayIcon } from '../../../../assets/images/media/pause.svg';
 import { InfoBuy } from '../../../../modules/infoBuy/InfoBuy';
 import { useBackButton } from '../../../../utils/hooks/useBackButton';
@@ -21,29 +24,32 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
 
     const id = Number(matchCard?.params.id);
 
-    console.log(id, 'dsada');
-
     const card: ICourseCard | undefined = dataCourses.flatMap((course) => course.card).find((item) => +item.id === id);
 
     return (
         <>
-            <InfoBuy infoBuy={card} isShowCourse={true}>
+            <InfoBuy infoBuy={card} isShowCourse={true} id={id}>
                 <div className={css.coursesWrapper}>
                     {card?.lesson?.map((entry) => (
-                        <div key={entry.id} className={css.courseInfoCard}>
-                            <Link to={`/course/card/${id}/show/${entry.id}`} className={css.courseLink}>
-                                <div>
-                                    <img src={imageSrc} className={css.courseInfoIcon} alt="avatar" />
-                                </div>
-                                <div className={css.courseInfoText}>
-                                    <div className={css.courseInfoDescription}>{entry?.description}</div>
-                                    <div className={css.courseInfoTitle}>{entry?.title}</div>
-                                </div>
-                            </Link>
-                            <div className={css.coursePlayIcon}>
-                                <PlayIcon />
+                        <Link
+                            key={entry.id}
+                            to={`/course/card/${id}/show/${entry.id}`}
+                            className={cs(css.courseInfoCard, !entry.open ? css.courseCardBlock : '')}
+                            onClick={(e) => {
+                                if (!entry.open) {
+                                    e.preventDefault();
+                                }
+                            }}
+                        >
+                            <div>
+                                <img src={imageSrc} className={css.courseInfoIcon} alt="avatar" />
                             </div>
-                        </div>
+                            <div className={css.courseInfoText}>
+                                <div className={css.courseInfoDescription}>{entry?.description}</div>
+                                <div className={css.courseInfoTitle}>{entry?.title}</div>
+                            </div>
+                            <div className={css.coursePlayIcon}>{entry.open ? <PlayIcon /> : <LockIcon />}</div>
+                        </Link>
                     ))}
                 </div>
             </InfoBuy>

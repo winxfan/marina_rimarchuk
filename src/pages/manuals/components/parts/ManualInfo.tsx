@@ -22,7 +22,7 @@ export const ManualInfo: FC<ManualInfoProps> = () => {
 
     return (
         <>
-            <InfoBuy infoBuy={manualInfo} isShowManual={true} />
+            <InfoBuy infoBuy={manualInfo} id={manualInfo?.id} isShowManual={true} />
             <div className={css.manualBonusInfo}>
                 <BonusInfoBuy>Группа по всем вопросам в Telegram</BonusInfoBuy>
             </div>

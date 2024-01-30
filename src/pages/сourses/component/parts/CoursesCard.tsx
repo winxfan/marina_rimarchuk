@@ -18,18 +18,16 @@ export const CoursesCard: FC<CoursesCardProps> = (props) => {
         <div className={css.coursesWrapper}>
             <div className={css.coursesTitle}>{title}</div>
             {card?.map((entry) => (
-                <div key={entry.id} className={css.courseCard}>
-                    <Link to={`/course/card/${entry.id}`} className={css.courseLink}>
-                        <img src={entry.image} className={css.courseBackIcon} alt="iconCourse" />
-                        <div className={css.courseText}>
-                            <div className={css.title}>{entry?.title}</div>
-                            <div className={css.description}>{entry?.description}</div>
-                        </div>
-                    </Link>
+                <Link key={entry.id} to={`/course/card/${entry.id}`} className={css.courseCard}>
+                    <img src={entry.image} className={css.courseBackIcon} alt="iconCourse" />
+                    <div className={css.courseText}>
+                        <div className={css.title}>{entry?.title}</div>
+                        <div className={css.description}>{entry?.description}</div>
+                    </div>
                     <div className={css.courseIcon}>
                         <ArrowRight />
                     </div>
-                </div>
+                </Link>
             ))}
         </div>
     );

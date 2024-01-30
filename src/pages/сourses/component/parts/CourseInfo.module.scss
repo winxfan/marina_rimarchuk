@@ -1,5 +1,6 @@
 .coursesWrapper {
   margin-bottom: 24px;
+  width: 100%;
 
   &:last-child {
     margin-bottom: 0;
@@ -11,6 +12,10 @@
     font-weight: 500;
     margin-bottom: 18px;
     letter-spacing: -0.442px;
+  }
+
+  .courseCardBlock {
+    opacity: 0.5;
   }
 
   .courseInfoCard {
@@ -48,6 +53,8 @@
       display: flex;
       flex-direction: column;
       flex: 1 1 auto;
+      align-items: flex-start;
+      text-align: left;
     }
 
     .courseInfoTitle {

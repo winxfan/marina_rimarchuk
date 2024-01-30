@@ -22,11 +22,9 @@ export const StatisticLevel = () => {
                         <div className={css.completeTitle}>До следующего уровня выполнено:</div>
                         <ProgressBar percent={55} />
                     </div>
-                    <button type="button" className={css.watchQuestion}>
-                        <Link to="/tasks" className={css.watchLink}>
-                            <div className={css.watchText}>Смотреть задания</div>
-                        </Link>
-                    </button>
+                    <Link to="/tasks" className={css.watchQuestion}>
+                        <div className={css.watchText}>Смотреть задания</div>
+                    </Link>
                 </div>
             </div>
             <StatisticInfoCard />
