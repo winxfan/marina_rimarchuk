@@ -42,6 +42,9 @@ export const routes = {
     infoCourse: {
         path: '/course/card/:id',
     },
+    infoCourseShow: {
+        path: '/course/card/:id/show/:id',
+    },
     delivery: {
         path: '/delivery/:id',
     },

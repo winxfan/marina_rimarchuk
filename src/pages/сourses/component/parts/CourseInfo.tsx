@@ -21,6 +21,8 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
 
     const id = Number(matchCard?.params.id);
 
+    console.log(id, 'dsada');
+
     const card: ICourseCard | undefined = dataCourses.flatMap((course) => course.card).find((item) => +item.id === id);
 
     return (
@@ -29,7 +31,7 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
                 <div className={css.coursesWrapper}>
                     {card?.lesson?.map((entry) => (
                         <div key={entry.id} className={css.courseInfoCard}>
-                            <Link to={`/course/card/${entry.id}`} className={css.courseLink}>
+                            <Link to={`/course/card/${id}/show/${entry.id}`} className={css.courseLink}>
                                 <div>
                                     <img src={imageSrc} className={css.courseInfoIcon} alt="avatar" />
                                 </div>

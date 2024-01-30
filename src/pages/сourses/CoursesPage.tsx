@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 
+import avatarLesson from '../../assets/images/course/avatar.png';
 import brainImage from '../../assets/images/courses/brain.png';
 import meditationImage from '../../assets/images/courses/meditation.png';
 import moneyImage from '../../assets/images/courses/money.png';
@@ -28,25 +29,25 @@ export const dataCourses: ICourses[] = [
                 lesson: [
                     {
                         id: '11',
-                        image: '',
+                        image: avatarLesson,
                         title: 'Как найти себя. Лучшая практика',
                         description: 'Урок 1',
                     },
                     {
                         id: '12',
-                        image: '',
+                        image: avatarLesson,
                         title: 'Как найти себя. Лучшая практика',
                         description: 'Урок 2',
                     },
                     {
                         id: '13',
-                        image: '',
+                        image: avatarLesson,
                         title: 'Как найти себя. Лучшая практика',
                         description: 'Урок 3',
                     },
                     {
                         id: '14',
-                        image: '',
+                        image: avatarLesson,
                         title: 'Как найти себя. Лучшая практика',
                         description: 'Урок 4',
                     },
@@ -86,25 +87,25 @@ export const dataCourses: ICourses[] = [
                 lesson: [
                     {
                         id: '15',
-                        image: '',
+                        image: avatarLesson,
                         title: 'Как найти себя. Лучшая практика',
                         description: 'Урок 1',
                     },
                     {
                         id: '16',
-                        image: '',
+                        image: avatarLesson,
                         title: 'Как найти себя. Лучшая практика',
                         description: 'Урок 2',
                     },
                     {
                         id: '17',
-                        image: '',
+                        image: avatarLesson,
                         title: 'Как найти себя. Лучшая практика',
                         description: 'Урок 3',
                     },
                     {
                         id: '18',
-                        image: '',
+                        image: avatarLesson,
                         title: 'Как найти себя. Лучшая практика',
                         description: 'Урок 4',
                     },
@@ -129,25 +130,25 @@ export const dataCourses: ICourses[] = [
                 lesson: [
                     {
                         id: '19',
-                        image: '',
+                        image: avatarLesson,
                         title: 'Как найти себя. Лучшая практика',
                         description: 'Урок 1',
                     },
                     {
                         id: '20',
-                        image: '',
+                        image: avatarLesson,
                         title: 'Как найти себя. Лучшая практика',
                         description: 'Урок 2',
                     },
                     {
                         id: '21',
-                        image: '',
+                        image: avatarLesson,
                         title: 'Как найти себя. Лучшая практика',
                         description: 'Урок 3',
                     },
                     {
                         id: '22',
-                        image: '',
+                        image: avatarLesson,
                         title: 'Как найти себя. Лучшая практика',
                         description: 'Урок 4',
                     },
