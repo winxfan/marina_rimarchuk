@@ -1,5 +1,8 @@
 import React from 'react';
 
+import crystalImage from '../../../assets/images/tasks/crystal.png';
+import starImage from '../../../assets/images/tasks/star.png';
+import starsImage from '../../../assets/images/tasks/stars.png';
 import { AccordionComponent } from '../../../modules/accordion/AccordionComponent';
 import { HeaderPage } from '../../../modules/header/components/HeaderPage';
 import { ProgressBar } from '../../../modules/progressBar/ProgressBar';
@@ -11,6 +14,7 @@ const levelData: IAccordionContent[] = [
     {
         id: '1',
         title: 'Звездочка',
+        icon: starsImage,
         content: [
             {
                 title: 'Куплено 1/3 методичек',
@@ -31,6 +35,7 @@ const levelData: IAccordionContent[] = [
     {
         id: '2',
         title: 'Звезда',
+        icon: starImage,
         content: [
             {
                 title: 'Куплено 1/3 методичек',
@@ -51,6 +56,7 @@ const levelData: IAccordionContent[] = [
     {
         id: '3',
         title: 'Легенда',
+        icon: crystalImage,
         content: [
             {
                 title: 'Куплено 1/3 методичек',

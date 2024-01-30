@@ -33,18 +33,6 @@
           display: inline-flex;
           min-width: 28px;
           height: 34px;
-
-          &[data-index="0"],  {
-            background: url("../../assets/images/tasks/stars.png") center center / cover no-repeat;
-          }
-
-          &[data-index="1"],  {
-            background: url("../../assets/images/tasks/star.png") center center / cover no-repeat;
-          }
-
-          &[data-index="2"],  {
-            background: url("../../assets/images/tasks/crystal.png") center center / cover no-repeat;
-          }
         }
 
         .accordionTasksTitle {

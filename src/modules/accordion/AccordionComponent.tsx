@@ -24,13 +24,13 @@ export const AccordionComponent: FC<AccordionComponentProps> = (props) => {
 
     return (
         <Accordion allowZeroExpanded={true} className={css.accordion}>
-            {data?.map((entry, index) => (
+            {data?.map((entry) => (
                 <AccordionItem key={`${entry.id}-accordion-item`} className={css.accordionItem}>
                     <AccordionItemHeading className={css.accordionHeading}>
                         <AccordionItemButton className={css.accordionButton}>
                             {isTasksPage && (
                                 <div className={css.accordionTasksWrapper}>
-                                    <div className={css.accordionTasksIcon} data-index={index}></div>
+                                    <img src={entry.icon} className={css.accordionTasksIcon} alt="task icon" />
                                     <div className={css.accordionTasksTitle}>{entry.title}</div>
                                 </div>
                             )}
