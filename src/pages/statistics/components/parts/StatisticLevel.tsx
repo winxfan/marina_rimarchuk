@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import imageSrc from '../../../../assets/images/tasks/stars.png';
 import { ProgressBar } from '../../../../modules/progressBar/ProgressBar';
 import { StatisticInfoCard } from './StatisticInfoCard';
 import css from './StatisticLevel.module.scss';
@@ -11,7 +12,7 @@ export const StatisticLevel = () => {
             <div className={css.statisticLevelWrapper}>
                 <div className={css.levelCard}>
                     <div className={css.levelCurrent}>
-                        <div className={css.currentIcon}></div>
+                        <img src={imageSrc} className={css.currentIcon} alt="level icon" />
                         <div className={css.currentInfo}>
                             <div className={css.infoTitle}>Звездочка</div>
                             <div className={css.infoDescription}>Ваш текущий уровень</div>

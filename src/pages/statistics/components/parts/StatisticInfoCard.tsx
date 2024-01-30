@@ -2,6 +2,9 @@ import React, { FC } from 'react';
 
 import cs from 'classnames';
 
+import cameraImage from '../../../../assets/images/statistics/camera.png';
+import microImage from '../../../../assets/images/statistics/micro.png';
+import waterImage from '../../../../assets/images/statistics/water.png';
 import { IStatisticInfoCard } from '../../../../utils/types/statistic';
 import css from './StatisticInfoCard.module.scss';
 
@@ -10,10 +13,10 @@ export type StatisticInfoCardProps = {
 };
 
 const data: IStatisticInfoCard[] = [
-    { id: '1', icon: '', title: '1000 мл', description: 'за неделю выпито воды' },
-    { id: '2', icon: '', title: '22 000 мл', description: 'за месяц выпито воды' },
-    { id: '3', icon: '', title: '10', description: 'Видео вы уже посмотрели' },
-    { id: '4', icon: '', title: '101', description: 'Подкастов вы уже послушали' },
+    { id: '1', title: '1000 мл', description: 'за неделю выпито воды', icon: waterImage },
+    { id: '2', title: '22 000 мл', description: 'за месяц выпито воды', icon: waterImage },
+    { id: '3', title: '10', description: 'Видео вы уже посмотрели', icon: cameraImage },
+    { id: '4', title: '101', description: 'Подкастов вы уже послушали', icon: microImage },
 ];
 
 export const StatisticInfoCard: FC<StatisticInfoCardProps> = (props) => {
@@ -21,18 +24,9 @@ export const StatisticInfoCard: FC<StatisticInfoCardProps> = (props) => {
 
     return (
         <div className={cs(css.statisticInfoCard, className)}>
-            {data.map((item, index) => (
+            {data.map((item) => (
                 <div key={item.id} className={cs(css.infoCardItem)}>
-                    <div
-                        className={cs(css.infoCardIcon)}
-                        data-index={index}
-                        style={{
-                            backgroundImage: item.icon,
-                            backgroundPosition: 'center center',
-                            backgroundSize: 'cover',
-                            backgroundRepeat: 'no-repeat',
-                        }}
-                    ></div>
+                    <img src={item.icon} className={css.infoCardIcon} alt="icon statistic" />
                     <div className={css.infoCardTitle}>{item.title}</div>
                     <div className={css.infoCardDescription}>{item.description}</div>
                 </div>

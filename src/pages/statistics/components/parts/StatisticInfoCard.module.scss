@@ -17,18 +17,6 @@
       width: 34px;
       height: 34px;
       margin-bottom: 11px;
-
-      &[data-index="0"], &[data-index="1"] {
-        background: url("../../../../assets/images/statistics/water.png") center center / cover no-repeat;
-      }
-
-      &[data-index="2"] {
-        background: url("../../../../assets/images/statistics/camera.png") center center / cover no-repeat;
-      }
-
-      &[data-index="3"] {
-        background: url("../../../../assets/images/statistics/micro.png") center center / cover no-repeat;
-      }
     }
 
     .infoCardTitle {
