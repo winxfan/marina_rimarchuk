@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import { HeaderPage } from '../../modules/header/components/HeaderPage';
+import { Menu } from '../../modules/menu/Menu';
 import { useBackButton } from '../../utils/hooks/useBackButton';
 import { IManuals } from '../../utils/types/manuals';
 import css from './ManualsPage.module.scss';
@@ -89,6 +90,7 @@ export const ManualsPage: FC<ManualsPageProps> = () => {
                     <ManualCard key={item.id} {...item} />
                 ))}
             </div>
+            <Menu />
         </div>
     );
 };

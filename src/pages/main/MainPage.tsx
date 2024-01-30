@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { MeditationsBlock } from '../../modules/meditationBlock/MeditationsBlock';
+import { Menu } from '../../modules/menu/Menu';
 import { PodcastsBlock } from '../../modules/podcastsBlock/PodcastsBlock';
 import { VideoBlock } from '../../modules/videoBlock/VideoBlock';
 import css from './Main.module.scss';
@@ -31,6 +32,7 @@ export const MainPage = () => {
             <BookBlock />
             <PodcastsBlock isMobile={isMobile} />
             <VideoBlock isMobile={isMobile} />
+            <Menu />
         </div>
     );
 };

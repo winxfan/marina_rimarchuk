@@ -5,6 +5,7 @@ import brainImage from '../../assets/images/courses/brain.png';
 import meditationImage from '../../assets/images/courses/meditation.png';
 import moneyImage from '../../assets/images/courses/money.png';
 import { HeaderPage } from '../../modules/header/components/HeaderPage';
+import { Menu } from '../../modules/menu/Menu';
 import { useBackButton } from '../../utils/hooks/useBackButton';
 import { ICourses } from '../../utils/types/courses';
 import css from './CoursesPage.module.scss';
@@ -228,6 +229,7 @@ export const CoursesPage: FC<CoursesPageProps> = () => {
                     <CoursesCard key={item.id} course={item} />
                 ))}
             </div>
+            <Menu />
         </div>
     );
 };
