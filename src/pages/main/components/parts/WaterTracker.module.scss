@@ -17,10 +17,15 @@
 
     .field {
       position: relative;
+      left: -45px ;
       transform: rotate(-90deg);
       display: flex;
       align-items: center;
       height: 100%;
+
+      .minusIcon {
+        transform: rotate(90deg);
+      }
 
       .controlsWater {
         display: flex;

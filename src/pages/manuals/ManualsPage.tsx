@@ -85,8 +85,8 @@ export const ManualsPage: FC<ManualsPageProps> = () => {
         <div className={css.manualsPage}>
             <HeaderPage title="Методички" />
             <div className={css.manualsWrapper}>
-                {dataManuals?.map((item, index) => (
-                    <ManualCard key={item.id} {...item} index={index} />
+                {dataManuals?.map((item) => (
+                    <ManualCard key={item.id} {...item} />
                 ))}
             </div>
         </div>

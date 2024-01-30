@@ -1,5 +1,7 @@
 import React, { BaseSyntheticEvent, useState } from 'react';
 
+import cs from 'classnames';
+
 import { ReactComponent as CupIcon } from '../../../../assets/images/actionGlass/cup.svg';
 import { ReactComponent as CupBlackIcon } from '../../../../assets/images/actionGlass/cupBlack.svg';
 import { ReactComponent as MinusIcon } from '../../../../assets/images/actionGlass/minus.svg';
@@ -42,7 +44,7 @@ export const WaterTracker = () => {
                     <CupIcon />
                 </div>
                 <div className={css.field}>
-                    <button className={css.controlsWater} onClick={handleDecrease}>
+                    <button className={cs(css.controlsWater, css.minusIcon)} onClick={handleDecrease}>
                         <MinusIcon />
                     </button>
                     <input

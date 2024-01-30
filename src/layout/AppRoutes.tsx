@@ -17,6 +17,7 @@ import { StatisticsPage } from '../pages/statistics/StatisticsPage';
 import { StatisticTasks } from '../pages/statistics/components/StatisticTasks';
 import { VideoPage } from '../pages/video/VideoPage';
 import { CoursesPage } from '../pages/сourses/CoursesPage';
+import { CourseInfo } from '../pages/сourses/component/parts/CourseInfo';
 import { routes } from './routes';
 
 export const AppRoutes = () => {
@@ -36,6 +37,7 @@ export const AppRoutes = () => {
                 <Route index path={routes.mediaMeditation.path} element={<MediaMeditation />} />
                 <Route index path={routes.mediaPodcast.path} element={<MediaPodcast />} />
                 <Route index path={routes.courses.path} element={<CoursesPage />} />
+                <Route index path={routes.infoCourse.path} element={<CourseInfo />} />
                 <Route index path={routes.delivery.path} element={<DeliveryPage />} />
                 <Route index path={routes.waterTracker.path} element={<WaterTracker />} />
                 <Route path="*" element={<NotFoundPage />} />

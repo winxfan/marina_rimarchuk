@@ -39,8 +39,11 @@ export const routes = {
     courses: {
         path: '/courses',
     },
+    infoCourse: {
+        path: '/course/card/:id',
+    },
     delivery: {
-        path: '/delivery',
+        path: '/delivery/:id',
     },
     waterTracker: {
         path: '/waterTracker',
