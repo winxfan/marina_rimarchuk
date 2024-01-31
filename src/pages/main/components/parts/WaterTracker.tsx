@@ -63,6 +63,15 @@ export const WaterTracker = () => {
         setAdjustedHeight((prevHeight) => Math.min(prevHeight + 31, 395));
     };
 
+    const handleSliderMouseUp = (e: BaseSyntheticEvent) => {
+        setAdjustedHeight((prevHeight) => Math.min(prevHeight + (e.target.value / 2555) * 100, 395));
+    };
+
+    const handleSliderMouseDown = (e: BaseSyntheticEvent) => {
+        console.log(e, 'e');
+        setAdjustedHeight((prevHeight) => Math.max(prevHeight - (e.target.value / 2555) * 100, 178));
+    };
+
     const rangeRef = useRef<HTMLDivElement>(null);
 
     const backgroundStyle = {
@@ -98,6 +107,8 @@ export const WaterTracker = () => {
                                 step="365"
                                 value={sliderValue}
                                 onChange={handleSliderChange}
+                                onMouseDown={handleSliderMouseDown}
+                                onMouseUp={handleSliderMouseUp}
                             />
                             <label htmlFor="range">{sliderValue}</label>
                         </div>
