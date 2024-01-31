@@ -16,7 +16,7 @@ export const WaterVolume: FC<WaterVolumeProps> = (props) => {
                 <WaterIcon />
             </div>
             <div className={css.waterVolume}>
-                <div className={css.volume}>{currentLevel ?? 0} из 2560 мл</div>
+                <div className={css.volume}>{currentLevel ?? 0} из 2555 мл</div>
             </div>
         </div>
     );

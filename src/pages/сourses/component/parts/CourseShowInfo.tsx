@@ -15,7 +15,6 @@ export type CourseShowInfoProps = {
 };
 
 export const CourseShowInfo: FC<CourseShowInfoProps> = () => {
-    useBackButton('/courses');
     const matchShowCourse = useMatch('/course/card/:id/show/:id');
     let cardId: number;
     const id = Number(matchShowCourse?.params.id);
@@ -26,6 +25,8 @@ export const CourseShowInfo: FC<CourseShowInfoProps> = () => {
     if (match) {
         cardId = Number(match[1]);
     }
+
+    useBackButton(`/course/card/${match ? Number(match[1]) : '/courses'}`);
 
     const card: ICourseCard | undefined = dataCourses
         .flatMap((course) => course.card)
