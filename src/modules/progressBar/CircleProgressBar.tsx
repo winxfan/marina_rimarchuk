@@ -16,6 +16,31 @@ export const CircleProgressBar: FC<CircleProgressBarProps> = (props) => {
     const dashOffset = dashArray - (dashArray * +percent) / 100;
     const strokeDashoffsetValue = 18;
 
+    let emoji;
+    switch (true) {
+        case percent <= 20:
+            emoji = '😓';
+            break;
+        case percent <= 40:
+            emoji = '😢';
+            break;
+        case percent <= 60:
+            emoji = '😊';
+            break;
+        case percent <= 80:
+            emoji = '😘';
+            break;
+        case percent <= 99:
+            emoji = '🥰';
+            break;
+        case percent === 100:
+            emoji = '🤩';
+            break;
+        default:
+            emoji = '🙂';
+            break;
+    }
+
     return (
         <div className={css.circleProgressBar}>
             <svg width={circleWidth} height={circleWidth} viewBox={`0 0 ${circleWidth} ${circleWidth}`}>
@@ -46,6 +71,16 @@ export const CircleProgressBar: FC<CircleProgressBarProps> = (props) => {
                     transform={`rotate(90 ${Number(circleWidth) / 2} ${Number(circleWidth) / 2})`}
                     stroke="url(#gradient)"
                 />
+                <text
+                    x={Number(circleWidth) / 2}
+                    y={Number(circleWidth) / 2 + 2}
+                    textAnchor="middle"
+                    alignmentBaseline="middle"
+                    fontSize="20"
+                    fill="white"
+                >
+                    {emoji}
+                </text>
             </svg>
             <div className={css.percent}>
                 <span className={css.number}>{percent}%</span>
