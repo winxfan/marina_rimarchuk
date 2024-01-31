@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 
+import cs from 'classnames';
 import useSound from 'use-sound';
 
 import { ReactComponent as NextIcon } from '../../assets/images/media/next.svg';
@@ -12,10 +13,11 @@ import css from './MediaPlayer.module.scss';
 
 export type MediaPlayerProps = {
     entryInfo?: IMedia;
+    className?: any;
 };
 
 export const MediaPlayer: FC<MediaPlayerProps> = (props) => {
-    const { entryInfo } = props;
+    const { entryInfo, className } = props;
 
     const [isPlaying, setIsPlaying] = useState(false);
     const [time, setTime] = useState({
@@ -68,26 +70,36 @@ export const MediaPlayer: FC<MediaPlayerProps> = (props) => {
         }
     };
 
+    console.log(entryInfo?.id, 'entryInfo?.id}');
+
     return (
         <>
-            <div className={css.mediaPlayer}>
-                <div className={css.mediaImage}>{/*  <img src={entryInfo?.image} />*/}</div>
+            <div className={cs(css.mediaPlayer, className)} data-index={entryInfo?.id}>
+                {/* <div className={css.mediaImage}>
+                    <img src={entryInfo?.image} alt="meditation player" />
+                </div>*/}
                 <div className={css.mediaTitle}>
                     <div className={css.title}>{entryInfo?.title}</div>
                 </div>
             </div>
             <div className={css.mediaDuration}>
-                <input
-                    type="range"
-                    min="0"
-                    max={Number(duration) / 1000}
-                    defaultValue="0"
-                    value={seconds}
-                    className={css.timeline}
-                    onChange={(e) => {
-                        sound.seek([e.target.value]);
-                    }}
-                />
+                <div className={css.progressBarContainer}>
+                    <div
+                        className={css.progressBar}
+                        style={{ width: `${seconds && duration ? (seconds / duration) * 100 : 0}%` }}
+                    />
+                    <input
+                        type="range"
+                        min="0"
+                        max={Number(duration) / 1000}
+                        defaultValue="0"
+                        value={seconds}
+                        className={css.timeline}
+                        onChange={(e) => {
+                            sound.seek([e.target.value]);
+                        }}
+                    />
+                </div>
                 <div className={css.time}>
                     <p>
                         {currTime.min}:{currTime.sec}

@@ -13,25 +13,25 @@ export type MeditationsBlockProps = {
 
 export const data: IMedia[] = [
     {
-        id: '12',
+        id: '1',
         title: 'Медитация исцеления тела',
         time: '12:56',
         file: '',
-        image: '',
+        image: 'background: linear-gradient(90deg, #160F35 16.67%, #1D1C48 100%), #211A41',
     },
     {
-        id: '124',
+        id: '2',
         title: 'Медитация исцеления тела',
         time: '12:56',
         file: '',
-        image: '',
+        image: 'background: linear-gradient(90deg, #160F35 16.67%, #1D1C48 100%), #211A41',
     },
     {
-        id: '126',
+        id: '3',
         title: 'Медитация изобилия',
         time: '12:56',
         file: '',
-        image: '',
+        image: 'background: linear-gradient(90deg, #160F35 16.67%, #1D1C48 100%), #211A41',
     },
 ];
 
