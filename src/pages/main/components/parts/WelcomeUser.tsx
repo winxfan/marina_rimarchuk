@@ -16,7 +16,9 @@ export const WelcomeUser = () => {
 
     /* console.log(users, 'users');*/
 
-    const { initDataUnsafe, WebAppUser } = useTelegram();
+    const { initDataUnsafe } = useTelegram();
+
+    console.log((window as any).Telegram.WebApp.query_id, '111');
 
     return (
         <div className={css.welcomeUser}>
@@ -28,6 +30,7 @@ export const WelcomeUser = () => {
                         </div>
                         <div className={css.userInfo}>
                             <div className={css.helloUser}>Привет</div>
+                            {(window as any).Telegram.WebApp.query_id}
                             <div className={css.username}>{initDataUnsafe?.user?.first_name ?? 'Аноним'}</div>
                         </div>
                     </div>
