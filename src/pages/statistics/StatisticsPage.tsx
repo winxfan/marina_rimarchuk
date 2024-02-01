@@ -16,6 +16,7 @@ export const StatisticsPage = () => {
                 <div className={css.userAvatar}>
                     <AvatarIcon />
                 </div>
+                {id ?? '1'}
                 <p className={css.username}>{initDataUnsafe?.user?.first_name ?? 'Аноним'}</p>
             </div>
             <MyStatistics />
