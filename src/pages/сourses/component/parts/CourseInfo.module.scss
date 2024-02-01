@@ -28,7 +28,6 @@
     border-radius: 24px;
     background: linear-gradient(90deg, #160F35 0%, #1D1C48 100%), #FFF;
     padding: 20px 16px;
-    gap: 16px;
 
     &:last-child {
       margin-bottom: 0;
@@ -47,6 +46,7 @@
       flex: 0 0 80px;
       min-width: 80px;
       min-height: 60px;
+      margin-right: 16px;
     }
 
     .courseInfoText {
@@ -77,6 +77,7 @@
       flex: 0 0 36px;
       min-width: 36px;
       min-height: 36px;
+      margin-left: 16px;
     }
   }
 }
