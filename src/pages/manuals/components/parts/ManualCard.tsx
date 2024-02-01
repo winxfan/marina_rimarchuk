@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
+import cs from 'classnames';
+
 import { ReactComponent as ManualBook } from '../../../../assets/images/manuals/book.svg';
 import { ReactComponent as BuyBook } from '../../../../assets/images/manuals/buy.svg';
 import { ReactComponent as DownloadBook } from '../../../../assets/images/manuals/download.svg';
@@ -19,15 +21,17 @@ export const ManualCard: FC<ManualCardProps> = (props) => {
     return (
         <div className={css.manualCard}>
             <Link to={`/manual/${id}`} className={css.manualLink}>
-                <div className={css.iconColumn}>
+                <div className={cs(css.iconColumn, css.manualIcon)}>
                     <ManualBook />
                 </div>
-                <div className={css.textColumn}>
-                    <div className={css.title}>{title}</div>
-                    <div className={css.description}>{description}</div>
+                <div className={css.blockManual}>
+                    <div className={css.textColumn}>
+                        <div className={css.title}>{title}</div>
+                        <div className={css.description}>{description}</div>
+                    </div>
+                    <div className={cs(css.iconColumn, css.downloadIcon)}>{buy ? <BuyBook /> : <DownloadBook />}</div>
                 </div>
             </Link>
-            <div className={css.iconColumn}>{buy ? <BuyBook /> : <DownloadBook />}</div>
         </div>
     );
 };

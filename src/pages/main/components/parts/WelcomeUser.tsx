@@ -7,18 +7,19 @@ import { useTelegram } from '../../../../utils/hooks/useTelegram';
 import css from './WelcomeUser.module.scss';
 
 export const WelcomeUser = () => {
+    const { initDataUnsafe } = useTelegram();
+
+    const id = initDataUnsafe?.user?.id;
+    const userName = initDataUnsafe?.user?.first_name;
+
     /*    const dispatch = useDispatch();
     const users = useSelector((state) => state);
 
     useEffect(() => {
-        dispatch(getUsersAll);
-    }, [dispatch]);*/
+        dispatch(getUsersAll() as any);
+    }, [dispatch]);
 
-    /* console.log(users, 'users');*/
-
-    const { initDataUnsafe } = useTelegram();
-
-    console.log((window as any).Telegram.WebApp.query_id, '111');
+    console.log(users, 'users');*/
 
     return (
         <div className={css.welcomeUser}>
@@ -30,8 +31,7 @@ export const WelcomeUser = () => {
                         </div>
                         <div className={css.userInfo}>
                             <div className={css.helloUser}>Привет</div>
-                            {(window as any).Telegram.WebApp.query_id}
-                            <div className={css.username}>{initDataUnsafe?.user?.first_name ?? 'Аноним'}</div>
+                            <div className={css.username}>{userName ?? 'Аноним'}</div>
                         </div>
                     </div>
                     <button type="button" className={css.arrowIcon}>

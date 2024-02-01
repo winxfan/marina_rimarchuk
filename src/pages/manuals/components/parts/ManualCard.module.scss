@@ -2,52 +2,58 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 0;
-  gap: 16px;
-  position: relative;
+  padding-top: 16px;
 
-  &:after {
-    content: '';
-    background: #302E58;
-    width: 300px;
-    height: 1px;
-    bottom: 0;
-    left: 40px;
-    display: inline-flex;
-    position: absolute;
+  &:first-child {
+    padding-top: 0;
   }
 
   .manualLink {
     display: flex;
     align-items: center;
-    gap: 16px;
+
+    .iconColumn {
+      display: inline-flex;
+      flex: 0 0 24px;
+      min-width: 24px;
+      min-height: 24px;
+
+      &.manualIcon {
+        margin-right: 16px;
+      }
+
+      &.downloadIcon {
+        margin-left: 16px;
+      }
+    }
   }
 
-  .iconColumn {
-    display: inline-flex;
-    flex: 0 0 24px;
-    min-width: 24px;
-    min-height: 24px;
-  }
-
-  .textColumn {
+  .blockManual {
     display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-  }
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #302E58;
+    padding-bottom: 16px;
 
-  .title {
-    color: #FFF;
-    font-size: 17px;
-    margin-bottom: 8px;
-    font-weight: 500;
-    letter-spacing: -0.442px;
-    line-height: 129%;
-  }
+    .textColumn {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
 
-  .description {
-    color: #C2C5F3;
-    font-size: 11px;
-    letter-spacing: 0.066px;
+      .title {
+        color: #FFF;
+        font-size: 17px;
+        margin-bottom: 8px;
+        font-weight: 500;
+        letter-spacing: -0.442px;
+        line-height: 129%;
+      }
+
+      .description {
+        color: #C2C5F3;
+        font-size: 11px;
+        letter-spacing: 0.066px;
+      }
+    }
   }
 }
