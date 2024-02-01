@@ -6,7 +6,9 @@ import { MyStatistics } from './components/MyStatistics';
 
 export const StatisticsPage = () => {
     useBackButton('/');
-    const { initDataUnsafe, WebAppUser } = useTelegram();
+    const { initDataUnsafe } = useTelegram();
+
+    const id = initDataUnsafe?.user?.id;
 
     return (
         <div className={css.statisticsWrapper}>
@@ -14,6 +16,7 @@ export const StatisticsPage = () => {
                 <div className={css.userAvatar}>
                     <AvatarIcon />
                 </div>
+                {id ?? '1'}
                 <p className={css.username}>{initDataUnsafe?.user?.first_name ?? 'Аноним'}</p>
             </div>
             <MyStatistics />
