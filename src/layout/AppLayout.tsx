@@ -1,13 +1,9 @@
-import { type FC, type ReactNode, Suspense } from 'react';
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import css from './AppLayout.module.scss';
 
-export interface AppLayoutProps {
-    children?: ReactNode;
-}
-
-export const AppLayout: FC<AppLayoutProps> = ({ children }) => {
+export const AppLayout = () => {
     /*  const dispatch = useDispatch();
     const userStatus = useSelector((store) => store.user.user.status);
     const userData = useSelector((store) => store.user.user.data, shallowEqual);

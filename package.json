@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --open --env mode=development",
     "build:dev": "webpack --env mode=development",
-    "build": "webpack --env mode=production analyzer=true",
+    "build": "webpack --env mode=production analyzer=false",
     "lint": "eslint src --ext .js,.ts,.tsx --ignore-pattern '!.*.js'",
     "format": "npx eslint src --ext .js,.ts,.tsx --ignore-pattern '!.*.js' --fix"
   },
