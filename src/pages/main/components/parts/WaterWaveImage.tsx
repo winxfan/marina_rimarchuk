@@ -17,7 +17,7 @@ const WaterWaveImage: FC<WaterWaveImageProps> = (props) => {
             style={{ width: '100%' }}
         >
             <path
-                d="M-1 11.0243C230.113 -17.4737 225 79.5 463 1.02426V399H-1V11.0243Z"
+                d="M-1 11.0243C230.113 -17.4737 225 79.5 562 1.02426V399H-1V11.0243Z"
                 fill="url(#paint0_linear_1040_7211)"
                 stroke="url(#paint1_linear_1040_7211)"
             />
