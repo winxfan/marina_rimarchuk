@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import ArrowIcon from '@/assets/images/arrowIcon/arrow.svg';
-import AvatarIcon from '@/assets/images/welcomeUser/avatar.svg';
+import avatarIcon from '@/assets/images/welcomeUser/avatar.png';
 import QuestionsIcon from '@/assets/images/welcomeUser/questions.svg';
 import { useTelegram } from '@/utils/hooks/useTelegram';
 
@@ -27,9 +27,8 @@ export const WelcomeUser = () => {
             <Link to="/statistics">
                 <div className={css.user}>
                     <div className={css.greetings}>
-                        <div className={css.userAvatar}>
-                            <AvatarIcon />
-                        </div>
+                        <img src={avatarIcon} className={css.userAvatar} alt="avatar" />
+
                         <div className={css.userInfo}>
                             <div className={css.helloUser}>Привет</div>
                             <div className={css.username}>{userName ?? 'Аноним'}</div>

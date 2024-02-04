@@ -114,7 +114,7 @@ export const data: IBookBlock[] = [
 export const BookBlock = () => {
     return (
         <div className={css.bookBlock}>
-            <CardSlider isVideoBlock={true}>
+            <CardSlider slidesToShow={1}>
                 {data?.map((item, index) => (
                     <BookCard key={item.id} {...item} index={index} />
                 ))}

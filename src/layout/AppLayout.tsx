@@ -1,5 +1,8 @@
 import { Suspense } from 'react';
+import { VscLoading } from 'react-icons/vsc';
 import { Outlet } from 'react-router-dom';
+
+import { Loader } from '@/components/Loader';
 
 import css from './AppLayout.module.scss';
 
@@ -19,7 +22,7 @@ export const AppLayout = () => {
 
     return (
         <div className={css.layout}>
-            <Suspense>
+            <Suspense fallback={<Loader />}>
                 <Outlet />
             </Suspense>
         </div>

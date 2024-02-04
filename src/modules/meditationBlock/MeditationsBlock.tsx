@@ -34,6 +34,27 @@ export const data: IMedia[] = [
         file: '',
         image: 'background: linear-gradient(90deg, #160F35 16.67%, #1D1C48 100%), #211A41',
     },
+    {
+        id: '4',
+        title: 'Медитация исцеления тела',
+        time: '12:56',
+        file: '',
+        image: 'background: linear-gradient(90deg, #160F35 16.67%, #1D1C48 100%), #211A41',
+    },
+    {
+        id: '5',
+        title: 'Медитация исцеления тела',
+        time: '12:56',
+        file: '',
+        image: 'background: linear-gradient(90deg, #160F35 16.67%, #1D1C48 100%), #211A41',
+    },
+    {
+        id: '6',
+        title: 'Медитация изобилия',
+        time: '12:56',
+        file: '',
+        image: 'background: linear-gradient(90deg, #160F35 16.67%, #1D1C48 100%), #211A41',
+    },
 ];
 
 export const MeditationsBlock: FC<MeditationsBlockProps> = (props) => {
@@ -44,7 +65,7 @@ export const MeditationsBlock: FC<MeditationsBlockProps> = (props) => {
             <Link to="/meditation" className={css.resetStyle}>
                 <CommonHeader title="Медитации" />
             </Link>
-            <CardSlider isMobile={isMobile} isShowTwo={true}>
+            <CardSlider slidesToShow={2.75}>
                 {data?.map((item, index) => (
                     <MeditationCard key={item.id} {...item} index={index} />
                 ))}

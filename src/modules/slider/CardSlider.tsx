@@ -1,29 +1,34 @@
 import React, { FC, ReactNode } from 'react';
-import Slider from 'react-slick';
+import Slider, { type Settings } from 'react-slick';
 
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 
+import css from './CardSlider.module.scss';
+
 export type CardSliderProps = {
     children: ReactNode;
-    isVideoBlock?: boolean;
-    isMobile?: boolean;
-    isShowTwo?: boolean;
+    slidesToShow?: number;
 };
 
 const CardSlider: FC<CardSliderProps> = (props) => {
-    const { children, isVideoBlock, isMobile, isShowTwo } = props;
+    const { children, slidesToShow = 2 } = props;
 
-    const settings = {
+    const settings: Settings = {
         dots: false,
-        infinite: true,
+        infinite: false,
         speed: 500,
-        slidesToShow: isShowTwo && isMobile ? 2 : isVideoBlock || isMobile ? 1 : 3,
-        slidesToScroll: 2,
+        slidesToShow,
+        // slidesToScroll: slidesToShow / 2,
         arrows: false,
+        swipeToSlide: true,
     };
 
-    return <Slider {...settings}>{children}</Slider>;
+    return (
+        <Slider {...settings} className={css.CardSlider}>
+            {children}
+        </Slider>
+    );
 };
 
 export default CardSlider;

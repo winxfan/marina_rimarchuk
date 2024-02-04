@@ -51,7 +51,7 @@ export const PodcastsBlock: FC<PodcastsBlockProps> = (props) => {
             <Link to="/podcasts" className={css.resetStyle}>
                 <CommonHeader title="Подкасты" />
             </Link>
-            <CardSlider isMobile={isMobile} isShowTwo={true}>
+            <CardSlider slidesToShow={2.75}>
                 {data?.map((item) => (
                     <PodcastCard key={item.id} {...item} />
                 ))}

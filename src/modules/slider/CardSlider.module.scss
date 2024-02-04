@@ -1,4 +1,8 @@
-@import 'swiper/swiper.css';
+.CardSlider {
+  :global(.slick-track) {
+    margin-left: 0;
+  }
+}
 
 .cardBackground {
   border-radius: 20px;

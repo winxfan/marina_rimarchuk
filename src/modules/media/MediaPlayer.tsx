@@ -7,7 +7,7 @@ import NextIcon from '@/assets/images/media/next.svg';
 import PauseIcon from '@/assets/images/media/pause.svg';
 import PlayIcon from '@/assets/images/media/play.svg';
 import PrevIcon from '@/assets/images/media/prev.svg';
-// import music from '@/assets/media/music.mp3';
+import musicSrc from '@/assets/media/music.mp3';
 import { IMedia } from '@/utils/types/media';
 
 import css from './MediaPlayer.module.scss';
@@ -32,7 +32,7 @@ export const MediaPlayer: FC<MediaPlayerProps> = (props) => {
 
     const [seconds, setSeconds] = useState();
 
-    const [play, { pause, duration, sound }] = useSound('');
+    const [play, { pause, duration, sound }] = useSound(musicSrc);
 
     useEffect(() => {
         if (duration) {

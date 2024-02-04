@@ -64,11 +64,17 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
 		}
 	}
 
+	const fileLoader = {
+		test: /\.mp3$/,
+		loader: 'file-loader'
+	}
+
 	return [
 		cssLoader,
 		sassLoader,
 		tsLoader,
 		svgLoader,
 		assetsLoader,
+		fileLoader,
 	]
 }
