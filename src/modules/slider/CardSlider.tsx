@@ -9,10 +9,11 @@ import css from './CardSlider.module.scss';
 export type CardSliderProps = {
     children: ReactNode;
     slidesToShow?: number;
+    slidesToShowMobile?: number;
 };
 
 const CardSlider: FC<CardSliderProps> = (props) => {
-    const { children, slidesToShow = 2 } = props;
+    const { children, slidesToShow = 2, slidesToShowMobile } = props;
 
     const settings: Settings = {
         dots: false,
@@ -22,6 +23,14 @@ const CardSlider: FC<CardSliderProps> = (props) => {
         // slidesToScroll: slidesToShow / 2,
         arrows: false,
         swipeToSlide: true,
+        responsive: [
+            {
+                breakpoint: 420,
+                settings: {
+                    slidesToShow: slidesToShowMobile,
+                },
+            },
+        ],
     };
 
     return (

@@ -65,7 +65,7 @@ export const MeditationsBlock: FC<MeditationsBlockProps> = (props) => {
             <Link to="/meditation" className={css.resetStyle}>
                 <CommonHeader title="Медитации" />
             </Link>
-            <CardSlider slidesToShow={2.75}>
+            <CardSlider slidesToShow={2.5} slidesToShowMobile={1.75}>
                 {data?.map((item, index) => (
                     <MeditationCard key={item.id} {...item} index={index} />
                 ))}
