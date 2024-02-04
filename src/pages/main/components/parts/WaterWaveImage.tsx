@@ -23,7 +23,19 @@ const WaterWaveImage: FC<WaterWaveImageProps> = (props) => {
                 d="M-1 11.0243C230.113 -17.4737 225 79.5 562 1.02426V399H-1V11.0243Z"
                 fill="url(#paint0_linear_1040_7211)"
                 stroke="url(#paint1_linear_1040_7211)"
-            />
+            >
+                <animateTransform
+                    attributeName="transform"
+                    attributeType="XML"
+                    type="translate"
+                    dur="2s"
+                    keyTimes="0; 0.5; 1"
+                    repeatCount="indefinite"
+                    values="0 0; 0 5; 0 0"
+                    calcMode="spline"
+                    keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+                />
+            </path>
             <defs>
                 <linearGradient
                     id="paint0_linear_1040_7211"
