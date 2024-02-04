@@ -1,11 +1,12 @@
 import React, { FC, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
-import imageSrc from '../../assets/images/bookBlock/bookShow.png';
-import { useBackButton } from '../../utils/hooks/useBackButton';
-import { IBookBlock } from '../../utils/types/book';
-import { ICourseCard } from '../../utils/types/courses';
-import { IManuals } from '../../utils/types/manuals';
+import imageSrc from '@/assets/images/bookBlock/bookShow.png';
+import { useBackButton } from '@/utils/hooks/useBackButton';
+import { IBookBlock } from '@/utils/types/book';
+import { ICourseCard } from '@/utils/types/courses';
+import { IManuals } from '@/utils/types/manuals';
+
 import css from './InfoBuy.module.scss';
 
 export type InfoBuyProps = {

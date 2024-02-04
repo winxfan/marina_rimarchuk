@@ -1,13 +1,14 @@
 import React, { FC } from 'react';
 
-import avatarLesson from '../../assets/images/course/avatar.png';
-import brainImage from '../../assets/images/courses/brain.png';
-import meditationImage from '../../assets/images/courses/meditation.png';
-import moneyImage from '../../assets/images/courses/money.png';
-import { HeaderPage } from '../../modules/header/components/HeaderPage';
-import { Menu } from '../../modules/menu/Menu';
-import { useBackButton } from '../../utils/hooks/useBackButton';
-import { ICourses } from '../../utils/types/courses';
+import avatarLesson from '@/assets/images/course/avatar.png';
+import brainImage from '@/assets/images/courses/brain.png';
+import meditationImage from '@/assets/images/courses/meditation.png';
+import moneyImage from '@/assets/images/courses/money.png';
+import { HeaderPage } from '@/modules/header/components/HeaderPage';
+import { Menu } from '@/modules/menu/Menu';
+import { useBackButton } from '@/utils/hooks/useBackButton';
+import { ICourses } from '@/utils/types/courses';
+
 import css from './CoursesPage.module.scss';
 import { CoursesCard } from './component/parts/CoursesCard';
 
@@ -218,7 +219,7 @@ export const dataCourses: ICourses[] = [
     },
 ];
 
-export const CoursesPage: FC<CoursesPageProps> = () => {
+const CoursesPage: FC<CoursesPageProps> = () => {
     useBackButton('/');
 
     return (
@@ -233,3 +234,5 @@ export const CoursesPage: FC<CoursesPageProps> = () => {
         </div>
     );
 };
+
+export default CoursesPage;

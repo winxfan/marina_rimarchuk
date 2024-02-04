@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import { ReactComponent as ArrowRight } from '../../../../assets/images/courses/arrowRight.svg';
-import { ICourses } from '../../../../utils/types/courses';
+import ArrowRight from '@/assets/images/courses/arrowRight.svg';
+import { ICourses } from '@/utils/types/courses';
+
 import css from './CoursesCard.module.scss';
 
 export type CoursesCardProps = {

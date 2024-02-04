@@ -1,9 +1,10 @@
-import { type FC, type ReactNode } from 'react';
+import { type FC, type ReactNode, Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
 
 import css from './AppLayout.module.scss';
 
 export interface AppLayoutProps {
-    children: ReactNode;
+    children?: ReactNode;
 }
 
 export const AppLayout: FC<AppLayoutProps> = ({ children }) => {
@@ -20,5 +21,11 @@ export const AppLayout: FC<AppLayoutProps> = ({ children }) => {
         }
     }, [dispatch, isAuth]);*/
 
-    return <div className={css.layout}>{children}</div>;
+    return (
+        <div className={css.layout}>
+            <Suspense>
+                <Outlet />
+            </Suspense>
+        </div>
+    );
 };

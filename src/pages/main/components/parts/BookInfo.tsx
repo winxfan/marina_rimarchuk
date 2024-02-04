@@ -1,8 +1,9 @@
 import React, { FC, ReactNode } from 'react';
 import { useMatch } from 'react-router-dom';
 
-import { InfoBuy } from '../../../../modules/infoBuy/InfoBuy';
-import { useBackButton } from '../../../../utils/hooks/useBackButton';
+import { InfoBuy } from '@/modules/infoBuy/InfoBuy';
+import { useBackButton } from '@/utils/hooks/useBackButton';
+
 import { data } from '../BookBlock';
 
 export type BookInfoProps = {
@@ -20,3 +21,5 @@ export const BookInfo: FC<BookInfoProps> = () => {
 
     return <InfoBuy infoBuy={bookInfo} isShowBook={true} id={id} />;
 };
+
+export default BookInfo;

@@ -1,9 +1,10 @@
 import React, { FC, ReactNode } from 'react';
 import { useMatch } from 'react-router-dom';
 
-import { BonusInfoBuy } from '../../../../modules/bonus/BonusInfoBuy';
-import { InfoBuy } from '../../../../modules/infoBuy/InfoBuy';
-import { useBackButton } from '../../../../utils/hooks/useBackButton';
+import { BonusInfoBuy } from '@/modules/bonus/BonusInfoBuy';
+import { InfoBuy } from '@/modules/infoBuy/InfoBuy';
+import { useBackButton } from '@/utils/hooks/useBackButton';
+
 import { dataManuals } from '../../ManualsPage';
 import css from './ManualInfo.module.scss';
 

@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 
 import cs from 'classnames';
 
-import { ReactComponent as PlayIcon } from '../../../../assets/images/meditationCard/play.svg';
-import { IMedia } from '../../../../utils/types/media';
+import PlayIcon from '@/assets/images/meditationCard/play.svg';
+import { IMedia } from '@/utils/types/media';
+
 import css from './PodcastCard.module.scss';
 
 export type PodcastCardProps = IMedia & {

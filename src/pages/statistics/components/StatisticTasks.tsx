@@ -1,13 +1,14 @@
 import React from 'react';
 
-import crystalImage from '../../../assets/images/tasks/crystal.png';
-import starImage from '../../../assets/images/tasks/star.png';
-import starsImage from '../../../assets/images/tasks/stars.png';
-import { AccordionComponent } from '../../../modules/accordion/AccordionComponent';
-import { HeaderPage } from '../../../modules/header/components/HeaderPage';
-import { ProgressBar } from '../../../modules/progressBar/ProgressBar';
-import { useBackButton } from '../../../utils/hooks/useBackButton';
-import { IAccordionContent } from '../../../utils/types/statistic';
+import crystalImage from '@/assets/images/tasks/crystal.png';
+import starImage from '@/assets/images/tasks/star.png';
+import starsImage from '@/assets/images/tasks/stars.png';
+import { AccordionComponent } from '@/modules/accordion/AccordionComponent';
+import { HeaderPage } from '@/modules/header/components/HeaderPage';
+import { ProgressBar } from '@/modules/progressBar/ProgressBar';
+import { useBackButton } from '@/utils/hooks/useBackButton';
+import { IAccordionContent } from '@/utils/types/statistic';
+
 import css from './StatisticTasks.module.scss';
 
 const levelData: IAccordionContent[] = [

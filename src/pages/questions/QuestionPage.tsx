@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { AccordionComponent } from '../../modules/accordion/AccordionComponent';
-import { HeaderPage } from '../../modules/header/components/HeaderPage';
-import { useBackButton } from '../../utils/hooks/useBackButton';
-import { IAccordionContent } from '../../utils/types/statistic';
+import { AccordionComponent } from '@/modules/accordion/AccordionComponent';
+import { HeaderPage } from '@/modules/header/components/HeaderPage';
+import { useBackButton } from '@/utils/hooks/useBackButton';
+import { IAccordionContent } from '@/utils/types/statistic';
+
 import css from './QuestionPage.module.scss';
 
 const questionData: IAccordionContent[] = [
@@ -63,7 +64,7 @@ const questionData: IAccordionContent[] = [
     },
 ];
 
-export const QuestionPage = () => {
+const QuestionPage = () => {
     useBackButton('/');
 
     return (
@@ -75,3 +76,5 @@ export const QuestionPage = () => {
         </div>
     );
 };
+
+export default QuestionPage;

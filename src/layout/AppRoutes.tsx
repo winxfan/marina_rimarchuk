@@ -1,49 +1,96 @@
-import { Route, Routes } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 
-import { QueryParamProvider } from 'use-query-params';
-import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6';
+import { AppLayout } from '@/layout/AppLayout';
+import * as pages from '@/pages';
 
-import { MainPage, NotFoundPage, QuestionPage } from '../pages';
-import { DeliveryPage } from '../pages/delivery/DeliveryPage';
-import { BookInfo } from '../pages/main/components/parts/BookInfo';
-import { MediaMeditation } from '../pages/main/components/parts/MediaMeditation';
-import { MediaPodcast } from '../pages/main/components/parts/MediaPodcast';
-import { WaterTracker } from '../pages/main/components/parts/WaterTracker';
-import { ManualsPage } from '../pages/manuals/ManualsPage';
-import { ManualInfo } from '../pages/manuals/components/parts/ManualInfo';
-import { MeditationPage } from '../pages/meditation/MeditationPage';
-import { PodcastPage } from '../pages/podcast';
-import { StatisticsPage } from '../pages/statistics/StatisticsPage';
-import { StatisticTasks } from '../pages/statistics/components/StatisticTasks';
-import { VideoPage } from '../pages/video/VideoPage';
-import { CoursesPage } from '../pages/сourses/CoursesPage';
-import { CourseInfo } from '../pages/сourses/component/parts/CourseInfo';
-import { CourseShowInfo } from '../pages/сourses/component/parts/CourseShowInfo';
 import { routes } from './routes';
 
-export const AppRoutes = () => {
-    return (
-        <QueryParamProvider adapter={ReactRouter6Adapter}>
-            <Routes>
-                <Route index path={routes.index.path} element={<MainPage />} />
-                <Route index path={routes.meditation.path} element={<MeditationPage />} />
-                <Route index path={routes.podcasts.path} element={<PodcastPage />} />
-                <Route index path={routes.video.path} element={<VideoPage />} />
-                <Route index path={routes.questions.path} element={<QuestionPage />} />
-                <Route index path={routes.statistics.path} element={<StatisticsPage />} />
-                <Route index path={routes.tasks.path} element={<StatisticTasks />} />
-                <Route index path={routes.manuals.path} element={<ManualsPage />} />
-                <Route index path={routes.infoBook.path} element={<BookInfo />} />
-                <Route index path={routes.infoManual.path} element={<ManualInfo />} />
-                <Route index path={routes.mediaMeditation.path} element={<MediaMeditation />} />
-                <Route index path={routes.mediaPodcast.path} element={<MediaPodcast />} />
-                <Route index path={routes.courses.path} element={<CoursesPage />} />
-                <Route index path={routes.infoCourse.path} element={<CourseInfo />} />
-                <Route index path={routes.infoCourseShow.path} element={<CourseShowInfo />} />
-                <Route index path={routes.delivery.path} element={<DeliveryPage />} />
-                <Route index path={routes.waterTracker.path} element={<WaterTracker />} />
-                <Route path="*" element={<NotFoundPage />} />
-            </Routes>
-        </QueryParamProvider>
-    );
-};
+export const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <AppLayout />,
+        children: [
+            {
+                path: routes.index.path,
+                element: <pages.MainPage />,
+                index: true,
+            },
+            {
+                path: routes.meditation.path,
+                element: <pages.MeditationPage />,
+            },
+            {
+                path: routes.index.path,
+                element: <pages.MainPage />,
+            },
+            {
+                path: routes.meditation.path,
+                element: <pages.MeditationPage />,
+            },
+            {
+                path: routes.podcasts.path,
+                element: <pages.PodcastPage />,
+            },
+            {
+                path: routes.video.path,
+                element: <pages.VideoPage />,
+            },
+            {
+                path: routes.questions.path,
+                element: <pages.QuestionPage />,
+            },
+            {
+                path: routes.statistics.path,
+                element: <pages.StatisticsPage />,
+            },
+            {
+                path: routes.tasks.path,
+                element: <pages.StatisticsTasksPage />,
+            },
+            {
+                path: routes.manuals.path,
+                element: <pages.ManualsPage />,
+            },
+            {
+                path: routes.infoBook.path,
+                element: <pages.BookInfo />,
+            },
+            {
+                path: routes.infoManual.path,
+                element: <pages.ManualInfo />,
+            },
+            {
+                path: routes.mediaMeditation.path,
+                element: <pages.MediaMeditation />,
+            },
+            {
+                path: routes.mediaPodcast.path,
+                element: <pages.MediaPodcast />,
+            },
+            {
+                path: routes.courses.path,
+                element: <pages.CoursesPage />,
+            },
+            {
+                path: routes.infoCourse.path,
+                element: <pages.CourseInfo />,
+            },
+            {
+                path: routes.infoCourseShow.path,
+                element: <pages.CourseShowInfo />,
+            },
+            {
+                path: routes.delivery.path,
+                element: <pages.DeliveryPage />,
+            },
+            {
+                path: routes.waterTracker.path,
+                element: <pages.WaterTracker />,
+            },
+            {
+                path: '*',
+                element: <pages.NotFoundPage />,
+            },
+        ],
+    },
+]);

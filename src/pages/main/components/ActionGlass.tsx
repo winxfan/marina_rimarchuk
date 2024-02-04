@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 
-import { ReactComponent as GlassIcon } from '../../../assets/images/actionGlass/glass.svg';
-import { CircleProgressBar } from '../../../modules/progressBar/CircleProgressBar';
+import GlassIcon from '@/assets/images/actionGlass/glass.svg';
+import { CircleProgressBar } from '@/modules/progressBar/CircleProgressBar';
+
 import css from './ActionGlass.module.scss';
 
 export const ActionGlass = () => {

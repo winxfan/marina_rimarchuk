@@ -1,12 +1,13 @@
 import React from 'react';
 
-import { HeaderPage } from '../../modules/header/components/HeaderPage';
-import { data } from '../../modules/podcastsBlock/PodcastsBlock';
-import { useBackButton } from '../../utils/hooks/useBackButton';
+import { HeaderPage } from '@/modules/header/components/HeaderPage';
+import { data } from '@/modules/podcastsBlock/PodcastsBlock';
+import { useBackButton } from '@/utils/hooks/useBackButton';
+
 import { PodcastCard } from '../main/components/parts/PodcastCard';
 import css from './PodcastPage.module.scss';
 
-export const PodcastPage = () => {
+const PodcastPage = () => {
     useBackButton('/');
 
     return (
@@ -20,3 +21,5 @@ export const PodcastPage = () => {
         </div>
     );
 };
+
+export default PodcastPage;

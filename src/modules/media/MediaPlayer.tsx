@@ -3,12 +3,13 @@ import React, { FC, useEffect, useState } from 'react';
 import cs from 'classnames';
 import useSound from 'use-sound';
 
-import { ReactComponent as NextIcon } from '../../assets/images/media/next.svg';
-import { ReactComponent as PauseIcon } from '../../assets/images/media/pause.svg';
-import { ReactComponent as PlayIcon } from '../../assets/images/media/play.svg';
-import { ReactComponent as PrevIcon } from '../../assets/images/media/prev.svg';
-import music from '../../assets/media/music.mp3';
-import { IMedia } from '../../utils/types/media';
+import NextIcon from '@/assets/images/media/next.svg';
+import PauseIcon from '@/assets/images/media/pause.svg';
+import PlayIcon from '@/assets/images/media/play.svg';
+import PrevIcon from '@/assets/images/media/prev.svg';
+// import music from '@/assets/media/music.mp3';
+import { IMedia } from '@/utils/types/media';
+
 import css from './MediaPlayer.module.scss';
 
 export type MediaPlayerProps = {
@@ -31,7 +32,7 @@ export const MediaPlayer: FC<MediaPlayerProps> = (props) => {
 
     const [seconds, setSeconds] = useState();
 
-    const [play, { pause, duration, sound }] = useSound(music);
+    const [play, { pause, duration, sound }] = useSound('');
 
     useEffect(() => {
         if (duration) {

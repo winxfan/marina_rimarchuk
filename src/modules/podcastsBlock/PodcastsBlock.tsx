@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import { PodcastCard } from '../../pages/main/components/parts/PodcastCard';
-import { IMedia } from '../../utils/types/media';
+import { PodcastCard } from '@/pages/main/components/parts/PodcastCard';
+import { IMedia } from '@/utils/types/media';
+
 import { CommonHeader } from '../header/components/CommonHeader';
 import CardSlider from '../slider/CardSlider';
 import css from './PodcastsBlock.module.scss';

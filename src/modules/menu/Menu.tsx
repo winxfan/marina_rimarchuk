@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 
 import cs from 'classnames';
 
-import { ReactComponent as CourseIcon } from '../../assets/images/main/course.svg';
-import { ReactComponent as HomeIcon } from '../../assets/images/main/home.svg';
-import { ReactComponent as ManualIcon } from '../../assets/images/main/manual.svg';
+import CourseIcon from '@/assets/images/main/course.svg';
+import HomeIcon from '@/assets/images/main/home.svg';
+import ManualIcon from '@/assets/images/main/manual.svg';
+
 import css from './Menu.module.scss';
 
 export const Menu = () => {

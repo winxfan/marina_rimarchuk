@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 
 import cs from 'classnames';
 
-import { ReactComponent as VideoPlay } from '../../../../assets/images/videoCard/playVideo.svg';
-import { IVideo } from '../../../../utils/types/video';
+import VideoPlay from '@/assets/images/videoCard/playVideo.svg';
+import { IVideo } from '@/utils/types/video';
+
 import css from './VideoCard.module.scss';
 
 export type VideoCardProps = IVideo & {

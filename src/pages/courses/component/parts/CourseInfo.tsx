@@ -3,12 +3,13 @@ import { Link, useMatch } from 'react-router-dom';
 
 import cs from 'classnames';
 
-import imageSrc from '../../../../assets/images/course/avatar.png';
-import { ReactComponent as LockIcon } from '../../../../assets/images/course/lock.svg';
-import { ReactComponent as PlayIcon } from '../../../../assets/images/media/pause.svg';
-import { InfoBuy } from '../../../../modules/infoBuy/InfoBuy';
-import { useBackButton } from '../../../../utils/hooks/useBackButton';
-import { ICourseCard } from '../../../../utils/types/courses';
+import imageSrc from '@/assets/images/course/avatar.png';
+import LockIcon from '@/assets/images/course/lock.svg';
+import PlayIcon from '@/assets/images/media/pause.svg';
+import { InfoBuy } from '@/modules/infoBuy/InfoBuy';
+import { useBackButton } from '@/utils/hooks/useBackButton';
+import { ICourseCard } from '@/utils/types/courses';
+
 import { dataCourses } from '../../CoursesPage';
 import css from './CourseInfo.module.scss';
 

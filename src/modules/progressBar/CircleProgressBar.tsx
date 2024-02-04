@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import css from './CircleProgressBar.module.scss';
 
 export type CircleProgressBarProps = {
-    percent: number | string;
+    percent: number;
     circleWidth?: number;
 };
 
@@ -17,6 +17,7 @@ export const CircleProgressBar: FC<CircleProgressBarProps> = (props) => {
     const strokeDashoffsetValue = 18;
 
     let emoji;
+
     switch (true) {
         case percent <= 20:
             emoji = '😓';
@@ -76,7 +77,7 @@ export const CircleProgressBar: FC<CircleProgressBarProps> = (props) => {
                     y={Number(circleWidth) / 2 + 2}
                     textAnchor="middle"
                     alignmentBaseline="middle"
-                    fontSize="20"
+                    fontSize="30px"
                     fill="white"
                 >
                     {emoji}

@@ -1,6 +1,7 @@
 import { FC, ReactNode } from 'react';
 
-import { ReactComponent as BonusIcon } from '../../assets/images/infoBuy/bonus.svg';
+import BonusIcon from '@/assets/images/infoBuy/bonus.svg';
+
 import css from './BonusInfoBuy.module.scss';
 
 export interface BonusInfoBuyProps {

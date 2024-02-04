@@ -2,12 +2,13 @@ import React, { BaseSyntheticEvent, useEffect, useRef, useState } from 'react';
 
 import cs from 'classnames';
 
-import { ReactComponent as CupIcon } from '../../../../assets/images/actionGlass/cup.svg';
-import { ReactComponent as CupBlackIcon } from '../../../../assets/images/actionGlass/cupBlack.svg';
-import { ReactComponent as MinusIcon } from '../../../../assets/images/actionGlass/minus.svg';
-import { ReactComponent as PlusIcon } from '../../../../assets/images/actionGlass/plus.svg';
-import { HeaderPage } from '../../../../modules/header/components/HeaderPage';
-import { useBackButton } from '../../../../utils/hooks/useBackButton';
+import CupIcon from '@/assets/images/actionGlass/cup.svg';
+import CupBlackIcon from '@/assets/images/actionGlass/cupBlack.svg';
+import MinusIcon from '@/assets/images/actionGlass/minus.svg';
+import PlusIcon from '@/assets/images/actionGlass/plus.svg';
+import { HeaderPage } from '@/modules/header/components/HeaderPage';
+import { useBackButton } from '@/utils/hooks/useBackButton';
+
 import css from './WaterTracker.module.scss';
 import { WaterVolume } from './WaterVolume';
 

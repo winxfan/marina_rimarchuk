@@ -1,7 +1,8 @@
 import React from 'react';
 
-import CardSlider from '../../../modules/slider/CardSlider';
-import { IBookBlock } from '../../../utils/types/book';
+import CardSlider from '@/modules/slider/CardSlider';
+import { IBookBlock } from '@/utils/types/book';
+
 import css from './BookBlock.module.scss';
 import { BookCard } from './parts/BookCard';
 

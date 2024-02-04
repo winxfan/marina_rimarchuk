@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
 
-import { MeditationsBlock } from '../../modules/meditationBlock/MeditationsBlock';
-import { Menu } from '../../modules/menu/Menu';
-import { PodcastsBlock } from '../../modules/podcastsBlock/PodcastsBlock';
-import { VideoBlock } from '../../modules/videoBlock/VideoBlock';
+import { MeditationsBlock } from '@/modules/meditationBlock/MeditationsBlock';
+import { Menu } from '@/modules/menu/Menu';
+import { PodcastsBlock } from '@/modules/podcastsBlock/PodcastsBlock';
+import { VideoBlock } from '@/modules/videoBlock/VideoBlock';
+
 import css from './Main.module.scss';
 import { AffirmationDay } from './components/AffirmationDay';
 import { BookBlock } from './components/BookBlock';
 import { WaterTracker } from './components/WaterTracker';
 
-export const MainPage = () => {
+const MainPage = () => {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
 
     useEffect(() => {
@@ -36,3 +37,5 @@ export const MainPage = () => {
         </div>
     );
 };
+
+export default MainPage;

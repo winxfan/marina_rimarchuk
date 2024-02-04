@@ -1,9 +1,10 @@
-import { CustomInput } from '../../modules/inputs/CustomInput';
-import { useBackButton } from '../../utils/hooks/useBackButton';
+import { CustomInput } from '@/modules/inputs/CustomInput';
+import { useBackButton } from '@/utils/hooks/useBackButton';
+
 import css from './DeliveryPage.module.scss';
 import { IAddress, useDeliveryPage } from './useDeliveryPage';
 
-export const DeliveryPage = () => {
+const DeliveryPage = () => {
     useBackButton('/');
 
     const {
@@ -40,3 +41,5 @@ export const DeliveryPage = () => {
         </div>
     );
 };
+
+export default DeliveryPage;

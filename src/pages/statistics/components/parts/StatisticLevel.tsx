@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import imageSrc from '../../../../assets/images/tasks/stars.png';
-import { ProgressBar } from '../../../../modules/progressBar/ProgressBar';
+import imageSrc from '@/assets/images/tasks/stars.png';
+import { ProgressBar } from '@/modules/progressBar/ProgressBar';
+
 import { StatisticInfoCard } from './StatisticInfoCard';
 import css from './StatisticLevel.module.scss';
 

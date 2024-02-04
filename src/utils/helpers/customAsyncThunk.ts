@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import axios from '../../axios';
+import axios from '@/axios';
+
 import { HttpResponse } from '../types';
 
 export const customAsyncThunk = <T extends Record<string, any>>(

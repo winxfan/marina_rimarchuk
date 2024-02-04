@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 
-import { ReactComponent as ArrowIcon } from '../../../../assets/images/arrowIcon/arrow.svg';
-import { ReactComponent as AvatarIcon } from '../../../../assets/images/welcomeUser/avatar.svg';
-import { ReactComponent as QuestionsIcon } from '../../../../assets/images/welcomeUser/questions.svg';
-import { useTelegram } from '../../../../utils/hooks/useTelegram';
+import ArrowIcon from '@/assets/images/arrowIcon/arrow.svg';
+import AvatarIcon from '@/assets/images/welcomeUser/avatar.svg';
+import QuestionsIcon from '@/assets/images/welcomeUser/questions.svg';
+import { useTelegram } from '@/utils/hooks/useTelegram';
+
 import css from './WelcomeUser.module.scss';
 
 export const WelcomeUser = () => {

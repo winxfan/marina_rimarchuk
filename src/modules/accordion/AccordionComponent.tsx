@@ -8,9 +8,10 @@ import {
     AccordionItemState,
 } from 'react-accessible-accordion';
 
-import { ReactComponent as ArrowDown } from '../../assets/images/arrowIcon/chevronDown.svg';
-import { ReactComponent as ArrowUp } from '../../assets/images/arrowIcon/chevronUp.svg';
-import { IAccordionContent } from '../../utils/types/statistic';
+import ArrowDown from '@/assets/images/arrowIcon/chevronDown.svg';
+import ArrowUp from '@/assets/images/arrowIcon/chevronUp.svg';
+import { IAccordionContent } from '@/utils/types/statistic';
+
 import css from './AccordionComponent.module.scss';
 import { AccordionItemState as AccordionState } from './types';
 

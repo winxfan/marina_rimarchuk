@@ -2,10 +2,11 @@ import React, { FC } from 'react';
 
 import cs from 'classnames';
 
-import cameraImage from '../../../../assets/images/statistics/camera.png';
-import microImage from '../../../../assets/images/statistics/micro.png';
-import waterImage from '../../../../assets/images/statistics/water.png';
-import { IStatisticInfoCard } from '../../../../utils/types/statistic';
+import cameraImage from '@/assets/images/statistics/camera.png';
+import microImage from '@/assets/images/statistics/micro.png';
+import waterImage from '@/assets/images/statistics/water.png';
+import { IStatisticInfoCard } from '@/utils/types/statistic';
+
 import css from './StatisticInfoCard.module.scss';
 
 export type StatisticInfoCardProps = {

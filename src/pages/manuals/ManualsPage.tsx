@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 
-import { HeaderPage } from '../../modules/header/components/HeaderPage';
-import { Menu } from '../../modules/menu/Menu';
-import { useBackButton } from '../../utils/hooks/useBackButton';
-import { IManuals } from '../../utils/types/manuals';
+import { HeaderPage } from '@/modules/header/components/HeaderPage';
+import { Menu } from '@/modules/menu/Menu';
+import { useBackButton } from '@/utils/hooks/useBackButton';
+import { IManuals } from '@/utils/types/manuals';
+
 import css from './ManualsPage.module.scss';
 import { ManualCard } from './components/parts/ManualCard';
 
@@ -79,7 +80,7 @@ export const dataManuals: IManuals[] = [
     },
 ];
 
-export const ManualsPage: FC<ManualsPageProps> = () => {
+const ManualsPage: FC<ManualsPageProps> = () => {
     useBackButton('/');
 
     return (
@@ -94,3 +95,5 @@ export const ManualsPage: FC<ManualsPageProps> = () => {
         </div>
     );
 };
+
+export default ManualsPage;

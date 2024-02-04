@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
-import { ReactComponent as WaterIcon } from '../../../../assets/images/waterTracker/waterIcon.svg';
+import WaterIcon from '@/assets/images/waterTracker/waterIcon.svg';
+
 import css from './WaterVolume.module.scss';
 
 export type WaterVolumeProps = {

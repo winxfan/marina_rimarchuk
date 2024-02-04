@@ -19,7 +19,7 @@ const CardSlider: FC<CardSliderProps> = (props) => {
         infinite: true,
         speed: 500,
         slidesToShow: isShowTwo && isMobile ? 2 : isVideoBlock || isMobile ? 1 : 3,
-        slidesToScroll: 1,
+        slidesToScroll: 2,
         arrows: false,
     };
 

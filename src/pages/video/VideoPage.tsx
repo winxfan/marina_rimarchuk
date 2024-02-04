@@ -1,10 +1,11 @@
-import { HeaderPage } from '../../modules/header/components/HeaderPage';
-import { data } from '../../modules/videoBlock/VideoBlock';
-import { useBackButton } from '../../utils/hooks/useBackButton';
+import { HeaderPage } from '@/modules/header/components/HeaderPage';
+import { data } from '@/modules/videoBlock/VideoBlock';
+import { useBackButton } from '@/utils/hooks/useBackButton';
+
 import { VideoCard } from '../main/components/parts/VideoCard';
 import css from './VideoPage.module.scss';
 
-export const VideoPage = () => {
+const VideoPage = () => {
     useBackButton('/');
 
     return (
@@ -18,3 +19,5 @@ export const VideoPage = () => {
         </div>
     );
 };
+
+export default VideoPage;

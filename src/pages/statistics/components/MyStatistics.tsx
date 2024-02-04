@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { useBackButton } from '../../../utils/hooks/useBackButton';
+import { useBackButton } from '@/utils/hooks/useBackButton';
+
 import css from './MyStatistics.module.scss';
 import { StatisticLevel } from './parts/StatisticLevel';
 

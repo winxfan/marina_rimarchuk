@@ -1,10 +1,11 @@
 import React, { FC, ReactNode } from 'react';
 import { Link, useMatch } from 'react-router-dom';
 
-import srcImage from '../../../../assets/images/course/avatarLesson.png';
-import { ReactComponent as NextLesson } from '../../../../assets/images/course/next.svg';
-import { useBackButton } from '../../../../utils/hooks/useBackButton';
-import { ICourseCard } from '../../../../utils/types/courses';
+import srcImage from '@/assets/images/course/avatarLesson.png';
+import NextLesson from '@/assets/images/course/next.svg';
+import { useBackButton } from '@/utils/hooks/useBackButton';
+import { ICourseCard } from '@/utils/types/courses';
+
 import { dataCourses } from '../../CoursesPage';
 import css from './CourseShowInfo.module.scss';
 

@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import { VideoCard } from '../../pages/main/components/parts/VideoCard';
-import { IVideo } from '../../utils/types/video';
+import { VideoCard } from '@/pages/main/components/parts/VideoCard';
+import { IVideo } from '@/utils/types/video';
+
 import { CommonHeader } from '../header/components/CommonHeader';
 import CardSlider from '../slider/CardSlider';
 import css from './VideoBlock.module.scss';

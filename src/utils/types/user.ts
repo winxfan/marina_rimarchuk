@@ -1,4 +1,4 @@
-import { LoadingStatus } from '../../constants';
+import { LoadingStatus } from '@/constants';
 
 export type User = {
     userId: number;

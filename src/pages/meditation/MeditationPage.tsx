@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 
-import { HeaderPage } from '../../modules/header/components/HeaderPage';
-import { data } from '../../modules/meditationBlock/MeditationsBlock';
-import { useBackButton } from '../../utils/hooks/useBackButton';
+import { HeaderPage } from '@/modules/header/components/HeaderPage';
+import { data } from '@/modules/meditationBlock/MeditationsBlock';
+import { useBackButton } from '@/utils/hooks/useBackButton';
+
 import { MeditationCard } from '../main/components/parts/MeditationCard';
 import css from './MeditationPage.module.scss';
 
@@ -24,3 +25,5 @@ export const MeditationPage: FC<MeditationPageProps> = () => {
         </div>
     );
 };
+
+export default MeditationPage;

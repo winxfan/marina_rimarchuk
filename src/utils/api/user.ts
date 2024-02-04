@@ -1,4 +1,5 @@
-import axios from '../../axios';
+import axios from '@/axios';
+
 import { HttpResponse, User } from '../types';
 
 export const getAllUsersRequest = async (): Promise<HttpResponse<User>> => {
