@@ -10,7 +10,7 @@ const WaterWaveImage: FC<WaterWaveImageProps> = (props) => {
     return (
         <svg
             width="100%"
-            height={adjustedHeight + 5}
+            height={adjustedHeight + 25}
             viewBox={`0 0 100% ${adjustedHeight}`}
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

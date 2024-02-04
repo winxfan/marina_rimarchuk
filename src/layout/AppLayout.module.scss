@@ -100,3 +100,7 @@ select {
   min-height: 100vh;
   overflow: hidden;
 }
+
+body:not(.waterTrackerWrapper) .layout {
+  padding: 0 !important;
+}

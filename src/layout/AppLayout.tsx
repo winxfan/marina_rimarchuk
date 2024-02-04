@@ -1,5 +1,4 @@
 import { Suspense } from 'react';
-import { VscLoading } from 'react-icons/vsc';
 import { Outlet } from 'react-router-dom';
 
 import { Loader } from '@/components/Loader';

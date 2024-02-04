@@ -5,7 +5,7 @@
 
   .waveImage {
     position: absolute;
-    bottom: 0;
+    bottom: -25px;
     display: flex;
     z-index: 0;
     left: 0;
@@ -42,13 +42,15 @@
     justify-content: space-between;
     margin-bottom: 80px;
     align-items: center;
+    padding: 0 16px;
   }
 
   .range {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 110px;
+    margin-bottom: 82px;
+    padding: 0 24px;
 
     .cupIcon {
       display: flex;
@@ -161,7 +163,7 @@
     align-items: flex-start;
     padding: 17px 23px;
     justify-content: center;
-    margin: 0 auto;
+    margin: 0 auto 24px auto;
     cursor: pointer;
     border-radius: 20px;
     position: relative;
