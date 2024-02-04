@@ -7,6 +7,7 @@ import CupBlackIcon from '@/assets/images/actionGlass/cupBlack.svg';
 import MinusIcon from '@/assets/images/actionGlass/minus.svg';
 import PlusIcon from '@/assets/images/actionGlass/plus.svg';
 import { HeaderPage } from '@/modules/header/components/HeaderPage';
+import WaterWaveImage from '@/pages/main/components/parts/WaterWaveImage';
 import { useBackButton } from '@/utils/hooks/useBackButton';
 
 import css from './WaterTracker.module.scss';
@@ -18,6 +19,13 @@ export const WaterTracker = () => {
     const [currentLevel, setCurrentLevel] = useState(0);
     const [sliderValue, setSliderValue] = useState(0);
     const [adjustedHeight, setAdjustedHeight] = useState(178);
+    const [animateBackground, setAnimateBackground] = useState(false);
+
+    useEffect(() => {
+        setAnimateBackground(true);
+        const timeoutId = setTimeout(() => setAnimateBackground(false), 500);
+        return () => clearTimeout(timeoutId);
+    }, [adjustedHeight]);
 
     const handleSliderChange = (e: BaseSyntheticEvent) => {
         const newValue = +e.target.value;
@@ -75,12 +83,11 @@ export const WaterTracker = () => {
 
     const rangeRef = useRef<HTMLDivElement>(null);
 
-    const backgroundStyle = {
-        background: `linear-gradient(to top, #4460F6 1%, #12237A ${adjustedHeight}px, transparent 0)`,
-    };
-
     return (
-        <div className={css.waterTrackerWrapper} style={backgroundStyle}>
+        <div className={css.waterTrackerWrapper}>
+            <div className={css.waveImage}>
+                <WaterWaveImage adjustedHeight={adjustedHeight} />
+            </div>
             <div className={css.waterTracker}>
                 <HeaderPage title="Вода" className={css.waterHeader} />
                 <WaterVolume currentLevel={currentLevel} />

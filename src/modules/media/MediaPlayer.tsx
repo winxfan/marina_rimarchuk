@@ -71,8 +71,6 @@ export const MediaPlayer: FC<MediaPlayerProps> = (props) => {
         }
     };
 
-    console.log(entryInfo?.id, 'entryInfo?.id}');
-
     return (
         <>
             <div className={cs(css.mediaPlayer, className)} data-index={entryInfo?.id}>
