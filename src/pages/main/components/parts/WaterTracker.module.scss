@@ -13,30 +13,6 @@
     width: 100%;
   }
 
-/*  &::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) rotate(-90deg);
-    width: 5%; !* Вы можете настроить это значение в соответствии с вашим дизайном *!
-    height: 100%; !* Используйте 100%, чтобы покрыть полную высоту контейнера *!
-    background: conic-gradient(from 180deg at 50% 100%, transparent 50%, #12237A 50%);
-    border-radius: 50%;
-  }*/
-
-/*  &::after {
-    content: '';
-    position: absolute;
-    bottom: calc(-43px + var(--adjusted-height, 0));
-    left: 88%;
-    transform: translateX(-50%) rotate(-90deg);
-    width: 22px; !* Подстройте ширину по необходимости *!
-    height: 85px; !* Подстройте высоту по необходимости *!
-    background: conic-gradient(from 180deg at 50% 100%, transparent 50%, #12237A 50%);
-    border-radius: 50%;
-  }*/
-
   .waterTracker {
     display: flex;
     justify-content: space-between;
@@ -61,7 +37,6 @@
     .field {
       position: relative;
       transform: rotate(-90deg);
-      //display: flex;
       align-items: center;
       height: 100%;
 
@@ -272,17 +247,4 @@ input[type='range']::-ms-thumb {
   background: #1D183B;
   border-radius: 50%;
   margin-top: -7px;
-}
-
-@keyframes gradientAnimation {
-  from {
-    background-position: 0% 0%;
-  }
-  to {
-    background-position: 0% 100%;
-  }
-}
-
-.gradientAnimation {
-  animation: gradientAnimation 0.5s ease-in-out;
 }

@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 
+import css from './WaterWaveImage.module.scss';
+
 export type WaterWaveImageProps = {
     adjustedHeight: number;
 };
@@ -14,6 +16,7 @@ const WaterWaveImage: FC<WaterWaveImageProps> = (props) => {
             viewBox={`0 0 100% ${adjustedHeight}`}
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className={css.waveImage}
             style={{ width: '100%' }}
         >
             <path

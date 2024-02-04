@@ -19,13 +19,6 @@ export const WaterTracker = () => {
     const [currentLevel, setCurrentLevel] = useState(0);
     const [sliderValue, setSliderValue] = useState(0);
     const [adjustedHeight, setAdjustedHeight] = useState(178);
-    const [animateBackground, setAnimateBackground] = useState(false);
-
-    useEffect(() => {
-        setAnimateBackground(true);
-        const timeoutId = setTimeout(() => setAnimateBackground(false), 500);
-        return () => clearTimeout(timeoutId);
-    }, [adjustedHeight]);
 
     const handleSliderChange = (e: BaseSyntheticEvent) => {
         const newValue = +e.target.value;
