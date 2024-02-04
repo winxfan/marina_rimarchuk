@@ -23,14 +23,16 @@ const CardSlider: FC<CardSliderProps> = (props) => {
         // slidesToScroll: slidesToShow / 2,
         arrows: false,
         swipeToSlide: true,
-        responsive: [
-            {
-                breakpoint: 420,
-                settings: {
-                    slidesToShow: slidesToShowMobile,
-                },
-            },
-        ],
+        responsive: slidesToShowMobile
+            ? [
+                  {
+                      breakpoint: 420,
+                      settings: {
+                          slidesToShow: slidesToShowMobile,
+                      },
+                  },
+              ]
+            : undefined,
     };
 
     return (
