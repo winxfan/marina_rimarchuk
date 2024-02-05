@@ -12,7 +12,7 @@ export const App = () => {
     const { expand } = useTelegram();
 
     useEffect(() => {
-        expand();
+        expand?.();
     }, [expand]);
 
     return (

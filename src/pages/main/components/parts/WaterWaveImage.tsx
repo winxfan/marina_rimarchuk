@@ -10,7 +10,8 @@ const WaterWaveImage: FC<WaterWaveImageProps> = (props) => {
     const { adjustedHeight } = props;
 
     return (
-        <svg
+        <></>
+        /*  <svg
             width="100%"
             height={adjustedHeight + 25}
             viewBox={`0 0 100% ${adjustedHeight}`}
@@ -60,7 +61,7 @@ const WaterWaveImage: FC<WaterWaveImageProps> = (props) => {
                     <stop offset="1" stopOpacity="0" />
                 </linearGradient>
             </defs>
-        </svg>
+        </svg>*/
     );
 };
 
