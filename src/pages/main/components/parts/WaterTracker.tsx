@@ -1,4 +1,4 @@
-import React, { BaseSyntheticEvent, useEffect, useRef, useState } from 'react';
+import React, {BaseSyntheticEvent, useCallback, useEffect, useRef, useState} from 'react';
 
 import cs from 'classnames';
 
@@ -13,12 +13,15 @@ import { useBackButton } from '@/utils/hooks/useBackButton';
 import css from './WaterTracker.module.scss';
 import { WaterVolume } from './WaterVolume';
 
+const MAX_SIZE = 2560;
+const CONTAINER_HEIGHT_PX = 238;
+
 export const WaterTracker = () => {
     useBackButton('/');
 
     const [currentLevel, setCurrentLevel] = useState(0);
     const [sliderValue, setSliderValue] = useState(0);
-    const [adjustedHeight, setAdjustedHeight] = useState(178);
+    const [adjustedHeight, setAdjustedHeight] = useState(0);
 
     const handleSliderChange = (e: BaseSyntheticEvent) => {
         const newValue = +e.target.value;
@@ -55,44 +58,31 @@ export const WaterTracker = () => {
     const handleDecrease = () => {
         setSliderValue((prevValue) => Math.max(prevValue - 365, 0));
         setCurrentLevel((prevValue) => Math.max(prevValue - 365, 0));
-        setAdjustedHeight((prevHeight) => Math.max(prevHeight - 31, 178));
+        setAdjustedHeight((value) => (value - 365) / MAX_SIZE * CONTAINER_HEIGHT_PX);
     };
 
     const handleIncrease = () => {
-        setSliderValue((prevValue) => Math.min(prevValue + 365, 2555));
-        setCurrentLevel((prevValue) => Math.min(prevValue + 365, 2555));
+        setSliderValue((prevValue) => Math.min(prevValue + 365, 2560));
+        setCurrentLevel((prevValue) => Math.min(prevValue + 365, 2560));
 
-        setAdjustedHeight((prevHeight) => Math.min(prevHeight + 31, 395));
+        setAdjustedHeight((value) => (value + 365) / MAX_SIZE * CONTAINER_HEIGHT_PX);
     };
 
     const handleSliderMouseUp = (e: BaseSyntheticEvent) => {
-        setAdjustedHeight((prevHeight) => Math.min(prevHeight + (e.target.value / 2555) * 100, 395));
+        const value = e.target.value ?? 0;
+        setAdjustedHeight(value / MAX_SIZE * CONTAINER_HEIGHT_PX);
     };
 
     const handleSliderMouseDown = (e: BaseSyntheticEvent) => {
-        console.log(e, 'e');
-        setAdjustedHeight((prevHeight) => Math.max(prevHeight - (e.target.value / 2555) * 100, 178));
+        const value = e.target.value ?? 0;
+        setAdjustedHeight(value / MAX_SIZE * CONTAINER_HEIGHT_PX);
     };
 
     const rangeRef = useRef<HTMLDivElement>(null);
 
-    const specificStyleElement = document.querySelector('.src-layout-AppLayout-module__layout--BLrOg');
-    if (specificStyleElement) {
-        specificStyleElement;
-    }
-
     return (
         <div className={css.waterTrackerWrapper}>
-            <div
-                style={{
-                    position: 'absolute',
-                    left: '0',
-                    bottom: '0',
-                    display: 'flex',
-                    width: '100%',
-                    height: adjustedHeight,
-                }}
-            >
+            <div className={css.waterTrackerProgress} style={{ transform: `translateY(${-adjustedHeight}px)`  }}>
                 <div className={css.background}>
                     <svg
                         version="1.1"
@@ -104,8 +94,8 @@ export const WaterTracker = () => {
                     >
                         <defs>
                             <linearGradient id="bg" x2="0%" y2="100%">
-                                <stop offset="0%" stopColor="rgba(53, 127, 242, 0.6)"></stop>
-                                <stop offset="100%" stopColor="rgba(38, 89, 190, 0.06)"></stop>
+                                <stop offset="0%" stopColor="rgb(68, 96, 246)"></stop>
+                                <stop offset="100%" stopColor="rgb(18, 35, 122)"></stop>
                             </linearGradient>
                             <path
                                 id="wave"
@@ -168,32 +158,27 @@ export const WaterTracker = () => {
                                 type="range"
                                 id="range"
                                 min="0"
-                                max="2555"
-                                step="365"
+                                max="2560"
                                 value={sliderValue}
                                 onChange={handleSliderChange}
                                 onMouseDown={handleSliderMouseDown}
                                 onMouseUp={handleSliderMouseUp}
+                                className={css.rangeInput}
                             />
                             <label htmlFor="range">{sliderValue}</label>
                         </div>
                     </div>
                     <button className={cs(css.controlsWater, css.plusIcon)} onClick={handleIncrease}>
-                        <div className={css.controlsText}>мл</div>
+                        <div className={css.ml}>мл</div>
                         <PlusIcon />
                     </button>
-                    {/*  <div className={css.sliderValue}>
-                        <span className={css.sliderNumber}>{sliderValue}</span>
-                    </div>*/}
                 </div>
             </div>
             <button className={css.addGlass}>
-                <div className={css.glassIcon}>
+                <div className={css.addGlassIcon}>
                     <CupBlackIcon />
                 </div>
-                <div className={css.glassAdd}>
-                    <p>Добавить стакан&nbsp;+</p>
-                </div>
+                <p className={css.addGlassText}>Добавить стакан&nbsp;+</p>
             </button>
         </div>
     );
