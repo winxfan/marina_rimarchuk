@@ -8,9 +8,7 @@ import { CommonHeader } from '../header/components/CommonHeader';
 import CardSlider from '../slider/CardSlider';
 import css from './VideoBlock.module.scss';
 
-export type VideoBlockProps = {
-    isMobile?: boolean;
-};
+export type VideoBlockProps = any;
 
 export const data: IVideo[] = [
     {
@@ -35,9 +33,7 @@ export const data: IVideo[] = [
     },
 ];
 
-export const VideoBlock: FC<VideoBlockProps> = (props) => {
-    const { isMobile } = props;
-
+export const VideoBlock: FC<VideoBlockProps> = () => {
     return (
         <div className={css.videoBlock}>
             <Link to="/video" className={css.resetStyle}>

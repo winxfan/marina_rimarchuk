@@ -7,6 +7,8 @@ import { ProgressBar } from '@/modules/progressBar/ProgressBar';
 import { useBackButton } from '@/utils/hooks/useBackButton';
 import { IAccordionContent } from '@/utils/types/statistic';
 
+import css from './StatisticTasksPage.module.scss';
+
 const levelData: IAccordionContent[] = [
     {
         id: '1',
@@ -77,7 +79,7 @@ const StatisticTasksPage = () => {
     useBackButton('/statistics');
 
     return (
-        <div>
+        <div className={css.statisticTasksPage}>
             <HeaderPage title="Задания" />
             <AccordionComponent data={levelData} isTasksPage={true} />
         </div>
