@@ -8,9 +8,7 @@ import { CommonHeader } from '../header/components/CommonHeader';
 import CardSlider from '../slider/CardSlider';
 import css from './MeditationsBlock.module.scss';
 
-export type MeditationsBlockProps = {
-    isMobile?: boolean;
-};
+export type MeditationsBlockProps = any;
 
 export const data: IMedia[] = [
     {
@@ -57,9 +55,7 @@ export const data: IMedia[] = [
     },
 ];
 
-export const MeditationsBlock: FC<MeditationsBlockProps> = (props) => {
-    const { isMobile } = props;
-
+export const MeditationsBlock: FC<MeditationsBlockProps> = () => {
     return (
         <div className={css.meditationsBlock}>
             <Link to="/meditation" className={css.resetStyle}>

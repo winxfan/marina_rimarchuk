@@ -1,5 +1,6 @@
 .meditationCardWrapper {
   display: flex;
+  height: 100%;
 
   .card {
     position: relative;
@@ -25,7 +26,6 @@
   .cardTitle {
     color: #C2C5F3;
     font-size: 15px;
-    min-height: 60px;
     line-height: 18px;
     letter-spacing: -0.24px;
     margin-bottom: 8px;

@@ -29,7 +29,7 @@ const MainPage = () => {
         <div className={css.container}>
             <AffirmationDay />
             <WaterTracker />
-            <MeditationsBlock isMobile={isMobile} />
+            <MeditationsBlock />
             <BookBlock />
             <PodcastsBlock isMobile={isMobile} />
             <VideoBlock isMobile={isMobile} />
