@@ -7,7 +7,7 @@
     grid-template-rows: auto 1fr auto;
     height: 100px;
     border-radius: 20px;
-    padding: 16px;
+    padding-top: 66.66%;
 
     &[data-index="0"], &[data-index="1"] {
       background: url("../../../../assets/images/videoCard/videoOne.png") center center / cover no-repeat;

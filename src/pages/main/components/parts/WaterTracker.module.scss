@@ -38,8 +38,8 @@
 
       path {
         //fill: #12237A;
-        stroke-width: 1px;
-        stroke: rgba(255, 255, 255, 0.36);
+        //stroke-width: 1px;
+        //stroke: rgba(255, 255, 255, 0.36);
       }
     }
   }
@@ -192,7 +192,7 @@
 
 .rangeInput + label {
   position: absolute;
-  top: -78px;
+  top: -30px;
   left: 50%;
   color: #C2C5F3;
   font-size: 28px;
@@ -301,67 +301,30 @@
   .waterTrackerWrapper {
     .background {
       svg {
-        transform: scaleY(2.7) scaleX(2);
+        transform: scaleY(6.5) scaleX(6.5);
+        bottom: -900px;
       }
     }
   }
 }
-
-@media (max-width: 450px) {
-  .waterTrackerWrapper {
-    .background {
-      svg {
-        transform: scaleY(2.6) scaleX(2);
-      }
-    }
-  }
-}
-
-@media (max-width: 430px) {
-  .waterTrackerWrapper {
-    .background {
-      svg {
-        transform: scaleY(2.64) scaleX(2);
-      }
-    }
-  }
-}
-
-@media (max-width: 400px) {
-  .waterTrackerWrapper {
-    .background {
-      svg {
-        transform: scaleY(2.57) scaleX(2);
-      }
-    }
-  }
-}
-
-@media (max-width: 370px) {
-  .waterTrackerWrapper {
-    .background {
-      svg {
-        transform: scaleY(2.54) scaleX(2);
-      }
-    }
-  }
-}
+//
+//@media (max-width: 450px) {
+//  .waterTrackerWrapper {
+//    .background {
+//      svg {
+//        transform: scaleY(6.5) scaleX(6.5);
+//        bottom: -900px;
+//      }
+//    }
+//  }
+//}
 
 @media (max-width: 350px) {
   .waterTrackerWrapper {
     .background {
       svg {
-        transform: scaleY(2.45) scaleX(2);
-      }
-    }
-  }
-}
-
-@media (max-width: 330px) {
-  .waterTrackerWrapper {
-    .background {
-      svg {
-        transform: scaleY(2.5) scaleX(2);
+        transform: scaleY(6.5) scaleX(6.5);
+        bottom: -930px;
       }
     }
   }
