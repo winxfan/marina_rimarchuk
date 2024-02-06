@@ -3,24 +3,13 @@
   flex-direction: column;
   position: relative;
 
-  //&::after {
-  //  content: "";
-  //  position: absolute;
-  //  height: 500px;
-  //  bottom: -500px;
-  //  left: -24px;
-  //  width: 100vw;
-  //  background-color: #203498;
-  //  z-index: -1;
-  //}
-
   .background {
     position: absolute;
     z-index: -1;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: -80px;
     height: 100%;
 
     svg {
@@ -29,7 +18,7 @@
       bottom: 0;
       width: 100%;
       height: 100%;
-      transform: scaleY(2.9) scaleX(2);
+      transform: scaleY(2.8) scaleX(2);
       transform-origin: bottom;
       box-sizing: border-box;
       display: block;
@@ -81,7 +70,7 @@
       .sliderInput {
         -webkit-appearance: none;
         height: 6px;
-        min-width: 236px;
+        min-width: 262px;
         border-radius: 100px;
         outline: none;
         border: none;
@@ -116,26 +105,19 @@
         flex-direction: column-reverse;
         align-items: flex-end;
         position: absolute;
-        left: 41.5%;
+        left: 8px;
+        transform: translateX(-50%) rotate(90deg);
         bottom: -71px;
-        transform: rotate(90deg);
 
         .mark {
           display: inline-flex;
           width: 12px;
           height: 2px;
-          margin-bottom: 28px;
+          margin-bottom: 26.75px;
           border-radius: 100px;
           background: rgba(194, 198, 243, 0.35);
         }
       }
-
-      .scaleValues span {
-        color: #C2C5F3;
-        font-size: 12px;
-        margin-bottom: 8px;
-      }
-
     }
   }
 
@@ -144,15 +126,12 @@
     bottom: 24px;
     left: 50%;
     transform: translateX(-50%);
-
     max-width: 230px;
     height: 56px;
-
     padding: 17px 23px;
     border-radius: 20px;
     z-index: 22;
     background: #FFF;
-
     display: flex;
     gap: 12px;
     align-items: flex-start;
@@ -178,12 +157,15 @@
 
 .rangeContainer {
   position: relative;
+  display: flex;
+  align-items: center;
+
 }
 
 .rangeInput {
   -webkit-appearance: none;
   height: 6px;
-  min-width: 236px;
+  min-width: 262px;
   border-radius: 100px;
   outline: none;
   border: none;
@@ -199,12 +181,12 @@
 .rangeInput + label {
   position: absolute;
   top: -78px;
-  left: 110px;
+  left: 50%;
   color: #C2C5F3;
   font-size: 28px;
   font-weight: 700;
   letter-spacing: -1px;
-  transform: rotate(90deg);
+  transform: rotate(90deg) translateX(-50%);
   width: 80px;
   padding: 5px 0;
   text-align: center;
@@ -225,10 +207,13 @@
   width: 24px;
   background: #C2C5F3;
   border-radius: 50%;
+  position: relative;
   margin-top: -7px;
+  z-index: 3;
 }
 
 .rangeInput::-moz-range-track {
+  -webkit-appearance: none;
   background: #1D183B;
   border-radius: 4px;
   width: 100%;
@@ -270,7 +255,6 @@
   background: #000000;
 }
 
-
 .waterTrackerProgress {
   position: absolute;
   bottom: -85%;
@@ -289,4 +273,74 @@
   font-size: 22px;
   font-weight: 600;
   letter-spacing: -0.8px;
+}
+
+@media (max-width: 530px) {
+  .waterTrackerWrapper {
+    .background {
+      svg {
+        transform: scaleY(2.8) scaleX(2);
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .waterTrackerWrapper {
+    .background {
+      svg {
+        transform: scaleY(2.7) scaleX(2);
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .waterTrackerWrapper {
+    .background {
+      svg {
+        transform: scaleY(2.6) scaleX(2);
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .waterTrackerWrapper {
+    .background {
+      svg {
+        transform: scaleY(2.57) scaleX(2);
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .waterTrackerWrapper {
+    .background {
+      svg {
+        transform: scaleY(2.57) scaleX(2);
+      }
+    }
+  }
+}
+
+@media (max-width: 370px) {
+  .waterTrackerWrapper {
+    .background {
+      svg {
+        transform: scaleY(2.54) scaleX(2);
+      }
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .waterTrackerWrapper {
+    .background {
+      svg {
+        transform: scaleY(2.45) scaleX(2);
+      }
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import React, {BaseSyntheticEvent, useCallback, useEffect, useRef, useState} from 'react';
+import React, { BaseSyntheticEvent, useEffect, useRef, useState } from 'react';
 
 import cs from 'classnames';
 
@@ -7,7 +7,6 @@ import CupBlackIcon from '@/assets/images/actionGlass/cupBlack.svg';
 import MinusIcon from '@/assets/images/actionGlass/minus.svg';
 import PlusIcon from '@/assets/images/actionGlass/plus.svg';
 import { HeaderPage } from '@/modules/header/components/HeaderPage';
-import WaterWaveImage from '@/pages/main/components/parts/WaterWaveImage';
 import { useBackButton } from '@/utils/hooks/useBackButton';
 
 import css from './WaterTracker.module.scss';
@@ -29,6 +28,8 @@ export const WaterTracker = () => {
         setCurrentLevel(newValue);
     };
 
+    const rangeRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
         const scale = (num: number, inMin: number, inMax: number, outMin: number, outMax: number) => {
             return ((num - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
@@ -48,7 +49,7 @@ export const WaterTracker = () => {
             const min = +range.min;
 
             label.style.left =
-                sliderValue * (numWidth / max) - numLabelWidth / 2 + scale(sliderValue, min, max, 10, -10) + 'px';
+                sliderValue * (numWidth / max) - numLabelWidth / 2 + scale(sliderValue, min, max, 15, -10) + 'px';
             label.innerHTML = sliderValue.toString();
 
             range.style.setProperty('--thumb-after-width', `${sliderValue}%`);
@@ -56,33 +57,36 @@ export const WaterTracker = () => {
     }, [sliderValue]);
 
     const handleDecrease = () => {
-        setSliderValue((prevValue) => Math.max(prevValue - 365, 0));
-        setCurrentLevel((prevValue) => Math.max(prevValue - 365, 0));
-        setAdjustedHeight((value) => (value - 365) / MAX_SIZE * CONTAINER_HEIGHT_PX);
+        if (adjustedHeight > 0) {
+            setSliderValue((prevValue) => Math.max(prevValue - 320, 0));
+            setCurrentLevel((prevValue) => Math.max(prevValue - 320, 0));
+            setAdjustedHeight((value) => value - (320 / MAX_SIZE) * CONTAINER_HEIGHT_PX);
+        }
     };
 
     const handleIncrease = () => {
-        setSliderValue((prevValue) => Math.min(prevValue + 365, 2560));
-        setCurrentLevel((prevValue) => Math.min(prevValue + 365, 2560));
-
-        setAdjustedHeight((value) => (value + 365) / MAX_SIZE * CONTAINER_HEIGHT_PX);
+        if (adjustedHeight < 237) {
+            setSliderValue((prevValue) => Math.min(prevValue + 320, 2560));
+            setCurrentLevel((prevValue) => Math.min(prevValue + 320, 2560));
+            setAdjustedHeight((value) => value + (320 / MAX_SIZE) * CONTAINER_HEIGHT_PX);
+        }
     };
 
     const handleSliderMouseUp = (e: BaseSyntheticEvent) => {
         const value = e.target.value ?? 0;
-        setAdjustedHeight(value / MAX_SIZE * CONTAINER_HEIGHT_PX);
+        setAdjustedHeight((value / MAX_SIZE) * CONTAINER_HEIGHT_PX);
     };
 
     const handleSliderMouseDown = (e: BaseSyntheticEvent) => {
         const value = e.target.value ?? 0;
-        setAdjustedHeight(value / MAX_SIZE * CONTAINER_HEIGHT_PX);
+        setAdjustedHeight((value / MAX_SIZE) * CONTAINER_HEIGHT_PX);
     };
 
-    const rangeRef = useRef<HTMLDivElement>(null);
+    console.log(adjustedHeight, 'adjustedHeight');
 
     return (
         <div className={css.waterTrackerWrapper}>
-            <div className={css.waterTrackerProgress} style={{ transform: `translateY(${-adjustedHeight}px)`  }}>
+            <div className={css.waterTrackerProgress} style={{ transform: `translateY(${-adjustedHeight}px)` }}>
                 <div className={css.background}>
                     <svg
                         version="1.1"
@@ -149,8 +153,8 @@ export const WaterTracker = () => {
                     </button>
                     <div className={css.rangeWithScale}>
                         <div className={css.scaleValues}>
-                            {Array.from({ length: 8 }, (_, index) => (
-                                <span key={index * 365} className={css.mark}></span>
+                            {Array.from({ length: 9 }, (_, index) => (
+                                <span key={index * 320} className={css.mark}></span>
                             ))}
                         </div>
                         <div className={css.rangeContainer}>
