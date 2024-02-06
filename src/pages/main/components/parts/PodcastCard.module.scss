@@ -10,11 +10,11 @@
     padding: 16px 16px 80px;
     background:  radial-gradient(circle at top left, #242C7F, #22266D 10%, transparent 65%),
     url("../../../../assets/images/podcastsCard/podcastBack.png") center center / cover no-repeat;
+    height: 160px;
 
     .cardTitle {
       color: #C2C5F3;
       font-size: 12px;
-      min-height: 60px;
       letter-spacing: -0.24px;
       margin-bottom: 8px;
     }
@@ -35,7 +35,6 @@
 
 
     .podcastTitleCard {
-      min-height: 60px;
       font-size: 12px;
     }
   }
