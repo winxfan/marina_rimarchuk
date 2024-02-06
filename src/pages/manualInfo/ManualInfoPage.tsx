@@ -4,7 +4,8 @@ import { useBackButton } from '@/utils/hooks/useBackButton';
 import css from './ManualInfoPage.module.scss';
 
 const ManualInfoPage = () => {
-    useBackButton('/');
+    useBackButton('/manuals');
+
     return (
         <div className={css.manualInfoPage}>
             <ManualInfo />

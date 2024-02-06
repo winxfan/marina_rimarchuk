@@ -15,7 +15,7 @@ export const CustomInput = (props: CustomInputProps) => {
     const { title, name, value, onChange, error } = props;
 
     return (
-        <div className={css.CustomInput}>
+        <div className={css.customInput}>
             <label htmlFor={name} className={css.label}>
                 <input
                     name={name}
