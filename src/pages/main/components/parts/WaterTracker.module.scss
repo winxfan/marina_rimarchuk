@@ -305,11 +305,11 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 430px) {
   .waterTrackerWrapper {
     .background {
       svg {
-        transform: scaleY(2.57) scaleX(2);
+        transform: scaleY(2.64) scaleX(2);
       }
     }
   }
@@ -340,6 +340,16 @@
     .background {
       svg {
         transform: scaleY(2.45) scaleX(2);
+      }
+    }
+  }
+}
+
+@media (max-width: 330px) {
+  .waterTrackerWrapper {
+    .background {
+      svg {
+        transform: scaleY(2.5) scaleX(2);
       }
     }
   }
