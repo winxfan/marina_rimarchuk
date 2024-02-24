@@ -1,22 +1,17 @@
-import { TypedUseSelectorHook, useDispatch as useReduxDispatch, useSelector as useReduxSelector } from 'react-redux';
-
 import { configureStore } from '@reduxjs/toolkit';
-import { setupListeners } from '@reduxjs/toolkit/query';
 
-import generalReducer from './generalSlice';
+import affirmationEditReducer from './affirmationEditSlice';
+import affirmationReducer from './affirmationSlice';
+import authReducer from './authSlice';
+import currentUserReducer from './currentUserSlice';
 import userReducer from './userSlice';
 
 export const store = configureStore({
     reducer: {
-        general: generalReducer,
         user: userReducer,
+        affirmation: affirmationReducer,
+        currentUser: currentUserReducer,
+        auth: authReducer,
+        affirmationEdit: affirmationEditReducer,
     },
 });
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-export const useTypedSelector: TypedUseSelectorHook<RootState> = useReduxSelector;
-export const useSelector: TypedUseSelectorHook<RootState> = useReduxSelector;
-export const useDispatch = () => useReduxDispatch<AppDispatch>();
-
-setupListeners(store.dispatch);

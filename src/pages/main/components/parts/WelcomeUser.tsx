@@ -13,15 +13,6 @@ export const WelcomeUser = () => {
     const id = initDataUnsafe?.user?.id;
     const userName = initDataUnsafe?.user?.first_name;
 
-    /*    const dispatch = useDispatch();
-    const users = useSelector((state) => state);
-
-    useEffect(() => {
-        dispatch(getUsersAll() as any);
-    }, [dispatch]);
-
-    console.log(users, 'users');*/
-
     return (
         <div className={css.welcomeUser}>
             <Link to="/statistics">

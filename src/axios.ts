@@ -1,15 +1,21 @@
 import axios from 'axios';
 
 // import { SERVER_URL } from './utils/constants';
-import { getCookie } from './utils/helpers/cookie';
 
 const instance = axios.create({
-    baseURL: 'http://example.ru',
+    baseURL: 'http://api-wather.plutus-fin.ru',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    //withCredentials: true,
 });
 
 instance.interceptors.request.use((config) => {
-    const authToken = getCookie('authToken');
-    config.headers.authToken = authToken;
+    const authToken = localStorage.getItem('api_token');
+
+    if (authToken) {
+        config.headers.Authorization = `Bearer ${authToken}`;
+    }
 
     return config;
 });
