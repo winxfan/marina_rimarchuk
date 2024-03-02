@@ -51,20 +51,22 @@ const MainPage = () => {
             if (allUsers.data.length && userId) {
                 const isIdExists = allUsers.data.some((user) => +user.user_id === +userId);
 
-                // if (!isIdExists) {
-                dispatch(addNewUser({ user_id: userId, user_name: userName }));
-                // }
+                if (!isIdExists) {
+                    await dispatch(addNewUser({ user_id: userId, user_name: userName }));
+                }
             }
+
+            const fetchAuthToken = async () => {
+                await dispatch(authToken(Number(userId)));
+            };
+
+            fetchAuthToken();
         };
 
         fetchData();
     }, [userId, userName]);
 
     useEffect(() => {
-        const fetchAuthToken = async () => {
-            await dispatch(authToken(+userId));
-        };
-
         const fetchMeditationsAll = async () => {
             await dispatch(getMeditationsAll());
         };
@@ -74,7 +76,6 @@ const MainPage = () => {
         };
 
         if (!userTokenFetched) {
-            fetchAuthToken();
             fetchMeditationsAll();
             fetchVideosAll();
             setUserTokenFetched(true);
