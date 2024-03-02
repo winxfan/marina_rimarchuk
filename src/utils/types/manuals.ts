@@ -1,4 +1,5 @@
-import { IBookContentList } from './book';
+import { LoadingStatus } from '@/constants';
+import { IBookContentList } from '@/utils/types/book';
 
 export interface IManuals {
     id: string | number;
@@ -14,3 +15,31 @@ export interface IManuals {
     price?: string;
     buy?: boolean;
 }
+
+export type AllManuals = {
+    data: Manuals[];
+    status: LoadingStatus;
+    error: LoadingStatus;
+};
+
+export type Manuals = {
+    id: string | number;
+    name: string;
+    description: string;
+    cost: number;
+    url_file: string;
+};
+
+export type ManualResponse = {
+    data: Manuals;
+    status: LoadingStatus;
+    error: LoadingStatus;
+};
+
+export type AllManualsResponse = {
+    manuals: AllManuals;
+};
+
+export type ManualsGetResponse = {
+    manualsGet: ManualResponse;
+};

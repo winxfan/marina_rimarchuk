@@ -1,26 +1,30 @@
 import { FC } from 'react';
+import ReactPlayer from 'react-player';
 import { Link } from 'react-router-dom';
 
 import cs from 'classnames';
 
 import VideoPlay from '@/assets/images/videoCard/playVideo.svg';
-import { IVideo } from '@/utils/types/video';
+import VideoPlayer from '@/modules/media/VideoPlayer';
+import { Videos } from '@/utils/types/videos';
 
 import css from './VideoCard.module.scss';
 
-export type VideoCardProps = IVideo & {
+export type VideoCardProps = Videos & {
     className?: any;
     isPage?: boolean;
     index?: number;
 };
 
 export const VideoCard: FC<VideoCardProps> = (props) => {
-    const { className, title, isPage, index } = props;
+    const { className, name, pic_url, vid_url, isPage, index } = props;
 
     return (
         <div className={cs(css.videoCardWrapper, className)}>
-            <div className={cs(css.videoCard, isPage ? css.videoPageCard : '')} data-index={index}></div>
-            <div className={css.cardTitle}>{title}</div>
+            <div className={cs(css.videoCard, isPage ? css.videoPageCard : '')}>
+                <VideoPlayer videoUrl={vid_url} previewUrl={pic_url} width={'235px'} height={'100px'} />
+            </div>
+            <div className={css.cardTitle}>{name}</div>
             <Link to="/" className={css.videoPlay}>
                 <div className={css.videoIcon}>
                     <VideoPlay />

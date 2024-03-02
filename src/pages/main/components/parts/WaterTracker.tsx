@@ -1,5 +1,7 @@
 import React, { BaseSyntheticEvent, useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { ThunkDispatch } from '@reduxjs/toolkit';
 import cs from 'classnames';
 
 import CupIcon from '@/assets/images/actionGlass/cup.svg';
@@ -8,7 +10,12 @@ import MinusIcon from '@/assets/images/actionGlass/minus.svg';
 import PlusIcon from '@/assets/images/actionGlass/plus.svg';
 import { HeaderPage } from '@/modules/header/components/HeaderPage';
 import WaterWaveImage from '@/pages/main/components/parts/WaterWaveImage';
+import { getUser } from '@/store/currentUserSlice';
+import { addVolumeWater } from '@/store/waterAddSlice';
+import { getWater } from '@/store/waterGetSlice';
 import { useBackButton } from '@/utils/hooks/useBackButton';
+import { AuthResponse, AuthUser, UserGet, UserGetResponse } from '@/utils/types';
+import { GetWaterResponse, WaterData } from '@/utils/types/water';
 
 import css from './WaterTracker.module.scss';
 import { WaterVolume } from './WaterVolume';
@@ -18,10 +25,29 @@ const CONTAINER_HEIGHT_PX = 238;
 
 export const WaterTracker = () => {
     useBackButton('/');
+    const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
+
+    const waterVolume: WaterData = useSelector((state: GetWaterResponse) => state.waterGet);
 
     const [currentLevel, setCurrentLevel] = useState(0);
+    const [userChangedSlider, setUserChangedSlider] = useState(false);
     const [sliderValue, setSliderValue] = useState(0);
     const [adjustedHeight, setAdjustedHeight] = useState(0);
+
+    useEffect(() => {
+        dispatch(getWater());
+        dispatch(getUser());
+    }, []);
+
+    const currentUser: UserGet = useSelector((state: UserGetResponse) => state.currentUser);
+
+    console.log(currentUser, 'ffff');
+
+    useEffect(() => {
+        setSliderValue(waterVolume.data);
+    }, [waterVolume.data]);
+
+    console.log(sliderValue, 'sliderValue');
 
     const handleSliderChange = (e: BaseSyntheticEvent) => {
         const newValue = +e.target.value;
@@ -55,7 +81,7 @@ export const WaterTracker = () => {
 
             range.style.setProperty('--thumb-after-width', `${sliderValue}%`);
         }
-    }, [sliderValue]);
+    }, [sliderValue, waterVolume.data]);
 
     const handleDecrease = () => {
         if (adjustedHeight > 0) {
@@ -66,6 +92,7 @@ export const WaterTracker = () => {
     };
 
     const handleIncrease = () => {
+        console.log(adjustedHeight, 'adjustedHeight');
         if (adjustedHeight < 237) {
             setSliderValue((prevValue) => Math.min(prevValue + 320, 2560));
             setCurrentLevel((prevValue) => Math.min(prevValue + 320, 2560));
@@ -75,7 +102,12 @@ export const WaterTracker = () => {
 
     const handleSliderMouseUp = (e: BaseSyntheticEvent) => {
         const value = e.target.value ?? 0;
-        setAdjustedHeight((value / MAX_SIZE) * CONTAINER_HEIGHT_PX);
+        const idUser = currentUser.data.user_id;
+
+        const newValue = Math.min(value, MAX_SIZE);
+
+        dispatch(addVolumeWater({ user_id: idUser, water_ml: newValue }));
+        setAdjustedHeight((newValue / MAX_SIZE) * CONTAINER_HEIGHT_PX);
     };
 
     const handleSliderMouseDown = (e: BaseSyntheticEvent) => {

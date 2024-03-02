@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { VideoCard } from '@/pages/main/components/parts/VideoCard';
-import { IVideo } from '@/utils/types/video';
+import { AllVideos, AllVideosResponse } from '@/utils/types/videos';
 
 import { CommonHeader } from '../header/components/CommonHeader';
 import CardSlider from '../slider/CardSlider';
@@ -10,39 +11,18 @@ import css from './VideoBlock.module.scss';
 
 export type VideoBlockProps = any;
 
-export const data: IVideo[] = [
-    {
-        id: 1,
-        title: '4 шага к исполнению мечты',
-        image: '',
-    },
-    {
-        id: 2,
-        title: '4 шага к исполнению мечты',
-        image: '',
-    },
-    {
-        id: 3,
-        title: '4 шага к исполнению мечты',
-        image: '',
-    },
-    {
-        id: 4,
-        title: '4 шага к исполнению мечты',
-        image: '',
-    },
-];
-
 export const VideoBlock: FC<VideoBlockProps> = () => {
+    const allVideos: AllVideos = useSelector((state: AllVideosResponse) => state.videos);
+
     return (
         <div className={css.videoBlock}>
             <Link to="/video" className={css.resetStyle}>
                 <CommonHeader title="Видео от Марины Римарчук" />
             </Link>
             <CardSlider slidesToShow={2.15} slidesToShowMobile={1.75}>
-                {data?.map((item, index) => (
-                    <VideoCard key={item.id} {...item} index={index} />
-                ))}
+                {allVideos.data
+                    ? allVideos.data?.map((item, index) => <VideoCard key={item.id} {...item} index={index} />)
+                    : null}
             </CardSlider>
         </div>
     );

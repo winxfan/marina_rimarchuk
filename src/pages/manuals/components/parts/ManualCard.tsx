@@ -6,18 +6,18 @@ import cs from 'classnames';
 import ManualBook from '@/assets/images/manuals/book.svg';
 import BuyBook from '@/assets/images/manuals/buy.svg';
 import DownloadBook from '@/assets/images/manuals/download.svg';
-import { IManuals } from '@/utils/types/manuals';
+import { Manuals } from '@/utils/types/manuals';
 
 import css from './ManualCard.module.scss';
 
-export type ManualCardProps = IManuals & {
+export type ManualCardProps = Manuals & {
     index?: number;
     className?: any;
     isPage?: boolean;
 };
 
 export const ManualCard: FC<ManualCardProps> = (props) => {
-    const { title, description, buy, id } = props;
+    const { name, description, cost, id } = props;
 
     return (
         <div className={css.manualCard}>
@@ -27,10 +27,10 @@ export const ManualCard: FC<ManualCardProps> = (props) => {
                 </div>
                 <div className={css.blockManual}>
                     <div className={css.textColumn}>
-                        <div className={css.title}>{title}</div>
+                        <div className={css.title}>{name}</div>
                         <div className={css.description}>{description}</div>
                     </div>
-                    <div className={cs(css.iconColumn, css.downloadIcon)}>{buy ? <BuyBook /> : <DownloadBook />}</div>
+                    <div className={cs(css.iconColumn, css.downloadIcon)}>{cost ? <BuyBook /> : <DownloadBook />}</div>
                 </div>
             </Link>
         </div>

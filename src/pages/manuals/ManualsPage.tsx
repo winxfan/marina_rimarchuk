@@ -1,9 +1,13 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { ThunkDispatch } from '@reduxjs/toolkit';
 
 import { HeaderPage } from '@/modules/header/components/HeaderPage';
 import { Menu } from '@/modules/menu/Menu';
+import { getManualsAll } from '@/store/manualsSlice';
 import { useBackButton } from '@/utils/hooks/useBackButton';
-import { IManuals } from '@/utils/types/manuals';
+import { AllManuals, AllManualsResponse, IManuals } from '@/utils/types/manuals';
 
 import css from './ManualsPage.module.scss';
 import { ManualCard } from './components/parts/ManualCard';
@@ -83,13 +87,23 @@ export const dataManuals: IManuals[] = [
 const ManualsPage: FC<ManualsPageProps> = () => {
     useBackButton('/');
 
+    const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
+
+    const allManuals: AllManuals = useSelector((state: AllManualsResponse) => state.manuals);
+
+    useEffect(() => {
+        const fetchManualsAll = async () => {
+            await dispatch(getManualsAll());
+        };
+
+        fetchManualsAll();
+    }, []);
+
     return (
         <div className={css.manualsPage}>
             <HeaderPage title="Методички" />
             <div className={css.manualsWrapper}>
-                {dataManuals?.map((item) => (
-                    <ManualCard key={item.id} {...item} />
-                ))}
+                {allManuals.data ? allManuals.data?.map((item) => <ManualCard key={item.id} {...item} />) : null}
             </div>
             <Menu />
         </div>
