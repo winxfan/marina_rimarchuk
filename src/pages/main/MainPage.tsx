@@ -58,7 +58,7 @@ const MainPage = () => {
         };
 
         fetchData();
-    }, [userId, userName, allUsers.data, dispatch]);
+    }, [userId, userName, dispatch]);
 
     useEffect(() => {
         const fetchAuthToken = async () => {
