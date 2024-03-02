@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { LoadingStatus } from '@/constants';
 import { auth } from '@/utils/api/user';
-import { AuthResponse, AuthUser, UserError } from '@/utils/types';
+import { AuthUser, UserError } from '@/utils/types';
 
 export const authToken = createAsyncThunk('auth/authToken', async (user_id: number, { rejectWithValue }) => {
     try {

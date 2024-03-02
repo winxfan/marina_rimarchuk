@@ -38,7 +38,7 @@ const MainPage = () => {
         };
     }, []);
 
-    const userId: string = initDataUnsafe?.user?.id;
+    const userId: number = initDataUnsafe?.user?.id;
     const userName: string = initDataUnsafe?.user?.first_name;
 
     const authUser: AuthUser = useSelector((state: AuthResponse) => state.auth);
@@ -48,11 +48,11 @@ const MainPage = () => {
         const fetchData = async () => {
             await dispatch(getUsersAll());
 
-            if (allUsers.data.length) {
-                const isIdExists = allUsers.data.some((user) => `${user.user_id}` === userId);
+            if (allUsers.data.length && userId) {
+                const isIdExists = allUsers.data.some((user) => +user.user_id === +userId);
 
                 if (!isIdExists) {
-                    dispatch(addNewUser({ user_id: userId ?? '2', user_name: userName ?? 'John' }));
+                    dispatch(addNewUser({ user_id: userId, user_name: userName }));
                 }
             }
         };
@@ -98,6 +98,7 @@ const MainPage = () => {
 
     return (
         <div className={css.container}>
+            {userId}
             <AffirmationDay />
             <WaterTracker />
             <MeditationsBlock />
