@@ -51,9 +51,9 @@ const MainPage = () => {
             if (allUsers.data.length && userId) {
                 const isIdExists = allUsers.data.some((user) => +user.user_id === +userId);
 
-                if (!isIdExists) {
-                    dispatch(addNewUser({ user_id: userId, user_name: userName }));
-                }
+                // if (!isIdExists) {
+                dispatch(addNewUser({ user_id: userId, user_name: userName }));
+                // }
             }
         };
 
@@ -98,7 +98,6 @@ const MainPage = () => {
 
     return (
         <div className={css.container}>
-            {userId}
             <AffirmationDay />
             <WaterTracker />
             <MeditationsBlock />
