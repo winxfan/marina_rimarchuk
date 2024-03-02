@@ -55,18 +55,16 @@ const MainPage = () => {
                     await dispatch(addNewUser({ user_id: userId, user_name: userName }));
                 }
             }
-
-            const fetchAuthToken = async () => {
-                await dispatch(authToken(Number(userId)));
-            };
-
-            fetchAuthToken();
         };
 
         fetchData();
-    }, [userId, userName]);
+    }, [userId, userName, allUsers.data, dispatch]);
 
     useEffect(() => {
+        const fetchAuthToken = async () => {
+            await dispatch(authToken(Number(userId)));
+        };
+
         const fetchMeditationsAll = async () => {
             await dispatch(getMeditationsAll());
         };
@@ -76,11 +74,12 @@ const MainPage = () => {
         };
 
         if (!userTokenFetched) {
+            fetchAuthToken();
             fetchMeditationsAll();
             fetchVideosAll();
             setUserTokenFetched(true);
         }
-    }, [userTokenFetched]);
+    }, [userTokenFetched, dispatch, userId]);
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -95,7 +94,7 @@ const MainPage = () => {
         if (userTokenFetched) {
             fetchUser();
         }
-    }, [authUser.user, userTokenFetched]);
+    }, [authUser.user, userTokenFetched, dispatch]);
 
     return (
         <div className={css.container}>
