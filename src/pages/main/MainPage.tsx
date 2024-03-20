@@ -38,6 +38,10 @@ const MainPage = () => {
         };
     }, []);
 
+    useEffect(() => {
+        console.log(initDataUnsafe?.user, 'userId');
+    }, []);
+
     const userId: number = initDataUnsafe?.user?.id;
     const userName: string = initDataUnsafe?.user?.first_name;
 
@@ -47,7 +51,7 @@ const MainPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             await dispatch(getUsersAll());
-
+            console.log(initDataUnsafe?.user, 'userId в fetchData');
             if (allUsers.data.length && userId) {
                 const isIdExists = allUsers.data.some((user) => +user.user_id === +userId);
 
@@ -62,6 +66,7 @@ const MainPage = () => {
 
     useEffect(() => {
         const fetchAuthToken = async () => {
+            console.log(initDataUnsafe?.user, 'userId в fetchAuthToken');
             await dispatch(authToken(Number(userId)));
         };
 
