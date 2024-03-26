@@ -9,7 +9,7 @@ export interface IBookBlock {
     title: string | ReactNode;
     image: string;
     description: string;
-    descriptionPrice: string;
+    descriptionPrice?: string;
     price: string;
     buttonText?: string;
     buttonBuy?: string;

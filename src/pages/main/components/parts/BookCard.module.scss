@@ -23,6 +23,7 @@
     .bookTitle {
       font-size: 17px;
       font-weight: 600;
+      line-height: 22px;
       letter-spacing: -0.442px;
       margin-bottom: 8px;
     }
@@ -30,6 +31,7 @@
     .bookDescription {
       color: #C2C5F3;
       font-size: 12px;
+      line-height: 16px;
       flex: 1 1 auto;
       margin-bottom: 16px;
     }
@@ -39,7 +41,7 @@
 
       .bookWrapper {
         display: flex;
-        max-width: 120px;
+        min-width: 120px;
         max-height: 34px;
         justify-content: center;
         padding: 8px 16px;

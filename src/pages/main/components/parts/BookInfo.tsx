@@ -17,9 +17,9 @@ export const BookInfo: FC<BookInfoProps> = () => {
     const matchBook = useMatch('/book/:id');
 
     const id = Number(matchBook?.params.id);
-    const bookInfo = data.find((item) => +item.id === +id);
+    const infoBuy = data.find((item) => +item.id === +id);
 
-    return <InfoBuy infoBuy={bookInfo} isShowBook={true} id={id} />;
+    return <InfoBuy infoBuy={infoBuy} isShowBook={true} id={id} />;
 };
 
 export default BookInfo;

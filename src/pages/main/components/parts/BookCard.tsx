@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import imageSrc from '@/assets/images/bookBlock/book.png';
 import { IBookBlock } from '@/utils/types/book';
 
 import css from './BookCard.module.scss';
@@ -11,11 +10,11 @@ export type BookCardProps = IBookBlock & {
 };
 
 export const BookCard: FC<BookCardProps> = (props) => {
-    const { title, description, index, id, onClick } = props;
+    const { title, description, index, id, image, onClick } = props;
 
     return (
         <div className={css.bookCard} data-index={index}>
-            <img src={imageSrc} className={css.bookImage} alt="book" />
+            <img src={image} className={css.bookImage} alt="book" />
 
             <div className={css.bookInfo}>
                 <div className={css.bookTitle}>{title}</div>

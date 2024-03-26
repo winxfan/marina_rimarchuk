@@ -15,6 +15,7 @@ export interface ICourseCard {
     description?: string;
     icon?: string;
     image?: string;
+    descriptionPrice?: string;
     contentTitle?: string;
     contentInfo?: string | ReactNode;
     contentList?: IBookContentList[];
