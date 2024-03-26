@@ -1,7 +1,7 @@
 export interface IMedia {
     id: string | number;
-    title: string;
+    name: string;
     time: string;
     image?: string;
-    file: string;
+    url: string;
 }

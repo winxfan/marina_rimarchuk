@@ -8,12 +8,12 @@ import PauseIcon from '@/assets/images/media/pause.svg';
 import PlayIcon from '@/assets/images/media/play.svg';
 import PrevIcon from '@/assets/images/media/prev.svg';
 import musicSrc from '@/assets/media/music.mp3';
-import { Meditations } from '@/utils/types/meditation';
+import { IMedia } from '@/utils/types/media';
 
 import css from './MediaPlayer.module.scss';
 
 export type MediaPlayerProps = {
-    entryInfo?: Meditations;
+    entryInfo?: IMedia;
     className?: any;
 };
 
@@ -32,7 +32,7 @@ export const MediaPlayer: FC<MediaPlayerProps> = (props) => {
 
     const [seconds, setSeconds] = useState();
 
-    const [play, { pause, duration, sound }] = useSound(musicSrc);
+    const [play, { pause, duration, sound }] = useSound(entryInfo.url);
 
     useEffect(() => {
         if (duration) {

@@ -14,7 +14,7 @@ export const MediaMeditation: FC<MediaMeditationProps> = () => {
     useBackButton('/');
     const matchMeditation = useMatch('/mediaMeditation/:id');
     const allMeditations: AllMeditations = useSelector((state: AllMeditationsResponse) => state.meditations);
-    console.log(allMeditations, 'vvv');
+
     const id = Number(matchMeditation?.params.id);
     const entryInfo = allMeditations.data.find((item) => +item.id === +id);
 

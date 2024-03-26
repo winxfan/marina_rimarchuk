@@ -8,52 +8,48 @@ import { CommonHeader } from '../header/components/CommonHeader';
 import CardSlider from '../slider/CardSlider';
 import css from './PodcastsBlock.module.scss';
 
-export type PodcastsBlockProps = {
-    isMobile?: boolean;
-};
+export type PodcastsBlockProps = any;
 
 export const data: IMedia[] = [
     {
         id: 1,
-        title: 'Практика намерения, которая перевернет жизнь!',
-        time: '12:56',
-        file: '',
+        name: 'Как я создала программу',
+        time: '13:55',
+        url: 'https://api-wather.plutus-fin.ru/music/КАК Я СОЗДАЛА ПРОГРАММУ.ogg',
         image: '',
     },
     {
         id: 2,
-        title: 'Практика намерения, которая перевернет жизнь!',
-        time: '12:56',
-        file: '',
+        name: 'О той самой жизни в настоящем',
+        url: 'https://api-wather.plutus-fin.ru/music/О той самой жихни в настоящем.ogg',
+        time: '11:21',
         image: '',
     },
     {
         id: 3,
-        title: 'Практика намерения!',
-        file: '',
+        name: 'Поговорим о твоей мотивации',
+        url: 'https://api-wather.plutus-fin.ru/music/Поговорим о твоей мотивации.ogg',
+        time: '9:30',
         image: '',
-        time: '12:56',
     },
     {
         id: 4,
-        title: 'Практика намерения, которая перевернет жизнь!',
-        file: '',
+        name: 'Создаем свои новые убеждения',
+        url: 'https://api-wather.plutus-fin.ru/music/Создаем свои новые убеждения.ogg',
+        time: '07:11',
         image: '',
-        time: '12:56',
     },
 ];
 
-export const PodcastsBlock: FC<PodcastsBlockProps> = (props) => {
-    const { isMobile } = props;
-
+export const PodcastsBlock: FC<PodcastsBlockProps> = () => {
     return (
         <div className={css.podcastsBlock}>
             <Link to="/podcasts" className={css.resetStyle}>
                 <CommonHeader title="Подкасты" />
             </Link>
             <CardSlider slidesToShow={2.15} slidesToShowMobile={1.75}>
-                {data?.map((item) => (
-                    <PodcastCard key={item.id} {...item} />
+                {data?.map((item, index) => (
+                    <PodcastCard key={item.id} {...item} index={index} />
                 ))}
             </CardSlider>
         </div>

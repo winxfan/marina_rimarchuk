@@ -25,7 +25,7 @@ export const VideoCard: FC<VideoCardProps> = (props) => {
                 <VideoPlayer videoUrl={vid_url} previewUrl={pic_url} width={'235px'} height={'100px'} />
             </div>
             <div className={css.cardTitle}>{name}</div>
-            <Link to="/" className={css.videoPlay}>
+            <Link to="/video" className={css.videoPlay}>
                 <div className={css.videoIcon}>
                     <VideoPlay />
                 </div>

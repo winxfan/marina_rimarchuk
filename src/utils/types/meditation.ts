@@ -7,17 +7,17 @@ export interface IMeditation {
     image?: string;
 }
 
-export type AllMeditations = {
-    data: Meditations[];
-    status: LoadingStatus;
-    error: LoadingStatus;
-};
-
 export type Meditations = {
     id: string | number;
     name: string;
     time: string;
     url: string;
+};
+
+export type AllMeditations = {
+    data: Meditations[];
+    status: LoadingStatus;
+    error: LoadingStatus;
 };
 
 export type AllMeditationsResponse = {

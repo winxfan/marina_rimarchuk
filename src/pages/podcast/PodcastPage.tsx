@@ -14,8 +14,8 @@ const PodcastPage = () => {
         <div className={css.podcastPage}>
             <HeaderPage title="Подкасты" />
             <div className={css.podcastWrapper}>
-                {data?.map((item) => (
-                    <PodcastCard key={item.id} {...item} isPage={true} />
+                {data?.map((item, index) => (
+                    <PodcastCard key={item.id} {...item} index={index} isPage={true} />
                 ))}
             </div>
         </div>

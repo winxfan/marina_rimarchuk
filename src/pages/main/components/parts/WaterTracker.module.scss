@@ -134,6 +134,8 @@
   }
 
   .addGlass {
+    cursor: pointer;
+    opacity: 0.4;
     position: fixed;
     bottom: 24px;
     left: 50%;

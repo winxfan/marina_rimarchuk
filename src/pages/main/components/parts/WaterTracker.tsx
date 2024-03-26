@@ -14,7 +14,7 @@ import { getUser } from '@/store/currentUserSlice';
 import { addVolumeWater } from '@/store/waterAddSlice';
 import { getWater } from '@/store/waterGetSlice';
 import { useBackButton } from '@/utils/hooks/useBackButton';
-import { AuthResponse, AuthUser, UserGet, UserGetResponse } from '@/utils/types';
+import { UserGet, UserGetResponse } from '@/utils/types';
 import { GetWaterResponse, WaterData } from '@/utils/types/water';
 
 import css from './WaterTracker.module.scss';
@@ -159,7 +159,7 @@ export const WaterTracker = () => {
                     </button>
                 </div>
             </div>
-            <button className={css.addGlass}>
+            <button disabled className={css.addGlass}>
                 <div className={css.addGlassIcon}>
                     <CupBlackIcon />
                 </div>
