@@ -37,21 +37,31 @@ export const CourseShowInfo: FC<CourseShowInfoProps> = () => {
 
     const lesson: ICourseCard | undefined = card?.lesson?.find((entry) => +entry.id === id);
 
-    console.log(lesson, 'lesson');
+    const lastLesson = card.lesson.slice(-1)[0];
+    console.log(lastLesson.id, 'lastLesson.id');
+    console.log(id, 'id');
+    console.log(lastLesson.id === id, 'lastLesson.id === id');
+
     return (
         <div className={css.courseShowInfo}>
             <div className={css.courseShowDescription}>{lesson?.description}</div>
             <div className={css.courseShowTitle}>{lesson?.title}</div>
             <div className={cs(css.courseShowVideo)}>
-                <VideoPlayer videoUrl={lesson.url} width={'360px'} height={'202px'} />
+                {lesson.url ? (
+                    <VideoPlayer videoUrl={lesson.url} width={'360px'} height={'202px'} />
+                ) : (
+                    <div>Здесь скоро будет видео</div>
+                )}
             </div>
             <Link to={`/course/card/${match ? Number(match[1]) : null}/show/${id + 1}`} className={css.nextLesson}>
-                <div className={css.courseShowText}>
-                    <p>Следующий урок</p>
-                </div>
-                <div className={css.courseShowIcon}>
-                    <NextLesson />
-                </div>
+                <button disabled={+lastLesson.id === +id} className={css.nextLessonBtn}>
+                    <div className={css.courseShowText}>
+                        <p>Следующий урок</p>
+                    </div>
+                    <div className={css.courseShowIcon}>
+                        <NextLesson />
+                    </div>
+                </button>
             </Link>
         </div>
     );

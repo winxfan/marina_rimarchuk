@@ -30,6 +30,7 @@
     border-radius: 16px;
     background: #0D0A36;
     margin-bottom: 12px;
+    display: block;
 
     .contentCostLink {
       display: flex;
@@ -46,7 +47,7 @@
       }
 
       .contentCostPrice {
-        flex: 0 0 90px;
+        flex: 0 1 90px;
         color: #FFF;
         white-space: nowrap;
         font-size: 22px;

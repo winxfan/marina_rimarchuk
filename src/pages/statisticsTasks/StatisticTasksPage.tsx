@@ -18,14 +18,14 @@ const levelData: IAccordionContent[] = [
             {
                 title: 'Куплено 1/3 методичек',
                 progress: {
-                    component: <ProgressBar percent={'1/3'} />,
+                    component: <ProgressBar percent={'0/3'} />,
                     id: '6',
                 },
             },
             {
                 title: '3/20 дней подряд заполняется трекер воды',
                 progress: {
-                    component: <ProgressBar percent={'3/20'} />,
+                    component: <ProgressBar percent={'0/20'} />,
                     id: '7',
                 },
             },
@@ -39,14 +39,14 @@ const levelData: IAccordionContent[] = [
             {
                 title: 'Куплено 1/3 методичек',
                 progress: {
-                    component: <ProgressBar percent={'1/3'} />,
+                    component: <ProgressBar percent={'0/3'} />,
                     id: '8',
                 },
             },
             {
                 title: '3/20 дней подряд заполняется трекер воды',
                 progress: {
-                    component: <ProgressBar percent={'3/20'} />,
+                    component: <ProgressBar percent={'0/20'} />,
                     id: '9',
                 },
             },
@@ -60,14 +60,14 @@ const levelData: IAccordionContent[] = [
             {
                 title: 'Куплено 1/3 методичек',
                 progress: {
-                    component: <ProgressBar percent={'1/3'} />,
+                    component: <ProgressBar percent={'0/3'} />,
                     id: '10',
                 },
             },
             {
                 title: '3/20 дней подряд заполняется трекер воды',
                 progress: {
-                    component: <ProgressBar percent={'3/20'} />,
+                    component: <ProgressBar percent={'0/20'} />,
                     id: '11',
                 },
             },

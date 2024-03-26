@@ -18,14 +18,14 @@ const levelData: IAccordionContent[] = [
         icon: starsImage,
         content: [
             {
-                title: 'Куплено 1/3 методичек',
+                title: 'Куплено 0/3 методичек',
                 progress: {
                     component: <ProgressBar percent={'1/3'} />,
                     id: '6',
                 },
             },
             {
-                title: '3/20 дней подряд заполняется трекер воды',
+                title: '0/20 дней подряд заполняется трекер воды',
                 progress: {
                     component: <ProgressBar percent={'3/20'} />,
                     id: '7',
@@ -39,7 +39,7 @@ const levelData: IAccordionContent[] = [
         icon: starImage,
         content: [
             {
-                title: 'Куплено 1/3 методичек',
+                title: 'Куплено 0/3 методичек',
                 progress: {
                     component: <ProgressBar percent={'1/3'} />,
                     id: '8',
@@ -60,7 +60,7 @@ const levelData: IAccordionContent[] = [
         icon: crystalImage,
         content: [
             {
-                title: 'Куплено 1/3 методичек',
+                title: 'Куплено 0/3 методичек',
                 progress: {
                     component: <ProgressBar percent={'1/3'} />,
                     id: '10',

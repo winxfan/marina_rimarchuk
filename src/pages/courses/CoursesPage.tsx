@@ -101,6 +101,7 @@ export const dataCourses: ICourses[] = [
                         title: 'Опыт-секрет успеха',
                         description: 'Урок 1',
                         open: true,
+                        url: 'https://api-wather.plutus-fin.ru/videos/%D0%9E%D0%9F%D0%AB%D0%A2%20-%20%D0%A1%D0%95%D0%9A%D0%A0%D0%95%D0%A2%20%D0%A3%D0%A1%D0%9F%D0%95%D0%A5%D0%90.mp4',
                     },
                     {
                         id: '18',
@@ -108,6 +109,7 @@ export const dataCourses: ICourses[] = [
                         title: 'Выход из матрицы',
                         description: 'Урок 2',
                         open: true,
+                        url: 'https://api-wather.plutus-fin.ru/videos/%D0%92%D0%AB%D0%A5%D0%9E%D0%94%20%D0%98%D0%97%20%D0%9C%D0%90%D0%A2%D0%A0%D0%98%D0%A6%D0%AB.mp4',
                     },
                     {
                         id: '19',
@@ -115,6 +117,7 @@ export const dataCourses: ICourses[] = [
                         title: 'Самопрограммирование',
                         description: 'Урок 3',
                         open: true,
+                        url: 'https://api-wather.plutus-fin.ru/videos/%D0%A1%D0%B0%D0%BC%D0%BE%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5.mp4',
                     },
                     {
                         id: '20',
@@ -122,6 +125,7 @@ export const dataCourses: ICourses[] = [
                         title: 'Манипуляции',
                         description: 'Урок 4',
                         open: true,
+                        url: 'https://api-wather.plutus-fin.ru/videos/%D0%9C%D0%B0%D0%BD%D0%B8%D0%BF%D1%83%D0%BB%D1%8F%D1%86%D0%B8%D0%B8.mp4',
                     },
                     {
                         id: '21',
@@ -129,6 +133,7 @@ export const dataCourses: ICourses[] = [
                         title: 'Интуиция',
                         description: 'Урок 5',
                         open: true,
+                        url: 'https://api-wather.plutus-fin.ru/videos/%D0%98%D0%BD%D1%82%D1%83%D0%B8%D1%86%D0%B8%D1%8F.mp4',
                     },
                 ],
             },

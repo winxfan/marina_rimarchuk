@@ -21,7 +21,7 @@ export const StatisticLevel = () => {
                     </div>
                     <div className={css.completeLevel}>
                         <div className={css.completeTitle}>До следующего уровня выполнено:</div>
-                        <ProgressBar percent={55} />
+                        <ProgressBar percent={0} />
                     </div>
                     <Link to="/tasks" className={css.watchQuestion}>
                         <div className={css.watchText}>Смотреть задания</div>

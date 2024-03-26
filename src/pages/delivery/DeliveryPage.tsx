@@ -21,7 +21,7 @@ const DeliveryPage = () => {
 
     return (
         <div className={css.deliveryPage}>
-            <h1 className={css.deliveryHeader}>Данные для доставки книги</h1>
+            <h1 className={css.deliveryHeader}>Данные для покупки</h1>
 
             <form className={css.deliveryForm} onSubmit={handleSubmit}>
                 {Object.keys(formFieldTitle).map((key) => (

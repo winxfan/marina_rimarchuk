@@ -14,10 +14,10 @@ export type StatisticInfoCardProps = {
 };
 
 const data: IStatisticInfoCard[] = [
-    { id: '1', title: '1000 мл', description: 'за неделю выпито воды', icon: waterImage },
-    { id: '2', title: '22 000 мл', description: 'за месяц выпито воды', icon: waterImage },
-    { id: '3', title: '10', description: 'Видео вы уже посмотрели', icon: cameraImage },
-    { id: '4', title: '101', description: 'Подкастов вы уже послушали', icon: microImage },
+    { id: '1', title: '0 мл', description: 'за неделю выпито воды', icon: waterImage },
+    { id: '2', title: '0 мл', description: 'за месяц выпито воды', icon: waterImage },
+    { id: '3', title: '0', description: 'Видео вы уже посмотрели', icon: cameraImage },
+    { id: '4', title: '0', description: 'Подкастов вы уже послушали', icon: microImage },
 ];
 
 export const StatisticInfoCard: FC<StatisticInfoCardProps> = (props) => {

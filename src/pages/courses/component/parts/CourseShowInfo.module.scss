@@ -28,7 +28,7 @@
   }
 
   .courseShowVideo {
-
+    margin-bottom: 18px;
   }
 
   .nextLesson {
@@ -46,6 +46,12 @@
       display: inline-flex;
       width: 24px;
       height: 24px;
+    }
+
+    .nextLessonBtn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .courseShowText {
