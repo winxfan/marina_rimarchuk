@@ -8,6 +8,7 @@ export interface ILesson {
     image?: string;
     id: string | number;
     open?: boolean;
+    url?: string;
 }
 
 export interface ICourseCard {
@@ -24,6 +25,7 @@ export interface ICourseCard {
     price?: string;
     buy?: boolean;
     lesson?: ILesson[];
+    url?: string;
     id: string | number;
 }
 

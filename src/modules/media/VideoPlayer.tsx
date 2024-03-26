@@ -5,7 +5,7 @@ import css from '@/modules/media/VideoPlayer.module.scss';
 
 export type VideoPlayerProps = {
     videoUrl: string;
-    previewUrl: string;
+    previewUrl?: string;
     width: string;
     height: string;
 };

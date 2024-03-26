@@ -1,8 +1,10 @@
 import React, { FC, ReactNode } from 'react';
 import { Link, useMatch } from 'react-router-dom';
 
-import srcImage from '@/assets/images/course/avatarLesson.png';
+import cs from 'classnames';
+
 import NextLesson from '@/assets/images/course/next.svg';
+import VideoPlayer from '@/modules/media/VideoPlayer';
 import { useBackButton } from '@/utils/hooks/useBackButton';
 import { ICourseCard } from '@/utils/types/courses';
 
@@ -35,12 +37,14 @@ export const CourseShowInfo: FC<CourseShowInfoProps> = () => {
 
     const lesson: ICourseCard | undefined = card?.lesson?.find((entry) => +entry.id === id);
 
-    console.log(card, 'card');
+    console.log(lesson, 'lesson');
     return (
         <div className={css.courseShowInfo}>
             <div className={css.courseShowDescription}>{lesson?.description}</div>
             <div className={css.courseShowTitle}>{lesson?.title}</div>
-            <img className={css.courseShowImage} src={srcImage} alt="Course show" />
+            <div className={cs(css.courseShowVideo)}>
+                <VideoPlayer videoUrl={lesson.url} width={'360px'} height={'202px'} />
+            </div>
             <Link to={`/course/card/${match ? Number(match[1]) : null}/show/${id + 1}`} className={css.nextLesson}>
                 <div className={css.courseShowText}>
                     <p>Следующий урок</p>

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 import { ThunkDispatch } from '@reduxjs/toolkit';
 
-import imageSrc from '@/assets/images/bookBlock/bookShow.png';
 import PDFViewer from '@/modules/pdfViewer/PDFViewer';
 import { manualsGet } from '@/store/manualsGetSlice';
 import { useBackButton } from '@/utils/hooks/useBackButton';
@@ -35,7 +34,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
         };
 
         fetchManualGet();
-    }, [id]);
+    }, [id, dispatch]);
 
     const manual = useSelector((state: ManualsGetResponse) => state.manualsGet);
 
@@ -63,17 +62,20 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                 <div className={css.contentCostLink}>
                     <div className={css.contentCostText}>{isShowBook && infoBuy.descriptionPrice}</div>
                     <div className={css.contentCostText}>{isShowManual && infoBuy.descriptionPrice}</div>
+                    <div className={css.contentCostText}>{isShowCourse && infoBuy.buttonText}</div>
                     <div className={css.contentCostPrice}>{isShowManual && manual.data ? manual.data.cost : null}</div>
                     <div className={css.contentCostPrice}>{isShowBook && infoBuy.price}</div>
+                    <div className={css.contentCostPrice}>{isShowCourse && infoBuy.price}</div>
                 </div>
             </button>
             <Link to={`/delivery/${id}`} className={css.contentPriceButton}>
                 <div className={css.contentPriceLink}>
                     <div className={css.contentPriceText}>{isShowManual && infoBuy.buttonBuy}</div>
+                    <div className={css.contentPriceText}>{isShowCourse && infoBuy.buttonBuy}</div>
                     <div className={css.contentPriceText}>{isShowBook && infoBuy.buttonBuy}</div>
                 </div>
             </Link>
-            <PDFViewer pdfUrl="http://api-wather.plutus-fin.ru/books/book_1.pdf" />
+            {isShowBook && <PDFViewer pdfUrl="http://api-wather.plutus-fin.ru/books/book_1.pdf" />}
         </div>
     );
 };
