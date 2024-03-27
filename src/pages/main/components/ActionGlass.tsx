@@ -9,15 +9,15 @@ export const ActionGlass = () => {
     return (
         <div className={css.actionGlass}>
             <CircleProgressBar circleWidth={83} percent={3} />
-            <button disabled className={css.addGlass}>
-                {/*<Link to="/waterTracker" className={css.addGlass}>*/}
-                <div className={css.glassIcon}>
-                    <GlassIcon />
-                </div>
-                <div className={css.glassAdd}>
-                    <p>Добавить стакан&nbsp;+</p>
-                </div>
-                {/*</Link>*/}
+            <button className={css.addGlass}>
+                <Link to="/waterTracker" className={css.addGlass}>
+                    <div className={css.glassIcon}>
+                        <GlassIcon />
+                    </div>
+                    <div className={css.glassAdd}>
+                        <p>Добавить стакан&nbsp;+</p>
+                    </div>
+                </Link>
             </button>
         </div>
     );

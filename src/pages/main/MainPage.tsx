@@ -38,10 +38,6 @@ const MainPage = () => {
         };
     }, []);
 
-    useEffect(() => {
-        console.log(initDataUnsafe?.user, 'userId');
-    }, []);
-
     const userId: number = initDataUnsafe?.user?.id;
     const userName: string = initDataUnsafe?.user?.first_name;
 
