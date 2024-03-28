@@ -32,7 +32,9 @@ const MainPage = () => {
         if (!videoPlayed) {
             setVideoPlayed(true);
         }
-    }, [videoPlayed]);
+    }, []);
+
+    console.log(videoPlayed, 'videoPlayed');
 
     const handleVideoEnded = () => {
         setVideoPlayed(true);

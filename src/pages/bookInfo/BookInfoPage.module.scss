@@ -1,13 +1,19 @@
-.bookInfoPage::before {
-  content: '';
-  position: fixed;
-  left: 0;
-  top: 0;
-  background-image: url('@/assets/images/course/back.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position:center;
-  width: 100%;
-  height: 100vh;
-  z-index: -1;
+.bookInfoPage {
+  display: flex;
+  padding: 0 16px 30px;
+  flex-direction: column;
+
+  &::before {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-image: url('@/assets/images/course/back.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+  }
 }

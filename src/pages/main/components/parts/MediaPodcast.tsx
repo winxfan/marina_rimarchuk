@@ -13,5 +13,9 @@ export const MediaPodcast = () => {
     const id = Number(matchPodcast?.params.id);
     const entryInfo = data.find((item) => +item.id === +id);
 
-    return <MediaPlayer className={css.mediaPodcast} entryInfo={entryInfo} />;
+    return (
+        <div className={css.mediaPodcastPage}>
+            <MediaPlayer className={css.mediaPodcast} entryInfo={entryInfo} />
+        </div>
+    );
 };
