@@ -41,6 +41,8 @@ const MainPage = () => {
     const userId: number = initDataUnsafe?.user?.id;
     const userName: string = initDataUnsafe?.user?.first_name;
 
+    console.log(initDataUnsafe?.user, 'initDataUnsafe?.user');
+
     const authUser: AuthUser = useSelector((state: AuthResponse) => state.auth);
     const allUsers: AllUsers = useSelector((state: UserResponse) => state.user);
 
@@ -99,9 +101,8 @@ const MainPage = () => {
         <div className={css.container}>
             <AffirmationDay />
             <WaterTracker />
-            <MeditationsBlock />
-            <BookBlock />
             <PodcastsBlock isMobile={isMobile} />
+            <BookBlock />
             <VideoBlock isMobile={isMobile} />
             <Menu />
         </div>

@@ -2,8 +2,9 @@
   display: grid;
   grid-template-columns: minmax(100px, 2fr) 4fr;
   align-items: center;
-  gap: 16px;
-  min-height: 248px;
+  gap: 26px;
+  height: 188px;
+  overflow: hidden;
   //padding: 16px;
   border-radius: 20px;
 
@@ -12,18 +13,29 @@
   }
 
   .bookImage {
+    max-height: 225px;
+    display: flex;
+    align-items: baseline;
     object-fit: contain;
+    max-width: 269px;
+    position: relative;
+    right: 3px;
+  }
+
+  .bookTitleCard {
+    text-transform: uppercase;
   }
 
   .bookInfo {
-    margin: 16px 16px 16px 0;
+    padding: 2px 8px 0 0;
+    z-index: 2;
     display: flex;
     flex-direction: column;
 
     .bookTitle {
       font-size: 17px;
       font-weight: 600;
-      line-height: 22px;
+      line-height: 18px;
       letter-spacing: -0.442px;
       margin-bottom: 8px;
     }
@@ -33,7 +45,7 @@
       font-size: 12px;
       line-height: 16px;
       flex: 1 1 auto;
-      margin-bottom: 16px;
+      margin-bottom: 9px;
     }
 
     .linkBook {

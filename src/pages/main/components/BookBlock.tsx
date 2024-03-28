@@ -14,7 +14,7 @@ export const data: IBookBlock[] = [
         id: '1',
         title: (
             <div>
-                Книга <span className={css.bookPart}>«Будь здоровым сейчас» </span>+личная консультация
+                <span className={css.bookTitleCard}>I’M LEGEND</span>
             </div>
         ),
         contentTitle: 'Книга «Будь здоровым сейчас» + личная консультация',
@@ -37,7 +37,7 @@ export const data: IBookBlock[] = [
         price: '5 990 ₽',
         buttonText: 'Стоимость печатной книги + консультации',
         buttonBuy: 'Купить',
-        description: 'Энергию и ресурс не надо искать - это есть в нашем теле.',
+        description: 'Твоё перерождение',
         image: bookOneSrc,
     },
     {
@@ -50,7 +50,7 @@ export const data: IBookBlock[] = [
         buttonText: 'Стоимость',
         buttonBuy: 'Купить',
         description: 'Энергию и ресурс не надо искать - это есть в нашем теле.',
-        image: bookOneSrc,
+        image: bookTwoSrc,
     },
     {
         id: '3',
@@ -76,7 +76,7 @@ export const data: IBookBlock[] = [
         buttonText: 'Стоимость печатной книги + консультации',
         buttonBuy: 'Купить',
         description: 'Энергию и ресурс не надо искать - это есть в нашем теле.',
-        image: bookOneSrc,
+        image: bookThree,
     },
 ];
 
