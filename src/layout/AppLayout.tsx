@@ -30,24 +30,22 @@ export const AppLayout = () => {
 
     return (
         <div className={cs(videoPlayed ? css.layout : '')}>
-            {!videoPlayed && (
-                <ReactPlayer
-                    url="https://content-water.plutus-fin.ru/videos/intro.mp4"
-                    playing={true}
-                    loop={false}
-                    muted={true}
-                    width="100%"
-                    height="100%"
-                    style={{ position: 'relative', top: 0, left: 0 }}
-                    onEnded={handleVideoEnded}
-                />
-            )}
+            <Suspense fallback={<Loader />}>
+                {!videoPlayed && (
+                    <ReactPlayer
+                        url="https://content-water.plutus-fin.ru/videos/intro.mp4"
+                        playing={true}
+                        loop={false}
+                        muted={true}
+                        width="100%"
+                        height="100%"
+                        style={{ position: 'relative', top: 0, left: 0 }}
+                        onEnded={handleVideoEnded}
+                    />
+                )}
 
-            {videoPlayed && (
-                <Suspense fallback={<Loader />}>
-                    <Outlet />
-                </Suspense>
-            )}
+                {videoPlayed && <Outlet />}
+            </Suspense>
         </div>
     );
 };
