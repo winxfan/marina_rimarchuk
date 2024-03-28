@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { Outlet } from 'react-router-dom';
 
@@ -14,6 +14,13 @@ export const AppLayout = () => {
     const handleVideoEnded = () => {
         setVideoPlayed(true);
     };
+    const playerRef = useRef(null);
+
+    useEffect(() => {
+        if (playerRef.current) {
+            playerRef.current.play();
+        }
+    }, []);
 
     const startVideo = () => {
         setVideoPlayed(false);
@@ -36,15 +43,15 @@ export const AppLayout = () => {
         <div className={cs(videoPlayed ? css.layout : '')}>
             {!videoPlayed && (
                 <ReactPlayer
+                    ref={playerRef}
                     url="https://content-water.plutus-fin.ru/videos/intro.mp4"
-                    playing={true}
+                    playing={false}
                     loop={false}
                     muted={true}
                     width="100%"
                     height="100%"
                     style={{ position: 'relative', top: 0, left: 0 }}
                     onEnded={handleVideoEnded}
-                    onClickPreview={startVideo}
                 />
             )}
 
