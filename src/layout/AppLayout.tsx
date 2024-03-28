@@ -21,12 +21,7 @@ export const AppLayout = () => {
 
     const isAuth = userStatus === LoadingStatus.fulfilled && userData?.id;
 
-    useEffect(() => {
-        if (!isAuth && document.cookie.includes('authToken')) {
-            // todo create authentification api
-            dispatch(getUser({ id: 123 }));
-        }
-    }, [dispatch, isAuth]);*/
+   */
 
     return (
         <div className={cs(videoPlayed ? css.layout : '')}>
