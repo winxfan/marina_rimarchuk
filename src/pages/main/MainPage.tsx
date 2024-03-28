@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import ReactPlayer from 'react-player';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ThunkDispatch } from '@reduxjs/toolkit';
@@ -25,6 +26,15 @@ const MainPage = () => {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
     const [userTokenFetched, setUserTokenFetched] = useState(false);
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
+    const [videoPlayed, setVideoPlayed] = useState(true);
+
+    useEffect(() => {
+        setVideoPlayed(false);
+    }, []);
+
+    const handleVideoEnded = () => {
+        setVideoPlayed(true);
+    };
 
     useEffect(() => {
         const handleResize = () => {
@@ -99,12 +109,29 @@ const MainPage = () => {
 
     return (
         <div className={css.container}>
-            <AffirmationDay />
-            <WaterTracker />
-            <PodcastsBlock isMobile={isMobile} />
-            <BookBlock />
-            <VideoBlock isMobile={isMobile} />
-            <Menu />
+            {!videoPlayed && (
+                <ReactPlayer
+                    url="https://content-water.plutus-fin.ru/videos/intro.mp4"
+                    playing={true}
+                    loop={false}
+                    muted={true}
+                    width="100%"
+                    height="100%"
+                    style={{ position: 'relative', top: 0, left: 0 }}
+                    onEnded={handleVideoEnded}
+                />
+            )}
+
+            {videoPlayed && (
+                <div>
+                    <AffirmationDay />
+                    <WaterTracker />
+                    <PodcastsBlock isMobile={isMobile} />
+                    <BookBlock />
+                    <VideoBlock isMobile={isMobile} />
+                    <Menu />
+                </div>
+            )}
         </div>
     );
 };
