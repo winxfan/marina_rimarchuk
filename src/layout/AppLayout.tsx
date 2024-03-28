@@ -2,6 +2,8 @@ import { Suspense, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { Outlet } from 'react-router-dom';
 
+import cs from 'classnames';
+
 import { Loader } from '@/components/Loader';
 
 import css from './AppLayout.module.scss';
@@ -27,7 +29,7 @@ export const AppLayout = () => {
     }, [dispatch, isAuth]);*/
 
     return (
-        <div className={css.layout}>
+        <div className={cs(videoPlayed ? css.layout : '')}>
             {!videoPlayed && (
                 <ReactPlayer
                     url="https://content-water.plutus-fin.ru/videos/intro.mp4"
