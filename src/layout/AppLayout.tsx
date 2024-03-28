@@ -15,6 +15,10 @@ export const AppLayout = () => {
         setVideoPlayed(true);
     };
 
+    const startVideo = () => {
+        setVideoPlayed(false);
+    };
+
     /*  const dispatch = useDispatch();
     const userStatus = useSelector((store) => store.user.user.status);
     const userData = useSelector((store) => store.user.user.data, shallowEqual);
@@ -40,6 +44,7 @@ export const AppLayout = () => {
                     height="100%"
                     style={{ position: 'relative', top: 0, left: 0 }}
                     onEnded={handleVideoEnded}
+                    onClickPreview={startVideo}
                 />
             )}
 
