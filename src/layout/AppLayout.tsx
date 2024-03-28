@@ -26,9 +26,16 @@ export const AppLayout = () => {
     return (
         <div className={cs(videoPlayed ? css.layout : '')}>
             {!videoPlayed && (
-                <video style={{ position: 'relative', top: 0, left: 0 }} autoPlay muted loop>
-                    <source src="https://content-water.plutus-fin.ru/videos/intro.mp4" type="video/mp4" />
-                </video>
+                <ReactPlayer
+                    url="https://content-water.plutus-fin.ru/videos/intro.mp4"
+                    playing={true}
+                    loop={false}
+                    muted={true}
+                    width="100%"
+                    height="100%"
+                    style={{ position: 'relative', top: 0, left: 0 }}
+                    onEnded={handleVideoEnded}
+                />
             )}
 
             {videoPlayed && (
