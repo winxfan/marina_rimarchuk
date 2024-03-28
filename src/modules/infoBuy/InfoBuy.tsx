@@ -75,7 +75,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                     <div className={css.contentPriceText}>{isShowBook && infoBuy.buttonBuy}</div>
                 </div>
             </Link>
-            {isShowBook && <PDFViewer pdfUrl="http://api-wather.plutus-fin.ru/books/book_1.pdf" />}
+            {isShowBook && <PDFViewer pdfUrl="https://content-water.plutus-fin.ru/books/book_1.pdf" />}
         </div>
     );
 };
