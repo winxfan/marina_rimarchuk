@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
-import ReactPlayer from 'react-player';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ThunkDispatch } from '@reduxjs/toolkit';
-import cs from 'classnames';
 
 import { Menu } from '@/modules/menu/Menu';
 import { PodcastsBlock } from '@/modules/podcastsBlock/PodcastsBlock';
