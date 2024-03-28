@@ -48,9 +48,7 @@ export const PodcastsBlock: FC<PodcastsBlockProps> = () => {
                 <CommonHeader title="Подкасты" />
             </Link>
             <CardSlider slidesToShow={2.15} slidesToShowMobile={1.75}>
-                {data?.map((item, index) => (
-                    <PodcastCard key={item.id} {...item} index={index} />
-                ))}
+                {data ? data?.map((item, index) => <PodcastCard key={item.id} {...item} index={index} />) : null}
             </CardSlider>
         </div>
     );

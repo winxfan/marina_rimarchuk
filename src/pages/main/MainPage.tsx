@@ -3,8 +3,8 @@ import ReactPlayer from 'react-player';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ThunkDispatch } from '@reduxjs/toolkit';
+import cs from 'classnames';
 
-import { MeditationsBlock } from '@/modules/meditationBlock/MeditationsBlock';
 import { Menu } from '@/modules/menu/Menu';
 import { PodcastsBlock } from '@/modules/podcastsBlock/PodcastsBlock';
 import { VideoBlock } from '@/modules/videoBlock/VideoBlock';
@@ -26,11 +26,13 @@ const MainPage = () => {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
     const [userTokenFetched, setUserTokenFetched] = useState(false);
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
-    const [videoPlayed, setVideoPlayed] = useState(true);
+    const [videoPlayed, setVideoPlayed] = useState(false);
 
     useEffect(() => {
-        setVideoPlayed(false);
-    }, []);
+        if (!videoPlayed) {
+            setVideoPlayed(true);
+        }
+    }, [videoPlayed]);
 
     const handleVideoEnded = () => {
         setVideoPlayed(true);
@@ -108,7 +110,7 @@ const MainPage = () => {
     }, [authUser.user, userTokenFetched, dispatch]);
 
     return (
-        <div className={css.container}>
+        <div className={cs(videoPlayed ? css.container : '')}>
             {!videoPlayed && (
                 <ReactPlayer
                     url="https://content-water.plutus-fin.ru/videos/intro.mp4"
