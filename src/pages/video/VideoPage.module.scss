@@ -1,4 +1,4 @@
-.podcastPage {
+.videoPage {
   display: flex;
   flex-direction: column;
   padding: 0 16px 30px;
@@ -17,7 +17,7 @@
     z-index: -1;
   }
 
-  .podcastWrapper {
+  .videoWrapper {
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;

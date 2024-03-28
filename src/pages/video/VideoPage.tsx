@@ -14,9 +14,9 @@ const VideoPage = () => {
     console.log(allVideos, 'allVideos111');
 
     return (
-        <div className={css.podcastPage}>
+        <div className={css.videoPage}>
             <HeaderPage title="Видео от Марины Римарчук" lessSize={true} />
-            <div className={css.podcastWrapper}>
+            <div className={css.videoWrapper}>
                 {allVideos.data
                     ? allVideos.data?.map((item, index) => (
                           <VideoCard key={item.id} {...item} index={index} isPage={true} />
