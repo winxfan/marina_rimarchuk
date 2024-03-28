@@ -22,7 +22,7 @@ export const VideoCard: FC<VideoCardProps> = (props) => {
     return (
         <div className={cs(css.videoCardWrapper, className)}>
             <div className={cs(css.videoCard, isPage ? css.videoPageCard : '')}>
-                <VideoPlayer videoUrl={vid_url} previewUrl={pic_url} width={'235px'} height={'100px'} />
+                <VideoPlayer videoUrl={vid_url} previewUrl={pic_url} width={'227px'} height={'124px'} />
             </div>
             <div className={css.cardTitle}>{name}</div>
             <Link to="/video" className={css.videoPlay}>
