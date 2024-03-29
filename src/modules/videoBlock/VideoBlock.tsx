@@ -13,6 +13,7 @@ export type VideoBlockProps = any;
 
 export const VideoBlock: FC<VideoBlockProps> = () => {
     const allVideos: AllVideos = useSelector((state: AllVideosResponse) => state.videos);
+    console.log(allVideos.data, 'allVideos.data');
 
     return (
         <div className={css.videoBlock}>
