@@ -103,7 +103,7 @@ const MainPage = () => {
                 <WaterTracker />
                 <PodcastsBlock isMobile={isMobile} />
                 <BookBlock />
-                <VideoBlock isMobile={isMobile} />
+                <VideoBlock />
                 <Menu />
             </div>
         </div>

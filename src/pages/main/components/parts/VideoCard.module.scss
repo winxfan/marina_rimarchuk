@@ -3,10 +3,13 @@
   flex-direction: column;
 
   .videoCard {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     border-radius: 20px;
+    padding: 16px 16px 80px;
+    height: 100px;
 
     //padding-top: 66.66%;
 
