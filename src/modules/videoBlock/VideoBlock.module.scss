@@ -8,6 +8,11 @@
     color: #FFF;
     text-decoration: none;
   }
+
+  .slick-track {
+    transform: translate3d(0px, 0px, 0px) !important;
+  }
+
 }
 
 :global(.slick-slide) > div {
