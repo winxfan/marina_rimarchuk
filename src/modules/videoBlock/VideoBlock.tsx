@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -19,11 +19,13 @@ export const VideoBlock: FC<VideoBlockProps> = () => {
             <Link to="/video" className={css.resetStyle}>
                 <CommonHeader title="Видео от Марины Римарчук" />
             </Link>
-            <CardSlider slidesToShow={2.15} slidesToShowMobile={1.75}>
-                {allVideos.data
-                    ? allVideos.data?.map((item, index) => <VideoCard key={item.id} {...item} index={index} />)
-                    : null}
-            </CardSlider>
+            {allVideos.data ? (
+                <CardSlider slidesToShow={2.15} slidesToShowMobile={1.75}>
+                    {allVideos.data?.map((item, index) => (
+                        <VideoCard key={item.id} {...item} index={index} />
+                    ))}
+                </CardSlider>
+            ) : null}
         </div>
     );
 };
