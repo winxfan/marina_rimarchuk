@@ -9,11 +9,11 @@ import { Loader } from '@/components/Loader';
 import css from './AppLayout.module.scss';
 
 export const AppLayout = () => {
-    const [videoPlayed, setVideoPlayed] = useState(false);
+    // const [videoPlayed, setVideoPlayed] = useState(false);
 
-    const handleVideoEnded = () => {
-        setVideoPlayed(true);
-    };
+    // const handleVideoEnded = () => {
+    //     setVideoPlayed(true);
+    // };
 
     /*  const dispatch = useDispatch();
     const userStatus = useSelector((store) => store.user.user.status);
@@ -24,25 +24,25 @@ export const AppLayout = () => {
    */
 
     return (
-        <div className={cs(videoPlayed ? css.layout : '')}>
-            {!videoPlayed && (
-                <ReactPlayer
-                    url="https://content-water.plutus-fin.ru/videos/intro.mp4"
-                    playing={true}
-                    loop={false}
-                    muted={true}
-                    width="100%"
-                    height="100%"
-                    style={{ position: 'relative', top: 0, left: 0 }}
-                    onEnded={handleVideoEnded}
-                />
-            )}
+        <div className={css.layout}>
+            {/*{!videoPlayed && (*/}
+            {/*    <ReactPlayer*/}
+            {/*        url="https://content-water.plutus-fin.ru/videos/intro.mp4"*/}
+            {/*        playing={true}*/}
+            {/*        loop={false}*/}
+            {/*        muted={true}*/}
+            {/*        width="100%"*/}
+            {/*        height="100%"*/}
+            {/*        style={{ position: 'relative', top: 0, left: 0 }}*/}
+            {/*        onEnded={handleVideoEnded}*/}
+            {/*    />*/}
+            {/*)}*/}
 
-            {videoPlayed && (
-                <Suspense fallback={<Loader />}>
-                    <Outlet />
-                </Suspense>
-            )}
+            {/*{videoPlayed && (*/}
+            <Suspense fallback={<Loader />}>
+                <Outlet />
+            </Suspense>
+            {/*)}*/}
         </div>
     );
 };

@@ -49,7 +49,7 @@ const MainPage = () => {
         const fetchData = async () => {
             await dispatch(getUsersAll());
             if (allUsers.data.length && userId) {
-                const isIdExists = allUsers.data.some((user) => +user.user_id === +userId);
+                const isIdExists = allUsers.data.some((user) => +user.user_id === 2);
 
                 if (!isIdExists) {
                     await dispatch(addNewUser({ user_id: userId, user_name: userName }));
@@ -62,7 +62,7 @@ const MainPage = () => {
 
     useEffect(() => {
         const fetchAuthToken = async () => {
-            await dispatch(authToken(Number(userId)));
+            await dispatch(authToken(Number(2)));
         };
 
         const fetchMeditationsAll = async () => {
