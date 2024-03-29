@@ -9,7 +9,7 @@
     text-decoration: none;
   }
 
-  :global(.slick-slide) {
+  :global(.slick-slide) > div {
     margin-left: -343px;
   }
 
