@@ -19,7 +19,7 @@ export const VideoBlock: FC<VideoBlockProps> = () => {
             <Link to="/video" className={css.resetStyle}>
                 <CommonHeader title="Видео от Марины Римарчук" />
             </Link>
-            <CardSlider slidesToShow={2} slidesToShowMobile={1.75}>
+            <CardSlider slidesToShow={2} slidesToShowMobile={1}>
                 {allVideos.data
                     ? allVideos.data?.map((item, index) => <VideoCard key={item.id} {...item} index={index} />)
                     : null}
