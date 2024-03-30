@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ArrowIcon from '@/assets/images/arrowIcon/arrow.svg';
 import avatarIcon from '@/assets/images/welcomeUser/avatar.png';
 import QuestionsIcon from '@/assets/images/welcomeUser/questions.svg';
+import { Loader } from '@/components/Loader';
 import { getUser } from '@/store/currentUserSlice';
 import { useTelegram } from '@/utils/hooks/useTelegram';
 import { AuthResponse, AuthUser } from '@/utils/types';
@@ -41,11 +42,15 @@ export const WelcomeUser = () => {
             <Link to="/statistics">
                 <div className={css.user}>
                     <div className={css.greetings}>
-                        <img
-                            src={userImg ? `data:image/png;base64,${userImg}` : ''}
-                            className={css.userAvatar}
-                            alt="avatar"
-                        />
+                        {userImg === '' ? (
+                            <Loader />
+                        ) : (
+                            <img
+                                src={userImg ? `data:image/png;base64,${userImg}` : ''}
+                                className={css.userAvatar}
+                                alt="avatar"
+                            />
+                        )}
 
                         <div className={css.userInfo}>
                             <div className={css.helloUser}>Привет</div>
