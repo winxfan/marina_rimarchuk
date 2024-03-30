@@ -67,6 +67,11 @@ const MainPage = () => {
                 if (!isIdExists && userId && userName) {
                     console.log('user addddd');
                     await dispatch(addNewUser({ user_id: +userId, user_name: userName }));
+                    dispatch(authToken(Number(userId)));
+                } else {
+                    dispatch(authToken(Number(userId)));
+                    dispatch(getAffirmationAll());
+                    dispatch(getVideosAll());
                 }
             }
         };
@@ -74,16 +79,12 @@ const MainPage = () => {
         fetchData();
     }, [dispatch, allUsers.data, userId, userName]);
 
-    useEffect(() => {
-        const fetchAllData = async () => {
-            await Promise.all([
-                dispatch(authToken(Number(userId))),
-                dispatch(getAffirmationAll()),
-                dispatch(getVideosAll()),
-            ]);
-        };
-        fetchAllData();
-    }, [dispatch, userId]);
+    // useEffect(() => {
+    //     const fetchAllData = async () => {
+    //         await Promise.all([dispatch(authToken(Number(userId)))]);
+    //     };
+    //     fetchAllData();
+    // }, [dispatch, userId]);
 
     useEffect(() => {
         const fetchUser = async () => {
