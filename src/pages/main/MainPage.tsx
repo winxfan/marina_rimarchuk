@@ -27,6 +27,9 @@ const MainPage = () => {
     const userId: number = initDataUnsafe?.user?.id;
     const userName: string = initDataUnsafe?.user?.first_name;
 
+    console.log(userId, 'userId');
+    console.log(userName, 'userName');
+
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth < 500);
@@ -58,16 +61,18 @@ const MainPage = () => {
             console.log(authUser, 'authUser v useEffect');
             console.log(allUsers.data.length, 'a2llUsers.data.length v useEffect');
 
-            const isIdExists = allUsers.data.some((user) => +user.user_id === +userId);
-            console.log(isIdExists, 'isIdExists');
-            if (!isIdExists && userId && userName) {
-                console.log('user addddd');
-                await dispatch(addNewUser({ user_id: +userId, user_name: userName }));
+            if (userId && userName) {
+                const isIdExists = allUsers.data.some((user) => +user.user_id === +userId);
+                console.log(isIdExists, 'isIdExists');
+                if (!isIdExists && userId && userName) {
+                    console.log('user addddd');
+                    await dispatch(addNewUser({ user_id: +userId, user_name: userName }));
+                }
             }
         };
 
         fetchData();
-    }, [dispatch, allUsers.data]);
+    }, [dispatch, allUsers.data, userId, userName]);
 
     useEffect(() => {
         const fetchAllData = async () => {
