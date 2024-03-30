@@ -1,19 +1,23 @@
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import ArrowIcon from '@/assets/images/arrowIcon/arrow.svg';
 import avatarIcon from '@/assets/images/welcomeUser/avatar.png';
 import QuestionsIcon from '@/assets/images/welcomeUser/questions.svg';
+import { useTelegram } from '@/utils/hooks/useTelegram';
 import { AuthResponse, AuthUser } from '@/utils/types';
 
 import css from './WelcomeUser.module.scss';
 
 export const WelcomeUser = () => {
+    const { initDataUnsafe } = useTelegram();
     const authUser: AuthUser = useSelector((state: AuthResponse) => state.auth);
 
-    const userName = authUser.user[0].user_name;
-    const userImg = authUser.user[0].user_img;
+    const userName = initDataUnsafe?.user?.first_name;
+    const userImg = initDataUnsafe?.user?.user_img;
     console.log(authUser, 'authUser WELCOME');
+    console.log(initDataUnsafe?.user, 'initDataUnsafe?.user?');
 
     return (
         <div className={css.welcomeUser}>
