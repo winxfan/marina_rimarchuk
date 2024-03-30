@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ArrowIcon from '@/assets/images/arrowIcon/arrow.svg';
 import avatarIcon from '@/assets/images/welcomeUser/avatar.png';
 import QuestionsIcon from '@/assets/images/welcomeUser/questions.svg';
+import { getUser } from '@/store/currentUserSlice';
 import { useTelegram } from '@/utils/hooks/useTelegram';
 import { AuthResponse, AuthUser } from '@/utils/types';
 
@@ -12,10 +13,26 @@ import css from './WelcomeUser.module.scss';
 
 export const WelcomeUser = () => {
     const { initDataUnsafe } = useTelegram();
+    const [userImg, setUserImg] = useState('');
+
     const authUser: AuthUser = useSelector((state: AuthResponse) => state.auth);
 
     const userName = initDataUnsafe?.user?.first_name;
-    const userImg = authUser?.user?.[0].user_img;
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            console.log(authUser.user[0], 'authUser.user[0]');
+            if (authUser.user[0]) {
+                console.log('Зашли в проверку');
+                setUserImg(authUser?.user?.[0].user_img);
+            }
+        };
+
+        if (authUser.user.length > 0) {
+            fetchUser();
+        }
+    }, [authUser.user]);
+
     console.log(authUser, 'authUser WELCOME');
     console.log(userImg, 'userImg WELCOME');
 
