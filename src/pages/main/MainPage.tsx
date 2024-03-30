@@ -45,10 +45,15 @@ const MainPage = () => {
     const authUser: AuthUser = useSelector((state: AuthResponse) => state.auth);
     const allUsers: AllUsers = useSelector((state: UserResponse) => state.user);
 
+    console.log(authUser, 'authUser');
+    console.log(allUsers.data.length, 'allUsers.data.length');
+
     useEffect(() => {
         const fetchData = async () => {
             await dispatch(getUsersAll());
-            console.log(allUsers.data.length, 'allUsers.data.length');
+
+            console.log(authUser, 'authUser v useEffect');
+            console.log(allUsers.data.length, 'allUsers.data.length v useEffect');
 
             const isIdExists = allUsers.data.some((user) => +user.user_id === +userId);
             console.log(isIdExists, 'isIdExists');
@@ -66,17 +71,12 @@ const MainPage = () => {
             await dispatch(authToken(Number(userId)));
         };
 
-        const fetchMeditationsAll = async () => {
-            await dispatch(getMeditationsAll());
-        };
-
         const fetchVideosAll = async () => {
             await dispatch(getVideosAll());
         };
-
+        console.log(userTokenFetched, 'userTokenFetched v useEff');
         if (!userTokenFetched) {
             fetchAuthToken();
-            fetchMeditationsAll();
             fetchVideosAll();
             setUserTokenFetched(true);
         }
@@ -86,12 +86,14 @@ const MainPage = () => {
         const fetchUser = async () => {
             const userToken = authUser.user.length && authUser.user[0].api_token;
 
+            console.log(userToken, 'userToken');
             if (userToken) {
                 localStorage.setItem('api_token', authUser.user[0].api_token);
                 await dispatch(getUser());
             }
         };
 
+        console.log(userTokenFetched, 'userTokenFetched v useEff2');
         if (userTokenFetched) {
             fetchUser();
         }
@@ -102,7 +104,7 @@ const MainPage = () => {
             <div>
                 <AffirmationDay />
                 <WaterTracker />
-                <PodcastsBlock isMobile={isMobile} />
+                <PodcastsBlock />
                 <BookBlock />
                 <VideoBlock />
                 <Menu />

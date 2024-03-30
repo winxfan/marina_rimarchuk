@@ -26,7 +26,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
     const { children, isShowBook, isShowManual, isShowCourse, infoBuy, id } = props;
 
     useBackButton('/');
-    console.log(id, '222');
+    //console.log(id, '222');
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
     useEffect(() => {
         const fetchManualGet = async () => {
@@ -38,7 +38,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
 
     const manual = useSelector((state: ManualsGetResponse) => state.manualsGet);
 
-    console.log(infoBuy, 'infoBuy');
+    //console.log(infoBuy, 'infoBuy');
 
     return (
         <div className={css.infoBuy}>

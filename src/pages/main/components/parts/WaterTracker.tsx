@@ -41,13 +41,13 @@ export const WaterTracker = () => {
 
     const currentUser: UserGet = useSelector((state: UserGetResponse) => state.currentUser);
 
-    console.log(currentUser, 'ffff');
+    //console.log(currentUser, 'ffff');
 
     useEffect(() => {
         setSliderValue(waterVolume.data);
     }, [waterVolume.data]);
 
-    console.log(sliderValue, 'sliderValue');
+    //console.log(sliderValue, 'sliderValue');
 
     const handleSliderChange = (e: BaseSyntheticEvent) => {
         const newValue = +e.target.value;
@@ -92,7 +92,7 @@ export const WaterTracker = () => {
     };
 
     const handleIncrease = () => {
-        console.log(adjustedHeight, 'adjustedHeight');
+        //console.log(adjustedHeight, 'adjustedHeight');
         if (adjustedHeight < 237) {
             setSliderValue((prevValue) => Math.min(prevValue + 320, 2560));
             setCurrentLevel((prevValue) => Math.min(prevValue + 320, 2560));

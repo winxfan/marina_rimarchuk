@@ -11,7 +11,7 @@ const VideoPage = () => {
     useBackButton('/');
     const allVideos: AllVideos = useSelector((state: AllVideosResponse) => state.videos);
 
-    console.log(allVideos, 'allVideos111');
+    //console.log(allVideos, 'allVideos111');
 
     return (
         <div className={css.videoPage}>
