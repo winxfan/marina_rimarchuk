@@ -36,7 +36,7 @@ const StatisticsPage = () => {
             <div className={css.statisticsPage}>
                 <div className={css.userAvatar}>
                     {userImg === '' ? (
-                        <Loader />
+                        <div className={css.loader}></div>
                     ) : (
                         <img
                             src={userImg ? `data:image/png;base64,${userImg}` : ''}

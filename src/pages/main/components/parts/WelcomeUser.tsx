@@ -43,7 +43,7 @@ export const WelcomeUser = () => {
                 <div className={css.user}>
                     <div className={css.greetings}>
                         {userImg === '' ? (
-                            <Loader />
+                            <div className={css.loader}></div>
                         ) : (
                             <img
                                 src={userImg ? `data:image/png;base64,${userImg}` : ''}
