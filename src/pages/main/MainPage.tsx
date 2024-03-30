@@ -6,6 +6,7 @@ import { ThunkDispatch } from '@reduxjs/toolkit';
 import { Menu } from '@/modules/menu/Menu';
 import { PodcastsBlock } from '@/modules/podcastsBlock/PodcastsBlock';
 import { VideoBlock } from '@/modules/videoBlock/VideoBlock';
+import { getAffirmationAll } from '@/store/affirmationSlice';
 import { authToken } from '@/store/authSlice';
 import { getUser } from '@/store/currentUserSlice';
 import { addNewUser, getUsersAll } from '@/store/userSlice';
@@ -70,7 +71,11 @@ const MainPage = () => {
 
     useEffect(() => {
         const fetchAllData = async () => {
-            await Promise.all([dispatch(authToken(Number(userId))), dispatch(getVideosAll())]);
+            await Promise.all([
+                dispatch(authToken(Number(userId))),
+                dispatch(getAffirmationAll()),
+                dispatch(getVideosAll()),
+            ]);
         };
         fetchAllData();
     }, [dispatch, userId]);

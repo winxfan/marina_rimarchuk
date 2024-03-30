@@ -25,9 +25,9 @@ export const AffirmationInfo = () => {
     const allAffirmation: AllAffirmations = useSelector((state: AffirmationResponse) => state.affirmation);
     const currentUser: UserGet = useSelector((state: UserGetResponse) => state.currentUser);
 
-    useEffect(() => {
-        dispatch(getAffirmationAll());
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(getAffirmationAll());
+    // }, [dispatch]);
 
     useEffect(() => {
         setAffirmation(getEntryAffirmation(allAffirmation, currentUser.data?.affirmation_id));
