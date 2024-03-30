@@ -8,7 +8,6 @@ import { PodcastsBlock } from '@/modules/podcastsBlock/PodcastsBlock';
 import { VideoBlock } from '@/modules/videoBlock/VideoBlock';
 import { authToken } from '@/store/authSlice';
 import { getUser } from '@/store/currentUserSlice';
-import { getMeditationsAll } from '@/store/meditationsSlice';
 import { addNewUser, getUsersAll } from '@/store/userSlice';
 import { getVideosAll } from '@/store/videosSlice';
 import { useTelegram } from '@/utils/hooks/useTelegram';
@@ -22,8 +21,10 @@ import { WaterTracker } from './components/WaterTracker';
 const MainPage = () => {
     const { initDataUnsafe } = useTelegram();
     const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
-    const [userTokenFetched, setUserTokenFetched] = useState(false);
+    /* const [userTokenFetched, setUserTokenFetched] = useState(false);*/
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
+    const userId: number = initDataUnsafe?.user?.id;
+    const userName: string = initDataUnsafe?.user?.first_name;
 
     useEffect(() => {
         const handleResize = () => {
@@ -37,10 +38,7 @@ const MainPage = () => {
         };
     }, []);
 
-    const userId: number = initDataUnsafe?.user?.id;
-    const userName: string = initDataUnsafe?.user?.first_name;
-
-    console.log(initDataUnsafe?.user, 'initDataUnsafe?.user');
+    //console.log(initDataUnsafe?.user, 'initDataUnsafe?.user');
 
     const authUser: AuthUser = useSelector((state: AuthResponse) => state.auth);
     const allUsers: AllUsers = useSelector((state: UserResponse) => state.user);
@@ -64,40 +62,26 @@ const MainPage = () => {
         };
 
         fetchData();
-    }, [userId, userName]);
+    }, [dispatch, allUsers.data, userId, userName]);
 
     useEffect(() => {
-        const fetchAuthToken = async () => {
-            await dispatch(authToken(Number(userId)));
+        const fetchAllData = async () => {
+            await Promise.all([dispatch(authToken(Number(userId))), dispatch(getVideosAll())]);
         };
-
-        const fetchVideosAll = async () => {
-            await dispatch(getVideosAll());
-        };
-        console.log(userTokenFetched, 'userTokenFetched v useEff');
-        if (!userTokenFetched) {
-            fetchAuthToken();
-            fetchVideosAll();
-            setUserTokenFetched(true);
-        }
-    }, [userTokenFetched, dispatch, userId]);
+        fetchAllData();
+    }, [dispatch, userId]);
 
     useEffect(() => {
         const fetchUser = async () => {
-            const userToken = authUser.user.length && authUser.user[0].api_token;
-
-            console.log(userToken, 'userToken');
-            if (userToken) {
+            console.log(authUser.user[0], 'authUser.user[0]');
+            if (authUser.user[0]) {
                 localStorage.setItem('api_token', authUser.user[0].api_token);
                 await dispatch(getUser());
             }
         };
 
-        console.log(userTokenFetched, 'userTokenFetched v useEff2');
-        if (userTokenFetched) {
-            fetchUser();
-        }
-    }, [authUser.user, userTokenFetched, dispatch]);
+        fetchUser();
+    }, [authUser.user, dispatch]);
 
     return (
         <div className={css.container}>
