@@ -38,7 +38,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
 
     const manual = useSelector((state: ManualsGetResponse) => state.manualsGet);
 
-    //console.log(infoBuy, 'infoBuy');
+    console.log(infoBuy, 'infoBuy');
 
     return (
         <div className={css.infoBuy}>
@@ -47,7 +47,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                 {isShowManual ? infoBuy?.title : isShowCourse ? infoBuy?.title : infoBuy?.contentTitle}
             </div>
             <div className={css.contentDescription}>{isShowManual && manual.data ? manual.data.description : null}</div>
-            <div className={css.contentDescription}>{isShowManual ? infoBuy?.description : infoBuy?.contentInfo}</div>
+            {/*<div className={css.contentDescription}>{isShowManual ? infoBuy?.description : infoBuy?.contentInfo}</div>*/}
             {isShowBook ? (
                 <div className={css.contentDescription}>
                     {infoBuy?.contentList?.map((item) => (
@@ -63,14 +63,19 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                     <div className={css.contentCostText}>{isShowBook && infoBuy.descriptionPrice}</div>
                     <div className={css.contentCostText}>{isShowManual && infoBuy.descriptionPrice}</div>
                     <div className={css.contentCostText}>{isShowCourse && infoBuy.buttonText}</div>
-                    <div className={css.contentCostPrice}>{isShowManual && manual.data ? manual.data.cost : null}</div>
+                    <div className={css.contentCostPrice}>
+                        <div className={css.contentCostPriceManual}>
+                            {isShowManual ? <div className={css.contentCostText}>Стоимость методички</div> : null}
+                            {isShowManual && manual.data ? manual.data.cost : null} ₽
+                        </div>
+                    </div>
                     <div className={css.contentCostPrice}>{isShowBook && infoBuy.price}</div>
                     <div className={css.contentCostPrice}>{isShowCourse && infoBuy.price}</div>
                 </div>
             </button>
             <Link to={`/delivery/${id}`} className={css.contentPriceButton}>
                 <div className={css.contentPriceLink}>
-                    <div className={css.contentPriceText}>{isShowManual && infoBuy.buttonBuy}</div>
+                    <div className={css.contentPriceText}>{isShowManual && 'Купить методичку'}</div>
                     <div className={css.contentPriceText}>{isShowCourse && infoBuy.buttonBuy}</div>
                     <div className={css.contentPriceText}>{isShowBook && infoBuy.buttonBuy}</div>
                 </div>

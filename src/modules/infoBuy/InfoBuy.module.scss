@@ -30,29 +30,35 @@
     border-radius: 16px;
     background: #0D0A36;
     margin-bottom: 12px;
-    display: block;
+    display: flex;
+    justify-content: center;
 
     .contentCostLink {
       display: flex;
       align-items: center;
-      justify-content: center;
       padding: 18px 24px;
-      min-height: 80px;
+      min-height: 64px;
 
       .contentCostText {
         flex: 0 1 auto;
         color: #C2C5F3;
+        margin-right: 15px;
         font-size: 16px;
         letter-spacing: -0.32px;
       }
 
       .contentCostPrice {
-        flex: 0 1 90px;
+        //flex: 0 1 90px;
         color: #FFF;
         white-space: nowrap;
         font-size: 22px;
         font-weight: 600;
         letter-spacing: -0.8px;
+
+        .contentCostPriceManual {
+          display: flex;
+          align-items: center;
+        }
       }
     }
   }

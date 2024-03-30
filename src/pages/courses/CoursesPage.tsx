@@ -66,7 +66,7 @@ export const dataCourses: ICourses[] = [
                         id: '15',
                         image: '',
                         title: 'Без белка и жизнь не та. Всё, что нужно знать о белках в рационе',
-                        description: 'Урок 4',
+                        description: 'Урок 5',
                         open: true,
                         url: 'https://content-water.plutus-fin.ru/videos/%D0%9F%D0%A0%D0%9E%20%D0%92%D0%90%D0%96%D0%9D%D0%9E%D0%A1%D0%A2%D0%AC%20%D0%91%D0%95%D0%9B%D0%9A%D0%90%20%D0%92%20%D0%A0%D0%90%D0%A6%D0%98%D0%9E%D0%9D%D0%95.mp4',
                     },
