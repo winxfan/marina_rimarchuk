@@ -52,13 +52,14 @@ const MainPage = () => {
                 const isIdExists = allUsers.data.some((user) => +user.user_id === +userId);
 
                 if (!isIdExists) {
-                    await dispatch(addNewUser({ user_id: userId, user_name: userName }));
+                    console.log('user addddd');
+                    await dispatch(addNewUser({ user_id: +userId, user_name: userName }));
                 }
             }
         };
 
         fetchData();
-    }, [userId, userName, dispatch]);
+    }, [userId, userName]);
 
     useEffect(() => {
         const fetchAuthToken = async () => {
