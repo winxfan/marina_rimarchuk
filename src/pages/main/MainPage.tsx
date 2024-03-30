@@ -64,14 +64,14 @@ const MainPage = () => {
             if (userId && userName) {
                 const isIdExists = allUsers.data.some((user) => +user.user_id === +userId);
                 console.log(isIdExists, 'isIdExists');
-                if (!isIdExists && userId && userName) {
+                if (!isIdExists) {
                     console.log('user addddd');
                     await dispatch(addNewUser({ user_id: +userId, user_name: userName }));
                     dispatch(authToken(Number(userId)));
                 } else {
-                    dispatch(authToken(Number(userId)));
-                    dispatch(getAffirmationAll());
-                    dispatch(getVideosAll());
+                    await dispatch(authToken(Number(userId)));
+                    await dispatch(getAffirmationAll());
+                    await dispatch(getVideosAll());
                 }
             }
         };
