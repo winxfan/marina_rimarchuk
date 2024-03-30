@@ -67,7 +67,7 @@ const MainPage = () => {
         };
 
         fetchData();
-    }, [dispatch, allUsers.data, userId, userName]);
+    }, [dispatch, allUsers.data]);
 
     useEffect(() => {
         const fetchAllData = async () => {
