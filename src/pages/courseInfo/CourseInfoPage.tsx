@@ -4,7 +4,7 @@ import { useBackButton } from '@/utils/hooks/useBackButton';
 import css from './CourseInfoPage.module.scss';
 
 const CourseInfoPage = () => {
-    useBackButton('/');
+    useBackButton('/courses');
     return (
         <div className={css.courseInfoPage}>
             <CourseInfo />
