@@ -3,7 +3,7 @@ import axios from 'axios';
 // import { SERVER_URL } from './utils/constants';
 
 const instance = axios.create({
-    baseURL: 'http://api-wather.plutus-fin.ru',
+    baseURL: 'https://api-wather.plutus-fin.ru',
     headers: {
         'Content-Type': 'application/json',
     },
