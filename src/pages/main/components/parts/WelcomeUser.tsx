@@ -15,9 +15,9 @@ export const WelcomeUser = () => {
     const authUser: AuthUser = useSelector((state: AuthResponse) => state.auth);
 
     const userName = initDataUnsafe?.user?.first_name;
-    const userImg = initDataUnsafe?.user?.user_img;
+    const userImg = authUser?.user?.[0].user_img;
     console.log(authUser, 'authUser WELCOME');
-    console.log(initDataUnsafe?.user, 'initDataUnsafe?.user?');
+    console.log(userImg, 'userImg WELCOME');
 
     return (
         <div className={css.welcomeUser}>
@@ -25,7 +25,7 @@ export const WelcomeUser = () => {
                 <div className={css.user}>
                     <div className={css.greetings}>
                         <img
-                            src={userImg ? `data:image/png;base64,${userImg}` : avatarIcon}
+                            src={userImg ? `data:image/png;base64,${userImg}` : ''}
                             className={css.userAvatar}
                             alt="avatar"
                         />
