@@ -37,7 +37,7 @@ export const WaterTracker = () => {
     useEffect(() => {
         dispatch(getWater());
         dispatch(getUser());
-    }, []);
+    }, [adjustedHeight]);
 
     const currentUser: UserGet = useSelector((state: UserGetResponse) => state.currentUser);
 
