@@ -29,7 +29,7 @@ export const CourseShowInfo: FC<CourseShowInfoProps> = () => {
         cardId = Number(match[1]);
     }
 
-    useBackButton(`/course/card/${match ? Number(match[1]) : '/courses'}`);
+    useBackButton(`/course/card/${Number(match[1])}`);
 
     const card: ICourseCard | undefined = dataCourses
         .flatMap((course) => course.card)
