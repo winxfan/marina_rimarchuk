@@ -48,9 +48,11 @@ const MainPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             await dispatch(getUsersAll());
-            if (allUsers.data.length && userId) {
-                const isIdExists = allUsers.data.some((user) => +user.user_id === +userId);
+            console.log(allUsers.data.length, 'allUsers.data.length');
 
+            if (allUsers.data.length) {
+                const isIdExists = allUsers.data.some((user) => +user.user_id === +userId);
+                console.log(isIdExists, 'isIdExists');
                 if (!isIdExists) {
                     console.log('user addddd');
                     await dispatch(addNewUser({ user_id: +userId, user_name: userName }));
