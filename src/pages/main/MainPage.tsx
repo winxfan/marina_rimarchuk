@@ -95,7 +95,11 @@ const MainPage = () => {
             }
         };
 
-        fetchUser();
+        //fetchUser();
+
+        if (authUser.user.length > 0) {
+            fetchUser();
+        }
     }, [authUser.user, dispatch]);
 
     return (
