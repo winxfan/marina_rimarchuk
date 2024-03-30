@@ -1,21 +1,18 @@
-import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import ArrowIcon from '@/assets/images/arrowIcon/arrow.svg';
 import avatarIcon from '@/assets/images/welcomeUser/avatar.png';
 import QuestionsIcon from '@/assets/images/welcomeUser/questions.svg';
-import { useTelegram } from '@/utils/hooks/useTelegram';
 import { AuthResponse, AuthUser } from '@/utils/types';
 
 import css from './WelcomeUser.module.scss';
 
 export const WelcomeUser = () => {
-    const { initDataUnsafe } = useTelegram();
     const authUser: AuthUser = useSelector((state: AuthResponse) => state.auth);
-    const id = initDataUnsafe?.user?.id;
-    const userName = initDataUnsafe?.user?.first_name;
 
+    const userName = authUser.user[0].user_name;
+    const userImg = authUser.user[0].user_img;
     console.log(authUser, 'authUser WELCOME');
 
     return (
@@ -23,7 +20,11 @@ export const WelcomeUser = () => {
             <Link to="/statistics">
                 <div className={css.user}>
                     <div className={css.greetings}>
-                        <img src={avatarIcon} className={css.userAvatar} alt="avatar" />
+                        <img
+                            src={userImg ? `data:image/png;base64,${userImg}` : avatarIcon}
+                            className={css.userAvatar}
+                            alt="avatar"
+                        />
 
                         <div className={css.userInfo}>
                             <div className={css.helloUser}>Привет</div>
