@@ -22,6 +22,7 @@ const VideoPlayer: FC<VideoPlayerProps> = (props) => {
                 controls
                 className={css.reactPlayer}
                 light={previewUrl}
+                allowfullscreen
             />
         </div>
     );
