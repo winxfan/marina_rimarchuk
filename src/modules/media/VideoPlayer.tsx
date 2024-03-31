@@ -15,10 +15,14 @@ const VideoPlayer: FC<VideoPlayerProps> = (props) => {
 
     return (
         <div className={css.videoPlayerContainer} style={{ maxWidth: width, minHeight: height }}>
-            <video controls width="100%" height="100%">
-                <source src={videoUrl} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
+            <ReactPlayer
+                url={videoUrl}
+                width="100%"
+                height="100%"
+                controls
+                className={css.reactPlayer}
+                light={previewUrl}
+            />
         </div>
     );
 };
