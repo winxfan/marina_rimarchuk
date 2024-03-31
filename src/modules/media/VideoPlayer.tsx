@@ -19,7 +19,7 @@ const VideoPlayer: FC<VideoPlayerProps> = (props) => {
                 url={videoUrl}
                 width="100%"
                 height="100%"
-                controls={false}
+                controls
                 className={css.reactPlayer}
                 light={previewUrl}
             />
