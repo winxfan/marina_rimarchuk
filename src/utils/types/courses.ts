@@ -14,6 +14,8 @@ export interface ILesson {
 export interface ICourseCard {
     title: string;
     description?: string;
+    bonus?: boolean;
+    book?: boolean;
     icon?: string;
     image?: string;
     descriptionPrice?: string;

@@ -4,10 +4,10 @@ import { useMatch } from 'react-router-dom';
 
 import { BonusInfoBuy } from '@/modules/bonus/BonusInfoBuy';
 import { InfoBuy } from '@/modules/infoBuy/InfoBuy';
+import PDFViewer from '@/modules/pdfViewer/PDFViewer';
 import { useBackButton } from '@/utils/hooks/useBackButton';
 import { AllManuals, AllManualsResponse } from '@/utils/types/manuals';
 
-import { dataManuals } from '../../ManualsPage';
 import css from './ManualInfo.module.scss';
 
 export type ManualInfoProps = {
@@ -29,6 +29,7 @@ export const ManualInfo: FC<ManualInfoProps> = () => {
             <InfoBuy infoBuy={manualInfo} id={manualInfo?.id} isShowManual={true} />
             <div className={css.manualBonusInfo}>
                 <BonusInfoBuy>Группа по всем вопросам в Telegram</BonusInfoBuy>
+                <PDFViewer pdfUrl={manualInfo.url_file} />
             </div>
         </>
     );

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { ThunkDispatch } from '@reduxjs/toolkit';
 
+import { BonusInfoBuy } from '@/modules/bonus/BonusInfoBuy';
 import PDFViewer from '@/modules/pdfViewer/PDFViewer';
 import { manualsGet } from '@/store/manualsGetSlice';
 import { useBackButton } from '@/utils/hooks/useBackButton';
@@ -47,6 +48,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                 {isShowManual ? infoBuy?.title : isShowCourse ? infoBuy?.title : infoBuy?.contentTitle}
             </div>
             <div className={css.contentDescription}>{isShowManual && manual.data ? manual.data.description : null}</div>
+            <div className={css.contentDescription}>{isShowBook ? infoBuy?.contentInfo : null}</div>
             {/*<div className={css.contentDescription}>{isShowManual ? infoBuy?.description : infoBuy?.contentInfo}</div>*/}
             {isShowBook ? (
                 <div className={css.contentDescription}>
@@ -57,7 +59,17 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                     ))}
                 </div>
             ) : null}
+            {infoBuy.bonus ? (
+                <div>
+                    <div style={{ marginBottom: '12px' }}>
+                        <BonusInfoBuy>мини курс «Тело - храм» в подарок</BonusInfoBuy>
+                    </div>
+                    <BonusInfoBuy>печатная книга «Будь здоровым сейчас!»</BonusInfoBuy>
+                </div>
+            ) : null}
+
             <div className={css.infoBuyChildren}>{children}</div>
+
             <button type="button" className={css.contentCostButton}>
                 <div className={css.contentCostLink}>
                     <div className={css.contentCostText}>{isShowBook && infoBuy.descriptionPrice}</div>
@@ -66,13 +78,14 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                     <div className={css.contentCostPrice}>
                         <div className={css.contentCostPriceManual}>
                             {isShowManual ? <div className={css.contentCostText}>Стоимость методички</div> : null}
-                            {isShowManual && manual.data ? manual.data.cost : null} ₽
+                            {isShowManual && manual.data ? `${manual.data.cost}₽` : null}
                         </div>
                     </div>
                     <div className={css.contentCostPrice}>{isShowBook && infoBuy.price}</div>
                     <div className={css.contentCostPrice}>{isShowCourse && infoBuy.price}</div>
                 </div>
             </button>
+
             <Link to={`/delivery/${id}`} className={css.contentPriceButton}>
                 <div className={css.contentPriceLink}>
                     <div className={css.contentPriceText}>{isShowManual && 'Купить методичку'}</div>
@@ -80,7 +93,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                     <div className={css.contentPriceText}>{isShowBook && infoBuy.buttonBuy}</div>
                 </div>
             </Link>
-            {isShowBook && <PDFViewer pdfUrl="https://content-water.plutus-fin.ru/books/book_1.pdf" />}
+            {infoBuy.book && <PDFViewer pdfUrl="https://content-water.plutus-fin.ru/books/book_1.pdf" />}
         </div>
     );
 };
