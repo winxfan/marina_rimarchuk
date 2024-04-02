@@ -1,4 +1,4 @@
-import React, { BaseSyntheticEvent, useEffect } from 'react';
+import React, { BaseSyntheticEvent, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ThunkDispatch } from '@reduxjs/toolkit';
@@ -38,6 +38,8 @@ export const WaterTracker = () => {
         dispatch(getWater());
         dispatch(getUser());
     }, []);
+
+    const [sliderValue, setSliderValue] = useState(waterVolume.data);
 
     //console.log(currentUser, 'ffff');
 
@@ -108,6 +110,13 @@ export const WaterTracker = () => {
         // setAdjustedHeight((newValue / MAX_SIZE) * CONTAINER_HEIGHT_PX);
     };
 
+    const handleSliderChange = (e: BaseSyntheticEvent) => {
+        const newValue = +e.target.value;
+        console.log(sliderValue, 'sliderValue');
+        console.log(waterVolume.data, 'waterVolume.data');
+        setSliderValue(newValue);
+    };
+
     // const handleSliderMouseDown = (e: BaseSyntheticEvent) => {
     //     const value = e.target.value ?? 0;
     //     setAdjustedHeight((value / MAX_SIZE) * CONTAINER_HEIGHT_PX);
@@ -140,8 +149,8 @@ export const WaterTracker = () => {
                                 id="range"
                                 min="0"
                                 max="2560"
-                                value={waterVolume.data}
-                                // onChange={handleSliderChange}
+                                value={sliderValue}
+                                onChange={handleSliderChange}
                                 // onTouchStart={handleSliderMouseDown}
                                 onTouchEnd={handleSliderMouseUp}
                                 // onMouseDown={handleSliderMouseDown}
