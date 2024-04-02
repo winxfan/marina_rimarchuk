@@ -20,11 +20,11 @@ export const WaterVolume: FC<WaterVolumeProps> = (props) => {
     const { sliderValue } = props;
 
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
-    const waterVolume: WaterData = useSelector((state: GetWaterResponse) => state.waterGet);
+    /*    const waterVolume: WaterData = useSelector((state: GetWaterResponse) => state.waterGet);
 
     useEffect(() => {
         dispatch(getWater());
-    }, [sliderValue]);
+    }, [sliderValue]);*/
 
     return (
         <div className={css.trackerInfo}>
@@ -32,7 +32,7 @@ export const WaterVolume: FC<WaterVolumeProps> = (props) => {
                 <WaterIcon />
             </div>
             <div className={css.waterVolume}>
-                <div className={css.volume}>{waterVolume.data} из 2560 мл</div>
+                <div className={css.volume}>{sliderValue} из 2560 мл</div>
             </div>
         </div>
     );
