@@ -157,7 +157,7 @@ export const WaterTracker = () => {
                                 onMouseUp={handleSliderMouseUp}
                                 className={css.rangeInput}
                             />
-                            <label htmlFor="range">{waterVolume.data}</label>
+                            <label htmlFor="range">{sliderValue}</label>
                         </div>
                     </div>
                     <button className={cs(css.controlsWater, css.plusIcon)}>
