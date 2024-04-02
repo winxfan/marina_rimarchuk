@@ -1,4 +1,4 @@
-import React, { BaseSyntheticEvent, useEffect, useRef, useState } from 'react';
+import React, { BaseSyntheticEvent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ThunkDispatch } from '@reduxjs/toolkit';
@@ -28,106 +28,104 @@ export const WaterTracker = () => {
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
 
     const waterVolume: WaterData = useSelector((state: GetWaterResponse) => state.waterGet);
-
-    const [currentLevel, setCurrentLevel] = useState(0);
-    const [userChangedSlider, setUserChangedSlider] = useState(false);
-    const [sliderValue, setSliderValue] = useState(0);
-    const [adjustedHeight, setAdjustedHeight] = useState(0);
+    const currentUser: UserGet = useSelector((state: UserGetResponse) => state.currentUser);
+    // const [currentLevel, setCurrentLevel] = useState(0);
+    // const [userChangedSlider, setUserChangedSlider] = useState(false);
+    // const [sliderValue, setSliderValue] = useState(0);
+    // const [adjustedHeight, setAdjustedHeight] = useState(0);
 
     useEffect(() => {
         dispatch(getWater());
         dispatch(getUser());
-    }, [adjustedHeight]);
-
-    const currentUser: UserGet = useSelector((state: UserGetResponse) => state.currentUser);
+    }, []);
 
     //console.log(currentUser, 'ffff');
 
-    useEffect(() => {
-        setSliderValue(waterVolume.data);
-    }, [waterVolume.data]);
+    // useEffect(() => {
+    //     setSliderValue(waterVolume.data);
+    // }, [waterVolume.data]);
 
     //console.log(sliderValue, 'sliderValue');
 
-    const handleSliderChange = (e: BaseSyntheticEvent) => {
-        const newValue = +e.target.value;
-        setSliderValue(newValue);
-        setCurrentLevel(newValue);
-    };
+    // const handleSliderChange = (e: BaseSyntheticEvent) => {
+    //     const newValue = +e.target.value;
+    //     setSliderValue(newValue);
+    //     setCurrentLevel(newValue);
+    // };
 
-    const rangeRef = useRef<HTMLDivElement>(null);
+    // const rangeRef = useRef<HTMLDivElement>(null);
+    //
+    // useEffect(() => {
+    //     const scale = (num: number, inMin: number, inMax: number, outMin: number, outMax: number) => {
+    //         return ((num - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+    //     };
+    //
+    //     const range = document.getElementById('range') as HTMLInputElement;
+    //     const label = range?.nextElementSibling as HTMLLabelElement;
 
-    useEffect(() => {
-        const scale = (num: number, inMin: number, inMax: number, outMin: number, outMax: number) => {
-            return ((num - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
-        };
+    //     if (range) {
+    //         const rangeWidth = getComputedStyle(range).getPropertyValue('width');
+    //         const labelWidth = getComputedStyle(label).getPropertyValue('width');
+    //
+    //         const numWidth = +rangeWidth.substring(0, rangeWidth.length - 2);
+    //         const numLabelWidth = +labelWidth.substring(0, labelWidth.length - 2);
+    //
+    //         const max = +range.max;
+    //         const min = +range.min;
+    //
+    //         label.style.left =
+    //             sliderValue * (numWidth / max) - numLabelWidth / 2 + scale(sliderValue, min, max, 15, -10) + 'px';
+    //         label.innerHTML = sliderValue.toString();
+    //
+    //         range.style.setProperty('--thumb-after-width', `${sliderValue}%`);
+    //     }
+    // }, [sliderValue, waterVolume.data]);
+    //
+    // const handleDecrease = () => {
+    //     if (adjustedHeight > 0) {
+    //         setSliderValue((prevValue) => Math.max(prevValue - 320, 0));
+    //         setCurrentLevel((prevValue) => Math.max(prevValue - 320, 0));
+    //         setAdjustedHeight((value) => value - (320 / MAX_SIZE) * CONTAINER_HEIGHT_PX);
+    //     }
+    // };
 
-        const range = document.getElementById('range') as HTMLInputElement;
-        const label = range?.nextElementSibling as HTMLLabelElement;
-
-        if (range) {
-            const rangeWidth = getComputedStyle(range).getPropertyValue('width');
-            const labelWidth = getComputedStyle(label).getPropertyValue('width');
-
-            const numWidth = +rangeWidth.substring(0, rangeWidth.length - 2);
-            const numLabelWidth = +labelWidth.substring(0, labelWidth.length - 2);
-
-            const max = +range.max;
-            const min = +range.min;
-
-            label.style.left =
-                sliderValue * (numWidth / max) - numLabelWidth / 2 + scale(sliderValue, min, max, 15, -10) + 'px';
-            label.innerHTML = sliderValue.toString();
-
-            range.style.setProperty('--thumb-after-width', `${sliderValue}%`);
-        }
-    }, [sliderValue, waterVolume.data]);
-
-    const handleDecrease = () => {
-        if (adjustedHeight > 0) {
-            setSliderValue((prevValue) => Math.max(prevValue - 320, 0));
-            setCurrentLevel((prevValue) => Math.max(prevValue - 320, 0));
-            setAdjustedHeight((value) => value - (320 / MAX_SIZE) * CONTAINER_HEIGHT_PX);
-        }
-    };
-
-    const handleIncrease = () => {
-        //console.log(adjustedHeight, 'adjustedHeight');
-        if (adjustedHeight < 237) {
-            setSliderValue((prevValue) => Math.min(prevValue + 320, 2560));
-            setCurrentLevel((prevValue) => Math.min(prevValue + 320, 2560));
-            setAdjustedHeight((value) => value + (320 / MAX_SIZE) * CONTAINER_HEIGHT_PX);
-        }
-    };
+    // const handleIncrease = () => {
+    //     //console.log(adjustedHeight, 'adjustedHeight');
+    //     if (adjustedHeight < 237) {
+    //         setSliderValue((prevValue) => Math.min(prevValue + 320, 2560));
+    //         setCurrentLevel((prevValue) => Math.min(prevValue + 320, 2560));
+    //         setAdjustedHeight((value) => value + (320 / MAX_SIZE) * CONTAINER_HEIGHT_PX);
+    //     }
+    // };
 
     const handleSliderMouseUp = (e: BaseSyntheticEvent) => {
         const value = e.target.value ?? 0;
         const idUser = currentUser.data.user_id;
 
-        const newValue = Math.min(value, MAX_SIZE);
+        // const newValue = Math.min(value, MAX_SIZE);
 
-        dispatch(addVolumeWater({ user_id: idUser, water_ml: newValue }));
-        setAdjustedHeight((newValue / MAX_SIZE) * CONTAINER_HEIGHT_PX);
+        dispatch(addVolumeWater({ user_id: idUser, water_ml: +value }));
+        // setAdjustedHeight((newValue / MAX_SIZE) * CONTAINER_HEIGHT_PX);
     };
 
-    const handleSliderMouseDown = (e: BaseSyntheticEvent) => {
-        const value = e.target.value ?? 0;
-        setAdjustedHeight((value / MAX_SIZE) * CONTAINER_HEIGHT_PX);
-    };
+    // const handleSliderMouseDown = (e: BaseSyntheticEvent) => {
+    //     const value = e.target.value ?? 0;
+    //     setAdjustedHeight((value / MAX_SIZE) * CONTAINER_HEIGHT_PX);
+    // };
 
     return (
         <div className={css.waterTrackerWrapper}>
-            <WaterWaveImage adjustedHeight={adjustedHeight} />
+            <WaterWaveImage />
             <div className={css.waterTracker}>
                 <HeaderPage title="Вода" className={css.waterHeader} />
-                <WaterVolume currentLevel={currentLevel} />
+                <WaterVolume />
             </div>
-            <div ref={rangeRef} className={css.range}>
+            <div className={css.range}>
                 <div className={css.cupIcon}>
                     <CupIcon />
                 </div>
                 <div className={css.field}>
-                    <button className={cs(css.controlsWater, css.minusIcon)} onClick={handleDecrease}>
+                    <button className={cs(css.controlsWater, css.minusIcon)}>
                         <MinusIcon />
                     </button>
                     <div className={css.rangeWithScale}>
@@ -142,18 +140,18 @@ export const WaterTracker = () => {
                                 id="range"
                                 min="0"
                                 max="2560"
-                                value={sliderValue}
-                                onChange={handleSliderChange}
-                                onTouchStart={handleSliderMouseDown}
+                                value={waterVolume.data}
+                                // onChange={handleSliderChange}
+                                // onTouchStart={handleSliderMouseDown}
                                 onTouchEnd={handleSliderMouseUp}
-                                onMouseDown={handleSliderMouseDown}
+                                // onMouseDown={handleSliderMouseDown}
                                 onMouseUp={handleSliderMouseUp}
                                 className={css.rangeInput}
                             />
-                            <label htmlFor="range">{sliderValue}</label>
+                            <label htmlFor="range">{waterVolume.data}</label>
                         </div>
                     </div>
-                    <button className={cs(css.controlsWater, css.plusIcon)} onClick={handleIncrease}>
+                    <button className={cs(css.controlsWater, css.plusIcon)}>
                         <div className={css.ml}>мл</div>
                         <PlusIcon />
                     </button>
