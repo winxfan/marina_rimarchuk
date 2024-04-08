@@ -7,6 +7,7 @@ import currentUserReducer from './currentUserSlice';
 import manualsGetReducer from './manualsGetSlice';
 import manualsReducer from './manualsSlice';
 import meditationsReducer from './meditationsSlice';
+import payContentReducer from './payContentSlice';
 import userReducer from './userSlice';
 import videosReducer from './videosSlice';
 import waterAddReducer from './waterAddSlice';
@@ -25,5 +26,6 @@ export const store = configureStore({
         videos: videosReducer,
         manuals: manualsReducer,
         manualsGet: manualsGetReducer,
+        payContent: payContentReducer,
     },
 });

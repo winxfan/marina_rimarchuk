@@ -1,4 +1,12 @@
+import { SyntheticEvent } from 'react';
+import { useDispatch } from 'react-redux';
+import { useLocation, useParams } from 'react-router-dom';
+
+import { ThunkDispatch } from '@reduxjs/toolkit';
+import Cookies from 'js-cookie';
+
 import { CustomInput } from '@/modules/inputs/CustomInput';
+import { payContent } from '@/store/payContentSlice';
 import { useBackButton } from '@/utils/hooks/useBackButton';
 
 import css from './DeliveryPage.module.scss';
@@ -6,17 +14,41 @@ import { IAddress, useDeliveryPage } from './useDeliveryPage';
 
 const DeliveryPage = () => {
     useBackButton('/');
+    const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const price = +searchParams.get('price');
+    const { id } = useParams();
+
+    console.log(price, 'price');
 
     const {
         values: {
-            formik: { handleChange, handleSubmit, values, errors },
+            formik: { handleChange, values, errors },
         },
     } = useDeliveryPage();
+
+    console.log(values, '222');
 
     const formFieldTitle: Record<keyof IAddress, string> = {
         name: 'ФИО',
         phone: 'Телефон',
-        address: 'Адрес доставки',
+        email: 'Email',
+    };
+
+    const handleSubmit = async (event: SyntheticEvent) => {
+        event.preventDefault();
+
+        const customer_phone = values.phone;
+        const customer_email = values.email;
+
+        const apiToken = localStorage.getItem('api_token');
+        console.log(apiToken, 'apiToken');
+        Cookies.set('api_token', apiToken);
+
+        console.log(Cookies.get('api_token'), 'Cookies.get');
+
+        dispatch(payContent({ customer_phone, customer_email, cost: +price, course_id: +id }));
     };
 
     return (

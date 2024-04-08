@@ -81,12 +81,18 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                             {isShowManual && manual.data ? `${manual.data.cost}₽` : null}
                         </div>
                     </div>
-                    <div className={css.contentCostPrice}>{isShowBook && infoBuy.price}</div>
-                    <div className={css.contentCostPrice}>{isShowCourse && infoBuy.price}</div>
+                    <div className={css.contentCostPrice}>{isShowBook && `${infoBuy.price} ₽`}</div>
+                    <div className={css.contentCostPrice}>{isShowCourse && `${infoBuy.price} ₽`}</div>
                 </div>
             </button>
 
-            <Link to={`/delivery/${id}`} className={css.contentPriceButton}>
+            <Link
+                to={{
+                    pathname: `/delivery/${id}`,
+                    search: `price=${infoBuy.price}`,
+                }}
+                className={css.contentPriceButton}
+            >
                 <div className={css.contentPriceLink}>
                     <div className={css.contentPriceText}>{isShowManual && 'Купить методичку'}</div>
                     <div className={css.contentPriceText}>{isShowCourse && infoBuy.buttonBuy}</div>

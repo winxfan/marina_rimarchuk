@@ -24,7 +24,7 @@ export interface ICourseCard {
     contentList?: IBookContentList[];
     buttonText?: string;
     buttonBuy?: string;
-    price?: string;
+    price?: number;
     buy?: boolean;
     lesson?: ILesson[];
     url?: string;
@@ -42,7 +42,7 @@ export interface ICourses {
     contentList?: IBookContentList[];
     buttonText?: string;
     buttonBuy?: string;
-    price?: string;
+    price?: number;
     buy?: boolean;
     card: ICourseCard[];
 }

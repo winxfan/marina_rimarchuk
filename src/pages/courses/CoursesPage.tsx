@@ -24,7 +24,7 @@ export const dataCourses: ICourses[] = [
             {
                 title: 'Тело - храм. Как правильно эксплуатировать свое свое тело:',
                 description: 'Уроков: 6',
-                price: '7 777 ₽',
+                price: 7777,
                 buttonText: 'Стоимость курса',
                 image: meditationImage,
                 buttonBuy: 'Купить курс',
@@ -89,7 +89,7 @@ export const dataCourses: ICourses[] = [
             {
                 title: 'Мышление изобильного человека.\n' + 'Или как выйти из матрицы и достигать любых целей:',
                 description: 'Уроков: 5',
-                price: '7 777 ₽',
+                price: 7777,
                 buttonText: 'Стоимость курса',
                 buttonBuy: 'Купить курс',
                 image: brainImage,
@@ -140,7 +140,7 @@ export const dataCourses: ICourses[] = [
             {
                 title: 'Как раскрыть потенциал и запустить денежный поток. Денежное мышление и маркетинг:',
                 description: 'Уроков: 4',
-                price: '7 777 ₽',
+                price: 7777,
                 buttonText: 'Стоимость курса',
                 image: moneyImage,
                 buttonBuy: 'Купить курс',
