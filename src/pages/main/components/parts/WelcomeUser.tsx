@@ -22,9 +22,7 @@ export const WelcomeUser = () => {
 
     useEffect(() => {
         const fetchUser = async () => {
-            console.log(authUser.user[0], 'authUser.user[0]');
             if (authUser.user[0]) {
-                console.log('Зашли в проверку');
                 setUserImg(authUser?.user?.[0].user_img);
             }
         };
@@ -33,9 +31,6 @@ export const WelcomeUser = () => {
             fetchUser();
         }
     }, [authUser.user]);
-
-    console.log(authUser, 'authUser WELCOME');
-    console.log(userImg, 'userImg WELCOME');
 
     return (
         <div className={css.welcomeUser}>

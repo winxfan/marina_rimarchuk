@@ -20,15 +20,11 @@ const DeliveryPage = () => {
     const price = +searchParams.get('price');
     const { id } = useParams();
 
-    console.log(price, 'price');
-
     const {
         values: {
             formik: { handleChange, values, errors },
         },
     } = useDeliveryPage();
-
-    console.log(values, '222');
 
     const formFieldTitle: Record<keyof IAddress, string> = {
         name: 'ФИО',

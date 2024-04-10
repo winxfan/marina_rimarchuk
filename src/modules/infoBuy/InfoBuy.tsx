@@ -46,9 +46,12 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
     useEffect(() => {
         const fetchCheckPay = async () => {
             const apiToken = localStorage.getItem('api_token');
-            console.log(apiToken, 'fetchCheckPay 222');
+            console.log(id, 'id11');
             Cookies.set('api_token', apiToken);
             await dispatch(getCheckPay());
+
+            if (isShowCourse) {
+            }
         };
 
         fetchCheckPay();
@@ -83,35 +86,42 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
 
             <div className={css.infoBuyChildren}>{children}</div>
 
-            <button type="button" className={css.contentCostButton}>
-                <div className={css.contentCostLink}>
-                    <div className={css.contentCostText}>{isShowBook && infoBuy.descriptionPrice}</div>
-                    <div className={css.contentCostText}>{isShowManual && infoBuy.descriptionPrice}</div>
-                    <div className={css.contentCostText}>{isShowCourse && infoBuy.buttonText}</div>
-                    <div className={css.contentCostPrice}>
-                        <div className={css.contentCostPriceManual}>
-                            {isShowManual ? <div className={css.contentCostText}>Стоимость методички</div> : null}
-                            {isShowManual && manual.data ? `${manual.data.cost}₽` : null}
-                        </div>
-                    </div>
-                    <div className={css.contentCostPrice}>{isShowBook && `${infoBuy.price} ₽`}</div>
-                    <div className={css.contentCostPrice}>{isShowCourse && `${infoBuy.price} ₽`}</div>
-                </div>
-            </button>
+            {infoBuy.id !== '5' ? (
+                <button type="button" className={css.contentCostButton}>
+                    <div className={css.contentCostLink}>
+                        <div className={css.contentCostText}>{isShowBook && infoBuy.descriptionPrice}</div>
+                        <div className={css.contentCostText}>{isShowManual && infoBuy.descriptionPrice}</div>
 
-            <Link
-                to={{
-                    pathname: `/delivery/${id}`,
-                    search: `price=${infoBuy.price}`,
-                }}
-                className={css.contentPriceButton}
-            >
-                <div className={css.contentPriceLink}>
-                    <div className={css.contentPriceText}>{isShowManual && 'Купить методичку'}</div>
-                    <div className={css.contentPriceText}>{isShowCourse && infoBuy.buttonBuy}</div>
-                    <div className={css.contentPriceText}>{isShowBook && infoBuy.buttonBuy}</div>
-                </div>
-            </Link>
+                        <div className={css.contentCostText}>{isShowCourse && infoBuy.buttonText}</div>
+
+                        <div className={css.contentCostPrice}>
+                            <div className={css.contentCostPriceManual}>
+                                {isShowManual ? <div className={css.contentCostText}>Стоимость методички</div> : null}
+                                {isShowManual && manual.data ? `${manual.data.cost}₽` : null}
+                            </div>
+                        </div>
+                        <div className={css.contentCostPrice}>{isShowBook && `${infoBuy.price} ₽`}</div>
+                        <div className={css.contentCostPrice}>{isShowCourse && `${infoBuy.price} ₽`}</div>
+                    </div>
+                </button>
+            ) : null}
+
+            {infoBuy.id !== '5' ? (
+                <Link
+                    to={{
+                        pathname: `/delivery/${id}`,
+                        search: `price=${infoBuy.price}`,
+                    }}
+                    className={css.contentPriceButton}
+                >
+                    <div className={css.contentPriceLink}>
+                        <div className={css.contentPriceText}>{isShowManual && 'Купить методичку'}</div>
+                        <div className={css.contentPriceText}>{isShowCourse && infoBuy.buttonBuy}</div>
+                        <div className={css.contentPriceText}>{isShowBook && infoBuy.buttonBuy}</div>
+                    </div>
+                </Link>
+            ) : null}
+
             {infoBuy.book && <PDFViewer pdfUrl="https://content-water.plutus-fin.ru/books/book_1.pdf" />}
         </div>
     );

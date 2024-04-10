@@ -52,20 +52,13 @@ const MainPage = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            console.log(Boolean(allUsers.data.length), 'sss');
             if (!allUsers.data.length) {
-                console.log(Boolean(allUsers.data.length), '1111');
                 await dispatch(getUsersAll());
             }
 
-            console.log(authUser, 'authUser v useEffect');
-            console.log(allUsers.data.length, 'a2llUsers.data.length v useEffect');
-
             if (userId && userName) {
                 const isIdExists = allUsers.data.some((user) => +user.user_id === +userId);
-                console.log(isIdExists, 'isIdExists');
                 if (!isIdExists) {
-                    console.log('user addddd');
                     await dispatch(addNewUser({ user_id: +userId, user_name: userName }));
                     dispatch(authToken(Number(userId)));
                 } else {
@@ -88,7 +81,6 @@ const MainPage = () => {
 
     useEffect(() => {
         const fetchUser = async () => {
-            console.log(authUser.user[0], 'authUser.user[0]');
             if (authUser.user[0]) {
                 localStorage.setItem('api_token', authUser.user[0].api_token);
                 await dispatch(getUser());
