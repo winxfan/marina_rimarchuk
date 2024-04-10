@@ -3,6 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import affirmationEditReducer from './affirmationEditSlice';
 import affirmationReducer from './affirmationSlice';
 import authReducer from './authSlice';
+import checkPayReducer from './checkPaySlice';
 import currentUserReducer from './currentUserSlice';
 import manualsGetReducer from './manualsGetSlice';
 import manualsReducer from './manualsSlice';
@@ -27,5 +28,6 @@ export const store = configureStore({
         manuals: manualsReducer,
         manualsGet: manualsGetReducer,
         payContent: payContentReducer,
+        checkPay: checkPayReducer,
     },
 });

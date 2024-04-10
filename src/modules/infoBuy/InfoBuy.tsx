@@ -7,8 +7,8 @@ import Cookies from 'js-cookie';
 
 import { BonusInfoBuy } from '@/modules/bonus/BonusInfoBuy';
 import PDFViewer from '@/modules/pdfViewer/PDFViewer';
+import { getCheckPay } from '@/store/checkPaySlice';
 import { manualsGet } from '@/store/manualsGetSlice';
-import { getCheckPay, payContent } from '@/store/payContentSlice';
 import { useBackButton } from '@/utils/hooks/useBackButton';
 import { IBookBlock } from '@/utils/types/book';
 import { ICourseCard } from '@/utils/types/courses';

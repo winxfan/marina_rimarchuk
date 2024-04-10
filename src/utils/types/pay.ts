@@ -20,6 +20,13 @@ export type GetCheckPay = {
 
 export type DataCheckPay = {
     data: GetCheckPay;
+    status: LoadingStatus;
+    error: LoadingStatus;
+};
+
+export type CheckPayError = {
+    status: LoadingStatus;
+    error: GetCheckPay;
 };
 
 export type PayResponse = {

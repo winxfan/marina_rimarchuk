@@ -3,7 +3,7 @@ import { DataCheckPay, Pay, PayMessage } from '@/utils/types/pay';
 
 export const getCheckPayRequest = async (): Promise<DataCheckPay> => {
     const response = await axios.get(`/api/prodamus/check_pay`);
-    console.log(response.data.data, 'getCheckPayRequest1111');
+    console.log(response, 'getCheckPayRequest1111');
     return response.data.data;
 };
 
