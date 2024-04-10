@@ -13,6 +13,15 @@ export type PayMessage = {
     pay_url: string;
 };
 
+export type GetCheckPay = {
+    course_id: number[];
+    manuals_id: number[];
+};
+
+export type DataCheckPay = {
+    data: GetCheckPay;
+};
+
 export type PayResponse = {
     pay_url: string;
     status: LoadingStatus;

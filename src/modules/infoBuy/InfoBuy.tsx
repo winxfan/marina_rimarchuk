@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { ThunkDispatch } from '@reduxjs/toolkit';
+import Cookies from 'js-cookie';
 
 import { BonusInfoBuy } from '@/modules/bonus/BonusInfoBuy';
 import PDFViewer from '@/modules/pdfViewer/PDFViewer';
 import { manualsGet } from '@/store/manualsGetSlice';
+import { getCheckPay, payContent } from '@/store/payContentSlice';
 import { useBackButton } from '@/utils/hooks/useBackButton';
 import { IBookBlock } from '@/utils/types/book';
 import { ICourseCard } from '@/utils/types/courses';
@@ -40,6 +42,17 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
     const manual = useSelector((state: ManualsGetResponse) => state.manualsGet);
 
     console.log(infoBuy, 'infoBuy');
+
+    useEffect(() => {
+        const fetchCheckPay = async () => {
+            const apiToken = localStorage.getItem('api_token');
+            console.log(apiToken, 'fetchCheckPay 222');
+            Cookies.set('api_token', apiToken);
+            await dispatch(getCheckPay());
+        };
+
+        fetchCheckPay();
+    }, [id, dispatch]);
 
     return (
         <div className={css.infoBuy}>

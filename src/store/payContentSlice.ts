@@ -1,9 +1,17 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { LoadingStatus } from '@/constants';
-import { payContentRequest } from '@/utils/api/pay';
+import { getCheckPayRequest, payContentRequest } from '@/utils/api/pay';
 import { UserError } from '@/utils/types';
 import { Pay, PayResponse } from '@/utils/types/pay';
+
+export const getCheckPay = createAsyncThunk('payContent/getCheckPay', async (_, { rejectWithValue }) => {
+    try {
+        return await getCheckPayRequest();
+    } catch (error) {
+        return rejectWithValue(error.message);
+    }
+});
 
 export const payContent = createAsyncThunk(
     'payContent/payContent',
@@ -34,11 +42,26 @@ const payContentSlice = createSlice({
     name: 'payContent',
     initialState,
     reducers: {
+        getPayCheck(_, action) {
+            return action.payload;
+        },
         contentPay(_, action) {
             return action.payload;
         },
     },
     extraReducers: (builder) => {
+        builder.addCase(getCheckPay.pending, (state) => {
+            state.status = LoadingStatus.pending;
+            state.error = null;
+        });
+        builder.addCase(getCheckPay.fulfilled, (state, action) => {
+            state.status = LoadingStatus.fulfilled;
+            // state.data = action.payload.data;
+        });
+        builder.addCase(getCheckPay.rejected, (state, action) => {
+            state.status = LoadingStatus.rejected;
+            state.error = (action.payload as UserError).status;
+        });
         builder.addCase(payContent.pending, (state) => {
             state.status = LoadingStatus.pending;
             state.error = null;
@@ -54,6 +77,6 @@ const payContentSlice = createSlice({
     },
 });
 
-export const { contentPay } = payContentSlice.actions;
+export const { getPayCheck, contentPay } = payContentSlice.actions;
 
 export default payContentSlice.reducer;
