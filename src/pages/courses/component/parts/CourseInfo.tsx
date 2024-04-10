@@ -50,9 +50,7 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
     }, [id, dispatch]);
 
     useEffect(() => {
-        if (course_id.length) {
-            setCourseIdList(course_id);
-        }
+        setCourseIdList(course_id);
     }, [course_id]);
     useEffect(() => {
         if (courseIdList.includes(id)) {

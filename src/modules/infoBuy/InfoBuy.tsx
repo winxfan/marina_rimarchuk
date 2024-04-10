@@ -49,9 +49,6 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
             console.log(id, 'id11');
             Cookies.set('api_token', apiToken);
             await dispatch(getCheckPay());
-
-            if (isShowCourse) {
-            }
         };
 
         fetchCheckPay();
