@@ -9,8 +9,11 @@
   }
 
   .manualLink {
-    display: flex;
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 16px;
     align-items: center;
+    width: 100%;
 
     .iconColumn {
       display: inline-flex;

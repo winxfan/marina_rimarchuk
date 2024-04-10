@@ -1,8 +1,5 @@
-import { Suspense, useState } from 'react';
-import ReactPlayer from 'react-player';
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-
-import cs from 'classnames';
 
 import { Loader } from '@/components/Loader';
 

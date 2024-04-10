@@ -1,4 +1,7 @@
 .videoPage {
+  display: flex;
+  flex-direction: column;
+
   &::before {
     content: '';
     position: fixed;
@@ -12,8 +15,10 @@
     height: 100vh;
     z-index: -1;
   }
-}
 
-.videoWrapper {
-  margin-top: 14px;
+  .videoWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
 }

@@ -9,7 +9,8 @@ const PodcastPage = lazy(() => import('./podcast/PodcastPage'));
 const QuestionPage = lazy(() => import('./questions/QuestionPage'));
 const StatisticsPage = lazy(() => import('./statistics/StatisticsPage'));
 const StatisticsTasksPage = lazy(() => import('./statisticsTasks/StatisticTasksPage'));
-const VideoPage = lazy(() => import('./video/VideoPage'));
+const VideosPage = lazy(() => import('@/pages/videos/VideoPage'));
+const VideoPage = lazy(() => import('@/pages/video/VideoPage'));
 const CoursesPage = lazy(() => import('./courses/CoursesPage'));
 
 // parts
@@ -31,6 +32,7 @@ export {
     QuestionPage,
     StatisticsPage,
     StatisticsTasksPage,
+    VideosPage,
     VideoPage,
     CoursesPage,
 
