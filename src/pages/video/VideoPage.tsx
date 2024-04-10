@@ -4,11 +4,9 @@ import { HeaderPage } from '@/modules/header/components/HeaderPage';
 import { useBackButton } from '@/utils/hooks/useBackButton';
 import { AllVideos, AllVideosResponse } from '@/utils/types/videos';
 
-import { VideoCard } from '../main/components/parts/VideoCard';
 import css from './VideoPage.module.scss';
-import {useQueryParam} from "use-query-params";
 import {useParams} from "react-router-dom";
-import React from "react";
+import React, {useMemo} from "react";
 import VideoPlayer from "@/modules/media/VideoPlayer";
 
 const VideoPage = () => {
@@ -18,7 +16,9 @@ const VideoPage = () => {
 
   const allVideos: AllVideos = useSelector((state: AllVideosResponse) => state.videos, shallowEqual);
 
-    const currentVideo = allVideos.data.find((item) => item.id === id);
+    const currentVideo = useMemo(() => {
+      return allVideos.data.find((item) => item.id === id);
+    }, [allVideos])
 
     return (
         <div className={css.videoPage}>
@@ -26,8 +26,13 @@ const VideoPage = () => {
             ? (
               <>
                 <HeaderPage title="Видео от Марины Римарчук" lessSize={true}  />
+
+                <h3 className={css.name}>
+                  {currentVideo.name}
+                </h3>
+
                 <div className={css.videoWrapper}>
-                  <VideoPlayer videoUrl={currentVideo.vid_url} previewUrl={currentVideo.pic_url} width="100%" height="auto" />
+                  <VideoPlayer videoUrl={currentVideo.vid_url} previewUrl={currentVideo.pic_url} width="100%" height="100%" />
                 </div>
               </>
             )
