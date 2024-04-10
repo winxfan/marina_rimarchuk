@@ -38,6 +38,8 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
 
     const course_id = useSelector((state: GetCheckPay) => state.course_id);
 
+    console.log(course_id, 'course_id33333');
+
     useEffect(() => {
         const fetchCheckPay = async () => {
             const apiToken = localStorage.getItem('api_token');
@@ -51,9 +53,12 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
 
     useEffect(() => {
         setCourseIdList(course_id);
+
+        console.log(courseIdList, 'courseIdList3333');
     }, [course_id]);
     useEffect(() => {
-        if (courseIdList.includes(id)) {
+        if (courseIdList?.includes(id)) {
+            console.log(isIdInCourseIdList, 'isIdInCourseIdList333');
             setIsIdInCourseIdList(true);
         } else {
             setIsIdInCourseIdList(false);
