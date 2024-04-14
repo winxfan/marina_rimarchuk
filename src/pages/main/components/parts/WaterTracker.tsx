@@ -34,12 +34,12 @@ export const WaterTracker = () => {
     // const [sliderValue, setSliderValue] = useState(0);
     // const [adjustedHeight, setAdjustedHeight] = useState(0);
 
+    const [sliderValue, setSliderValue] = useState(waterVolume.data);
+
     useEffect(() => {
         dispatch(getWater());
         dispatch(getUser());
-    }, []);
-
-    const [sliderValue, setSliderValue] = useState(waterVolume.data);
+    }, [sliderValue]);
 
     //console.log(currentUser, 'ffff');
 
@@ -149,7 +149,7 @@ export const WaterTracker = () => {
                                 id="range"
                                 min="0"
                                 max="2560"
-                                value={sliderValue}
+                                value={waterVolume.data}
                                 onChange={handleSliderChange}
                                 // onTouchStart={handleSliderMouseDown}
                                 onTouchEnd={handleSliderMouseUp}
