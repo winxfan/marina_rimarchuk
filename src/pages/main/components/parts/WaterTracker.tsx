@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { ThunkDispatch } from '@reduxjs/toolkit';
 import cs from 'classnames';
+import Cookies from 'js-cookie';
 
 import CupIcon from '@/assets/images/actionGlass/cup.svg';
 import CupBlackIcon from '@/assets/images/actionGlass/cupBlack.svg';
@@ -10,6 +11,7 @@ import MinusIcon from '@/assets/images/actionGlass/minus.svg';
 import PlusIcon from '@/assets/images/actionGlass/plus.svg';
 import { HeaderPage } from '@/modules/header/components/HeaderPage';
 import WaterWaveImage from '@/pages/main/components/parts/WaterWaveImage';
+import { getCheckPay } from '@/store/checkPaySlice';
 import { getUser } from '@/store/currentUserSlice';
 import { addVolumeWater } from '@/store/waterAddSlice';
 import { getWater } from '@/store/waterGetSlice';
@@ -27,18 +29,22 @@ export const WaterTracker = () => {
     useBackButton('/');
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
 
-    const waterVolume: WaterData = useSelector((state: GetWaterResponse) => state.waterGet);
+    const waterVolume = useSelector((state: GetWaterResponse) => state.waterGet);
     const currentUser: UserGet = useSelector((state: UserGetResponse) => state.currentUser);
     // const [currentLevel, setCurrentLevel] = useState(0);
     // const [userChangedSlider, setUserChangedSlider] = useState(false);
     // const [sliderValue, setSliderValue] = useState(0);
     // const [adjustedHeight, setAdjustedHeight] = useState(0);
 
-    const [sliderValue, setSliderValue] = useState(waterVolume.data);
+    const [sliderValue, setSliderValue] = useState(waterVolume.data.data);
 
     useEffect(() => {
-        dispatch(getWater());
-        dispatch(getUser());
+        const fetchGetWater = async () => {
+            await dispatch(getWater());
+            await dispatch(getUser());
+        };
+
+        fetchGetWater();
     }, [sliderValue]);
 
     //console.log(currentUser, 'ffff');
@@ -149,7 +155,7 @@ export const WaterTracker = () => {
                                 id="range"
                                 min="0"
                                 max="2560"
-                                value={waterVolume.data}
+                                value={waterVolume.data.data}
                                 onChange={handleSliderChange}
                                 // onTouchStart={handleSliderMouseDown}
                                 onTouchEnd={handleSliderMouseUp}

@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { waterGet } from '@/utils/api/water';
-import { WaterData } from '@/utils/types/water';
+import { CheckPayError } from '@/utils/types/pay';
+import { GetWaterError, WaterData } from '@/utils/types/water';
 
 import { LoadingStatus } from '../constants';
 import { UserError } from '../utils/types';
@@ -15,7 +16,9 @@ export const getWater = createAsyncThunk('waterGet/getWater', async (_, { reject
 });
 
 const initialState: WaterData = {
-    data: 0,
+    data: {
+        data: 0,
+    },
     status: LoadingStatus.none,
     error: LoadingStatus.none,
 };
@@ -24,7 +27,7 @@ const waterGetSlice = createSlice({
     name: 'waterGet',
     initialState,
     reducers: {
-        waterData(state, action) {
+        waterData(_, action) {
             return action.payload;
         },
     },
@@ -35,11 +38,11 @@ const waterGetSlice = createSlice({
         });
         builder.addCase(getWater.fulfilled, (state, action) => {
             state.status = LoadingStatus.fulfilled;
-            state.data = action.payload.data;
+            state.data = action.payload;
         });
         builder.addCase(getWater.rejected, (state, action) => {
             state.status = LoadingStatus.rejected;
-            state.error = (action.payload as UserError).status;
+            state.error = (action.payload as GetWaterError).status;
         });
     },
 });
