@@ -1,7 +1,8 @@
 import React, { FC, ReactNode, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useMatch } from 'react-router-dom';
 
+import { ThunkDispatch } from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
 
 import { BonusInfoBuy } from '@/modules/bonus/BonusInfoBuy';
@@ -22,6 +23,7 @@ export type ManualInfoProps = {
 
 export const ManualInfo: FC<ManualInfoProps> = () => {
     useBackButton('/manuals');
+    const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
     const [manualIdList, setManualIdList] = useState([]);
     const [isIdInManualIdList, setIsIdInManualIdList] = useState(false);
     const matchManual = useMatch('/manual/:id');
@@ -35,9 +37,21 @@ export const ManualInfo: FC<ManualInfoProps> = () => {
     const manualsId = useSelector((state: GetCheckPayResponse) => state.checkPay.data.manuals_id);
 
     useEffect(() => {
+        const fetchCheckPay = async () => {
+            const apiToken = localStorage.getItem('api_token');
+            Cookies.set('api_token', apiToken);
+            await dispatch(getCheckPay());
+            console.log(fetchCheckPay, 'fetchCheckPay');
+            console.log(manualsId, 'manualsId  ManualInfo 111');
+        };
+
+        fetchCheckPay();
+    }, [id, dispatch]);
+
+    useEffect(() => {
         if (manualsId) {
             setManualIdList(manualsId);
-            console.log(manualsId, 'manualsId ManualInfo');
+            console.log(manualsId, 'manualsId ManualInfo 222');
         }
     }, [manualsId]);
 
@@ -55,7 +69,8 @@ export const ManualInfo: FC<ManualInfoProps> = () => {
             <InfoBuy infoBuy={manualInfo} id={manualInfo?.id} isShowManual={true} />
             <div className={css.manualBonusInfo}>
                 <BonusInfoBuy>Группа по всем вопросам в Telegram</BonusInfoBuy>
-                <PDFViewer pdfUrl={manualInfo.url_file} />
+
+                {isIdInManualIdList ? <PDFViewer pdfUrl={manualInfo.url_file} /> : null}
             </div>
         </>
     );
