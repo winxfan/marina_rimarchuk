@@ -114,6 +114,8 @@ export const WaterTracker = () => {
         // const newValue = Math.min(value, MAX_SIZE);
 
         dispatch(addVolumeWater({ user_id: idUser, water_ml: +value }));
+        dispatch(getWater());
+        setSliderValue(waterVolume.data.data);
         // setAdjustedHeight((newValue / MAX_SIZE) * CONTAINER_HEIGHT_PX);
     };
 
@@ -122,6 +124,8 @@ export const WaterTracker = () => {
         console.log(newValue, 'newValue 1111');
         const idUser = currentUser.data.user_id;
         dispatch(addVolumeWater({ user_id: idUser, water_ml: +newValue }));
+        dispatch(getWater());
+        setSliderValue(waterVolume.data.data);
     };
 
     // const handleSliderMouseDown = (e: BaseSyntheticEvent) => {
