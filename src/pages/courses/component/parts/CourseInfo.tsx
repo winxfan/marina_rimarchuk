@@ -90,7 +90,9 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
                                 <div className={css.courseInfoDescription}>{entry?.description}</div>
                                 <div className={css.courseInfoTitle}>{entry?.title}</div>
                             </div>
-                            <div className={css.coursePlayIcon}>{isIdInCourseIdList ? <PlayIcon /> : <LockIcon />}</div>
+                            <div className={css.coursePlayIcon}>
+                                {isIdInCourseIdList && id !== 5 ? <PlayIcon /> : <LockIcon />}
+                            </div>
                         </Link>
                     ))}
                 </div>
