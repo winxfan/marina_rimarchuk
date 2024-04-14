@@ -26,7 +26,7 @@ const checkPaySlice = createSlice({
     initialState,
     reducers: {
         getPayCheck(_, action) {
-            return action.payload;
+            return action.payload.data;
         },
     },
     extraReducers: (builder) => {
