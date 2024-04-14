@@ -8,6 +8,7 @@ export interface IManuals {
     bonus?: boolean;
     description: string;
     icon?: string;
+    cost?: number;
     image?: string;
     contentTitle?: string;
     descriptionPrice?: string;

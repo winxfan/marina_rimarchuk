@@ -16,6 +16,7 @@ export interface IBookBlock {
     price?: string;
     buttonText?: string;
     buttonBuy?: string;
+    cost?: number;
     contentTitle?: string;
     contentInfo?: string;
     contentList?: IBookContentList[];

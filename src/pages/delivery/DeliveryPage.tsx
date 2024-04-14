@@ -18,7 +18,11 @@ const DeliveryPage = () => {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const price = +searchParams.get('price');
+    const deliveryContent = searchParams.get('delivery');
+
     const { id } = useParams();
+
+    console.log(location, 'location');
 
     const {
         values: {
@@ -44,7 +48,15 @@ const DeliveryPage = () => {
 
         console.log(Cookies.get('api_token'), 'Cookies.get');
 
-        dispatch(payContent({ customer_phone, customer_email, cost: +price, course_id: +id }));
+        dispatch(
+            payContent({
+                customer_phone,
+                customer_email,
+                cost: +price,
+                course_id: deliveryContent === 'course' ? +id : null,
+                manuals_id: deliveryContent === 'manual' ? +id : null,
+            })
+        );
     };
 
     return (

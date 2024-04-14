@@ -17,6 +17,7 @@ export interface ICourseCard {
     bonus?: boolean;
     book?: boolean;
     icon?: string;
+    cost?: number;
     image?: string;
     descriptionPrice?: string;
     contentTitle?: string;

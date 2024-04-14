@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { ThunkDispatch } from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
+import { info } from 'sass';
 
 import { BonusInfoBuy } from '@/modules/bonus/BonusInfoBuy';
 import PDFViewer from '@/modules/pdfViewer/PDFViewer';
@@ -40,6 +41,8 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
 
         fetchManualGet();
     }, [id, dispatch]);
+
+    console.log(infoBuy, 'mmmm');
 
     const manual = useSelector((state: ManualsGetResponse) => state.manualsGet);
 
@@ -114,7 +117,9 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                 <Link
                     to={{
                         pathname: `/delivery/${id}`,
-                        search: `price=${infoBuy.price}`,
+                        search: `price=${isShowCourse ? infoBuy.price : isShowManual ? infoBuy.cost : ''}&delivery=${
+                            isShowCourse ? 'course' : isShowManual ? 'manual' : null
+                        }`,
                     }}
                     className={css.contentPriceButton}
                 >
