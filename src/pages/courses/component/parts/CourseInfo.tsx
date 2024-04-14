@@ -13,7 +13,7 @@ import { InfoBuy } from '@/modules/infoBuy/InfoBuy';
 import { getCheckPay } from '@/store/checkPaySlice';
 import { useBackButton } from '@/utils/hooks/useBackButton';
 import { ICourseCard } from '@/utils/types/courses';
-import { GetCheckPay } from '@/utils/types/pay';
+import { DataCheckPay, GetCheckPay } from '@/utils/types/pay';
 
 import { dataCourses } from '../../CoursesPage';
 import css from './CourseInfo.module.scss';
