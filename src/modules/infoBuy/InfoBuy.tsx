@@ -13,6 +13,7 @@ import { useBackButton } from '@/utils/hooks/useBackButton';
 import { IBookBlock } from '@/utils/types/book';
 import { ICourseCard } from '@/utils/types/courses';
 import { IManuals, Manuals, ManualsGetResponse } from '@/utils/types/manuals';
+import { GetCheckPayResponse } from '@/utils/types/pay';
 
 import css from './InfoBuy.module.scss';
 
@@ -42,6 +43,26 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
     const manual = useSelector((state: ManualsGetResponse) => state.manualsGet);
 
     console.log(manual, 'manual2222');
+
+    const course_id = useSelector((state: GetCheckPayResponse) => state.checkPayGet);
+
+    useEffect(() => {
+        const fetchCheckPay = async () => {
+            const apiToken = localStorage.getItem('api_token');
+            Cookies.set('api_token', apiToken);
+            await dispatch(getCheckPay());
+            console.log(fetchCheckPay, 'fetchCheckPay');
+            console.log(course_id, 'course_id  CourseInfo11');
+        };
+
+        fetchCheckPay();
+    }, [id, dispatch]);
+
+    useEffect(() => {
+        if (course_id) {
+            console.log(course_id, 'course_id  CourseInfo2222');
+        }
+    }, [course_id]);
     //
     // useEffect(() => {
     //     const fetchCheckPay = async () => {
