@@ -134,7 +134,7 @@ export const WaterTracker = () => {
             <WaterWaveImage />
             <div className={css.waterTracker}>
                 <HeaderPage title="Вода" className={css.waterHeader} />
-                <WaterVolume sliderValue={sliderValue} />
+                <WaterVolume sliderValue={waterVolume.data.data} />
             </div>
             <div className={css.range}>
                 <div className={css.cupIcon}>
