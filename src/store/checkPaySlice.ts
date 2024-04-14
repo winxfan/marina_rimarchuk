@@ -26,7 +26,7 @@ const checkPaySlice = createSlice({
     initialState,
     reducers: {
         getPayCheck(_, action) {
-            return action.payload.data;
+            return action.payload;
         },
     },
     extraReducers: (builder) => {
@@ -36,7 +36,7 @@ const checkPaySlice = createSlice({
         });
         builder.addCase(getCheckPay.fulfilled, (state, action) => {
             state.status = LoadingStatus.fulfilled;
-            state.data = action.payload.data;
+            state.data = action.payload;
         });
         builder.addCase(getCheckPay.rejected, (state, action) => {
             state.status = LoadingStatus.rejected;

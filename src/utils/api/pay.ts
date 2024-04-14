@@ -1,7 +1,7 @@
 import axios from '@/axios';
-import { DataCheckPay, Pay, PayMessage } from '@/utils/types/pay';
+import { GetCheckPay, Pay, PayMessage } from '@/utils/types/pay';
 
-export const getCheckPayRequest = async (): Promise<DataCheckPay> => {
+export const getCheckPayRequest = async (): Promise<GetCheckPay> => {
     const response = await axios.get(`/api/prodamus/check_pay`);
     console.log(response.data, 'getCheckPayRequest1111');
     return response.data;
