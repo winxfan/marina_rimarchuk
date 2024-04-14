@@ -56,6 +56,7 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
 
         console.log(courseIdList, 'courseIdList3333');
     }, [course_id]);
+
     useEffect(() => {
         if (courseIdList?.includes(id)) {
             console.log(isIdInCourseIdList, 'isIdInCourseIdList333');
