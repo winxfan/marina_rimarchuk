@@ -13,7 +13,7 @@ import { InfoBuy } from '@/modules/infoBuy/InfoBuy';
 import { getCheckPay } from '@/store/checkPaySlice';
 import { useBackButton } from '@/utils/hooks/useBackButton';
 import { ICourseCard } from '@/utils/types/courses';
-import { DataCheckPay, GetCheckPay } from '@/utils/types/pay';
+import { DataCheckPay, GetCheckPay, GetCheckPayResponse } from '@/utils/types/pay';
 
 import { dataCourses } from '../../CoursesPage';
 import css from './CourseInfo.module.scss';
@@ -47,15 +47,15 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
     const card: ICourseCard | undefined = dataCourses.flatMap((course) => course.card).find((item) => +item.id === id);
     console.log(matchCard, 'matchCard');
 
-    const course_id = useSelector((state: GetCheckPay) => state.course_id);
+    const course_id = useSelector((state: GetCheckPayResponse) => state.checkPayGet.data.course_id);
 
     console.log(course_id, 'course_id33333');
 
-    useEffect(() => {
-        setCourseIdList(course_id);
-
-        console.log(courseIdList, 'courseIdList3333');
-    }, [course_id]);
+    // useEffect(() => {
+    //     setCourseIdList(course_id);
+    //
+    //     console.log(courseIdList, 'courseIdList3333');
+    // }, [course_id]);
 
     useEffect(() => {
         if (courseIdList?.includes(id)) {

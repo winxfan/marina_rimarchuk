@@ -34,3 +34,7 @@ export type PayResponse = {
     status: LoadingStatus;
     error: LoadingStatus;
 };
+
+export type GetCheckPayResponse = {
+    checkPayGet: DataCheckPay;
+};
