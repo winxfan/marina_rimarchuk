@@ -38,6 +38,26 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
     const card: ICourseCard | undefined = dataCourses.flatMap((course) => course.card).find((item) => +item.id === id);
     console.log(matchCard, 'matchCard');
 
+    const course_id = useSelector((state: GetCheckPayResponse) => state.checkPay.data.course_id);
+
+    useEffect(() => {
+        const fetchCheckPay = async () => {
+            const apiToken = localStorage.getItem('api_token');
+            Cookies.set('api_token', apiToken);
+            await dispatch(getCheckPay());
+            console.log(fetchCheckPay, 'fetchCheckPay');
+            console.log(course_id, 'course_id  CourseInfo11');
+        };
+
+        fetchCheckPay();
+    }, [id, dispatch]);
+
+    useEffect(() => {
+        if (course_id) {
+            console.log(course_id, 'course_id  CourseInfo2222');
+        }
+    }, [course_id]);
+
     // useEffect(() => {
     //     setCourseIdList(course_id);
     //

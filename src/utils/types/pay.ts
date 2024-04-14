@@ -36,5 +36,5 @@ export type PayResponse = {
 };
 
 export type GetCheckPayResponse = {
-    checkPayGet: DataCheckPay;
+    checkPay: DataCheckPay;
 };

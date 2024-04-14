@@ -42,37 +42,6 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
 
     const manual = useSelector((state: ManualsGetResponse) => state.manualsGet);
 
-    const course_id = useSelector((state: any) => state);
-
-    useEffect(() => {
-        const fetchCheckPay = async () => {
-            const apiToken = localStorage.getItem('api_token');
-            Cookies.set('api_token', apiToken);
-            await dispatch(getCheckPay());
-            console.log(fetchCheckPay, 'fetchCheckPay');
-            console.log(course_id, 'course_id  CourseInfo11');
-        };
-
-        fetchCheckPay();
-    }, [id, dispatch]);
-
-    useEffect(() => {
-        if (course_id) {
-            console.log(course_id, 'course_id  CourseInfo2222');
-        }
-    }, [course_id]);
-    //
-    // useEffect(() => {
-    //     const fetchCheckPay = async () => {
-    //         const apiToken = localStorage.getItem('api_token');
-    //         console.log(id, 'id11');
-    //         Cookies.set('api_token', apiToken);
-    //         await dispatch(getCheckPay());
-    //     };
-    //
-    //     fetchCheckPay();
-    // }, [id, dispatch]);
-
     return (
         <div className={css.infoBuy}>
             <div className={css.contentTitle}>
