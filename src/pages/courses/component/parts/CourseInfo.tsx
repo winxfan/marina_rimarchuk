@@ -54,15 +54,10 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
 
     useEffect(() => {
         if (course_id) {
-            console.log(course_id, 'course_id  CourseInfo2222');
+            setCourseIdList(course_id);
+            console.log(courseIdList, 'courseIdList course info');
         }
     }, [course_id]);
-
-    // useEffect(() => {
-    //     setCourseIdList(course_id);
-    //
-    //     console.log(courseIdList, 'courseIdList3333');
-    // }, [course_id]);
 
     // useEffect(() => {
     //     if (courseIdList?.includes(id)) {
