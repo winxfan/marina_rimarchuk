@@ -42,9 +42,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
 
     const manual = useSelector((state: ManualsGetResponse) => state.manualsGet);
 
-    console.log(manual, 'manual2222');
-
-    const course_id = useSelector((state: GetCheckPayResponse) => state.checkPayGet);
+    const course_id = useSelector((state: any) => state);
 
     useEffect(() => {
         const fetchCheckPay = async () => {
