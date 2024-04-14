@@ -33,13 +33,6 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
 
     const id = Number(matchCard?.params.id);
 
-    const card: ICourseCard | undefined = dataCourses.flatMap((course) => course.card).find((item) => +item.id === id);
-    console.log(matchCard, 'matchCard');
-
-    const course_id = useSelector((state: GetCheckPay) => state.course_id);
-
-    console.log(course_id, 'course_id33333');
-
     useEffect(() => {
         const fetchCheckPay = async () => {
             const apiToken = localStorage.getItem('api_token');
@@ -50,6 +43,13 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
 
         fetchCheckPay();
     }, [id, dispatch]);
+
+    const card: ICourseCard | undefined = dataCourses.flatMap((course) => course.card).find((item) => +item.id === id);
+    console.log(matchCard, 'matchCard');
+
+    const course_id = useSelector((state: GetCheckPay) => state.course_id);
+
+    console.log(course_id, 'course_id33333');
 
     useEffect(() => {
         setCourseIdList(course_id);
