@@ -47,7 +47,7 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
     const card: ICourseCard | undefined = dataCourses.flatMap((course) => course.card).find((item) => +item.id === id);
     console.log(matchCard, 'matchCard');
 
-    const course_id = useSelector((state: GetCheckPayResponse) => state.checkPayGet.data.course_id);
+    const course_id = useSelector((state: GetCheckPayResponse) => state.checkPayGet);
 
     console.log(course_id, 'course_id33333');
 
