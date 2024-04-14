@@ -81,7 +81,7 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
                                 !isIdInCourseIdList && id !== 5 ? css.courseCardBlock : ''
                             )}
                             onClick={(e) => {
-                                if (!isIdInCourseIdList) {
+                                if (!isIdInCourseIdList && id !== 5) {
                                     e.preventDefault();
                                 }
                             }}
