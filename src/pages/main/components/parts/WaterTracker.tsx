@@ -122,7 +122,6 @@ export const WaterTracker = () => {
         console.log(newValue, 'newValue 1111');
         const idUser = currentUser.data.user_id;
         dispatch(addVolumeWater({ user_id: idUser, water_ml: +newValue }));
-        setSliderValue(newValue);
     };
 
     // const handleSliderMouseDown = (e: BaseSyntheticEvent) => {
@@ -157,7 +156,7 @@ export const WaterTracker = () => {
                                 id="range"
                                 min="0"
                                 max="2560"
-                                value={waterVolume.data.data}
+                                value={sliderValue}
                                 onChange={handleSliderChange}
                                 // onTouchStart={handleSliderMouseDown}
                                 onTouchEnd={handleSliderMouseUp}
