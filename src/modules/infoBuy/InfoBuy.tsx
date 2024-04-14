@@ -42,17 +42,17 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
     const manual = useSelector((state: ManualsGetResponse) => state.manualsGet);
 
     console.log(infoBuy, 'infoBuy');
-
-    useEffect(() => {
-        const fetchCheckPay = async () => {
-            const apiToken = localStorage.getItem('api_token');
-            console.log(id, 'id11');
-            Cookies.set('api_token', apiToken);
-            await dispatch(getCheckPay());
-        };
-
-        fetchCheckPay();
-    }, [id, dispatch]);
+    //
+    // useEffect(() => {
+    //     const fetchCheckPay = async () => {
+    //         const apiToken = localStorage.getItem('api_token');
+    //         console.log(id, 'id11');
+    //         Cookies.set('api_token', apiToken);
+    //         await dispatch(getCheckPay());
+    //     };
+    //
+    //     fetchCheckPay();
+    // }, [id, dispatch]);
 
     return (
         <div className={css.infoBuy}>
