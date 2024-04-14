@@ -33,7 +33,7 @@ export const WaterVolume = (props: WaterVolumeProps) => {
                 <WaterIcon />
             </div>
             <div className={css.waterVolume}>
-                <div className={css.volume}>{waterVolume} из 2560 мл</div>
+                <div className={css.volume}>{waterVolume ?? sliderValue} из 2560 мл</div>
             </div>
         </div>
     );
