@@ -78,7 +78,7 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
                             to={`/course/card/${id}/show/${entry.id}`}
                             className={cs(
                                 css.courseInfoCard,
-                                !isIdInCourseIdList || id !== 5 ? css.courseCardBlock : ''
+                                !isIdInCourseIdList && id !== 5 ? css.courseCardBlock : ''
                             )}
                             onClick={(e) => {
                                 if (!isIdInCourseIdList) {
