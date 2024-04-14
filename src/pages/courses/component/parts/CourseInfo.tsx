@@ -59,14 +59,14 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
         }
     }, [course_id]);
 
-    // useEffect(() => {
-    //     if (courseIdList?.includes(id)) {
-    //         console.log(isIdInCourseIdList, 'isIdInCourseIdList333');
-    //         setIsIdInCourseIdList(true);
-    //     } else {
-    //         setIsIdInCourseIdList(false);
-    //     }
-    // }, [id, courseIdList]);
+    useEffect(() => {
+        if (courseIdList?.includes(id)) {
+            console.log(isIdInCourseIdList, 'isIdInCourseIdList333');
+            setIsIdInCourseIdList(true);
+        } else {
+            setIsIdInCourseIdList(false);
+        }
+    }, [id, courseIdList]);
 
     return (
         <>
