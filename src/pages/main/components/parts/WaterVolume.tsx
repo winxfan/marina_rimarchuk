@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import WaterIcon from '@/assets/images/waterTracker/waterIcon.svg';
@@ -7,12 +8,18 @@ import css from './WaterVolume.module.scss';
 
 export type WaterVolumeProps = {
     sliderValue?: number;
+    authUser?: AuthUser;
 };
 
 export const WaterVolume = (props: WaterVolumeProps) => {
-    const { sliderValue } = props;
-    const authUser: AuthUser = useSelector((state: AuthResponse) => state.auth);
-    const waterVolume = authUser.user[0].water_ml;
+    const { sliderValue, authUser } = props;
+
+    const [waterVolume, setWaterVolume] = useState(0);
+
+    if (authUser.user.length) {
+        setWaterVolume(authUser.user[0].water_ml);
+    }
+
     // const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
     /*    const waterVolume: WaterData = useSelector((state: GetWaterResponse) => state.waterGet);
 
