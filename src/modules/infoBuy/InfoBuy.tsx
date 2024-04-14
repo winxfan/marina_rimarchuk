@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect } from 'react';
+import React, { FC, ReactNode, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -28,7 +28,8 @@ export type InfoBuyProps = {
 
 export const InfoBuy: FC<InfoBuyProps> = (props) => {
     const { children, isShowBook, isShowManual, isShowCourse, infoBuy, id } = props;
-
+    const [courseIdList, setCourseIdList] = useState([]);
+    const [isIdInCourseIdList, setIsIdInCourseIdList] = useState(false);
     useBackButton('/');
     //console.log(id, '222');
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
@@ -41,6 +42,24 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
     }, [id, dispatch]);
 
     const manual = useSelector((state: ManualsGetResponse) => state.manualsGet);
+
+    const courseId = useSelector((state: GetCheckPayResponse) => state.checkPay.data.course_id);
+
+    useEffect(() => {
+        if (courseId) {
+            setCourseIdList(courseId);
+            console.log(courseIdList, 'courseIdList course info');
+        }
+    }, [courseId]);
+
+    useEffect(() => {
+        if (courseIdList?.includes(id)) {
+            console.log(isIdInCourseIdList, 'ssssssssssss');
+            setIsIdInCourseIdList(true);
+        } else {
+            setIsIdInCourseIdList(false);
+        }
+    }, [id, courseIdList]);
 
     return (
         <div className={css.infoBuy}>
@@ -71,7 +90,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
 
             <div className={css.infoBuyChildren}>{children}</div>
 
-            {infoBuy.id !== '5' ? (
+            {infoBuy.id !== '5' && !isIdInCourseIdList ? (
                 <button type="button" className={css.contentCostButton}>
                     <div className={css.contentCostLink}>
                         <div className={css.contentCostText}>{isShowBook && infoBuy.descriptionPrice}</div>
@@ -91,7 +110,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                 </button>
             ) : null}
 
-            {infoBuy.id !== '5' ? (
+            {infoBuy.id !== '5' && !isIdInCourseIdList ? (
                 <Link
                     to={{
                         pathname: `/delivery/${id}`,
