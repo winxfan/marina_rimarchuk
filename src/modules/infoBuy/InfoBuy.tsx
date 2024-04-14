@@ -41,7 +41,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
 
     const manual = useSelector((state: ManualsGetResponse) => state.manualsGet);
 
-    console.log(infoBuy, 'infoBuy');
+    console.log(manual, 'manual2222');
     //
     // useEffect(() => {
     //     const fetchCheckPay = async () => {
