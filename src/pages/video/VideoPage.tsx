@@ -17,7 +17,7 @@ const VideoPage = () => {
   const allVideos: AllVideos = useSelector((state: AllVideosResponse) => state.videos, shallowEqual);
 
     const currentVideo = useMemo(() => {
-      return allVideos.data.find((item) => item.id === id);
+      return allVideos.data.find((item) => item.id == id);
     }, [allVideos])
 
     return (

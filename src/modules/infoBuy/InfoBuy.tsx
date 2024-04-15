@@ -42,8 +42,6 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
         fetchManualGet();
     }, [id, dispatch]);
 
-    console.log(infoBuy, 'mmmm');
-
     const manual = useSelector((state: ManualsGetResponse) => state.manualsGet);
 
     const courseId = useSelector((state: GetCheckPayResponse) => state.checkPay.data.course_id);
@@ -51,13 +49,11 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
     useEffect(() => {
         if (courseId) {
             setCourseIdList(courseId);
-            console.log(courseIdList, 'courseIdList course info');
         }
     }, [courseId]);
 
     useEffect(() => {
         if (courseIdList?.includes(id)) {
-            console.log(isIdInCourseIdList, 'ssssssssssss');
             setIsIdInCourseIdList(true);
         } else {
             setIsIdInCourseIdList(false);

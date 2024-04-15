@@ -12,9 +12,6 @@ export type CoursesCardProps = {
 
 export const CoursesCard: FC<CoursesCardProps> = (props) => {
     const { course } = props;
-
-    console.log(course, 'cccc');
-
     const { card, title } = course;
 
     return (

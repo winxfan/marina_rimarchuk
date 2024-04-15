@@ -22,8 +22,6 @@ const DeliveryPage = () => {
 
     const { id } = useParams();
 
-    console.log(location, 'location');
-
     const {
         values: {
             formik: { handleChange, values, errors },
@@ -42,11 +40,9 @@ const DeliveryPage = () => {
         const customer_phone = values.phone;
         const customer_email = values.email;
 
-        const apiToken = localStorage.getItem('api_token');
-        console.log(apiToken, 'apiToken');
-        Cookies.set('api_token', apiToken);
+        // const apiToken = localStorage.getItem('api_token');
 
-        console.log(Cookies.get('api_token'), 'Cookies.get');
+        // console.log(Cookies.get('api_token'), 'Cookies.get');
 
         dispatch(
             payContent({

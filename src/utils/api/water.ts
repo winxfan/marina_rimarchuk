@@ -4,7 +4,7 @@ import { AddWater, WaterGetData } from '@/utils/types/water';
 
 export const waterGet = async (): Promise<WaterGetData> => {
     const response = await axios.get(`/api/water/getml`);
-    console.log(response.data, 'get Water 1111');
+    // console.log(response.data, 'get Water 1111');
     return response.data;
 };
 

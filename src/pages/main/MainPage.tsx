@@ -27,8 +27,8 @@ const MainPage = () => {
     const userId: number = initDataUnsafe?.user?.id;
     const userName: string = initDataUnsafe?.user?.first_name;
 
-    console.log(userId, 'userId');
-    console.log(userName, 'userName');
+    // console.log(userId, 'userId');
+    // console.log(userName, 'userName');
 
     useEffect(() => {
         const handleResize = () => {
@@ -47,8 +47,8 @@ const MainPage = () => {
     const authUser: AuthUser = useSelector((state: AuthResponse) => state.auth);
     const allUsers: AllUsers = useSelector((state: UserResponse) => state.user);
 
-    console.log(authUser, 'authUser');
-    console.log(allUsers.data.length, 'allUsers.data.length');
+    // console.log(authUser, 'authUser');
+    // console.log(allUsers.data.length, 'allUsers.data.length');
 
     useEffect(() => {
         const fetchData = async () => {

@@ -32,8 +32,6 @@ export const ManualInfo: FC<ManualInfoProps> = () => {
     const id = Number(matchManual?.params.id);
     const manualInfo = allManuals.data.find((item) => +item.id === +id);
 
-    console.log(id, 'ManualInfo');
-
     const manualsId = useSelector((state: GetCheckPayResponse) => state.checkPay.data.manuals_id);
 
     useEffect(() => {
@@ -41,8 +39,8 @@ export const ManualInfo: FC<ManualInfoProps> = () => {
             const apiToken = localStorage.getItem('api_token');
             Cookies.set('api_token', apiToken);
             await dispatch(getCheckPay());
-            console.log(fetchCheckPay, 'fetchCheckPay');
-            console.log(manualsId, 'manualsId  ManualInfo 111');
+            // console.log(fetchCheckPay, 'fetchCheckPay');
+            // console.log(manualsId, 'manualsId  ManualInfo 111');
         };
 
         fetchCheckPay();
@@ -57,7 +55,7 @@ export const ManualInfo: FC<ManualInfoProps> = () => {
 
     useEffect(() => {
         if (manualIdList?.includes(id)) {
-            console.log(isIdInManualIdList, 'isIdInManualIdList 333');
+            // console.log(isIdInManualIdList, 'isIdInManualIdList 333');
             setIsIdInManualIdList(true);
         } else {
             setIsIdInManualIdList(false);
