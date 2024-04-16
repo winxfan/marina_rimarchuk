@@ -92,19 +92,20 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
             {infoBuy.id !== '5' && !isIdInCourseIdList ? (
                 <button type="button" className={css.contentCostButton}>
                     <div className={css.contentCostLink}>
-                        <div className={css.contentCostText}>{isShowBook && infoBuy.descriptionPrice}</div>
-                        <div className={css.contentCostText}>{isShowManual && infoBuy.descriptionPrice}</div>
+                        {isShowBook ? <div className={css.contentCostText}>{infoBuy.descriptionPrice}</div> : null}
+                        {isShowManual ? <div className={css.contentCostText}>{infoBuy.descriptionPrice}</div> : null}
 
-                        <div className={css.contentCostText}>{isShowCourse && infoBuy.buttonText}</div>
+                        {isShowCourse ? <div className={css.contentCostText}>{infoBuy.buttonText}</div> : null}
+                        {isShowManual ? <div className={css.contentCostText}>{infoBuy.buttonText}</div> : null}
 
                         <div className={css.contentCostPrice}>
                             <div className={css.contentCostPriceManual}>
-                                {isShowManual ? <div className={css.contentCostText}>Стоимость методички</div> : null}
-                                {isShowManual && manual.data ? `${manual.data.cost}₽` : null}
+                                {isShowManual ? <span className={css.contentCostText}>Стоимость методички</span> : null}
+                                {isShowManual && manual.data ? <span>{manual.data.cost}₽ </span> : null}
                             </div>
                         </div>
-                        <div className={css.contentCostPrice}>{isShowBook && `${infoBuy.price} ₽`}</div>
-                        <div className={css.contentCostPrice}>{isShowCourse && `${infoBuy.price} ₽`}</div>
+                        {isShowBook ? <div className={css.contentCostPrice}>{infoBuy.price} ₽</div> : null}
+                        {isShowCourse ? <div className={css.contentCostPrice}>{`${infoBuy.price} ₽`}</div> : null}
                     </div>
                 </button>
             ) : null}

@@ -42,7 +42,6 @@
       .contentCostText {
         flex: 0 1 auto;
         color: #C2C5F3;
-        margin-right: 15px;
         font-size: 16px;
         letter-spacing: -0.32px;
       }
@@ -58,6 +57,7 @@
         .contentCostPriceManual {
           display: flex;
           align-items: center;
+          gap: 30px;
         }
       }
     }
