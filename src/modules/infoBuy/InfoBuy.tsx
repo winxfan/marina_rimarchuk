@@ -130,7 +130,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                 </button>
             ) : null}
 
-            {infoBuy.id !== '5' && !isIdInCourseIdList ? (
+            {infoBuy.id !== '5' && !isIdInCourseIdList && !isIdInManualIdList ? (
                 <Link
                     to={{
                         pathname: `/delivery/${id}`,
