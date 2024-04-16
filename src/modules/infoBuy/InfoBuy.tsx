@@ -81,7 +81,8 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
     }, [id, manualIdList]);
 
     console.log(isShowManual, 'isShowManual');
-    console.log(infoBuy, 'infoBuy');
+    console.log((infoBuy.id !== '5' && !isIdInCourseIdList) || !isIdInManualIdList, '1');
+    console.log(infoBuy.id !== '5' && !isIdInCourseIdList && !isIdInManualIdList, '2');
 
     return (
         <div className={css.infoBuy}>
