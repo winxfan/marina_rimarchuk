@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import cs from 'classnames';
@@ -17,33 +17,45 @@ export type StatisticInfoCardProps = {
 
 export const StatisticInfoCard: FC<StatisticInfoCardProps> = (props) => {
     const { className } = props;
+    const [vidQuantity, setVidQuantity] = useState(0);
+    const [podcadstQuantity, setPodcadstQuantity] = useState(0);
+    const [waterWeek, setWaterWeek] = useState(0);
+    const [waterMonth, setWaterMonth] = useState(0);
 
     const authUser: AuthUser = useSelector((state: AuthResponse) => state.auth);
-    console.log(authUser, 'authUser222');
+
+    if (authUser.user.length) {
+        setVidQuantity(authUser.user[0].vid_quantity);
+        setPodcadstQuantity(authUser.user[0].podcadst_quantity);
+        setWaterWeek(authUser.user[0].water_week);
+        setWaterMonth(authUser.user[0].water_month);
+    }
+
+    console.log(authUser.user[0].vid_quantity, 'authUser222');
 
     return (
         <div className={cs(css.statisticInfoCard, className)}>
             <div className={cs(css.infoCardItem)}>
                 <img src={waterImage} className={css.infoCardIcon} alt="icon statistic" />
-                <div className={css.infoCardTitle}>1 мл</div>
+                <div className={css.infoCardTitle}>{waterWeek} мл</div>
                 <div className={css.infoCardDescription}>за неделю выпито воды</div>
             </div>
 
             <div className={cs(css.infoCardItem)}>
                 <img src={waterImage} className={css.infoCardIcon} alt="icon statistic" />
-                <div className={css.infoCardTitle}>1 мл</div>
+                <div className={css.infoCardTitle}>{waterMonth} мл</div>
                 <div className={css.infoCardDescription}>за месяц выпито воды</div>
             </div>
 
             <div className={cs(css.infoCardItem)}>
                 <img src={cameraImage} className={css.infoCardIcon} alt="icon statistic" />
-                <div className={css.infoCardTitle}>1</div>
+                <div className={css.infoCardTitle}>{vidQuantity}</div>
                 <div className={css.infoCardDescription}>Видео вы уже посмотрели</div>
             </div>
 
             <div className={cs(css.infoCardItem)}>
                 <img src={microImage} className={css.infoCardIcon} alt="icon statistic" />
-                <div className={css.infoCardTitle}>1</div>
+                <div className={css.infoCardTitle}>{podcadstQuantity}</div>
                 <div className={css.infoCardDescription}>Подкастов вы уже послушали</div>
             </div>
         </div>
