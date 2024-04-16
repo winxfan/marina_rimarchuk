@@ -11,13 +11,14 @@ export type CardSliderProps = {
 };
 
 const CardSlider: FC<CardSliderProps> = (props) => {
-    const { children, slidesToShow = 2, slidesToShowMobile } = props;
+    const { children, slidesToShowMobile } = props;
 
     return (
       <Swiper
         slidesPerView={slidesToShowMobile}
         className={css.CardSlider}
         spaceBetween={12}
+        freeMode={true}
       >
           {children}
       </Swiper>

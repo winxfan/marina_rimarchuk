@@ -27,6 +27,7 @@ export const VideoBlock: FC<VideoBlockProps> = () => {
           <Swiper
             spaceBetween={12}
             slidesPerView={1.75}
+            freeMode={true}
           >
             {allVideos.data?.map((item, index) => (
               <SwiperSlide key={item.id}>
