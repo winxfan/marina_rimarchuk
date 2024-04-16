@@ -122,17 +122,19 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                 </button>
             ) : null}
 
-            {!isIdInManualIdList ? (
+            {!isIdInManualIdList && manual.data ? (
                 <button type="button" className={css.contentCostButton}>
                     <div className={css.contentCostLink}>
                         {isShowManual ? <div className={css.contentCostText}>{infoBuy.descriptionPrice}</div> : null}
 
                         <div className={css.contentCostPrice}>
                             <div className={css.contentCostPriceManual}>
-                                {isShowManual && manual.data ? (
+                                {isShowManual && !isIdInManualIdList && manual.data ? (
                                     <span className={css.contentCostText}>Стоимость методички</span>
                                 ) : null}
-                                {isShowManual && manual.data ? <span>{manual.data.cost}₽ </span> : null}
+                                {isShowManual && manual.data && !isIdInManualIdList ? (
+                                    <span>{manual.data.cost}₽ </span>
+                                ) : null}
                             </div>
                         </div>
                     </div>
@@ -156,7 +158,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                 </Link>
             ) : null}
 
-            {!isIdInManualIdList ? (
+            {!isIdInManualIdList && manual.data ? (
                 <Link
                     to={{
                         pathname: `/delivery/${id}`,
@@ -167,7 +169,9 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                     className={css.contentPriceButton}
                 >
                     <div className={css.contentPriceLink}>
-                        {isShowManual ? <div className={css.contentPriceText}>Купить методичку</div> : null}
+                        {isShowManual && !isIdInManualIdList ? (
+                            <div className={css.contentPriceText}>Купить методичку</div>
+                        ) : null}
                     </div>
                 </Link>
             ) : null}
