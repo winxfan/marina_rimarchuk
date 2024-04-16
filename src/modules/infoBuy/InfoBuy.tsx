@@ -112,7 +112,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
 
             <div className={css.infoBuyChildren}>{children}</div>
 
-            {infoBuy.id !== '5' && !isIdInCourseIdList && !isIdInManualIdList ? (
+            {infoBuy.id !== '5' && !isIdInManualIdList ? (
                 <button type="button" className={css.contentCostButton}>
                     <div className={css.contentCostLink}>
                         {isShowBook ? <div className={css.contentCostText}>{infoBuy.descriptionPrice}</div> : null}
@@ -123,7 +123,9 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
 
                         <div className={css.contentCostPrice}>
                             <div className={css.contentCostPriceManual}>
-                                {isShowManual ? <span className={css.contentCostText}>Стоимость методички</span> : null}
+                                {isShowManual && manual.data ? (
+                                    <span className={css.contentCostText}>Стоимость методички</span>
+                                ) : null}
                                 {isShowManual && manual.data ? <span>{manual.data.cost}₽ </span> : null}
                             </div>
                         </div>

@@ -19,7 +19,7 @@ const PDFViewer: FC<PDFViewerProps> = (props) => {
                     marginTop: '75px',
                 }}
             >
-                <Viewer defaultScale={1.02} fileUrl={pdfUrl} />
+                <Viewer defaultScale={1} fileUrl={pdfUrl} />
             </div>
         </Worker>
     );
