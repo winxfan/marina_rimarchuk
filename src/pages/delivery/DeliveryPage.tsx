@@ -1,9 +1,8 @@
-import { SyntheticEvent } from 'react';
+import { SyntheticEvent, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
 
 import { ThunkDispatch } from '@reduxjs/toolkit';
-import Cookies from 'js-cookie';
 
 import { CustomInput } from '@/modules/inputs/CustomInput';
 import { payContent, payContentManual } from '@/store/payContentSlice';
@@ -14,6 +13,8 @@ import { IAddress, useDeliveryPage } from './useDeliveryPage';
 
 const DeliveryPage = () => {
     useBackButton('/');
+    const [isFormValid, setIsFormValid] = useState(false);
+
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
@@ -67,6 +68,10 @@ const DeliveryPage = () => {
         }
     };
 
+    useEffect(() => {
+        setIsFormValid(Object.keys(errors).length === 0);
+    }, [errors]);
+
     return (
         <div className={css.deliveryPage}>
             <h1 className={css.deliveryHeader}>Данные для покупки</h1>
@@ -82,7 +87,7 @@ const DeliveryPage = () => {
                         onChange={handleChange}
                     />
                 ))}
-                <button type="submit" className={css.contentPriceButton}>
+                <button disabled={!isFormValid} type="submit" className={css.contentPriceButton}>
                     Перейти к оплате
                 </button>
             </form>

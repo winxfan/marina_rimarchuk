@@ -1,3 +1,5 @@
+import { ChangeEvent } from 'react';
+
 import cs from 'classnames';
 
 import css from './CustomInput.module.scss';
@@ -6,8 +8,7 @@ export interface CustomInputProps {
     name: string;
     value: string;
     title: string;
-    // todo fix type
-    onChange: (event: any) => void;
+    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
     error?: string;
 }
 

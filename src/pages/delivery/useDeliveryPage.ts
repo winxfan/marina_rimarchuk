@@ -10,11 +10,11 @@ export interface IAddress {
 export const useDeliveryPage = () => {
     const validationSchema = yup.object().shape({
         name: yup.string().required('ФИО обязательно к заполнению'),
-        email: yup.string().required('Email обязателен к заполнению'),
-        // todo set phone mask
+        email: yup.string().required('Email обязателен к заполнению').email('Введите корректный email'),
         phone: yup
             .string()
             .required('Номер телефона обязателен к заполнению')
+            .matches(/^\+7\d{10}$/, 'Введите корректный номер телефона')
             .min(12, 'Минимум 12 символов')
             .max(12, 'Телефон должен быть не более 12 символов'),
     });
