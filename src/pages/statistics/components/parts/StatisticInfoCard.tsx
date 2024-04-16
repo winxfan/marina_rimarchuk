@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import cs from 'classnames';
@@ -24,13 +24,14 @@ export const StatisticInfoCard: FC<StatisticInfoCardProps> = (props) => {
 
     const authUser: AuthUser = useSelector((state: AuthResponse) => state.auth);
 
-    console.log();
-    if (authUser.user[0]) {
-        setVidQuantity(authUser?.user[0]?.vid_quantity);
-        setPodcadstQuantity(authUser?.user[0]?.podcadst_quantity);
-        setWaterWeek(authUser?.user[0]?.water_week);
-        setWaterMonth(authUser?.user[0]?.water_month);
-    }
+    useEffect(() => {
+        if (authUser.user[0]) {
+            setVidQuantity(authUser?.user[0]?.vid_quantity);
+            setPodcadstQuantity(authUser?.user[0]?.podcadst_quantity);
+            setWaterWeek(authUser?.user[0]?.water_week);
+            setWaterMonth(authUser?.user[0]?.water_month);
+        }
+    }, [authUser]);
 
     return (
         <div className={cs(css.statisticInfoCard, className)}>
