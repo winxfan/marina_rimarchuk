@@ -11,6 +11,11 @@
   flex-direction: column;
 }
 
+.disabledButton {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .contentPriceButton {
   margin-top: 16px;
   border-radius: 16px;

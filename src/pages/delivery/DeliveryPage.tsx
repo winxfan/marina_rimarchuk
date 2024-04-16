@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
 
 import { ThunkDispatch } from '@reduxjs/toolkit';
+import cs from 'classnames';
 
 import { CustomInput } from '@/modules/inputs/CustomInput';
 import { payContent, payContentManual } from '@/store/payContentSlice';
@@ -87,7 +88,11 @@ const DeliveryPage = () => {
                         onChange={handleChange}
                     />
                 ))}
-                <button disabled={!isFormValid} type="submit" className={css.contentPriceButton}>
+                <button
+                    disabled={!isFormValid}
+                    type="submit"
+                    className={cs(css.contentPriceButton, isFormValid ? '' : css.disabledButton)}
+                >
                     Перейти к оплате
                 </button>
             </form>
