@@ -123,14 +123,16 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                         {isShowCourse ? <div className={css.contentCostText}>{infoBuy.buttonText}</div> : null}
                         {isShowManual ? <div className={css.contentCostText}>{infoBuy.buttonText}</div> : null}
 
-                        <div className={css.contentCostPrice}>
-                            <div className={css.contentCostPriceManual}>
-                                {isShowManual && manual.data ? (
-                                    <span className={css.contentCostText}>Стоимость методички</span>
-                                ) : null}
-                                {isShowManual && manual.data ? <span>{manual.data.cost}₽ </span> : null}
+                        {!isIdInManualIdList ? (
+                            <div className={css.contentCostPrice}>
+                                <div className={css.contentCostPriceManual}>
+                                    {isShowManual && manual.data ? (
+                                        <span className={css.contentCostText}>Стоимость методички</span>
+                                    ) : null}
+                                    {isShowManual && manual.data ? <span>{manual.data.cost}₽ </span> : null}
+                                </div>
                             </div>
-                        </div>
+                        ) : null}
                         {isShowBook ? <div className={css.contentCostPrice}>{infoBuy.price} ₽</div> : null}
                         {isShowCourse ? <div className={css.contentCostPrice}>{`${infoBuy.price} ₽`}</div> : null}
                     </div>
