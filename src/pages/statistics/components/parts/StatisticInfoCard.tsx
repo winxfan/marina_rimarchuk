@@ -24,11 +24,12 @@ export const StatisticInfoCard: FC<StatisticInfoCardProps> = (props) => {
 
     const authUser: AuthUser = useSelector((state: AuthResponse) => state.auth);
 
+    console.log();
     if (authUser.user[0]) {
-        setVidQuantity(authUser.user[0].vid_quantity);
-        setPodcadstQuantity(authUser.user[0].podcadst_quantity);
-        setWaterWeek(authUser.user[0].water_week);
-        setWaterMonth(authUser.user[0].water_month);
+        setVidQuantity(authUser?.user[0]?.vid_quantity);
+        setPodcadstQuantity(authUser?.user[0]?.podcadst_quantity);
+        setWaterWeek(authUser?.user[0]?.water_week);
+        setWaterMonth(authUser?.user[0]?.water_month);
     }
 
     return (
