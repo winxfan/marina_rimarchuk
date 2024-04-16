@@ -31,8 +31,6 @@ export const WaterVolume = (props: WaterVolumeProps) => {
         fetchGetWater();
     }, [sliderValue]);
 
-    console.log(waterVolume, 'waterVolume111');
-
     return (
         <div className={css.trackerInfo}>
             <div className={css.waterIcon}>

@@ -33,10 +33,7 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
 
     const id = Number(matchCard?.params.id);
 
-    console.log(id, 'id CourseInfo');
-
     const card: ICourseCard | undefined = dataCourses.flatMap((course) => course.card).find((item) => +item.id === id);
-    console.log(matchCard, 'matchCard');
 
     const course_id = useSelector((state: GetCheckPayResponse) => state.checkPay.data.course_id);
 
@@ -45,8 +42,6 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
             const apiToken = localStorage.getItem('api_token');
             Cookies.set('api_token', apiToken);
             await dispatch(getCheckPay());
-            console.log(fetchCheckPay, 'fetchCheckPay');
-            console.log(course_id, 'course_id  CourseInfo11');
         };
 
         fetchCheckPay();
@@ -55,13 +50,11 @@ export const CourseInfo: FC<CourseInfoProps> = () => {
     useEffect(() => {
         if (course_id) {
             setCourseIdList(course_id);
-            console.log(courseIdList, 'courseIdList course info');
         }
     }, [course_id]);
 
     useEffect(() => {
         if (courseIdList?.includes(id)) {
-            console.log(isIdInCourseIdList, 'isIdInCourseIdList333');
             setIsIdInCourseIdList(true);
         } else {
             setIsIdInCourseIdList(false);

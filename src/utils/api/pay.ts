@@ -3,7 +3,7 @@ import { GetCheckPay, Pay, PayMessage } from '@/utils/types/pay';
 
 export const getCheckPayRequest = async (): Promise<GetCheckPay> => {
     const response = await axios.get(`/api/prodamus/check_pay`);
-    console.log(response.data, 'getCheckPayRequest1111');
+    // console.log(response.data, 'getCheckPayRequest1111');
     return response.data;
 };
 
@@ -42,7 +42,7 @@ export const payContentManualRequest = async ({
             `/api/prodamus/pay?customer_phone=${customer_phone}&customer_email=${customer_email}&cost=${+cost}&manuals_id=${+manuals_id}`
         );
 
-        console.log(response.data, 'rrrrrrrr');
+        // console.log(response.data, 'rrrrrrrr');
         if (response.data.pay_url) {
             window.location.href = response.data.pay_url;
 
