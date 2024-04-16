@@ -83,16 +83,10 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
     return (
         <div className={css.infoBuy}>
             <div className={css.contentTitle}>
-                {isShowManual && manual.data && !isIdInManualIdList ? manual?.data.name : null}
-                {isShowManual
-                    ? infoBuy?.title && !isIdInManualIdList
-                    : isShowCourse
-                    ? infoBuy?.title
-                    : infoBuy?.contentTitle}
+                {isShowManual && manual.data ? manual?.data.name : null}
+                {isShowManual ? infoBuy?.title : isShowCourse ? infoBuy?.title : infoBuy?.contentTitle}
             </div>
-            <div className={css.contentDescription}>
-                {isShowManual && manual.data && !isIdInManualIdList ? manual.data.description : null}
-            </div>
+            <div className={css.contentDescription}>{isShowManual && manual.data ? manual.data.description : null}</div>
             <div className={css.contentDescription}>{isShowBook ? infoBuy?.contentInfo : null}</div>
             {/*<div className={css.contentDescription}>{isShowManual ? infoBuy?.description : infoBuy?.contentInfo}</div>*/}
             {isShowBook ? (
