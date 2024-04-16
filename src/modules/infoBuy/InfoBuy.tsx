@@ -50,6 +50,8 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
     const courseId = useSelector((state: GetCheckPayResponse) => state.checkPay.data.course_id);
     const manualsId = useSelector((state: GetCheckPayResponse) => state.checkPay.data.manuals_id);
 
+    console.log(isIdInManualIdList, 'isIdInManualIdList111');
+
     useEffect(() => {
         if (courseId) {
             setCourseIdList(courseId);
@@ -107,7 +109,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
 
             <div className={css.infoBuyChildren}>{children}</div>
 
-            {infoBuy.id !== '5' && (!isIdInCourseIdList || !isIdInManualIdList) ? (
+            {infoBuy.id !== '5' && !isIdInCourseIdList && !isIdInManualIdList ? (
                 <button type="button" className={css.contentCostButton}>
                     <div className={css.contentCostLink}>
                         {isShowBook ? <div className={css.contentCostText}>{infoBuy.descriptionPrice}</div> : null}
