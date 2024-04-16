@@ -54,6 +54,7 @@ export const PodcastsBlock: FC<PodcastsBlockProps> = () => {
             <Swiper
               spaceBetween={12}
               slidesPerView={1.75}
+              className={css.slider}
             >
                 {data?.map((item, index) => (
                   <SwiperSlide key={item.id}>
