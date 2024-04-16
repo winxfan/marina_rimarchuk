@@ -80,6 +80,9 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
         }
     }, [id, manualIdList]);
 
+    console.log(isShowManual, 'isShowManual');
+    console.log(infoBuy, 'infoBuy');
+
     return (
         <div className={css.infoBuy}>
             <div className={css.contentTitle}>
