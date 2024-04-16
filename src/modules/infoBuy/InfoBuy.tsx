@@ -118,19 +118,8 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                 <button type="button" className={css.contentCostButton}>
                     <div className={css.contentCostLink}>
                         {isShowBook ? <div className={css.contentCostText}>{infoBuy.descriptionPrice}</div> : null}
-                        {isShowManual ? <div className={css.contentCostText}>{infoBuy.descriptionPrice}</div> : null}
 
                         {isShowCourse ? <div className={css.contentCostText}>{infoBuy.buttonText}</div> : null}
-                        {isShowManual ? <div className={css.contentCostText}>{infoBuy.buttonText}</div> : null}
-
-                        <div className={css.contentCostPrice}>
-                            <div className={css.contentCostPriceManual}>
-                                {isShowManual && manual.data ? (
-                                    <span className={css.contentCostText}>Стоимость методички</span>
-                                ) : null}
-                                {isShowManual && manual.data ? <span>{manual.data.cost}₽ </span> : null}
-                            </div>
-                        </div>
 
                         {isShowBook ? <div className={css.contentCostPrice}>{infoBuy.price} ₽</div> : null}
                         {isShowCourse ? <div className={css.contentCostPrice}>{`${infoBuy.price} ₽`}</div> : null}
@@ -166,10 +155,6 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                     className={css.contentPriceButton}
                 >
                     <div className={css.contentPriceLink}>
-                        {isShowManual && !isIdInManualIdList ? (
-                            <div className={css.contentPriceText}>Купить методичку</div>
-                        ) : null}
-
                         {isShowCourse ? <div className={css.contentPriceText}>{infoBuy.buttonBuy}</div> : null}
                         {isShowBook ? <div className={css.contentPriceText}>{infoBuy.buttonBuy}</div> : null}
                     </div>
