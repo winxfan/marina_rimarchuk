@@ -3,11 +3,15 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { VideoCard } from '@/pages/main/components/parts/VideoCard';
-import { AllVideos, AllVideosResponse, Videos } from '@/utils/types/videos';
+import { AllVideos, AllVideosResponse } from '@/utils/types/videos';
 
 import { CommonHeader } from '../header/components/CommonHeader';
-import CardSlider from '../slider/CardSlider';
 import css from './VideoBlock.module.scss';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
 
 export type VideoBlockProps = any;
 
@@ -20,11 +24,16 @@ export const VideoBlock: FC<VideoBlockProps> = () => {
                 <CommonHeader title="Видео от Марины Римарчук" />
             </Link>
 
-            <CardSlider slidesToShow={2.15} slidesToShowMobile={1.75}>
-                {allVideos.data?.map((item, index) => (
-                  <VideoCard key={item.id} {...item} index={index} />
-                ))}
-            </CardSlider>
+          <Swiper
+            spaceBetween={12}
+            slidesPerView={1.75}
+          >
+            {allVideos.data?.map((item, index) => (
+              <SwiperSlide key={item.id}>
+                <VideoCard {...item} index={index} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
     );
 };

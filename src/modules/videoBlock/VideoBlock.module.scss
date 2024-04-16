@@ -1,6 +1,4 @@
 .videoBlock {
-  display: flex;
-  flex-direction: column;
   border-radius: 16px;
   margin-top: 30px;
 
@@ -8,13 +6,5 @@
     color: #FFF;
     text-decoration: none;
   }
-
-  //:global(.slick-slide) > div {
-  //  margin-left: -343px;
-  //}
-}
-
-:global(.slick-slide) > div {
-  margin-right: 12px;
 }
 
