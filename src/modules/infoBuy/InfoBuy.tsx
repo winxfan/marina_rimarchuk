@@ -114,7 +114,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
 
             <div className={css.infoBuyChildren}>{children}</div>
 
-            {(infoBuy.id !== '5' && !isIdInCourseIdList) || !isIdInManualIdList ? (
+            {infoBuy.id !== '5' && (!isIdInCourseIdList || !isIdInManualIdList) && (
                 <button type="button" className={css.contentCostButton}>
                     <div className={css.contentCostLink}>
                         {isShowBook ? <div className={css.contentCostText}>{infoBuy.descriptionPrice}</div> : null}
@@ -123,23 +123,22 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                         {isShowCourse ? <div className={css.contentCostText}>{infoBuy.buttonText}</div> : null}
                         {isShowManual ? <div className={css.contentCostText}>{infoBuy.buttonText}</div> : null}
 
-                        {!isIdInManualIdList ? (
-                            <div className={css.contentCostPrice}>
-                                <div className={css.contentCostPriceManual}>
-                                    {isShowManual && manual.data ? (
-                                        <span className={css.contentCostText}>Стоимость методички</span>
-                                    ) : null}
-                                    {isShowManual && manual.data ? <span>{manual.data.cost}₽ </span> : null}
-                                </div>
+                        <div className={css.contentCostPrice}>
+                            <div className={css.contentCostPriceManual}>
+                                {isShowManual && manual.data ? (
+                                    <span className={css.contentCostText}>Стоимость методички</span>
+                                ) : null}
+                                {isShowManual && manual.data ? <span>{manual.data.cost}₽ </span> : null}
                             </div>
-                        ) : null}
+                        </div>
+
                         {isShowBook ? <div className={css.contentCostPrice}>{infoBuy.price} ₽</div> : null}
                         {isShowCourse ? <div className={css.contentCostPrice}>{`${infoBuy.price} ₽`}</div> : null}
                     </div>
                 </button>
-            ) : null}
+            )}
 
-            {(infoBuy.id !== '5' && !isIdInCourseIdList) || !isIdInManualIdList ? (
+            {infoBuy.id !== '5' && (!isIdInCourseIdList || !isIdInManualIdList) && (
                 <Link
                     to={{
                         pathname: `/delivery/${id}`,
@@ -158,7 +157,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                         {isShowBook ? <div className={css.contentPriceText}>{infoBuy.buttonBuy}</div> : null}
                     </div>
                 </Link>
-            ) : null}
+            )}
 
             {infoBuy.book && <PDFViewer pdfUrl="https://content-water.plutus-fin.ru/books/book_1.pdf" />}
         </div>
