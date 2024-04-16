@@ -6,7 +6,7 @@ import { ThunkDispatch } from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
 
 import { CustomInput } from '@/modules/inputs/CustomInput';
-import { payContent } from '@/store/payContentSlice';
+import { payContent, payContentManual } from '@/store/payContentSlice';
 import { useBackButton } from '@/utils/hooks/useBackButton';
 
 import css from './DeliveryPage.module.scss';
@@ -48,15 +48,27 @@ const DeliveryPage = () => {
 
         console.log(Cookies.get('api_token'), 'Cookies.get');
 
-        dispatch(
-            payContent({
-                customer_phone,
-                customer_email,
-                cost: +price,
-                course_id: deliveryContent === 'course' ? +id : null,
-                manuals_id: deliveryContent === 'manual' ? +id : null,
-            })
-        );
+        if (deliveryContent === 'course') {
+            dispatch(
+                payContent({
+                    customer_phone,
+                    customer_email,
+                    cost: +price,
+                    course_id: +id,
+                })
+            );
+        }
+
+        if (deliveryContent === 'manual') {
+            dispatch(
+                payContentManual({
+                    customer_phone,
+                    customer_email,
+                    cost: +price,
+                    manuals_id: +id,
+                })
+            );
+        }
     };
 
     return (

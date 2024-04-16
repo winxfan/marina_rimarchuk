@@ -1,23 +1,40 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { LoadingStatus } from '@/constants';
-import { payContentRequest } from '@/utils/api/pay';
+import { payContentCourseRequest, payContentManualRequest } from '@/utils/api/pay';
 import { UserError } from '@/utils/types';
 import { Pay, PayResponse } from '@/utils/types/pay';
 
 export const payContent = createAsyncThunk(
-    'payContent/payContent',
-    async ({ customer_phone, customer_email, cost, course_id, manuals_id }: Pay, { rejectWithValue }) => {
+    'payContentCourse/payContentCourse',
+    async ({ customer_phone, customer_email, cost, course_id }: Pay, { rejectWithValue }) => {
         try {
             const content: Pay = {
                 customer_phone,
                 customer_email,
                 cost,
                 course_id,
+            };
+
+            return await payContentCourseRequest(content);
+        } catch (error) {
+            return rejectWithValue(error.message);
+        }
+    }
+);
+
+export const payContentManual = createAsyncThunk(
+    'payContentManual/payContentManual',
+    async ({ customer_phone, customer_email, cost, manuals_id }: Pay, { rejectWithValue }) => {
+        try {
+            const content: Pay = {
+                customer_phone,
+                customer_email,
+                cost,
                 manuals_id,
             };
 
-            return await payContentRequest(content);
+            return await payContentManualRequest(content);
         } catch (error) {
             return rejectWithValue(error.message);
         }
@@ -48,6 +65,18 @@ const payContentSlice = createSlice({
             state.pay_url = action.payload.pay_url;
         });
         builder.addCase(payContent.rejected, (state, action) => {
+            state.status = LoadingStatus.rejected;
+            state.error = (action.payload as UserError).status;
+        });
+        builder.addCase(payContentManual.pending, (state) => {
+            state.status = LoadingStatus.pending;
+            state.error = null;
+        });
+        builder.addCase(payContentManual.fulfilled, (state, action) => {
+            state.status = LoadingStatus.fulfilled;
+            state.pay_url = action.payload.pay_url;
+        });
+        builder.addCase(payContentManual.rejected, (state, action) => {
             state.status = LoadingStatus.rejected;
             state.error = (action.payload as UserError).status;
         });
