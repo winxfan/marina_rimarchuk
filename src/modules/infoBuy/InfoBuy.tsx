@@ -31,6 +31,9 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
     const { children, isShowBook, isShowManual, isShowCourse, infoBuy, id } = props;
     const [courseIdList, setCourseIdList] = useState([]);
     const [isIdInCourseIdList, setIsIdInCourseIdList] = useState(false);
+
+    const [manualIdList, setManualIdList] = useState([]);
+    const [isIdInManualIdList, setIsIdInManualIdList] = useState(false);
     useBackButton('/');
     //console.log(id, '222');
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
@@ -45,6 +48,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
     const manual = useSelector((state: ManualsGetResponse) => state.manualsGet);
 
     const courseId = useSelector((state: GetCheckPayResponse) => state.checkPay.data.course_id);
+    const manualsId = useSelector((state: GetCheckPayResponse) => state.checkPay.data.manuals_id);
 
     useEffect(() => {
         if (courseId) {
@@ -53,12 +57,26 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
     }, [courseId]);
 
     useEffect(() => {
+        if (manualsId) {
+            setManualIdList(manualsId);
+        }
+    }, [manualsId]);
+
+    useEffect(() => {
         if (courseIdList?.includes(id)) {
             setIsIdInCourseIdList(true);
         } else {
             setIsIdInCourseIdList(false);
         }
     }, [id, courseIdList]);
+
+    useEffect(() => {
+        if (manualIdList?.includes(id)) {
+            setIsIdInManualIdList(true);
+        } else {
+            setIsIdInManualIdList(false);
+        }
+    }, [id, manualIdList]);
 
     return (
         <div className={css.infoBuy}>
@@ -110,7 +128,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                 </button>
             ) : null}
 
-            {infoBuy.id !== '5' && !isIdInCourseIdList ? (
+            {infoBuy.id !== '5' && (!isIdInCourseIdList || !isIdInManualIdList) ? (
                 <Link
                     to={{
                         pathname: `/delivery/${id}`,
