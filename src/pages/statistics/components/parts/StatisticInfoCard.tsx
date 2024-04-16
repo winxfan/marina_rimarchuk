@@ -31,8 +31,6 @@ export const StatisticInfoCard: FC<StatisticInfoCardProps> = (props) => {
         setWaterMonth(authUser.user[0].water_month);
     }
 
-    console.log(authUser.user[0].vid_quantity, 'authUser222');
-
     return (
         <div className={cs(css.statisticInfoCard, className)}>
             <div className={cs(css.infoCardItem)}>
