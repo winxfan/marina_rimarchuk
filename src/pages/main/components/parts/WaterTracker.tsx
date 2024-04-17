@@ -225,10 +225,10 @@ export const WaterTracker = () => {
                                 max="2560"
                                 value={sliderValue}
                                 // onChange={handleSliderChange}
-                                // onTouchStart={handleSliderMouseDown}
-                                // onTouchEnd={handleSliderMouseUp}
-                                onMouseDown={handleSliderMouseDown}
-                                onMouseUp={handleSliderMouseUp}
+                                onTouchStart={handleSliderMouseUp}
+                                onTouchEnd={handleSliderMouseDown}
+                                /*  onMouseDown={handleSliderMouseDown}
+                                onMouseUp={handleSliderMouseUp}*/
                                 className={css.rangeInput}
                             />
                             <label htmlFor="range">{sliderValue}</label>
