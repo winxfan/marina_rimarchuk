@@ -45,6 +45,7 @@ export const WaterTracker = () => {
     useEffect(() => {
         const fetchGetWater = async () => {
             await dispatch(getWater());
+            await dispatch(getUser());
         };
 
         fetchGetWater();
@@ -123,28 +124,32 @@ export const WaterTracker = () => {
     //     }
     // };
 
-    const handleIncrease = (e: BaseSyntheticEvent) => {
+    const handleIncrease = async () => {
         if (prevSliderValue < MAX_SIZE - 320) {
             const newValue = prevSliderValue + 320;
             const diff = newValue - prevSliderValue;
             setPrevSliderValue(newValue);
-            dispatch(addVolumeWater({ user_id: currentUser.data.user_id, water_ml: diff }));
+            await dispatch(addVolumeWater({ user_id: currentUser.data.user_id, water_ml: diff }));
+            await dispatch(getUser());
         } else {
             const diff = MAX_SIZE - prevSliderValue;
             setPrevSliderValue(MAX_SIZE);
-            dispatch(addVolumeWater({ user_id: currentUser.data.user_id, water_ml: diff }));
+            await dispatch(addVolumeWater({ user_id: currentUser.data.user_id, water_ml: diff }));
+            await dispatch(getUser());
         }
     };
 
-    const handleDecrease = () => {
+    const handleDecrease = async () => {
         if (prevSliderValue > 320) {
             const newValue = prevSliderValue - 320;
             const diff = prevSliderValue - newValue;
             setPrevSliderValue(newValue);
-            dispatch(delVolumeWater({ user_id: currentUser.data.user_id, water_ml: diff }));
+            await dispatch(delVolumeWater({ user_id: currentUser.data.user_id, water_ml: diff }));
+            await dispatch(getUser());
         } else {
             setPrevSliderValue(0);
-            dispatch(delVolumeWater({ user_id: currentUser.data.user_id, water_ml: prevSliderValue }));
+            await dispatch(delVolumeWater({ user_id: currentUser.data.user_id, water_ml: prevSliderValue }));
+            await dispatch(getUser());
         }
     };
 
@@ -174,7 +179,7 @@ export const WaterTracker = () => {
 
     const handleSliderChange = async (e: BaseSyntheticEvent) => {
         const newValue = +e.target.value;
-        const diff = newValue - prevSliderValue;
+        const diff = newValue - waterVolume.data.data;
         setPrevSliderValue(newValue);
 
         const idUser = currentUser.data.user_id;
@@ -186,6 +191,7 @@ export const WaterTracker = () => {
         }
 
         await dispatch(getWater());
+        await dispatch(getUser());
     };
 
     // const handleSliderMouseUp = (e: BaseSyntheticEvent) => {
