@@ -78,12 +78,15 @@
       .controlsWater {
         transform: rotate(90deg);
         cursor: pointer;
+        position: relative;
+        z-index: 999999999999999999;
       }
 
       .sliderInput {
         -webkit-appearance: none;
         height: 6px;
         min-width: 262px;
+        display: inline-flex;
         border-radius: 100px;
         outline: none;
         border: none;
@@ -172,6 +175,7 @@
 
 .rangeContainer {
   position: relative;
+  z-index: 999999999999;
   display: flex;
   align-items: center;
 
