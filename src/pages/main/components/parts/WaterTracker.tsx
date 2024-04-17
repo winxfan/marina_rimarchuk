@@ -13,7 +13,7 @@ import { HeaderPage } from '@/modules/header/components/HeaderPage';
 import WaterWaveImage from '@/pages/main/components/parts/WaterWaveImage';
 import { getCheckPay } from '@/store/checkPaySlice';
 import { getUser } from '@/store/currentUserSlice';
-import { addVolumeWater } from '@/store/waterAddSlice';
+import { addVolumeWater, delVolumeWater } from '@/store/waterAddSlice';
 import { getWater } from '@/store/waterGetSlice';
 import { useBackButton } from '@/utils/hooks/useBackButton';
 import { UserGet, UserGetResponse } from '@/utils/types';
@@ -34,14 +34,14 @@ export const WaterTracker = () => {
     // const [currentLevel, setCurrentLevel] = useState(0);
     // const [userChangedSlider, setUserChangedSlider] = useState(false);
     // const [sliderValue, setSliderValue] = useState(0);
-    // const [adjustedHeight, setAdjustedHeight] = useState(0);
+    const [adjustedHeight, setAdjustedHeight] = useState(0);
 
-    const [sliderValue, setSliderValue] = useState(waterVolume.data.data);
+    const [prevSliderValue, setPrevSliderValue] = useState(0);
+    const [sliderValue, setSliderValue] = useState(0);
 
     useEffect(() => {
         const fetchGetWater = async () => {
             await dispatch(getWater());
-            await dispatch(getUser());
         };
 
         fetchGetWater();
@@ -97,33 +97,98 @@ export const WaterTracker = () => {
     //     }
     // };
 
-    // const handleIncrease = () => {
-    //     //console.log(adjustedHeight, 'adjustedHeight');
-    //     if (adjustedHeight < 237) {
-    //         setSliderValue((prevValue) => Math.min(prevValue + 320, 2560));
-    //         setCurrentLevel((prevValue) => Math.min(prevValue + 320, 2560));
-    //         setAdjustedHeight((value) => value + (320 / MAX_SIZE) * CONTAINER_HEIGHT_PX);
-    //     }
-    // };
-
-    const handleSliderMouseUp = (e: BaseSyntheticEvent) => {
-        const value = e.target.value;
-        const idUser = currentUser.data.user_id;
-
-        // const newValue = Math.min(value, MAX_SIZE);
-
-        dispatch(addVolumeWater({ user_id: idUser, water_ml: +value }));
-        dispatch(getWater());
-        setSliderValue(waterVolume.data.data);
-        // setAdjustedHeight((newValue / MAX_SIZE) * CONTAINER_HEIGHT_PX);
+    const handleIncrease = (e: BaseSyntheticEvent) => {
+        //console.log(adjustedHeight, 'adjustedHeight');
+        if (sliderValue < MAX_SIZE - 320) {
+            const newValue = sliderValue + 320;
+            const diff = newValue - prevSliderValue;
+            setPrevSliderValue(newValue);
+            setSliderValue(newValue);
+            dispatch(addVolumeWater({ user_id: currentUser.data.user_id, water_ml: diff }));
+            dispatch(getWater());
+        } else {
+            const diff = MAX_SIZE - sliderValue;
+            setPrevSliderValue(sliderValue);
+            setSliderValue(MAX_SIZE);
+            dispatch(addVolumeWater({ user_id: currentUser.data.user_id, water_ml: diff }));
+            dispatch(getWater());
+        }
     };
 
-    const handleSliderChange = (e: BaseSyntheticEvent) => {
+    const handleDecrease = () => {
+        if (sliderValue > 320) {
+            const newValue = sliderValue - 320;
+            const diff = sliderValue - newValue;
+            setPrevSliderValue(sliderValue);
+            setSliderValue(newValue);
+            dispatch(delVolumeWater({ user_id: currentUser.data.user_id, water_ml: diff }));
+            dispatch(getWater());
+        } else {
+            setPrevSliderValue(sliderValue);
+            setSliderValue(0);
+            dispatch(delVolumeWater({ user_id: currentUser.data.user_id, water_ml: sliderValue }));
+            dispatch(getWater());
+        }
+    };
+
+    // const newValue = +e.target.value;
+    // const diff = newValue - prevSliderValue;
+    // setPrevSliderValue(newValue);
+    // console.log(newValue, 'newValue');
+    // console.log(diff, 'diff');
+    // const idUser = currentUser.data.user_id;
+    // dispatch(addVolumeWater({ user_id: idUser, water_ml: diff }));
+    // dispatch(getWater());
+    // setSliderValue(newValue);
+    // console.log(sliderValue, 'sliderValue');
+    // console.log(prevSliderValue, 'prevSliderValue');
+
+    // const handleSliderMouseUp = (e: BaseSyntheticEvent) => {
+    //     const value = e.target.value;
+    //     const idUser = currentUser.data.user_id;
+    //
+    //     // const newValue = Math.min(value, MAX_SIZE);
+    //
+    //     dispatch(addVolumeWater({ user_id: idUser, water_ml: +value }));
+    //     dispatch(getWater());
+    //     setSliderValue(waterVolume.data.data);
+    //     // setAdjustedHeight((newValue / MAX_SIZE) * CONTAINER_HEIGHT_PX);
+    // };
+
+    /*   const handleSliderChange = (e: BaseSyntheticEvent) => {
         const newValue = +e.target.value;
+        const diff = newValue - prevSliderValue;
+        setPrevSliderValue(newValue);
+        console.log(newValue, 'newValue');
+        console.log(diff, 'diff');
         const idUser = currentUser.data.user_id;
-        dispatch(addVolumeWater({ user_id: idUser, water_ml: +newValue }));
+        dispatch(addVolumeWater({ user_id: idUser, water_ml: diff }));
         dispatch(getWater());
-        setSliderValue(waterVolume.data.data);
+        setSliderValue(newValue);
+        console.log(sliderValue, 'sliderValue');
+        console.log(prevSliderValue, 'prevSliderValue');
+    };*/
+
+    const handleSliderMouseUp = (e: BaseSyntheticEvent) => {
+        const value = +e.target.value;
+        const idUser = currentUser.data.user_id;
+        const diff = value - prevSliderValue;
+        dispatch(addVolumeWater({ user_id: idUser, water_ml: diff }));
+        dispatch(getWater());
+        setSliderValue(value);
+        console.log(sliderValue, 'sliderValue');
+        console.log(prevSliderValue, 'prevSliderValue');
+    };
+
+    const handleSliderMouseDown = (e: BaseSyntheticEvent) => {
+        const value = +e.target.value;
+        const diff = prevSliderValue - value;
+        setPrevSliderValue(value);
+        dispatch(delVolumeWater({ user_id: currentUser.data.user_id, water_ml: diff })); // Уменьшаем объем воды
+        dispatch(getWater());
+        setSliderValue(value);
+        console.log(sliderValue, 'sliderValue');
+        console.log(prevSliderValue, 'prevSliderValue');
     };
 
     // const handleSliderMouseDown = (e: BaseSyntheticEvent) => {
@@ -143,7 +208,7 @@ export const WaterTracker = () => {
                     <CupIcon />
                 </div>
                 <div className={css.field}>
-                    <button className={cs(css.controlsWater, css.minusIcon)}>
+                    <button onClick={handleDecrease} className={cs(css.controlsWater, css.minusIcon)}>
                         <MinusIcon />
                     </button>
                     <div className={css.rangeWithScale}>
@@ -159,17 +224,17 @@ export const WaterTracker = () => {
                                 min="0"
                                 max="2560"
                                 value={sliderValue}
-                                onChange={handleSliderChange}
+                                // onChange={handleSliderChange}
                                 // onTouchStart={handleSliderMouseDown}
-                                onTouchEnd={handleSliderMouseUp}
-                                // onMouseDown={handleSliderMouseDown}
+                                // onTouchEnd={handleSliderMouseUp}
+                                onMouseDown={handleSliderMouseDown}
                                 onMouseUp={handleSliderMouseUp}
                                 className={css.rangeInput}
                             />
                             <label htmlFor="range">{sliderValue}</label>
                         </div>
                     </div>
-                    <button className={cs(css.controlsWater, css.plusIcon)}>
+                    <button onClick={handleIncrease} className={cs(css.controlsWater, css.plusIcon)}>
                         <div className={css.ml}>мл</div>
                         <PlusIcon />
                     </button>

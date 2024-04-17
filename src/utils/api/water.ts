@@ -12,3 +12,8 @@ export const addWaterRequest = async ({ user_id, water_ml }: AddWater): Promise<
     const response = await axios.post(`/api/water/addml?user_id=${user_id}&water_ml=${water_ml}`);
     return response.data;
 };
+
+export const delWaterRequest = async ({ user_id, water_ml }: AddWater): Promise<UserMessage> => {
+    const response = await axios.post(`/api/water/delml?user_id=${user_id}&water_ml=${water_ml}`);
+    return response.data;
+};
