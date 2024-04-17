@@ -36,7 +36,10 @@ export const WaterTracker = () => {
     // const [sliderValue, setSliderValue] = useState(0);
     const [adjustedHeight, setAdjustedHeight] = useState(0);
 
-    const [prevSliderValue, setPrevSliderValue] = useState(0);
+    const [prevSliderValue, setPrevSliderValue] = useState(() => {
+        const savedValue = localStorage.getItem('prevSliderValue');
+        return savedValue ? parseInt(savedValue, 10) : 0;
+    });
     const [sliderValue, setSliderValue] = useState(0);
 
     useEffect(() => {
@@ -45,7 +48,30 @@ export const WaterTracker = () => {
         };
 
         fetchGetWater();
-    }, [sliderValue]);
+    }, [prevSliderValue]);
+
+    const [containerHeight, setContainerHeight] = useState(CONTAINER_HEIGHT_PX);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const container = document.getElementById('rangeContainer');
+            if (container) {
+                setContainerHeight(container.clientHeight);
+            }
+        };
+
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
+        setAdjustedHeight((prevSliderValue / MAX_SIZE) * containerHeight);
+    }, [prevSliderValue, containerHeight]);
 
     //console.log(currentUser, 'ffff');
 
@@ -98,36 +124,27 @@ export const WaterTracker = () => {
     // };
 
     const handleIncrease = (e: BaseSyntheticEvent) => {
-        //console.log(adjustedHeight, 'adjustedHeight');
-        if (sliderValue < MAX_SIZE - 320) {
-            const newValue = sliderValue + 320;
+        if (prevSliderValue < MAX_SIZE - 320) {
+            const newValue = prevSliderValue + 320;
             const diff = newValue - prevSliderValue;
             setPrevSliderValue(newValue);
-            setSliderValue(newValue);
             dispatch(addVolumeWater({ user_id: currentUser.data.user_id, water_ml: diff }));
-            dispatch(getWater());
         } else {
-            const diff = MAX_SIZE - sliderValue;
-            setPrevSliderValue(sliderValue);
-            setSliderValue(MAX_SIZE);
+            const diff = MAX_SIZE - prevSliderValue;
+            setPrevSliderValue(MAX_SIZE);
             dispatch(addVolumeWater({ user_id: currentUser.data.user_id, water_ml: diff }));
-            dispatch(getWater());
         }
     };
 
     const handleDecrease = () => {
-        if (sliderValue > 320) {
-            const newValue = sliderValue - 320;
-            const diff = sliderValue - newValue;
-            setPrevSliderValue(sliderValue);
-            setSliderValue(newValue);
+        if (prevSliderValue > 320) {
+            const newValue = prevSliderValue - 320;
+            const diff = prevSliderValue - newValue;
+            setPrevSliderValue(newValue);
             dispatch(delVolumeWater({ user_id: currentUser.data.user_id, water_ml: diff }));
-            dispatch(getWater());
         } else {
-            setPrevSliderValue(sliderValue);
-            setSliderValue(0);
-            dispatch(delVolumeWater({ user_id: currentUser.data.user_id, water_ml: sliderValue }));
-            dispatch(getWater());
+            setPrevSliderValue(0);
+            dispatch(delVolumeWater({ user_id: currentUser.data.user_id, water_ml: prevSliderValue }));
         }
     };
 
@@ -155,41 +172,43 @@ export const WaterTracker = () => {
     //     // setAdjustedHeight((newValue / MAX_SIZE) * CONTAINER_HEIGHT_PX);
     // };
 
-    /*   const handleSliderChange = (e: BaseSyntheticEvent) => {
+    const handleSliderChange = async (e: BaseSyntheticEvent) => {
         const newValue = +e.target.value;
         const diff = newValue - prevSliderValue;
         setPrevSliderValue(newValue);
-        console.log(newValue, 'newValue');
-        console.log(diff, 'diff');
-        const idUser = currentUser.data.user_id;
-        dispatch(addVolumeWater({ user_id: idUser, water_ml: diff }));
-        dispatch(getWater());
-        setSliderValue(newValue);
-        console.log(sliderValue, 'sliderValue');
-        console.log(prevSliderValue, 'prevSliderValue');
-    };*/
 
-    const handleSliderMouseUp = (e: BaseSyntheticEvent) => {
-        const value = +e.target.value;
         const idUser = currentUser.data.user_id;
-        const diff = value - prevSliderValue;
-        dispatch(addVolumeWater({ user_id: idUser, water_ml: diff }));
-        dispatch(getWater());
-        setSliderValue(value);
-        console.log(sliderValue, 'sliderValue');
-        console.log(prevSliderValue, 'prevSliderValue');
+
+        if (diff > 0) {
+            await dispatch(addVolumeWater({ user_id: idUser, water_ml: diff }));
+        } else if (diff < 0) {
+            await dispatch(delVolumeWater({ user_id: idUser, water_ml: -diff }));
+        }
+
+        await dispatch(getWater());
     };
 
-    const handleSliderMouseDown = (e: BaseSyntheticEvent) => {
-        const value = +e.target.value;
-        const diff = prevSliderValue - value;
-        setPrevSliderValue(value);
-        dispatch(delVolumeWater({ user_id: currentUser.data.user_id, water_ml: diff })); // Уменьшаем объем воды
-        dispatch(getWater());
-        setSliderValue(value);
-        console.log(sliderValue, 'sliderValue');
-        console.log(prevSliderValue, 'prevSliderValue');
-    };
+    // const handleSliderMouseUp = (e: BaseSyntheticEvent) => {
+    //     const value = +e.target.value;
+    //     const idUser = currentUser.data.user_id;
+    //     const diff = value - prevSliderValue;
+    //     dispatch(addVolumeWater({ user_id: idUser, water_ml: diff }));
+    //     dispatch(getWater());
+    //     setSliderValue(value);
+    //     console.log(sliderValue, 'sliderValue');
+    //     console.log(prevSliderValue, 'prevSliderValue');
+    // };
+
+    // const handleSliderMouseDown = (e: BaseSyntheticEvent) => {
+    //     const value = +e.target.value;
+    //     const diff = prevSliderValue - value;
+    //     setPrevSliderValue(value);
+    //     dispatch(delVolumeWater({ user_id: currentUser.data.user_id, water_ml: diff })); // Уменьшаем объем воды
+    //     dispatch(getWater());
+    //     setSliderValue(value);
+    //     console.log(sliderValue, 'sliderValue');
+    //     console.log(prevSliderValue, 'prevSliderValue');
+    // };
 
     // const handleSliderMouseDown = (e: BaseSyntheticEvent) => {
     //     const value = e.target.value ?? 0;
@@ -223,15 +242,15 @@ export const WaterTracker = () => {
                                 id="range"
                                 min="0"
                                 max="2560"
-                                value={sliderValue}
-                                // onChange={handleSliderChange}
-                                onTouchStart={handleSliderMouseUp}
-                                onTouchEnd={handleSliderMouseDown}
+                                value={waterVolume.data.data}
+                                onChange={handleSliderChange}
+                                // onTouchStart={handleSliderMouseUp }
+                                // onTouchEnd={handleSliderMouseDown}
                                 /*  onMouseDown={handleSliderMouseDown}
                                 onMouseUp={handleSliderMouseUp}*/
                                 className={css.rangeInput}
                             />
-                            <label htmlFor="range">{sliderValue}</label>
+                            <label htmlFor="range">{waterVolume.data.data}</label>
                         </div>
                     </div>
                     <button onClick={handleIncrease} className={cs(css.controlsWater, css.plusIcon)}>
