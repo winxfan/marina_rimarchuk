@@ -19,18 +19,18 @@ export const VideoCard: FC<VideoCardProps> = (props) => {
     const { id, className, name, pic_url, vid_url, isPage, index } = props;
 
     return (
+      <Link to={`/video/${id}`} className={css.videoPlay}>
         <div className={cs(css.videoCardWrapper, className)}>
             <div className={cs(css.videoCard, isPage ? css.videoPageCard : '')}>
                 <img src={videoPictureSrc} />
             </div>
             <div className={css.cardTitle}>{name}</div>
 
-            <Link to={`/video/${id}`} className={css.videoPlay}>
-                <div className={css.videoIcon}>
-                    <VideoPlay />
-                </div>
+            <div className={css.videoIcon}>
+                <VideoPlay />
                 <p className={css.startVideo}>Смотреть</p>
-            </Link>
+            </div>
         </div>
+      </Link>
     );
 };

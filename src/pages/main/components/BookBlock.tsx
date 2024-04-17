@@ -9,6 +9,7 @@ import { IBookBlock } from '@/utils/types/book';
 
 import css from './BookBlock.module.scss';
 import { BookCard } from './parts/BookCard';
+import {SwiperSlide} from "swiper/react";
 
 export const data: IBookBlock[] = [
     {
@@ -122,9 +123,11 @@ export const data: IBookBlock[] = [
 export const BookBlock = () => {
     return (
         <div className={css.bookBlock}>
-            <CardSlider slidesToShowMobile={1.05} slidesToShow={1.05}>
+            <CardSlider slidesToShowMobile={1.05}>
                 {data?.map((item, index) => (
-                    <BookCard key={item.id} {...item} index={index} />
+                  <SwiperSlide key={item.id} >
+                      <BookCard {...item} index={index} />
+                  </SwiperSlide>
                 ))}
             </CardSlider>
         </div>
