@@ -6,14 +6,12 @@ import { ThunkDispatch } from '@reduxjs/toolkit';
 import WaterIcon from '@/assets/images/waterTracker/waterIcon.svg';
 import { getUser } from '@/store/currentUserSlice';
 import { getWater } from '@/store/waterGetSlice';
-import { AuthUser } from '@/utils/types';
 import { GetWaterResponse, WaterData } from '@/utils/types/water';
 
 import css from './WaterVolume.module.scss';
 
 export type WaterVolumeProps = {
     sliderValue?: number;
-    authUser?: AuthUser;
 };
 
 export const WaterVolume = (props: WaterVolumeProps) => {

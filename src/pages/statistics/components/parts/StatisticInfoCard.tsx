@@ -18,16 +18,18 @@ export type StatisticInfoCardProps = {
 export const StatisticInfoCard: FC<StatisticInfoCardProps> = (props) => {
     const { className } = props;
     const [vidQuantity, setVidQuantity] = useState(0);
-    const [podcadstQuantity, setPodcadstQuantity] = useState(0);
+    const [podcastQuantity, setPodcastQuantity] = useState(0);
     const [waterWeek, setWaterWeek] = useState(0);
     const [waterMonth, setWaterMonth] = useState(0);
 
     const authUser: AuthUser = useSelector((state: AuthResponse) => state.auth);
 
+    console.log(authUser, '222');
+
     useEffect(() => {
         if (authUser.user[0]) {
             setVidQuantity(authUser?.user[0]?.vid_quantity);
-            setPodcadstQuantity(authUser?.user[0]?.podcadst_quantity);
+            setPodcastQuantity(authUser?.user[0]?.podcadst_quantity);
             setWaterWeek(authUser?.user[0]?.water_week);
             setWaterMonth(authUser?.user[0]?.water_month);
         }
@@ -55,7 +57,7 @@ export const StatisticInfoCard: FC<StatisticInfoCardProps> = (props) => {
 
             <div className={cs(css.infoCardItem)}>
                 <img src={microImage} className={css.infoCardIcon} alt="icon statistic" />
-                <div className={css.infoCardTitle}>{podcadstQuantity}</div>
+                <div className={css.infoCardTitle}>{podcastQuantity}</div>
                 <div className={css.infoCardDescription}>Подкастов вы уже послушали</div>
             </div>
         </div>
