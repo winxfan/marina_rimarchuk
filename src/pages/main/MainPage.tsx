@@ -27,7 +27,7 @@ const MainPage = () => {
     const userId: number = initDataUnsafe?.user?.id;
     const userName: string = initDataUnsafe?.user?.first_name;
 
-    // console.log(userId, 'userId');
+    console.log(userId, 'userId');
     // console.log(userName, 'userName');
 
     useEffect(() => {
