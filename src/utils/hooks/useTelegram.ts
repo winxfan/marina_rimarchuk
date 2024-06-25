@@ -10,8 +10,8 @@ export const useTelegram = () => {
     //     },
     //     initDataUnsafe: {
     //         user: {
-    //             id: 744529899,
-    //             first_name: 'Danya',
+    //             id: 839215480,
+    //             first_name: 'Dmitry',
     //         },
     //     },
     // };
