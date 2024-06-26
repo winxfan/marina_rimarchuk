@@ -1,38 +1,22 @@
-import { useEffect, useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useEffect, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
-import ArrowIcon from '@/assets/images/arrowIcon/arrow.svg';
-import { closeModal } from '@/store/modalsSlice';
-import { useTelegram } from '@/utils/hooks/useTelegram';
-import { AuthResponse, AuthUser } from '@/utils/types';
+import ArrowIcon from '@/assets/images/arrowIcon/arrow.svg'
+import { useTelegram } from '@/utils/hooks/useTelegram'
+import { AuthResponse, AuthUser } from '@/utils/types'
+import css from './OnboardingTasks.module.scss'
 
-import css from './OnboardingTasks.module.scss';
-
-export const OnboardingTasks = () => {
+export const OnboardingTasks = ({ next }: { next: () => void }) => {
     const { initDataUnsafe } = useTelegram();
-    const [userImg, setUserImg] = useState('');
     const authUser: AuthUser = useSelector((state: AuthResponse) => state.auth);
-
-    useEffect(() => {
-        const fetchUser = async () => {
-            if (authUser.user[0]) {
-                setUserImg(authUser?.user?.[0].user_img);
-            }
-        };
-
-        if (authUser.user.length > 0) {
-            fetchUser();
-        }
-    }, [authUser.user]);
-
     const dispatch = useDispatch();
     const modalRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         modalRef.current?.classList.add(css.open);
     }, []);
-    const close = () => dispatch(closeModal());
     const userName = initDataUnsafe?.user?.first_name;
+    const userImg = initDataUnsafe?.user?.photo_url
     return (
         <div className={css.ModalWindow} ref={modalRef}>
             <div className={css.wrapper}>
@@ -64,7 +48,7 @@ export const OnboardingTasks = () => {
                     <p>Выполняй задания и получай индивидуальные подарки</p>
                 </div>
                 <div className={css.tasksButton}>
-                    <button type="button" onClick={close}>
+                    <button type="button" onClick={next}>
                         Чудесно
                     </button>
                 </div>
