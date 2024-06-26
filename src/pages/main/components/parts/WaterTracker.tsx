@@ -1,26 +1,30 @@
-import CupIcon from '@/assets/images/actionGlass/cup.svg'
-import CupBlackIcon from '@/assets/images/actionGlass/cupBlack.svg'
-import MinusIcon from '@/assets/images/actionGlass/minus.svg'
-import PlusIcon from '@/assets/images/actionGlass/plus.svg'
-import { HeaderPage } from '@/modules/header/components/HeaderPage'
-import WaterWaveImage from '@/pages/main/components/parts/WaterWaveImage'
-import { getUser } from '@/store/currentUserSlice'
-import { addVolumeWater, delVolumeWater } from '@/store/waterAddSlice'
-import { getWater } from '@/store/waterGetSlice'
-import { UserGet, UserGetResponse } from '@/utils/types'
-import { GetWaterResponse } from '@/utils/types/water'
-import { ThunkDispatch } from '@reduxjs/toolkit'
-import cs from 'classnames'
-import { BaseSyntheticEvent, useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import css from './WaterTracker.module.scss'
-import { WaterVolume } from './WaterVolume'
+import { BaseSyntheticEvent, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { ThunkDispatch } from '@reduxjs/toolkit';
+import cs from 'classnames';
+
+import CupIcon from '@/assets/images/actionGlass/cup.svg';
+import CupBlackIcon from '@/assets/images/actionGlass/cupBlack.svg';
+import MinusIcon from '@/assets/images/actionGlass/minus.svg';
+import PlusIcon from '@/assets/images/actionGlass/plus.svg';
+import { HeaderPage } from '@/modules/header/components/HeaderPage';
+import WaterWaveImage from '@/pages/main/components/parts/WaterWaveImage';
+import { getUser } from '@/store/currentUserSlice';
+import { addVolumeWater, delVolumeWater } from '@/store/waterAddSlice';
+import { getWater } from '@/store/waterGetSlice';
+import { UserGet, UserGetResponse } from '@/utils/types';
+import { GetWaterResponse } from '@/utils/types/water';
+
+import css from './WaterTracker.module.scss';
+import { WaterVolume } from './WaterVolume';
 
 const MAX_SIZE = 2560;
 const CONTAINER_HEIGHT_PX = 300;
 
 export const WaterTracker = () => {
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
+    useBackButton('/');
 
     const waterVolume = useSelector((state: GetWaterResponse) => state.waterGet);
     const currentUser: UserGet = useSelector((state: UserGetResponse) => state.currentUser);
