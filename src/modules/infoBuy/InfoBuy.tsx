@@ -1,14 +1,11 @@
-import React, { FC, ReactNode, useEffect, useState } from 'react';
+import { FC, ReactNode, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { ThunkDispatch } from '@reduxjs/toolkit';
-import Cookies from 'js-cookie';
-import { info } from 'sass';
 
 import { BonusInfoBuy } from '@/modules/bonus/BonusInfoBuy';
 import PDFViewer from '@/modules/pdfViewer/PDFViewer';
-import { getCheckPay } from '@/store/checkPaySlice';
 import { manualsGet } from '@/store/manualsGetSlice';
 import { useBackButton } from '@/utils/hooks/useBackButton';
 import { IBookBlock } from '@/utils/types/book';
@@ -98,7 +95,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                     ))}
                 </div>
             ) : null}
-            {infoBuy.bonus ? (
+            {infoBuy?.bonus ? (
                 <div>
                     <div style={{ marginBottom: '12px' }}>
                         <BonusInfoBuy>мини курс «Тело - храм» в подарок</BonusInfoBuy>
