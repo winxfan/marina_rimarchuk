@@ -1,5 +1,5 @@
 .podcastCardWrapper {
-  display: flex;
+  display: block;
 
   .podcastCard {
     position: relative;
@@ -40,7 +40,6 @@
       bottom: 8px;
       height: 80px;
     }
-
 
     .podcastTitleCard {
       font-size: 12px;

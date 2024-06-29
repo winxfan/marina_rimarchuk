@@ -8,7 +8,7 @@ export const getAllUsersRequest = async (): Promise<User[]> => {
 };
 
 export const addUserRequest = async ({ user_id, user_name }: User): Promise<UserMessage> => {
-    const response = await axios.post(`/api/users/add?user_id=${user_id}&user_name=${user_name}`);
+    const response = await axios.post(`/api/users/add?user_id=${+user_id}&user_name=${user_name}`);
     return response.data;
 };
 

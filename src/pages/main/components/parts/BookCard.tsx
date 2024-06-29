@@ -10,7 +10,7 @@ export type BookCardProps = IBookBlock & {
 };
 
 export const BookCard: FC<BookCardProps> = (props) => {
-    const { title, description, index, id, image, onClick } = props;
+    const { title, description, index, link, id, image, onClick } = props;
 
     return (
         <div className={css.bookCard} data-index={index}>
@@ -19,7 +19,11 @@ export const BookCard: FC<BookCardProps> = (props) => {
             <div className={css.bookInfo}>
                 <div className={css.bookTitle}>{title}</div>
                 <div className={css.bookDescription}>{description}</div>
-                <Link to={`/book/${id}`} className={css.linkBook} onClick={onClick}>
+                <Link
+                    to={link ? 'https://t.me/+zI-uvJD24Og2ODVi\n' : `/book/${id}`}
+                    className={css.linkBook}
+                    onClick={onClick}
+                >
                     <div className={css.bookWrapper}>
                         <span className={css.bookDetails}>Подробнее</span>
                     </div>

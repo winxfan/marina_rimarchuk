@@ -1,11 +1,13 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
+import 'swiper/css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 import { PodcastCard } from '@/pages/main/components/parts/PodcastCard';
 import { IMedia } from '@/utils/types/media';
 
 import { CommonHeader } from '../header/components/CommonHeader';
-import CardSlider from '../slider/CardSlider';
 import css from './PodcastsBlock.module.scss';
 
 export type PodcastsBlockProps = any;
@@ -47,9 +49,14 @@ export const PodcastsBlock: FC<PodcastsBlockProps> = () => {
             <Link to="/podcasts" className={css.resetStyle}>
                 <CommonHeader title="Подкасты" />
             </Link>
-            <CardSlider slidesToShow={2.15} slidesToShowMobile={1.75}>
-                {data ? data?.map((item, index) => <PodcastCard key={item.id} {...item} index={index} />) : null}
-            </CardSlider>
+
+            <Swiper spaceBetween={12} slidesPerView={1.75} className={css.slider} freeMode={true}>
+                {data?.map((item, index) => (
+                    <SwiperSlide key={item.id}>
+                        <PodcastCard {...item} index={index} />
+                    </SwiperSlide>
+                ))}
+            </Swiper>
         </div>
     );
 };

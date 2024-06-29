@@ -1,12 +1,11 @@
 import { FC } from 'react';
-import ReactPlayer from 'react-player';
 import { Link } from 'react-router-dom';
 
 import cs from 'classnames';
 
 import VideoPlay from '@/assets/images/videoCard/playVideo.svg';
-import VideoPlayer from '@/modules/media/VideoPlayer';
 import { Videos } from '@/utils/types/videos';
+import videoPictureSrc from '@/assets/images/videoCard/videoTwo.jpg'
 
 import css from './VideoCard.module.scss';
 
@@ -17,20 +16,21 @@ export type VideoCardProps = Videos & {
 };
 
 export const VideoCard: FC<VideoCardProps> = (props) => {
-    const { className, name, pic_url, vid_url, isPage, index } = props;
+    const { id, className, name, pic_url, vid_url, isPage, index } = props;
 
     return (
+      <Link to={`/video/${id}`} className={css.videoPlay}>
         <div className={cs(css.videoCardWrapper, className)}>
             <div className={cs(css.videoCard, isPage ? css.videoPageCard : '')}>
-                <VideoPlayer videoUrl={vid_url} previewUrl={pic_url} width={'227px'} height={'124px'} />
+                <img src={videoPictureSrc} />
             </div>
             <div className={css.cardTitle}>{name}</div>
-            <Link to="/video" className={css.videoPlay}>
-                <div className={css.videoIcon}>
-                    <VideoPlay />
-                </div>
-                <div className={css.startVideo}>Смотреть</div>
-            </Link>
+
+            <div className={css.videoIcon}>
+                <VideoPlay />
+                <p className={css.startVideo}>Смотреть</p>
+            </div>
         </div>
+      </Link>
     );
 };

@@ -1,13 +1,14 @@
-import { ReactNode } from 'react';
-
 import { LoadingStatus } from '@/constants';
 import { IBookContentList } from '@/utils/types/book';
 
 export interface IManuals {
     id: string | number;
     title: string;
+    book?: boolean;
+    bonus?: boolean;
     description: string;
     icon?: string;
+    cost?: number;
     image?: string;
     contentTitle?: string;
     descriptionPrice?: string;
@@ -22,7 +23,9 @@ export interface IManuals {
 export type Manuals = {
     id: string | number;
     title?: string;
+    bonus?: boolean;
     contentTitle?: string;
+    book?: boolean;
     contentInfo?: string;
     contentList?: IBookContentList[];
     buttonText?: string;

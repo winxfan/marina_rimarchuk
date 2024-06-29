@@ -1,12 +1,11 @@
-import { Suspense, useState } from 'react';
-import ReactPlayer from 'react-player';
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import cs from 'classnames';
-
 import { Loader } from '@/components/Loader';
+import { Modal } from '@/components/Modal';
 
 import css from './AppLayout.module.scss';
+import LocationProvider from './LocationProvider';
 
 export const AppLayout = () => {
     // const [videoPlayed, setVideoPlayed] = useState(false);
@@ -24,25 +23,29 @@ export const AppLayout = () => {
    */
 
     return (
-        <div className={css.layout}>
-            {/*{!videoPlayed && (*/}
-            {/*    <ReactPlayer*/}
-            {/*        url="https://content-water.plutus-fin.ru/videos/intro.mp4"*/}
-            {/*        playing={true}*/}
-            {/*        loop={false}*/}
-            {/*        muted={true}*/}
-            {/*        width="100%"*/}
-            {/*        height="100%"*/}
-            {/*        style={{ position: 'relative', top: 0, left: 0 }}*/}
-            {/*        onEnded={handleVideoEnded}*/}
-            {/*    />*/}
-            {/*)}*/}
+        <LocationProvider>
+            <div className={css.layout}>
+                {/*{!videoPlayed && (*/}
+                {/*    <ReactPlayer*/}
+                {/*        url="https://content-water.plutus-fin.ru/videos/intro.mp4"*/}
+                {/*        playing={true}*/}
+                {/*        loop={false}*/}
+                {/*        muted={true}*/}
+                {/*        width="100%"*/}
+                {/*        height="100%"*/}
+                {/*        style={{ position: 'relative', top: 0, left: 0 }}*/}
+                {/*        onEnded={handleVideoEnded}*/}
+                {/*    />*/}
+                {/*)}*/}
 
-            {/*{videoPlayed && (*/}
-            <Suspense fallback={<Loader />}>
-                <Outlet />
-            </Suspense>
-            {/*)}*/}
-        </div>
+                {/*{videoPlayed && (*/}
+                <Suspense fallback={<Loader />}>
+                    <Outlet />
+                </Suspense>
+                {/*)}*/}
+            </div>
+
+            <Modal />
+        </LocationProvider>
     );
 };

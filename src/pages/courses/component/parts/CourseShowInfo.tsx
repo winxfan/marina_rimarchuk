@@ -22,7 +22,7 @@ export const CourseShowInfo: FC<CourseShowInfoProps> = () => {
     let cardId: number;
     const id = Number(matchShowCourse?.params.id);
 
-    console.log(matchShowCourse, 'matchShowCourse');
+    //console.log(matchShowCourse, 'matchShowCourse');
     const match = matchShowCourse?.pathname.match(/\/course\/card\/(\d+)\/show\/(\d+)/);
 
     if (match) {
@@ -38,9 +38,9 @@ export const CourseShowInfo: FC<CourseShowInfoProps> = () => {
     const lesson: ICourseCard | undefined = card?.lesson?.find((entry) => +entry.id === id);
 
     const lastLesson = card.lesson.slice(-1)[0];
-    console.log(lastLesson.id, 'lastLesson.id');
+    /*  console.log(lastLesson.id, 'lastLesson.id');
     console.log(id, 'id');
-    console.log(lastLesson.id === id, 'lastLesson.id === id');
+    console.log(lastLesson.id === id, 'lastLesson.id === id');*/
 
     return (
         <div className={css.courseShowInfo}>

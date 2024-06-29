@@ -9,8 +9,11 @@ export const routes = {
     podcasts: {
         path: '/podcasts',
     },
+    videos: {
+        path: '/videos',
+    },
     video: {
-        path: '/video',
+        path: '/video/:id',
     },
     questions: {
         path: '/questions',

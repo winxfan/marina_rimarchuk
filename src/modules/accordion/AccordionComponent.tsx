@@ -23,35 +23,21 @@ export type AccordionComponentProps = {
 export const AccordionComponent: FC<AccordionComponentProps> = (props) => {
     const { data, isTasksPage } = props;
 
+    console.log(data, '22221111');
+
     return (
         <Accordion allowZeroExpanded={true} className={css.accordion}>
             {data?.map((entry) => (
-                <AccordionItem key={`${entry.id}-accordion-item`} className={css.accordionItem}>
+                <AccordionItem key={`${entry?.id}-accordion-item`} className={css.accordionItem}>
                     <AccordionItemHeading className={css.accordionHeading}>
                         <AccordionItemButton className={css.accordionButton}>
                             {isTasksPage && (
                                 <div className={css.accordionTasksWrapper}>
-                                    <img src={entry.icon} className={css.accordionTasksIcon} alt="task icon" />
-                                    <div className={css.accordionTasksTitle}>{entry.title}</div>
+                                    <img src={entry?.icon} className={css.accordionTasksIcon} alt="task icon" />
+                                    <div className={css.accordionTasksTitle}>{entry?.title}</div>
                                 </div>
                             )}
-                            {!isTasksPage && <div>{entry.title}</div>}
-
-                            {!(entry.id === '1' && isTasksPage) && (
-                                <AccordionItemState>
-                                    {({ expanded }: AccordionState) =>
-                                        expanded ? (
-                                            <div className={css.accordionArrowIcon}>
-                                                <ArrowUp />
-                                            </div>
-                                        ) : (
-                                            <div className={css.accordionArrowIcon}>
-                                                <ArrowDown />
-                                            </div>
-                                        )
-                                    }
-                                </AccordionItemState>
-                            )}
+                            {!isTasksPage && <div>{entry?.title}</div>}
                         </AccordionItemButton>
                     </AccordionItemHeading>
                     <AccordionItemPanel className={css.accordionPanel}>

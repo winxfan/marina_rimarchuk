@@ -12,7 +12,6 @@ export type CoursesCardProps = {
 
 export const CoursesCard: FC<CoursesCardProps> = (props) => {
     const { course } = props;
-
     const { card, title } = course;
 
     return (

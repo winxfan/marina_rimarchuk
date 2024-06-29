@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   position: relative;
-  z-index: 99999;
+  z-index: 999;
   margin-bottom: 36px;
   margin-top: 15px;
 
@@ -19,6 +19,7 @@
       .userAvatar {
         display: block;
         width: 32px;
+        border-radius: 50%;
         height: 32px;
       }
 
@@ -37,6 +38,26 @@
           font-size: 14px;
           font-weight: 600;
           letter-spacing: -0.154px;
+        }
+      }
+
+      .loader {
+        width: 25px;
+        height: 25px;
+        border: 2px solid #FFF;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+      }
+
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
         }
       }
     }

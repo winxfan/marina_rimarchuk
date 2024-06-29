@@ -1,16 +1,13 @@
-import React, { FC } from 'react';
-
-import css from './WaterTracker.module.scss';
+import { FC } from 'react'
+import css from './WaterTracker.module.scss'
 
 export type WaterWaveImageProps = {
-    adjustedHeight: number;
+    waterLevel: number;
 };
 
-const WaterWaveImage: FC<WaterWaveImageProps> = (props) => {
-    const { adjustedHeight } = props;
-
+const WaterWaveImage: FC<WaterWaveImageProps> = ({ waterLevel }) => {
     return (
-        <div className={css.waterTrackerProgress} style={{ transform: `translateY(${-adjustedHeight}px)` }}>
+        <div className={css.waterTrackerProgress} style={{ bottom: `${waterLevel}px` }}>
             <div className={css.background}>
                 <svg
                     version="1.1"

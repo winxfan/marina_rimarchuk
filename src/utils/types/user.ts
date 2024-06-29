@@ -7,6 +7,14 @@ export type User = {
     affirmation_id?: number;
     api_token?: string;
     user_img?: string | null;
+    lvl_cur?: number;
+    lvl_manuals?: number;
+    lvl_wather_day?: number;
+    podcadst_quantity?: number;
+    vid_quantity?: number;
+    water_month?: number;
+    water_week?: number;
+    wather_block?: number;
 };
 
 export type UserMessage = {

@@ -1,9 +1,19 @@
 import { LoadingStatus } from '@/constants';
+import { GetCheckPay } from '@/utils/types/pay';
+
+export type WaterGetData = {
+    data: number;
+};
 
 export type WaterData = {
-    data: number;
+    data: WaterGetData;
     status: LoadingStatus;
     error: LoadingStatus;
+};
+
+export type GetWaterError = {
+    status: LoadingStatus;
+    error: WaterGetData;
 };
 
 export type GetWaterResponse = {

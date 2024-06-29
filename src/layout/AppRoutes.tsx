@@ -32,6 +32,10 @@ export const router = createBrowserRouter([
                 element: <pages.PodcastPage />,
             },
             {
+                path: routes.videos.path,
+                element: <pages.VideosPage />,
+            },
+            {
                 path: routes.video.path,
                 element: <pages.VideoPage />,
             },
