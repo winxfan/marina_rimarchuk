@@ -23,12 +23,12 @@ import { WaterTracker } from './components/WaterTracker';
 
 const MainPage = () => {
     const { initDataUnsafe } = useTelegram();
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
+    const [, setIsMobile] = useState(window.innerWidth < 500);
     const [show, setShow] = useState(false);
-    const [isScrollable, setIsScrollable] = useState(false);
-    const [howManyScrolls, setHowManyScrolls] = useState(0);
-    const [IsIdExists, setIsIdExists] = useState(false);
-    const [userObject, setUserObject] = useState();
+    const [, setIsScrollable] = useState(false);
+
+    const [, setIsIdExists] = useState(false);
+
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
     const userId: number = initDataUnsafe?.user?.id;
     const userName: string = initDataUnsafe?.user?.first_name;
@@ -61,10 +61,14 @@ const MainPage = () => {
                     dispatch(setOpen(show));
                     dispatch(addNewUser({ user_id: userId, user_name: userName }));
                 }
+                const token = localStorage.getItem('api_token');
                 const authResponse = await dispatch(authToken(Number(userId)));
-                if (authToken.fulfilled.match(authResponse)) {
-                    await dispatch(getAffirmationAll());
-                    await dispatch(getVideosAll());
+                if (!token) {
+                    const authResponse = await dispatch(authToken(Number(userId)));
+                    if (authToken.fulfilled.match(authResponse)) {
+                        await dispatch(getAffirmationAll());
+                        await dispatch(getVideosAll());
+                    }
                 } else {
                     console.error('Error authenticating user:', authResponse.payload);
                 }
