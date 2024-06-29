@@ -1,23 +1,25 @@
-import { ThunkDispatch } from '@reduxjs/toolkit'
-import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { Menu } from '@/modules/menu/Menu'
-import { PodcastsBlock } from '@/modules/podcastsBlock/PodcastsBlock'
-import { VideoBlock } from '@/modules/videoBlock/VideoBlock'
-import { getAffirmationAll } from '@/store/affirmationSlice'
-import { authToken } from '@/store/authSlice'
-import { getUser } from '@/store/currentUserSlice'
-import { openModal, setOpen } from '@/store/modalsSlice'
-import { addNewUser, getUsersAll } from '@/store/userSlice'
-import { getVideosAll } from '@/store/videosSlice'
-import { useTelegram } from '@/utils/hooks/useTelegram'
-import { AllUsers, AuthResponse, AuthUser, UserResponse } from '@/utils/types'
-import { ModalsResponse } from '@/utils/types/modals'
-import css from './Main.module.scss'
-import { AffirmationDay } from './components/AffirmationDay'
-import { BookBlock } from './components/BookBlock'
-import { WaterTracker } from './components/WaterTracker'
+import { ThunkDispatch } from '@reduxjs/toolkit';
+
+import { Menu } from '@/modules/menu/Menu';
+import { PodcastsBlock } from '@/modules/podcastsBlock/PodcastsBlock';
+import { VideoBlock } from '@/modules/videoBlock/VideoBlock';
+import { getAffirmationAll } from '@/store/affirmationSlice';
+import { authToken } from '@/store/authSlice';
+import { getUser } from '@/store/currentUserSlice';
+import { openModal, setOpen } from '@/store/modalsSlice';
+import { addNewUser, getUsersAll } from '@/store/userSlice';
+import { getVideosAll } from '@/store/videosSlice';
+import { useTelegram } from '@/utils/hooks/useTelegram';
+import { AllUsers, AuthResponse, AuthUser, UserResponse } from '@/utils/types';
+import { ModalsResponse } from '@/utils/types/modals';
+
+import css from './Main.module.scss';
+import { AffirmationDay } from './components/AffirmationDay';
+import { BookBlock } from './components/BookBlock';
+import { WaterTracker } from './components/WaterTracker';
 
 const MainPage = () => {
     const { initDataUnsafe } = useTelegram();
@@ -80,7 +82,7 @@ const MainPage = () => {
             }
         };
 
-        if (authUser.user.length > 0) {
+        if (authUser.user.length > 0 && !localStorage.getItem('api_token')) {
             fetchUser();
         }
     }, [authUser.user, dispatch]);
