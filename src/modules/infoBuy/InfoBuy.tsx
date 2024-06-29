@@ -1,19 +1,19 @@
-import { FC, ReactNode, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { FC, ReactNode, useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
-import { ThunkDispatch } from '@reduxjs/toolkit';
+import { ThunkDispatch } from '@reduxjs/toolkit'
 
-import { BonusInfoBuy } from '@/modules/bonus/BonusInfoBuy';
-import PDFViewer from '@/modules/pdfViewer/PDFViewer';
-import { manualsGet } from '@/store/manualsGetSlice';
-import { useBackButton } from '@/utils/hooks/useBackButton';
-import { IBookBlock } from '@/utils/types/book';
-import { ICourseCard } from '@/utils/types/courses';
-import { IManuals, Manuals, ManualsGetResponse } from '@/utils/types/manuals';
-import { GetCheckPayResponse } from '@/utils/types/pay';
+import { BonusInfoBuy } from '@/modules/bonus/BonusInfoBuy'
+import PDFViewer from '@/modules/pdfViewer/PDFViewer'
+import { manualsGet } from '@/store/manualsGetSlice'
+import { useBackButton } from '@/utils/hooks/useBackButton'
+import { IBookBlock } from '@/utils/types/book'
+import { ICourseCard } from '@/utils/types/courses'
+import { IManuals, Manuals, ManualsGetResponse } from '@/utils/types/manuals'
+import { GetCheckPayResponse } from '@/utils/types/pay'
 
-import css from './InfoBuy.module.scss';
+import css from './InfoBuy.module.scss'
 
 export type InfoBuyProps = {
     children?: ReactNode;
@@ -106,7 +106,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
 
             <div className={css.infoBuyChildren}>{children}</div>
 
-            {infoBuy.id !== '5' && !isIdInCourseIdList && !isIdInManualIdList && !isShowManual ? (
+            {infoBuy?.id !== '5' && !isIdInCourseIdList && !isIdInManualIdList && !isShowManual ? (
                 <button type="button" className={css.contentCostButton}>
                     <div className={css.contentCostLink}>
                         {isShowBook ? <div className={css.contentCostText}>{infoBuy.descriptionPrice}</div> : null}
@@ -122,7 +122,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
             {!isIdInManualIdList && manual.data && isShowManual ? (
                 <button type="button" className={css.contentCostButton}>
                     <div className={css.contentCostLink}>
-                        {isShowManual ? <div className={css.contentCostText}>{infoBuy.descriptionPrice}</div> : null}
+                        {isShowManual ? <div className={css.contentCostText}>{infoBuy?.descriptionPrice}</div> : null}
 
                         <div className={css.contentCostPrice}>
                             <div className={css.contentCostPriceManual}>
@@ -134,11 +134,11 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                 </button>
             ) : null}
 
-            {infoBuy.id !== '5' && !isIdInCourseIdList && !isIdInManualIdList && !isShowManual ? (
+            {infoBuy?.id !== '5' && !isIdInCourseIdList && !isIdInManualIdList && !isShowManual ? (
                 <Link
                     to={{
                         pathname: `/delivery/${id}`,
-                        search: `price=${isShowCourse ? infoBuy.price : isShowManual ? infoBuy.cost : ''}&delivery=${
+                        search: `price=${isShowCourse ? infoBuy.price : isShowManual ? infoBuy?.cost : ''}&delivery=${
                             isShowCourse ? 'course' : isShowManual ? 'manual' : null
                         }`,
                     }}
@@ -155,7 +155,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                 <Link
                     to={{
                         pathname: `/delivery/${id}`,
-                        search: `price=${isShowCourse ? infoBuy.price : isShowManual ? infoBuy.cost : ''}&delivery=${
+                        search: `price=${isShowCourse ? infoBuy.price : isShowManual ? infoBuy?.cost : ''}&delivery=${
                             isShowCourse ? 'course' : isShowManual ? 'manual' : null
                         }`,
                     }}
@@ -169,7 +169,7 @@ export const InfoBuy: FC<InfoBuyProps> = (props) => {
                 </Link>
             ) : null}
 
-            {infoBuy.book && <PDFViewer pdfUrl="https://content-water.plutus-fin.ru/books/book_1.pdf" />}
+            {infoBuy?.book && <PDFViewer pdfUrl="https://content-water.plutus-fin.ru/books/book_1.pdf" />}
         </div>
     );
 };

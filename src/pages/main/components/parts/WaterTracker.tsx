@@ -1,32 +1,34 @@
-import { BaseSyntheticEvent, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { ThunkDispatch } from '@reduxjs/toolkit';
-import cs from 'classnames';
+import { ThunkDispatch } from '@reduxjs/toolkit'
+import cs from 'classnames'
 
-import CupIcon from '@/assets/images/actionGlass/cup.svg';
-import CupBlackIcon from '@/assets/images/actionGlass/cupBlack.svg';
-import MinusIcon from '@/assets/images/actionGlass/minus.svg';
-import PlusIcon from '@/assets/images/actionGlass/plus.svg';
-import { HeaderPage } from '@/modules/header/components/HeaderPage';
-import WaterWaveImage from '@/pages/main/components/parts/WaterWaveImage';
-import { getUser } from '@/store/currentUserSlice';
-import { addVolumeWater, delVolumeWater } from '@/store/waterAddSlice';
-import { getWater } from '@/store/waterGetSlice';
-import { useBackButton } from '@/utils/hooks/useBackButton';
-import { UserGet, UserGetResponse } from '@/utils/types';
-import { GetWaterResponse } from '@/utils/types/water';
+import CupIcon from '@/assets/images/actionGlass/cup.svg'
+import CupBlackIcon from '@/assets/images/actionGlass/cupBlack.svg'
+import MinusIcon from '@/assets/images/actionGlass/minus.svg'
+import PlusIcon from '@/assets/images/actionGlass/plus.svg'
+import { HeaderPage } from '@/modules/header/components/HeaderPage'
+import WaterWaveImage from '@/pages/main/components/parts/WaterWaveImage'
+import { getUser } from '@/store/currentUserSlice'
+import { addVolumeWater, delVolumeWater } from '@/store/waterAddSlice'
+import { getWater } from '@/store/waterGetSlice'
+import { UserGet, UserGetResponse } from '@/utils/types'
+import { GetWaterResponse } from '@/utils/types/water'
 
-import css from './WaterTracker.module.scss';
-import { WaterVolume } from './WaterVolume';
+import { useTelegram } from '@/utils/hooks/useTelegram'
+import { useLocation, useNavigate } from 'react-router'
+import css from './WaterTracker.module.scss'
+import { WaterVolume } from './WaterVolume'
 
 const MAX_SIZE = 2560;
 const CONTAINER_HEIGHT_PX = 300;
 
 export const WaterTracker = () => {
     const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
-    useBackButton('/');
-
+    const { BackButton } = useTelegram();
+    const navigate = useNavigate();
+    const location = useLocation();
     const waterVolume = useSelector((state: GetWaterResponse) => state.waterGet);
     const currentUser: UserGet = useSelector((state: UserGetResponse) => state.currentUser);
 
@@ -38,7 +40,7 @@ export const WaterTracker = () => {
     const [adjustedHeight, setAdjustedHeight] = useState(0);
     const [containerHeight, setContainerHeight] = useState(CONTAINER_HEIGHT_PX);
     const [localSliderValue, setLocalSliderValue] = useState(prevSliderValue);
-
+    const [adjustedWaterHeight, setAdjustedWaterHeight] = useState(0);
     useEffect(() => {
         const fetchGetWater = async () => {
             await dispatch(getWater());
@@ -66,7 +68,8 @@ export const WaterTracker = () => {
     }, []);
 
     useEffect(() => {
-        setAdjustedHeight((localSliderValue / MAX_SIZE) * containerHeight);
+        setAdjustedHeight((localSliderValue / MAX_SIZE) * 210);
+        setAdjustedWaterHeight((localSliderValue / MAX_SIZE) * 350);
     }, [localSliderValue, containerHeight]);
 
     useEffect(() => {
@@ -81,7 +84,7 @@ export const WaterTracker = () => {
         setLocalSliderValue(Math.max(localSliderValue - 320, 0));
     };
 
-    const handleSliderChange = (e: BaseSyntheticEvent) => {
+    const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setLocalSliderValue(+e.target.value);
     };
 
@@ -102,10 +105,12 @@ export const WaterTracker = () => {
         await dispatch(getWater());
         await dispatch(getUser());
     };
-
+    BackButton.show();
+    BackButton.onClick(() => {
+        navigate(location.state?.from ?? '/');
+    })
     return (
         <div className={css.waterTrackerWrapper}>
-            <WaterWaveImage waterLevel={(localSliderValue / MAX_SIZE) * 200} />
             <div className={css.waterTracker}>
                 <HeaderPage title="Вода" className={css.waterHeader} />
                 <WaterVolume sliderValue={localSliderValue} />
@@ -134,7 +139,13 @@ export const WaterTracker = () => {
                                 onChange={handleSliderChange}
                                 className={css.rangeInput}
                             />
-                            <label htmlFor="range">{localSliderValue}</label>
+                            <label
+                                htmlFor="range"
+                                className={css.waterLevelLabel}
+                                style={{ left: `${adjustedHeight}px` }}
+                            >
+                                {localSliderValue}
+                            </label>
                         </div>
                     </div>
                     <button onClick={handleIncrease} type="button" className={cs(css.controlsWater, css.plusIcon)}>
@@ -149,6 +160,7 @@ export const WaterTracker = () => {
                 </div>
                 <p className={css.addGlassText}>Добавить стакан&nbsp;+</p>
             </button>
+            <WaterWaveImage waterLevel={adjustedWaterHeight} />
         </div>
     );
 };
