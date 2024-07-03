@@ -1,14 +1,16 @@
-import ArrowIcon from '@/assets/images/arrowIcon/arrow.svg'
-import QuestionsIcon from '@/assets/images/welcomeUser/questions.svg'
-import { useTelegram } from '@/utils/hooks/useTelegram'
-import { AuthResponse, AuthUser } from '@/utils/types'
-import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { ModalsResponse } from '@/utils/types/modals'
-import { ThunkDispatch } from '@reduxjs/toolkit'
-import css from './WelcomeUser.module.scss'
+import { ThunkDispatch } from '@reduxjs/toolkit';
+
+import ArrowIcon from '@/assets/images/arrowIcon/arrow.svg';
+import QuestionsIcon from '@/assets/images/welcomeUser/questions.svg';
+import { useTelegram } from '@/utils/hooks/useTelegram';
+import { AuthResponse, AuthUser } from '@/utils/types';
+import { ModalsResponse } from '@/utils/types/modals';
+
+import css from './WelcomeUser.module.scss';
 
 export const WelcomeUser = () => {
     const { initDataUnsafe } = useTelegram();
@@ -30,6 +32,13 @@ export const WelcomeUser = () => {
         }
     }, [authUser.user]);
 
+    const truncate = (str: string, maxLength: number) => {
+        if (str?.length > maxLength) {
+            return str.slice(0, maxLength) + `...`;
+        }
+        return str;
+    };
+
     return (
         <div className={css.welcomeUser}>
             <Link to="/statistics">
@@ -47,7 +56,7 @@ export const WelcomeUser = () => {
 
                         <div className={css.userInfo}>
                             <div className={css.helloUser}>Привет</div>
-                            <div className={css.username}>{userName ?? 'Аноним'}</div>
+                            <div className={css.username}>{truncate(userName, 7) ?? 'Аноним'}</div>
                         </div>
                     </div>
                     <button type="button" className={css.arrowIcon}>
