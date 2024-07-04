@@ -27,7 +27,7 @@ export const WaterVolume = (props: WaterVolumeProps) => {
         };
 
         fetchGetWater();
-    }, [sliderValue]);
+    }, [sliderValue, dispatch]);
 
     return (
         <div className={css.trackerInfo}>
