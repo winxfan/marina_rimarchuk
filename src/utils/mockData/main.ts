@@ -1,5 +1,5 @@
 export const mainMockData = [
     {
-        title: 'something',
+        title: 'something here',
     },
 ];
